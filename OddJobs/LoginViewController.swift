@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var userTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +26,40 @@ class LoginViewController: UIViewController {
     }
     
 
+    @IBAction func onLogIn(_ sender: Any) {
+        let username = userTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
+            if let error = error {
+                print("Error: " + error.localizedDescription)
+            } else {
+                print("User successfully logged in!")
+            }
+        }
+        //add segue to next screen
+    }
+    
+    @IBAction func onSignUp(_ sender: Any) {
+        let newUser = PFUser()
+        
+        newUser.username = userTextField.text
+        newUser.password = passwordTextField.text
+        
+        newUser.signUpInBackground { (success: Bool, error: Error?) in
+            if let error = error {
+                print("Error: " + error.localizedDescription)
+            } else {
+                print("User successfully signed up!")
+            }
+        }
+        
+        //add segue to next screen
+    }
+    
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 
