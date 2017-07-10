@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907D0031F1422D10069B7E7 /* AppDelegate.swift */; };
+		A907D0061F1422D10069B7E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907D0051F1422D10069B7E7 /* ViewController.swift */; };
+		A907D0091F1422D10069B7E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A907D0071F1422D10069B7E7 /* Main.storyboard */; };
+		A907D00B1F1422D10069B7E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A907D00A1F1422D10069B7E7 /* Assets.xcassets */; };
+		A907D00E1F1422D10069B7E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A907D00C1F1422D10069B7E7 /* LaunchScreen.storyboard */; };
+		A907D0191F1422D10069B7E7 /* OddJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907D0181F1422D10069B7E7 /* OddJobsTests.swift */; };
+		A907D0241F1422D10069B7E7 /* OddJobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907D0231F1422D10069B7E7 /* OddJobsUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A907D0151F1422D10069B7E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A907CFF81F1422D10069B7E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A907CFFF1F1422D10069B7E7;
+			remoteInfo = OddJobs;
+		};
+		A907D0201F1422D10069B7E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A907CFF81F1422D10069B7E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A907CFFF1F1422D10069B7E7;
+			remoteInfo = OddJobs;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A907D0001F1422D10069B7E7 /* OddJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OddJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A907D0031F1422D10069B7E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A907D0051F1422D10069B7E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A907D0081F1422D10069B7E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A907D00A1F1422D10069B7E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A907D00D1F1422D10069B7E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A907D00F1F1422D10069B7E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A907D0141F1422D10069B7E7 /* OddJobsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OddJobsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A907D0181F1422D10069B7E7 /* OddJobsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddJobsTests.swift; sourceTree = "<group>"; };
+		A907D01A1F1422D10069B7E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A907D01F1F1422D10069B7E7 /* OddJobsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OddJobsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A907D0231F1422D10069B7E7 /* OddJobsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddJobsUITests.swift; sourceTree = "<group>"; };
+		A907D0251F1422D10069B7E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A907CFFD1F1422D10069B7E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A907D0111F1422D10069B7E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A907D01C1F1422D10069B7E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A907CFF71F1422D10069B7E7 = {
+			isa = PBXGroup;
+			children = (
+				A907D0021F1422D10069B7E7 /* OddJobs */,
+				A907D0171F1422D10069B7E7 /* OddJobsTests */,
+				A907D0221F1422D10069B7E7 /* OddJobsUITests */,
+				A907D0011F1422D10069B7E7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A907D0011F1422D10069B7E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A907D0001F1422D10069B7E7 /* OddJobs.app */,
+				A907D0141F1422D10069B7E7 /* OddJobsTests.xctest */,
+				A907D01F1F1422D10069B7E7 /* OddJobsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A907D0021F1422D10069B7E7 /* OddJobs */ = {
+			isa = PBXGroup;
+			children = (
+				A907D0031F1422D10069B7E7 /* AppDelegate.swift */,
+				A907D0051F1422D10069B7E7 /* ViewController.swift */,
+				A907D0071F1422D10069B7E7 /* Main.storyboard */,
+				A907D00A1F1422D10069B7E7 /* Assets.xcassets */,
+				A907D00C1F1422D10069B7E7 /* LaunchScreen.storyboard */,
+				A907D00F1F1422D10069B7E7 /* Info.plist */,
+			);
+			path = OddJobs;
+			sourceTree = "<group>";
+		};
+		A907D0171F1422D10069B7E7 /* OddJobsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A907D0181F1422D10069B7E7 /* OddJobsTests.swift */,
+				A907D01A1F1422D10069B7E7 /* Info.plist */,
+			);
+			path = OddJobsTests;
+			sourceTree = "<group>";
+		};
+		A907D0221F1422D10069B7E7 /* OddJobsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A907D0231F1422D10069B7E7 /* OddJobsUITests.swift */,
+				A907D0251F1422D10069B7E7 /* Info.plist */,
+			);
+			path = OddJobsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A907CFFF1F1422D10069B7E7 /* OddJobs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A907D0281F1422D10069B7E7 /* Build configuration list for PBXNativeTarget "OddJobs" */;
+			buildPhases = (
+				A907CFFC1F1422D10069B7E7 /* Sources */,
+				A907CFFD1F1422D10069B7E7 /* Frameworks */,
+				A907CFFE1F1422D10069B7E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OddJobs;
+			productName = OddJobs;
+			productReference = A907D0001F1422D10069B7E7 /* OddJobs.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A907D0131F1422D10069B7E7 /* OddJobsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A907D02B1F1422D10069B7E7 /* Build configuration list for PBXNativeTarget "OddJobsTests" */;
+			buildPhases = (
+				A907D0101F1422D10069B7E7 /* Sources */,
+				A907D0111F1422D10069B7E7 /* Frameworks */,
+				A907D0121F1422D10069B7E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A907D0161F1422D10069B7E7 /* PBXTargetDependency */,
+			);
+			name = OddJobsTests;
+			productName = OddJobsTests;
+			productReference = A907D0141F1422D10069B7E7 /* OddJobsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A907D01E1F1422D10069B7E7 /* OddJobsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A907D02E1F1422D10069B7E7 /* Build configuration list for PBXNativeTarget "OddJobsUITests" */;
+			buildPhases = (
+				A907D01B1F1422D10069B7E7 /* Sources */,
+				A907D01C1F1422D10069B7E7 /* Frameworks */,
+				A907D01D1F1422D10069B7E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A907D0211F1422D10069B7E7 /* PBXTargetDependency */,
+			);
+			name = OddJobsUITests;
+			productName = OddJobsUITests;
+			productReference = A907D01F1F1422D10069B7E7 /* OddJobsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A907CFF81F1422D10069B7E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Nicolas Rodriguez";
+				TargetAttributes = {
+					A907CFFF1F1422D10069B7E7 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					A907D0131F1422D10069B7E7 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A907CFFF1F1422D10069B7E7;
+					};
+					A907D01E1F1422D10069B7E7 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A907CFFF1F1422D10069B7E7;
+					};
+				};
+			};
+			buildConfigurationList = A907CFFB1F1422D10069B7E7 /* Build configuration list for PBXProject "OddJobs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A907CFF71F1422D10069B7E7;
+			productRefGroup = A907D0011F1422D10069B7E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A907CFFF1F1422D10069B7E7 /* OddJobs */,
+				A907D0131F1422D10069B7E7 /* OddJobsTests */,
+				A907D01E1F1422D10069B7E7 /* OddJobsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A907CFFE1F1422D10069B7E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A907D00E1F1422D10069B7E7 /* LaunchScreen.storyboard in Resources */,
+				A907D00B1F1422D10069B7E7 /* Assets.xcassets in Resources */,
+				A907D0091F1422D10069B7E7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A907D0121F1422D10069B7E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A907D01D1F1422D10069B7E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A907CFFC1F1422D10069B7E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A907D0061F1422D10069B7E7 /* ViewController.swift in Sources */,
+				A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A907D0101F1422D10069B7E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A907D0191F1422D10069B7E7 /* OddJobsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A907D01B1F1422D10069B7E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A907D0241F1422D10069B7E7 /* OddJobsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A907D0161F1422D10069B7E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A907CFFF1F1422D10069B7E7 /* OddJobs */;
+			targetProxy = A907D0151F1422D10069B7E7 /* PBXContainerItemProxy */;
+		};
+		A907D0211F1422D10069B7E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A907CFFF1F1422D10069B7E7 /* OddJobs */;
+			targetProxy = A907D0201F1422D10069B7E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A907D0071F1422D10069B7E7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A907D0081F1422D10069B7E7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A907D00C1F1422D10069B7E7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A907D00D1F1422D10069B7E7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A907D0261F1422D10069B7E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A907D0271F1422D10069B7E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A907D0291F1422D10069B7E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OddJobs/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.OddJobs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A907D02A1F1422D10069B7E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OddJobs/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.OddJobs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		A907D02C1F1422D10069B7E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = OddJobsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.OddJobsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OddJobs.app/OddJobs";
+			};
+			name = Debug;
+		};
+		A907D02D1F1422D10069B7E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = OddJobsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.OddJobsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OddJobs.app/OddJobs";
+			};
+			name = Release;
+		};
+		A907D02F1F1422D10069B7E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = OddJobsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.OddJobsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = OddJobs;
+			};
+			name = Debug;
+		};
+		A907D0301F1422D10069B7E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = OddJobsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.OddJobsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = OddJobs;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A907CFFB1F1422D10069B7E7 /* Build configuration list for PBXProject "OddJobs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A907D0261F1422D10069B7E7 /* Debug */,
+				A907D0271F1422D10069B7E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A907D0281F1422D10069B7E7 /* Build configuration list for PBXNativeTarget "OddJobs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A907D0291F1422D10069B7E7 /* Debug */,
+				A907D02A1F1422D10069B7E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A907D02B1F1422D10069B7E7 /* Build configuration list for PBXNativeTarget "OddJobsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A907D02C1F1422D10069B7E7 /* Debug */,
+				A907D02D1F1422D10069B7E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A907D02E1F1422D10069B7E7 /* Build configuration list for PBXNativeTarget "OddJobsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A907D02F1F1422D10069B7E7 /* Debug */,
+				A907D0301F1422D10069B7E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A907CFF81F1422D10069B7E7 /* Project object */;
+}
