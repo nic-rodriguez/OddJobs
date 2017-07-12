@@ -9,17 +9,51 @@
 import UIKit
 import Parse
 
-class HomeFeedViewController: UIViewController {
+class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var homeFeedTableView: UITableView!
+    
+    var jobs: [PFObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        homeFeedTableView.dataSource = self
+        homeFeedTableView.delegate = self
+        
+        queryServer()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return jobs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "HomeFeedTableViewCell", for: indexPath) as! HomeFeedTableViewCell
+        
+        cell.job = jobs[indexPath.row]
+        return cell
+    }
+    
+    func queryServer() {
+        let query = PFQuery(className: "Job")
+        query.addDescendingOrder("createdAt")
+        query.limit = 20
+        
+        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.jobs = jobs!
+                self.homeFeedTableView.reloadData()
+            }
+        }
     }
     
     @IBAction func didLogOut(_ sender: Any) {
