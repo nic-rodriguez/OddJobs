@@ -6,11 +6,11 @@
 //  Copyright © 2017 Nicolas Rodriguez. All rights reserved.
 //
 
-//TODO: GPS location, place autocomplete, tableView for tags
+//TODO:  place autocomplete, tableView for tags, current date, image picker
 
 import UIKit
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController,TagsTableViewControllerDelegate {
 
     
     @IBOutlet weak var jobTitleField: UITextField!
@@ -27,7 +27,8 @@ class PostViewController: UIViewController {
     var jobTitle: String = ""
     var jobDescription: String = ""
     var pay: Double = 0
-    var jobDate: Date
+    var jobDate: Date!
+    var tags: [String] = []
     
     
     override func viewDidLoad() {
@@ -41,10 +42,6 @@ class PostViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
-        
-    
-    
     
     }
     
@@ -57,9 +54,9 @@ class PostViewController: UIViewController {
         jobDate = jobDatePicker.date
         
         
+    
         
-        
-        Job.postJob(location: <#T##String#>, title: jobTitle, description: jobDescription, datePosted: <#T##Date#>, dateDue: jobDate, tags: <#T##[String]?#>, difficulty: 0, pay: pay, image: URL?, completion: { (success, error) in
+       /* Job.postJob(location: <#T##String#>, title: jobTitle, description: jobDescription, datePosted: <#T##Date#>, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: URL?, completion: { (success, error) in
             if success {
                 print("Post was saved!")
                 
@@ -67,10 +64,20 @@ class PostViewController: UIViewController {
                 print("Problem saving message: \(error.localizedDescription)")
             }
         })
-
+*/
         
         
         }
+    
+    func createTags(tags: [String]) {
+        self.tags = tags
+    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let tagsViewController = segue.destination as! TagsTableViewController
+        tagsViewController.delegate = self
+    }
         
 
 
