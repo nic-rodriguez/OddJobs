@@ -10,7 +10,7 @@
 
 import UIKit
 
-class PostViewController: UIViewController,TagsTableViewControllerDelegate {
+class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     @IBOutlet weak var jobTitleField: UITextField!
@@ -23,6 +23,8 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate {
     
     @IBOutlet weak var jobDatePicker: UIDatePicker!
     
+    @IBOutlet weak var jobImageView: UIImageView!
+  
     
     var jobTitle: String = ""
     var jobDescription: String = ""
@@ -33,10 +35,18 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(jobDatePicker.date)
+        print("current")
+        print(Date())
+        
 
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
-        
-        
+        self.present(vc, animated: true, completion: nil)
         
     }
 
@@ -72,6 +82,15 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate {
     func createTags(tags: [String]) {
         self.tags = tags
     
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.jobImageView.image = originalImage
+        
+        dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
