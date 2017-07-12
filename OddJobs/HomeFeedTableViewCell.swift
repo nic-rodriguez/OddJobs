@@ -27,10 +27,16 @@ class HomeFeedTableViewCell: UITableViewCell {
             self.postImageView?.loadInBackground()
             
             let jobPoster = job["userPosted"] as! PFUser
-            self.userImageView.file = jobPoster["profilePic"] as? PFFile
-            self.userImageView.loadInBackground()
             
-            self.nameLabel.text = jobPoster["name"] as? String
+            
+//            print(jobPoster["PFUser"])
+//            self.userImageView.file = jobPoster["profilePic"] as? PFFile
+//            self.userImageView.loadInBackground()
+//            print(jobPoster["PFUser"].username)
+            
+            
+            
+            self.nameLabel.text = jobPoster.username!
             self.titleLabel.text = job["title"] as? String
             self.dateLabel.text = job["dateDue"] as? String
             self.costLabel.text = job["pay"] as? String
