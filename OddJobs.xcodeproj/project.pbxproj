@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1EFC67A7709CC45D539820BA /* Pods_OddJobs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD37B9102EF326B03F2143EA /* Pods_OddJobs.framework */; };
 		59BD5F61244358ADC8A6C517 /* Pods_OddJobsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA70B562AD67A94CADEC2D96 /* Pods_OddJobsTests.framework */; };
+		86947B8F1F169F4100BD708F /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86947B8E1F169F4100BD708F /* TopTableViewCell.swift */; };
+		86947B911F169F6F00BD708F /* UserJobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */; };
 		984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */; };
 		984C684F1F16ACEB00FB4AE4 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */; };
 		A24F4C58C490B6BCA558A27F /* Pods_OddJobsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A750202E8DAEC92952CAA736 /* Pods_OddJobsUITests.framework */; };
@@ -48,6 +50,8 @@
 		1649AE21358B760863E7A315 /* Pods-OddJobsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsTests/Pods-OddJobsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		549566E4FE79AC2C03C02330 /* Pods-OddJobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobs.release.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobs/Pods-OddJobs.release.xcconfig"; sourceTree = "<group>"; };
 		709DDE1AF86938BC25A2FAC9 /* Pods-OddJobsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsTests/Pods-OddJobsTests.release.xcconfig"; sourceTree = "<group>"; };
+		86947B8E1F169F4100BD708F /* TopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
+		86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserJobsTableViewCell.swift; sourceTree = "<group>"; };
 		92D75CC1075FA661748BD749 /* Pods-OddJobsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsUITests/Pods-OddJobsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
 		984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,6 +120,16 @@
 				AB942B23DE191E8065E74075 /* Pods-OddJobsUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		86947B8D1F169F2900BD708F /* profileViewControlers */ = {
+			isa = PBXGroup;
+			children = (
+				A92EB4881F159EEA00EB77E8 /* ProfileViewController.swift */,
+				86947B8E1F169F4100BD708F /* TopTableViewCell.swift */,
+				86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */,
+			);
+			name = profileViewControlers;
 			sourceTree = "<group>";
 		};
 		874E5EE1FAB526F84EF99DEE /* Frameworks */ = {
@@ -187,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				A907D0311F1425C60069B7E7 /* LoginViewController.swift */,
-				A92EB4881F159EEA00EB77E8 /* ProfileViewController.swift */,
+				86947B8D1F169F2900BD708F /* profileViewControlers */,
 				A92EB48A1F159EF400EB77E8 /* PostViewController.swift */,
 				A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */,
 				A972FBF01F16CEB500446EAC /* MapsViewController.swift */,
@@ -290,6 +304,7 @@
 				TargetAttributes = {
 					A907CFFF1F1422D10069B7E7 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = WZAU94F9TS;
 						ProvisioningStyle = Automatic;
 					};
 					A907D0131F1422D10069B7E7 = {
@@ -504,6 +519,8 @@
 				984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */,
 				A92EB4921F159F4900EB77E8 /* Job.swift in Sources */,
 				A92EB48D1F159F0000EB77E8 /* HomeFeedViewController.swift in Sources */,
+				86947B911F169F6F00BD708F /* UserJobsTableViewCell.swift in Sources */,
+				86947B8F1F169F4100BD708F /* TopTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +674,7 @@
 			baseConfigurationReference = 9E03042526A246236E533EAF /* Pods-OddJobs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WZAU94F9TS;
 				INFOPLIST_FILE = OddJobs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.OddJobs;
@@ -670,6 +688,7 @@
 			baseConfigurationReference = 549566E4FE79AC2C03C02330 /* Pods-OddJobs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WZAU94F9TS;
 				INFOPLIST_FILE = OddJobs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.OddJobs;
