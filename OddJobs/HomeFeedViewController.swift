@@ -22,7 +22,10 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         queryServer()
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         
+        homeFeedTableView.insertSubview(refreshControl, at: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +57,11 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 self.homeFeedTableView.reloadData()
             }
         }
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl!) {
+        queryServer()
+        refreshControl.endRefreshing()
     }
     
     @IBAction func didLogOut(_ sender: Any) {
