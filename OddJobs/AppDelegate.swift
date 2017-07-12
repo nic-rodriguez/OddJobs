@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import GooglePlaces
+import GooglePlacePicker
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let homeViewController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
             window?.rootViewController = homeViewController
         }
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyBIWErF-n_u-qq0SpN9R0qr2DPhdF–Pzg")
+        GMSServices.provideAPIKey("AIzaSyBIWErF-n_u-qq0SpN9R0qr2DPhdF–Pzg")
+        
         return true
     }
 

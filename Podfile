@@ -8,6 +8,10 @@ target 'OddJobs' do
   # Pods for OddJobs
   pod 'Parse'
   pod 'ParseUI'
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'GoogleMaps'
+
   target 'OddJobsTests' do
     inherit! :search_paths
     # Pods for testing
