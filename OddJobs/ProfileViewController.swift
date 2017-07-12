@@ -20,7 +20,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        jobsTableView.dataSource = self
+        jobsTableView.delegate = self
+        
         // Do any additional setup after loading the view.
+        jobsTableView.rowHeight = UITableViewAutomaticDimension
+        jobsTableView.estimatedRowHeight = 100
+
+        fetchJobs()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +62,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0){ //profile
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell", for: indexPath) as! TopTableViewCell
-            cell.user = user                      //for now always will be current user
+            //cell.user = user                      //for now always will be current user
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
@@ -64,6 +72,25 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
-    
+    func fetchJobs() {
+        let query = PFQuery(className: "Job")
+        query.addDescendingOrder("createdAt")
+        query.includeKey("author")
+        query.whereKey("author", equalTo: PFUser.current())
+        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+            
+            if let jobs = jobs  {
+                self.jobs = jobs
+                self.jobsTableView.reloadData()
+                
+            } else {
+                print(error?.localizedDescription as? String)
+            }
+//            self.refreshControl.endRefreshing()
+        }
+        // The getObjectInBackgroundWithId methods are asynchronous, so any code after this will run
+        // immediately.  Any code that depends on the query result should be moved
+        // inside the completion block above.
+    }
 
 }

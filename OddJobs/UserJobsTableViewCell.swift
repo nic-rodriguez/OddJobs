@@ -26,7 +26,7 @@ class UserJobsTableViewCell: UITableViewCell {
 //        jobPFImage.file = user["jobImage"] as? PFFile
 //        jobPFImage.loadInBackground()
         
-        jobTitleLabel.text = job["title"] as! String
+        jobTitleLabel.text = "MY JOB LABEL" //job["title"] as! String
         
         //date posted
 //        let date = job["dateDue"]
