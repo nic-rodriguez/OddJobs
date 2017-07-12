@@ -63,17 +63,29 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let cell = tagsTableView.cellForRow(at: indexPath as IndexPath) {
+        if let cell = tagsTableView.cellForRow(at: indexPath as IndexPath) as? TagTableViewCell {
             if cell.accessoryType == .checkmark{
                 cell.accessoryType = .none
+                
+                var count = -1
+                for tag in tagsToPass {
+                    count += 1
+                    if tag == cell.tagLabel.text {
+                        tagsToPass.remove(at: count)
+                    }
+                    
+                }
+                
+                
+    
                 
             }
             else{
                 cell.accessoryType = .checkmark
                 tagsToPass.append(tags[indexPath.row])
+                
             }
         }
-
     }
     
     
