@@ -45,6 +45,7 @@ class Job: NSObject {
      tags: [String]?
     */
     
+<<<<<<< HEAD
 //    init (dictionary: [String: Any]) {
 //        location = dictionary["location"] as! String
 //        title = dictionary["title"] as! String
@@ -62,6 +63,9 @@ class Job: NSObject {
 //    }
     
     class func postJob(location: String, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, difficulty: Int, pay: Double, image: URL?, completion: PFBooleanResultBlock?) {
+=======
+    class func postJob(location: String, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, difficulty: Int, pay: Double, image: UIImage?, completion: PFBooleanResultBlock?) {
+>>>>>>> 7d3f1481eb7551ebdae5f894aaddb435699d3dd1
         
         let job = PFObject(className: "Job")
         
@@ -73,9 +77,20 @@ class Job: NSObject {
         job["tags"] = tags
         job["difficulty"] = difficulty
         job["pay"] = pay
-        job["image"] = image
+        job["image"] = getPFFileFromImage(image: image)
         job["userPosted"] = PFUser.current()
         job["isAvailable"] = true
         
+        job.saveInBackground(block: completion)
+        
+    }
+    
+    class func getPFFileFromImage(image: UIImage?) -> PFFile? {
+        if let image = image {
+            if let imageData = UIImagePNGRepresentation(image) {
+                return PFFile(name: "image.png", data: imageData)
+            }
+        }
+        return nil
     }
 }

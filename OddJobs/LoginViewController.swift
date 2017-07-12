@@ -36,7 +36,6 @@ class LoginViewController: UIViewController {
             } else {
                 print("User successfully logged in!")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
-
             }
         }
         //add segue to next screen
