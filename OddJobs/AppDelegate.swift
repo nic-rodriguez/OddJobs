@@ -21,7 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.clientKey = "supersecretmasterkey12345"
             configuration.server = "https://calm-bastion-66801.herokuapp.com/parse"
         }))
-        // Override point for customization after application launch.
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("logoutNotification"), object: nil, queue: OperationQueue.main) { (Notification) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            self.window?.rootViewController = vc
+        }
+        
+        if let currentUser = PFUser.current() {
+//            print("Welcome back \(currentUser.name!)")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
+            window?.rootViewController = homeViewController
+        }
         return true
     }
 

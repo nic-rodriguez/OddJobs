@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class HomeFeedViewController: UIViewController {
 
@@ -21,6 +22,16 @@ class HomeFeedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didLogOut(_ sender: Any) {
+        PFUser.logOutInBackground { (error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("User logged out successfully")
+                NotificationCenter.default.post(name: NSNotification.Name("logoutNotification"), object: nil)
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

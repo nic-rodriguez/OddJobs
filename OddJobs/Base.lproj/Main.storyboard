@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -98,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="2967" y="-760"/>
         </scene>
-        <!--Home Feed View Controller-->
+        <!--Home Feed-->
         <scene sceneID="QDg-J9-XGu">
             <objects>
                 <viewController id="zbq-xx-y2d" customClass="HomeFeedViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
@@ -111,12 +111,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="y5d-K3-9Ft">
+                    <navigationItem key="navigationItem" title="Home Feed" id="y5d-K3-9Ft">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="O5a-3u-vS9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qGS-MW-trb">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="didLogOut:" destination="zbq-xx-y2d" eventType="touchUpInside" id="aWW-4B-Jgj"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Kod-nj-aTM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jr6-PM-39d">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="New Post"/>
                                 <connections>
                                     <segue destination="xLo-Ms-qaJ" kind="presentation" id="GAy-Cc-rFH"/>
                                 </connections>
@@ -169,9 +179,10 @@
         <!--Tab Bar Controller-->
         <scene sceneID="keQ-te-TQA">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="BLs-gu-Rdh" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="BLs-gu-Rdh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Pzi-bM-t4C">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
