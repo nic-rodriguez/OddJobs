@@ -167,7 +167,7 @@
                                     <segue destination="UXn-hY-JgH" kind="push" id="lB1-b4-akp"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5oE-jJ-lCM" customClass="PFImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5oE-jJ-lCM">
                                 <rect key="frame" x="103" y="437" width="154" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -179,6 +179,7 @@
                         <outlet property="addressField" destination="tv5-gz-wI6" id="SlH-4q-EJn"/>
                         <outlet property="jobDatePicker" destination="mQ7-NE-h8B" id="T6x-QF-bPZ"/>
                         <outlet property="jobDescriptionField" destination="bwu-dg-7M8" id="FGE-68-cTj"/>
+                        <outlet property="jobImageView" destination="5oE-jJ-lCM" id="tx7-Kq-XtJ"/>
                         <outlet property="jobTitleField" destination="W4A-QW-Zli" id="CtG-MP-fhl"/>
                         <outlet property="payField" destination="7Mt-87-FpR" id="7jt-Xo-ceE"/>
                     </connections>
