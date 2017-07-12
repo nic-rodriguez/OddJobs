@@ -17,6 +17,10 @@
 		A907D0191F1422D10069B7E7 /* OddJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907D0181F1422D10069B7E7 /* OddJobsTests.swift */; };
 		A907D0241F1422D10069B7E7 /* OddJobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907D0231F1422D10069B7E7 /* OddJobsUITests.swift */; };
 		A907D0321F1425C60069B7E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907D0311F1425C60069B7E7 /* LoginViewController.swift */; };
+		A92EB4891F159EEA00EB77E8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EB4881F159EEA00EB77E8 /* ProfileViewController.swift */; };
+		A92EB48B1F159EF400EB77E8 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EB48A1F159EF400EB77E8 /* PostViewController.swift */; };
+		A92EB48D1F159F0000EB77E8 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */; };
+		A92EB4921F159F4900EB77E8 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EB4911F159F4900EB77E8 /* Job.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 		A907D0231F1422D10069B7E7 /* OddJobsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OddJobsUITests.swift; sourceTree = "<group>"; };
 		A907D0251F1422D10069B7E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A907D0311F1425C60069B7E7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A92EB4881F159EEA00EB77E8 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A92EB48A1F159EF400EB77E8 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
+		A92EB4911F159F4900EB77E8 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		AB942B23DE191E8065E74075 /* Pods-OddJobsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsUITests/Pods-OddJobsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DD37B9102EF326B03F2143EA /* Pods_OddJobs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OddJobs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA70B562AD67A94CADEC2D96 /* Pods_OddJobsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OddJobsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				A907D0031F1422D10069B7E7 /* AppDelegate.swift */,
+				A92EB4901F159F3A00EB77E8 /* Objects */,
 				A907D0331F1425F60069B7E7 /* View Controllers */,
 				A907D0071F1422D10069B7E7 /* Main.storyboard */,
 				A907D00A1F1422D10069B7E7 /* Assets.xcassets */,
@@ -169,8 +178,19 @@
 			isa = PBXGroup;
 			children = (
 				A907D0311F1425C60069B7E7 /* LoginViewController.swift */,
+				A92EB4881F159EEA00EB77E8 /* ProfileViewController.swift */,
+				A92EB48A1F159EF400EB77E8 /* PostViewController.swift */,
+				A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A92EB4901F159F3A00EB77E8 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A92EB4911F159F4900EB77E8 /* Job.swift */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,8 +474,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A92EB48B1F159EF400EB77E8 /* PostViewController.swift in Sources */,
+				A92EB4891F159EEA00EB77E8 /* ProfileViewController.swift in Sources */,
 				A907D0321F1425C60069B7E7 /* LoginViewController.swift in Sources */,
 				A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */,
+				A92EB4921F159F4900EB77E8 /* Job.swift in Sources */,
+				A92EB48D1F159F0000EB77E8 /* HomeFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +730,7 @@
 				A907D02A1F1422D10069B7E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A907D02B1F1422D10069B7E7 /* Build configuration list for PBXNativeTarget "OddJobsTests" */ = {
 			isa = XCConfigurationList;
@@ -714,6 +739,7 @@
 				A907D02D1F1422D10069B7E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A907D02E1F1422D10069B7E7 /* Build configuration list for PBXNativeTarget "OddJobsUITests" */ = {
 			isa = XCConfigurationList;
@@ -722,6 +748,7 @@
 				A907D0301F1422D10069B7E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
