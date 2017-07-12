@@ -158,7 +158,7 @@
                                 <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="237" id="9cc-0m-A7x" customClass="TopTableViewCell" customModule="OddJobs" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTableViewCell" rowHeight="237" id="9cc-0m-A7x" customClass="TopTableViewCell" customModule="OddJobs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="237"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9cc-0m-A7x" id="R6A-0z-Qm0" customClass="TopTableViewCell" customModule="OddJobs" customModuleProvider="target">
@@ -255,7 +255,7 @@
                                             <outlet property="usernameLabel" destination="8bk-Ax-3Li" id="rSJ-Zq-tlW"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="111" id="tkI-NK-f3N" customClass="UserJobsTableViewCell" customModule="OddJobs" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserJobsTableViewCell" rowHeight="111" id="tkI-NK-f3N" customClass="UserJobsTableViewCell" customModule="OddJobs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="265" width="343" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tkI-NK-f3N" id="PRX-xJ-Q4e">
@@ -308,6 +308,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jpc-p5-cx0"/>
+                    <connections>
+                        <outlet property="jobsTableView" destination="xH6-AH-C3Z" id="6oa-Uq-5lY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ja-0D-dxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

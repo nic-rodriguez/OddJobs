@@ -12,7 +12,6 @@ import ParseUI
 
 class TopTableViewCell: UITableViewCell {
 
-    
     var user: PFUser!
     
     @IBOutlet weak var backgroundProfilePFImage: PFImageView!
@@ -28,7 +27,13 @@ class TopTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        let user = PFUser.current()!
+        //let user = PFUser.current()!
+        
+        if let user = user {
+            //we good, this not nil, using user from job
+        } else {
+            user = PFUser.current()
+        }
         
 //        backgroundProfilePFImage.file = user["backgroundImage"] as? PFFile
 //        backgroundProfilePFImage.loadInBackground()
@@ -36,11 +41,15 @@ class TopTableViewCell: UITableViewCell {
 //        profilePFImage.file = user["profilePicture"] as? PFFile
 //        profilePFImage.loadInBackground()
         
-        usernameLabel.text = user.username as! String
-        ratingLabel.text = user["rating"] as! String
-        bioLabel.text = user["bio"] as! String
-        jobsTakenCounterLabel.text = user["jobsTakenInt"] as! String
-        jobsPosterCounterLabel.text = user["jobsPostedInt"] as! String
+//        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
+//        cell.userImageView.layer.masksToBounds = true
+        
+        
+        usernameLabel.text = user.username!
+        ratingLabel.text = user["rating"] as? String
+        bioLabel.text = user["bio"] as? String
+        jobsTakenCounterLabel.text = user["jobsTakenInt"] as? String
+        jobsPosterCounterLabel.text = user["jobsPostedInt"] as? String
         
     }
 

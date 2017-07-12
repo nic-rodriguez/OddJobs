@@ -10,8 +10,12 @@ import UIKit
 import Parse
 import ParseUI
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var user: PFUser!
+    var jobs: [PFObject] = []
+    
+    @IBOutlet weak var jobsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,5 +38,32 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (section == 0){
+            return 1
+        } else {
+            return jobs.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath.section == 0){ //profile
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell", for: indexPath) as! TopTableViewCell
+            cell.user = user                      //for now always will be current user
+            return cell
+        } else { //job postings
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
+            cell.job = jobs[indexPath.row]
+            return cell
+        }
+    }
+    
+    
+    
 
 }
