@@ -35,6 +35,8 @@ class LoginViewController: UIViewController {
                 print("Error: " + error.localizedDescription)
             } else {
                 print("User successfully logged in!")
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+
             }
         }
         //add segue to next screen
@@ -51,6 +53,7 @@ class LoginViewController: UIViewController {
                 print("Error: " + error.localizedDescription)
             } else {
                 print("User successfully signed up!")
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
         
