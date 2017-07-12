@@ -1,5 +1,15 @@
 PODS:
   - Bolts/Tasks (1.8.4)
+  - GoogleMaps (2.3.1):
+    - GoogleMaps/Maps (= 2.3.1)
+  - GoogleMaps/Base (2.3.1)
+  - GoogleMaps/Maps (2.3.1):
+    - GoogleMaps/Base
+  - GooglePlacePicker (2.3.1):
+    - GoogleMaps (= 2.3.1)
+    - GooglePlaces (= 2.3.1)
+  - GooglePlaces (2.3.1):
+    - GoogleMaps/Base (= 2.3.1)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
   - ParseUI (1.2.0):
@@ -7,14 +17,20 @@ PODS:
     - Parse (~> 1.9)
 
 DEPENDENCIES:
+  - GoogleMaps
+  - GooglePlacePicker
+  - GooglePlaces
   - Parse
   - ParseUI
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  GoogleMaps: c66a71058b9b1294bcdd5463a68e357fa50c079f
+  GooglePlacePicker: fc3564ac7a2ce314e78e42bfc1e16822ad1e5488
+  GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
 
-PODFILE CHECKSUM: 1b3689d6e3e8af22952896747886a767bc309793
+PODFILE CHECKSUM: e9d31ef8692f6fe5451f7128d0ffc78cec6965bf
 
 COCOAPODS: 1.2.1
