@@ -26,6 +26,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         
         homeFeedTableView.insertSubview(refreshControl, at: 0)
+        
+        homeFeedTableView.estimatedRowHeight = 100
+        homeFeedTableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +50,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func queryServer() {
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
-        query.limit = 20
+        query.limit = 8
         
         query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
             if let error = error {

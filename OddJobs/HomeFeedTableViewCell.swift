@@ -12,7 +12,7 @@ import ParseUI
 
 class HomeFeedTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var postImageView: PFImageView!
+    @IBOutlet weak var postImageView: PFImageView?
     @IBOutlet weak var userImageView: PFImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -23,8 +23,8 @@ class HomeFeedTableViewCell: UITableViewCell {
     
     var job: PFObject! {
         didSet {
-            self.postImageView.file = job["image"] as? PFFile
-            self.postImageView.loadInBackground()
+            self.postImageView?.file = job["image"] as? PFFile
+            self.postImageView?.loadInBackground()
             
             let jobPoster = job["userPosted"] as! PFUser
             self.userImageView.file = jobPoster["profilePic"] as? PFFile
