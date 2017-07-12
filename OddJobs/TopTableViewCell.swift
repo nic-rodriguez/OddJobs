@@ -12,6 +12,9 @@ import ParseUI
 
 class TopTableViewCell: UITableViewCell {
 
+    
+    var user: PFUser!
+    
     @IBOutlet weak var backgroundProfilePFImage: PFImageView!
     @IBOutlet weak var profilePFImage: PFImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -24,6 +27,21 @@ class TopTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let user = PFUser.current()!
+        
+//        backgroundProfilePFImage.file = user["backgroundImage"] as? PFFile
+//        backgroundProfilePFImage.loadInBackground()
+        
+//        profilePFImage.file = user["profilePicture"] as? PFFile
+//        profilePFImage.loadInBackground()
+        
+        usernameLabel.text = user.username as! String
+        ratingLabel.text = user["rating"] as! String
+        bioLabel.text = user["bio"] as! String
+        jobsTakenCounterLabel.text = user["jobsTakenInt"] as! String
+        jobsPosterCounterLabel.text = user["jobsPostedInt"] as! String
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

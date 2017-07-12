@@ -291,7 +291,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="jobCompletedLabel" destination="9C6-y5-Y5S" id="ioi-f4-EfT"/>
+                                            <outlet property="jobDateLabel" destination="9C6-y5-Y5S" id="e3I-pY-TFJ"/>
                                             <outlet property="jobPFImage" destination="VPV-3x-ePQ" id="sno-7v-i1H"/>
                                             <outlet property="jobTitleLabel" destination="422-rC-bCm" id="gib-ve-L7O"/>
                                         </connections>
