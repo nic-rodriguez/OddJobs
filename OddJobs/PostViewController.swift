@@ -25,22 +25,7 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
     
     @IBOutlet weak var jobImageView: UIImageView!
   
-    
-    var jobTitle: String = ""
-    var jobDescription: String = ""
-    var pay: Double = 0
-    var jobDate: Date!
-    var tags: [String] = []
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        print(jobDatePicker.date)
-        print("current")
-        print(Date())
-        
-
+    @IBAction func addJobImage(_ sender: UIButton) {
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
@@ -48,6 +33,28 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
         
         self.present(vc, animated: true, completion: nil)
         
+    }
+    
+    
+    @IBAction func closePostView(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+
+    }
+    
+    
+    var jobTitle: String = ""
+    var jobDescription: String = ""
+    var pay: Double = 0
+    var jobDate: Date!
+    var tags: [String] = []
+    var currentDate: Date!
+    var photoToPost: UIImage!
+    var address: String = ""
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,13 +67,14 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
     @IBAction func postJob(_ sender: UIButton) {
         jobTitle = jobTitleField.text!
         jobDescription = jobDescriptionField.text!
+        address = addressField.text!
         pay = Double(payField.text!) ?? 0
         jobDate = jobDatePicker.date
-        
-        
+        currentDate = Date()
+        photoToPost = jobImageView.image
     
         
-       /* Job.postJob(location: <#T##String#>, title: jobTitle, description: jobDescription, datePosted: <#T##Date#>, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: URL?, completion: { (success, error) in
+        Job.postJob(location: address, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
             if success {
                 print("Post was saved!")
                 
@@ -74,10 +82,8 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
                 print("Problem saving message: \(error.localizedDescription)")
             }
         })
-*/
         
-        
-        }
+    }
     
     func createTags(tags: [String]) {
         self.tags = tags
