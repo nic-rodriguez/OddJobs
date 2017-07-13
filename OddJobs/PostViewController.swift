@@ -13,12 +13,8 @@ import GooglePlaces
 import GoogleMaps
 import GooglePlacePicker
 
-class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    
-    
-
-    
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, TagsTableViewControllerDelegate, UINavigationControllerDelegate {
+   
     
     
     
@@ -49,9 +45,18 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
         self.dismiss(animated: true, completion: nil)
 
     }
+    @IBOutlet weak var enterAddress: UIButton!
     
     
-    var resultsViewController: GMSAutocompleteResultsViewController?
+    
+    @IBAction func openGMS(_ sender: UIButton) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
+    }
+    
+
+    var resultsController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
     
@@ -68,26 +73,10 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        resultsViewController = GMSAutocompleteResultsViewController()
-        resultsViewController?.delegate = self
         
-        searchController = UISearchController(searchResultsController: resultsViewController)
-        searchController?.searchResultsUpdater = resultsViewController as? UISearchResultsUpdating
-        
-        let subView = UIView(frame: CGRect(x: 20, y: 290, width: 330.0, height: 45.0))
-        
-        subView.addSubview((searchController?.searchBar)!)
-        view.addSubview(subView)
-        
-        searchController?.searchBar.sizeToFit()
-        searchController?.searchBar.placeholder = "Enter Address"
-        searchController?.hidesNavigationBarDuringPresentation = false
-        
-        // When UISearchController presents the results view, present it in
-        // this view controller, not one further up the chain.
-        definesPresentationContext = true
-
     }
+
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -108,14 +97,14 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
         photoToPost = jobImageView.image
     
         
-      /*  Job.postJob(location: address, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
+        Job.postJob(location: address, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
             if success {
                 print("Post was saved!")
                 
             } else if let error = error {
                 print("Problem saving message: \(error.localizedDescription)")
             }
-        })*/
+        })
         
     }
     
@@ -133,6 +122,12 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
         dismiss(animated: true, completion: nil)
     }
     
+    
+   
+    
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tagsViewController = segue.destination as! TagsTableViewController
         tagsViewController.delegate = self
@@ -140,33 +135,37 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
     
 }
 
-extension PostViewController: GMSAutocompleteResultsViewControllerDelegate {
-   
- 
-/**
-     * Called when a place has been selected from the available autocomplete predictions.
-     * @param resultsController The |GMSAutocompleteResultsViewController| that generated the event.
-     * @param place The |GMSPlace| that was returned.
-     */
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
-        <#code#>
+extension PostViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
+        
+        address = place.formattedAddress!
+        
+        dismiss(animated: true, completion: nil)
     }
-
     
-
-
-/**
-     * Called when a place has been selected from the available autocomplete predictions.
-     * @param resultsController The |GMSAutocompleteResultsViewController| that generated the event.
-     * @param place The |GMSPlace| that was returned.
-     */
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
-    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
     }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+}
 
-    
- 
-    
-
-    
-  }
