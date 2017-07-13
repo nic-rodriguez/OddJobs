@@ -85,14 +85,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
         query.includeKey("userPosted")
+        query.whereKey("userPosted", equalTo: PFUser.current())
+
         query.limit = 8
         
         query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
+                
+                
                 self.jobs = jobs!
                 self.jobsTableView.reloadData()
+                
+                
             }
         }
     }
