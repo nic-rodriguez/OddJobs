@@ -29,6 +29,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
         fetchJobs()
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        
+        jobsTableView.insertSubview(refreshControl, at: 1)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,31 +72,35 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
+            
+            //jobsTableView.deselectRow(at: indexPath, animated: true)
+            
             cell.job = jobs[indexPath.row]
             return cell
         }
     }
-    
-    
+        
+        
     func fetchJobs() {
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
-        query.includeKey("author")
-        query.whereKey("author", equalTo: PFUser.current())
+        query.includeKey("userPosted")
+        query.limit = 8
+        
         query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-            
-            if let jobs = jobs  {
-                self.jobs = jobs
-                self.jobsTableView.reloadData()
-                
+            if let error = error {
+                print(error.localizedDescription)
             } else {
-                print(error?.localizedDescription as? String)
+                self.jobs = jobs!
+                self.jobsTableView.reloadData()
             }
-//            self.refreshControl.endRefreshing()
         }
-        // The getObjectInBackgroundWithId methods are asynchronous, so any code after this will run
-        // immediately.  Any code that depends on the query result should be moved
-        // inside the completion block above.
+    }
+
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl!) {
+        fetchJobs()
+        refreshControl.endRefreshing()
     }
 
 }
