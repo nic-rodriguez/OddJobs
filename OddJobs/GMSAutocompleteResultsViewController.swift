@@ -9,20 +9,15 @@
 import UIKit
 import GooglePlaces
 
-
-
 class GMSAutocompleteResultsViewController: UIViewController {
+
+    weak var delegate: GMSAutocompleteResultsViewControllerDelegate?
     
-    weak var delegate: GMSAutocompleteViewControllerDelegate?
-    
-    
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    
-    
-    
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,8 +10,19 @@
 
 import UIKit
 import GooglePlaces
+import GoogleMaps
+import GooglePlacePicker
 
-class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, GMSAutocompleteViewControllerDelegate {
+class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
+    
+
+    
+    
+    
+    
+
    
     @IBOutlet weak var jobTitleField: UITextField!
     
@@ -83,38 +94,8 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
     
     }
     
-    
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        
-    }
-    
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
-    }
-    
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        searchController?.isActive = false
-        
-         print("are predictions working")
-        
-        // Do something with the selected place.
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
-    }
+  
 
-    func didRequestAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    
-    }
-    
 
     
     @IBAction func postJob(_ sender: UIButton) {
@@ -159,4 +140,33 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
     
 }
 
+extension PostViewController: GMSAutocompleteResultsViewControllerDelegate {
+   
+ 
+/**
+     * Called when a place has been selected from the available autocomplete predictions.
+     * @param resultsController The |GMSAutocompleteResultsViewController| that generated the event.
+     * @param place The |GMSPlace| that was returned.
+     */
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
+        <#code#>
+    }
 
+    
+
+
+/**
+     * Called when a place has been selected from the available autocomplete predictions.
+     * @param resultsController The |GMSAutocompleteResultsViewController| that generated the event.
+     * @param place The |GMSPlace| that was returned.
+     */
+    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
+    
+    }
+
+    
+ 
+    
+
+    
+  }

@@ -13,7 +13,7 @@
 		86947B911F169F6F00BD708F /* UserJobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */; };
 		984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */; };
 		984C684F1F16ACEB00FB4AE4 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */; };
-		984C68531F17E48D00FB4AE4 /* GMSAutocompleteResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C68521F17E48D00FB4AE4 /* GMSAutocompleteResultsViewController.swift */; };
+		98AC28361F181121000CD55E /* GMSAutocompleteResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AC28351F181121000CD55E /* GMSAutocompleteResultsViewController.swift */; };
 		A24F4C58C490B6BCA558A27F /* Pods_OddJobsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A750202E8DAEC92952CAA736 /* Pods_OddJobsUITests.framework */; };
 		A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907D0031F1422D10069B7E7 /* AppDelegate.swift */; };
 		A907D0091F1422D10069B7E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A907D0071F1422D10069B7E7 /* Main.storyboard */; };
@@ -56,7 +56,7 @@
 		92D75CC1075FA661748BD749 /* Pods-OddJobsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsUITests/Pods-OddJobsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
 		984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
-		984C68521F17E48D00FB4AE4 /* GMSAutocompleteResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSAutocompleteResultsViewController.swift; sourceTree = "<group>"; };
+		98AC28351F181121000CD55E /* GMSAutocompleteResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSAutocompleteResultsViewController.swift; sourceTree = "<group>"; };
 		9E03042526A246236E533EAF /* Pods-OddJobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobs/Pods-OddJobs.debug.xcconfig"; sourceTree = "<group>"; };
 		A750202E8DAEC92952CAA736 /* Pods_OddJobsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OddJobsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A907D0001F1422D10069B7E7 /* OddJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OddJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,7 +208,7 @@
 				A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */,
 				A972FBF01F16CEB500446EAC /* MapsViewController.swift */,
 				984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */,
-				984C68521F17E48D00FB4AE4 /* GMSAutocompleteResultsViewController.swift */,
+				98AC28351F181121000CD55E /* GMSAutocompleteResultsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -521,7 +521,7 @@
 				A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */,
 				984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */,
 				A92EB4921F159F4900EB77E8 /* Job.swift in Sources */,
-				984C68531F17E48D00FB4AE4 /* GMSAutocompleteResultsViewController.swift in Sources */,
+				98AC28361F181121000CD55E /* GMSAutocompleteResultsViewController.swift in Sources */,
 				A92EB48D1F159F0000EB77E8 /* HomeFeedViewController.swift in Sources */,
 				86947B911F169F6F00BD708F /* UserJobsTableViewCell.swift in Sources */,
 				86947B8F1F169F4100BD708F /* TopTableViewCell.swift in Sources */,
