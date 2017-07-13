@@ -11,18 +11,6 @@ import Parse
 
 class Job: NSObject {
     
-//    var location: String
-//    var title: String
-//    var description: String
-//    var datePosted: Date
-//    var dateDue: Date
-//    var tags: [String]?
-//    var difficulty: Int
-//    var pay: Double
-//    var image: URL?
-//    var available: Bool
-//    var userWhoPosted: PFUser
-    
 //    private var userAccepted: User?
 //    private var usersInterested: [User]?
 //    private var id: Int64
@@ -44,7 +32,6 @@ class Job: NSObject {
      bookmarkedUsers: [PFUser: Bool]?
      tags: [String]?
     */
-    
 
     class func postJob(location: String, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, difficulty: Int, pay: Double, image: UIImage?, completion: PFBooleanResultBlock?) {
 

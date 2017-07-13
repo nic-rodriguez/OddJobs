@@ -169,12 +169,12 @@
 			isa = PBXGroup;
 			children = (
 				A907D0031F1422D10069B7E7 /* AppDelegate.swift */,
+				A9B3E46D1F16DBB500FBD21E /* Views */,
 				A92EB4901F159F3A00EB77E8 /* Objects */,
 				A907D0331F1425F60069B7E7 /* View Controllers */,
 				A907D00A1F1422D10069B7E7 /* Assets.xcassets */,
 				A907D00C1F1422D10069B7E7 /* LaunchScreen.storyboard */,
 				A907D00F1F1422D10069B7E7 /* Info.plist */,
-				A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */,
 			);
 			path = OddJobs;
 			sourceTree = "<group>";
@@ -206,7 +206,6 @@
 				A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */,
 				A972FBF01F16CEB500446EAC /* MapsViewController.swift */,
 				984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */,
-				984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -217,6 +216,15 @@
 				A92EB4911F159F4900EB77E8 /* Job.swift */,
 			);
 			name = Objects;
+			sourceTree = "<group>";
+		};
+		A9B3E46D1F16DBB500FBD21E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */,
+				A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

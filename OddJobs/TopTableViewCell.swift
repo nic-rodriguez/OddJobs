@@ -37,8 +37,8 @@ class TopTableViewCell: UITableViewCell {
         backgroundProfilePFImage?.file = user["backgroundImage"] as? PFFile
         backgroundProfilePFImage?.loadInBackground()
         
-        profilePFImage?.file = user["profilePicture"] as? PFFile
-        profilePFImage?.loadInBackground()
+//        profilePFImage?.file = user["profilePicture"] as? PFFile
+//        profilePFImage?.loadInBackground()
         
 //        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
 //        cell.userImageView.layer.masksToBounds = true
