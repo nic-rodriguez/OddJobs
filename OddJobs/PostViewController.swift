@@ -9,15 +9,13 @@
 //TODO:  place autocomplete, tableView for tags, current date, image picker
 
 import UIKit
+import GooglePlaces
 
-class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    
+class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, GMSAutocompleteViewControllerDelegate {
+   
     @IBOutlet weak var jobTitleField: UITextField!
     
     @IBOutlet weak var jobDescriptionField: UITextField!
-    
-    @IBOutlet weak var addressField: UITextField!
     
     @IBOutlet weak var payField: UITextField!
     
@@ -42,6 +40,10 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
     }
     
     
+    var resultsViewController: GMSAutocompleteResultsViewController?
+    var searchController: UISearchController?
+    var resultView: UITextView?
+    
     var jobTitle: String = ""
     var jobDescription: String = ""
     var pay: Double = 0
@@ -54,6 +56,25 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        resultsViewController = GMSAutocompleteResultsViewController()
+        resultsViewController?.delegate = self
+        
+        searchController = UISearchController(searchResultsController: resultsViewController)
+        searchController?.searchResultsUpdater = resultsViewController as? UISearchResultsUpdating
+        
+        let subView = UIView(frame: CGRect(x: 20, y: 290, width: 330.0, height: 45.0))
+        
+        subView.addSubview((searchController?.searchBar)!)
+        view.addSubview(subView)
+        
+        searchController?.searchBar.sizeToFit()
+        searchController?.searchBar.placeholder = "Enter Address"
+        searchController?.hidesNavigationBarDuringPresentation = false
+        
+        // When UISearchController presents the results view, present it in
+        // this view controller, not one further up the chain.
+        definesPresentationContext = true
 
     }
 
@@ -62,26 +83,58 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
     
     }
     
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        
+    }
+    
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        searchController?.isActive = false
+        
+         print("are predictions working")
+        
+        // Do something with the selected place.
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
+    }
+
+    func didRequestAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    
+    }
+    
 
     
     @IBAction func postJob(_ sender: UIButton) {
         jobTitle = jobTitleField.text!
         jobDescription = jobDescriptionField.text!
-        address = addressField.text!
+       
         pay = Double(payField.text!) ?? 0
         jobDate = jobDatePicker.date
         currentDate = Date()
         photoToPost = jobImageView.image
     
         
-        Job.postJob(location: address, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
+      /*  Job.postJob(location: address, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
             if success {
                 print("Post was saved!")
                 
             } else if let error = error {
                 print("Problem saving message: \(error.localizedDescription)")
             }
-        })
+        })*/
         
     }
     
@@ -103,7 +156,7 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
         let tagsViewController = segue.destination as! TagsTableViewController
         tagsViewController.delegate = self
     }
-        
-
-
+    
 }
+
+
