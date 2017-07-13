@@ -28,8 +28,6 @@ class TopTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        //let user = PFUser.current()!
-        
 //        if (user == nil) {
             user = PFUser.current()
 //        }
@@ -37,16 +35,22 @@ class TopTableViewCell: UITableViewCell {
         backgroundProfilePFImage?.file = user["backgroundImage"] as? PFFile
         backgroundProfilePFImage?.loadInBackground()
         
-//        profilePFImage?.file = user["profilePicture"] as? PFFile
-//        profilePFImage?.loadInBackground()
+        profilePFImage?.file = user["profilePicture"] as? PFFile
+        profilePFImage?.loadInBackground()
+        
+        print("background image: ")
+        print(backgroundProfilePFImage?.file)
+        
+        if (backgroundProfilePFImage?.file == nil) {
+            profilePFImage?.file = "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-user-5.png&r=0&g=0&b=0" as? PFFile
+            profilePFImage?.loadInBackground()
+
+        }
         
 //        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
 //        cell.userImageView.layer.masksToBounds = true
         
         usernameLabel?.text = PFUser.current()?.username!
-        
-//        usernameLabel.text = user["author"] as! String
-        
         
         ratingLabel?.text = user["rating"] as? String
         bioLabel?.text = user["bio"] as? String
