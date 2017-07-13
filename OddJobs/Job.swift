@@ -45,27 +45,9 @@ class Job: NSObject {
      tags: [String]?
     */
     
-<<<<<<< HEAD
-//    init (dictionary: [String: Any]) {
-//        location = dictionary["location"] as! String
-//        title = dictionary["title"] as! String
-//        description = dictionary["description"] as! String
-//        datePosted = dictionary["datePosted"] as! Date
-//        dateDue = dictionary["dateDue"] as! Date
-//        tags = dictionary["tags"] as! [String]
-//        difficulty = dictionary["difficulty"] as! Int
-//        pay = dictionary["pay"] as! Double
-//        image = dictionary["image"] as! URL
-//        userWhoPosted = dictionary["userPosted"] as! PFUser
-//        
-//        //available = dictionary["isAvailable"]
-//        
-//    }
-    
-    class func postJob(location: String, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, difficulty: Int, pay: Double, image: URL?, completion: PFBooleanResultBlock?) {
-=======
+
     class func postJob(location: String, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, difficulty: Int, pay: Double, image: UIImage?, completion: PFBooleanResultBlock?) {
->>>>>>> 7d3f1481eb7551ebdae5f894aaddb435699d3dd1
+
         
         let job = PFObject(className: "Job")
         
