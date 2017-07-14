@@ -448,13 +448,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="236.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Vb-r4-XVk" customClass="PFImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient-wallpaper-iphone2" translatesAutoresizingMaskIntoConstraints="NO" id="6Vb-r4-XVk" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.83845684269999998" blue="0.60232342139999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="8Ve-sw-M5S"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ulg-Gd-5Cr" customClass="PFImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="ulg-Gd-5Cr" customClass="PFImageView">
                                                     <rect key="frame" x="146" y="75" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="Bde-8G-aAU"/>
@@ -529,11 +530,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="backgroundProfilePFImage" destination="6Vb-r4-XVk" id="ea9-Mb-88N"/>
+                                            <outlet property="backgroundProfilePFImage" destination="6Vb-r4-XVk" id="gfD-fL-I6a"/>
                                             <outlet property="bioLabel" destination="9ok-ez-3Pj" id="RNK-BP-c2O"/>
                                             <outlet property="jobsPosterCounterLabel" destination="kda-Q4-D69" id="iYc-n7-Fzq"/>
                                             <outlet property="jobsTakenCounterLabel" destination="U2g-fQ-uTI" id="UsJ-Wk-Ctn"/>
-                                            <outlet property="profilePFImage" destination="ulg-Gd-5Cr" id="UHK-rb-UnK"/>
+                                            <outlet property="profilePFImage" destination="ulg-Gd-5Cr" id="NMd-hA-W9k"/>
                                             <outlet property="ratingLabel" destination="r44-vf-9Yk" id="Z8b-oJ-Jhr"/>
                                             <outlet property="usernameLabel" destination="8bk-Ax-3Li" id="rSJ-Zq-tlW"/>
                                         </connections>
@@ -629,14 +630,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wtp-y1-iid" customClass="PFImageView">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wtp-y1-iid">
                                 <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Z11-Eh-rcr"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Io-8z-PHP" customClass="PFImageView">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Io-8z-PHP">
                                 <rect key="frame" x="32" y="180" width="50" height="50"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="5ad-PS-bgX"/>
                                     <constraint firstAttribute="height" constant="50" id="lNX-1W-pET"/>
@@ -658,8 +661,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1s-Cq-XRm">
+                                <rect key="frame" x="127" y="190" width="69" height="30"/>
+                                <state key="normal" title="Profile pic"/>
+                                <connections>
+                                    <action selector="editProfilePictureButtonPressed:" destination="Sdq-aJ-9g7" eventType="touchUpInside" id="gwx-wK-wNU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cw9-8x-A87">
+                                <rect key="frame" x="277" y="190" width="74" height="30"/>
+                                <state key="normal" title="Banner pic"/>
+                                <connections>
+                                    <action selector="editBannerPictureButtonPressed:" destination="Sdq-aJ-9g7" eventType="touchUpInside" id="bfD-GK-cqG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="FXm-In-laJ" secondAttribute="trailing" constant="8" id="9jS-wI-3xT"/>
                             <constraint firstItem="1qu-nj-ctP" firstAttribute="trailing" secondItem="FXm-In-laJ" secondAttribute="trailing" id="BM6-Gy-WxM"/>
@@ -667,16 +685,23 @@
                             <constraint firstItem="H2a-Hm-qTQ" firstAttribute="leading" secondItem="DBO-Hg-9Tx" secondAttribute="leading" id="Hwv-HO-NAq"/>
                             <constraint firstItem="1Io-8z-PHP" firstAttribute="leading" secondItem="MOh-cn-Btg" secondAttribute="leadingMargin" constant="16" id="JMJ-kk-YEL"/>
                             <constraint firstAttribute="trailing" secondItem="Wtp-y1-iid" secondAttribute="trailing" id="Lyi-9C-bZr"/>
+                            <constraint firstItem="Cw9-8x-A87" firstAttribute="trailing" secondItem="FXm-In-laJ" secondAttribute="trailing" id="O7B-L2-qMg"/>
                             <constraint firstItem="1Io-8z-PHP" firstAttribute="top" secondItem="Wtp-y1-iid" secondAttribute="bottom" constant="16" id="QEj-ix-A9X"/>
                             <constraint firstItem="DBO-Hg-9Tx" firstAttribute="top" secondItem="1Io-8z-PHP" secondAttribute="bottom" constant="16" id="ZgN-Ss-hue"/>
                             <constraint firstItem="FXm-In-laJ" firstAttribute="leading" secondItem="DBO-Hg-9Tx" secondAttribute="trailing" constant="50" id="b0U-hc-40H"/>
+                            <constraint firstItem="Cw9-8x-A87" firstAttribute="centerY" secondItem="1Io-8z-PHP" secondAttribute="centerY" id="ed4-aH-Wux"/>
                             <constraint firstItem="DBO-Hg-9Tx" firstAttribute="leading" secondItem="1Io-8z-PHP" secondAttribute="leading" id="hGY-MR-hqZ"/>
                             <constraint firstItem="Wtp-y1-iid" firstAttribute="leading" secondItem="MOh-cn-Btg" secondAttribute="leading" id="nte-9w-KCx"/>
                             <constraint firstItem="1qu-nj-ctP" firstAttribute="leading" secondItem="FXm-In-laJ" secondAttribute="leading" id="oZk-wf-a1H"/>
+                            <constraint firstItem="n1s-Cq-XRm" firstAttribute="centerY" secondItem="1Io-8z-PHP" secondAttribute="centerY" id="rKr-Ev-sVg"/>
                             <constraint firstItem="FXm-In-laJ" firstAttribute="centerY" secondItem="DBO-Hg-9Tx" secondAttribute="centerY" id="rk5-Dj-BDZ"/>
                             <constraint firstItem="H2a-Hm-qTQ" firstAttribute="top" secondItem="DBO-Hg-9Tx" secondAttribute="bottom" constant="16" id="sSa-4c-TLA"/>
+                            <constraint firstItem="FXm-In-laJ" firstAttribute="leading" secondItem="n1s-Cq-XRm" secondAttribute="leading" id="ut4-Xf-cbN"/>
                             <constraint firstItem="Wtp-y1-iid" firstAttribute="top" secondItem="LbJ-Z5-Gki" secondAttribute="bottom" id="y7Z-1N-h54"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1bf-Nf-Hzf" appends="YES" id="1uS-30-88R"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="iEi-s9-TP8">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="FuW-sp-3zg">
@@ -691,13 +716,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backgroundProfilePFImage" destination="Wtp-y1-iid" id="qps-OX-WOd"/>
+                        <outlet property="backgroundProfileImageView" destination="Wtp-y1-iid" id="Spp-vl-Dwj"/>
                         <outlet property="bioTextField" destination="1qu-nj-ctP" id="0gE-zh-IkX"/>
-                        <outlet property="profilePFImage" destination="1Io-8z-PHP" id="yRc-Wh-efh"/>
+                        <outlet property="profilePictureImageView" destination="1Io-8z-PHP" id="Zbg-fm-KuB"/>
                         <outlet property="usernameTextField" destination="FXm-In-laJ" id="9Mz-gK-LIm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5C-Ca-DfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1bf-Nf-Hzf"/>
             </objects>
             <point key="canvasLocation" x="4785" y="752"/>
         </scene>
@@ -726,7 +752,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d3p-eY-rZF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a3V-mP-s7F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -765,7 +791,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sye-hu-J6y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="m96-EM-I7f"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hRx-N9-B1U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hRx-N9-B1U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -784,7 +810,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H8Y-ZV-vbz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="IEA-cp-WHs"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d62-N4-tch">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d62-N4-tch">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -801,7 +827,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ccP-HL-wdb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QhP-7p-MLR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhP-7p-MLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -819,7 +845,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -834,7 +860,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="defaultUser" width="24" height="24"/>
         <image name="gear" width="24" height="24"/>
+        <image name="gradient-wallpaper-iphone2" width="736" height="1309"/>
         <image name="profile_tab" width="25" height="25"/>
     </resources>
 </document>

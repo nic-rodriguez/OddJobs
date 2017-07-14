@@ -34,7 +34,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         jobsTableView.insertSubview(refreshControl, at: 1)
         
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,37 +71,29 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
-            
             //jobsTableView.deselectRow(at: indexPath, animated: true)
-            
             cell.job = jobs[indexPath.row]
             return cell
         }
     }
-        
-        
+    
+    
     func fetchJobs() {
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
         query.includeKey("userPosted")
-        query.whereKey("userPosted", equalTo: PFUser.current())
-
+        query.whereKey("userPosted", equalTo: PFUser.current()!)
         query.limit = 8
-        
         query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                
-                
                 self.jobs = jobs!
                 self.jobsTableView.reloadData()
-                
-                
             }
         }
     }
-
+    
     
     func refreshControlAction(_ refreshControl: UIRefreshControl!) {
         fetchJobs()

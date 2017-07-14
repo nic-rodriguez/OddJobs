@@ -15,7 +15,6 @@ class TopTableViewCell: UITableViewCell {
     var user: PFUser!
     
     @IBOutlet weak var backgroundProfilePFImage: PFImageView?
-    
     @IBOutlet weak var profilePFImage: PFImageView?
     @IBOutlet weak var usernameLabel: UILabel?
     @IBOutlet weak var ratingLabel: UILabel?
@@ -38,13 +37,8 @@ class TopTableViewCell: UITableViewCell {
         profilePFImage?.file = user["profilePicture"] as? PFFile
         profilePFImage?.loadInBackground()
         
-        print("background image: ")
-        print(backgroundProfilePFImage?.file)
-        
         if (backgroundProfilePFImage?.file == nil) {
-            profilePFImage?.file = "https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-user-5.png&r=0&g=0&b=0" as? PFFile
-            profilePFImage?.loadInBackground()
-
+            //set to default
         }
         
 //        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
