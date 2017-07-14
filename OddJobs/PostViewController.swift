@@ -15,10 +15,7 @@ import GooglePlacePicker
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, TagsTableViewControllerDelegate, UINavigationControllerDelegate {
    
-    
-    
-    
-
+    @IBOutlet weak var addressLabel: UILabel!
    
     @IBOutlet weak var jobTitleField: UITextField!
     
@@ -85,6 +82,11 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, Tag
     
   
 
+    @IBAction func endEditting(_ sender: UITapGestureRecognizer) {
+        
+        view.endEditing(true)
+        
+    }
 
     
     @IBAction func postJob(_ sender: UIButton) {
@@ -100,7 +102,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, Tag
         Job.postJob(location: address, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
             if success {
                 print("Post was saved!")
-                
+                self.dismiss(animated: true, completion: nil)
             } else if let error = error {
                 print("Problem saving message: \(error.localizedDescription)")
             }
@@ -118,16 +120,10 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, Tag
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.jobImageView.image = originalImage
-        
         dismiss(animated: true, completion: nil)
     }
     
-    
-   
-    
-    
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tagsViewController = segue.destination as! TagsTableViewController
         tagsViewController.delegate = self
@@ -144,7 +140,7 @@ extension PostViewController: GMSAutocompleteViewControllerDelegate {
         print("Place attributions: \(place.attributions)")
         
         address = place.formattedAddress!
-        
+        addressLabel.text = address
         dismiss(animated: true, completion: nil)
     }
     
