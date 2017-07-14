@@ -441,7 +441,7 @@
                                 <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTableViewCell" rowHeight="237" id="9cc-0m-A7x" customClass="TopTableViewCell" customModule="OddJobs" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTableViewCell" rowHeight="237" id="9cc-0m-A7x" customClass="TopTableViewCell" customModule="OddJobs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="237"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9cc-0m-A7x" id="R6A-0z-Qm0" customClass="TopTableViewCell" customModule="OddJobs" customModuleProvider="target">

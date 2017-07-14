@@ -122,13 +122,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func editProfilePictureButtonPressed(_ sender: Any) {
         isChangingBanner = false
         selectPic()
-        if (myProfileImage) != nil {
+        //if (myProfileImage) != nil {
             print("resizing image")
             myProfileImage = resizeImage(image: myProfileImage, targetSize: CGSize(width: 50, height: 50))
             profilePictureImageView.image = myProfileImage
             print("ProfilePic was set")
             profilePicChanged = true
-        }
+        //}
     }
     
     @IBAction func editBannerPictureButtonPressed(_ sender: Any) {
