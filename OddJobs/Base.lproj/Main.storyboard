@@ -401,7 +401,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="206.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4r9-9E-ET4" customClass="PFImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4r9-9E-ET4" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="125" id="CuR-xh-5gp"/>
@@ -466,9 +466,9 @@
                                                 <constraint firstItem="ufV-c6-EQo" firstAttribute="top" secondItem="SvJ-Cz-Ncz" secondAttribute="bottom" constant="5.5" id="b0P-93-C4q"/>
                                                 <constraint firstItem="ufV-c6-EQo" firstAttribute="leading" secondItem="SvJ-Cz-Ncz" secondAttribute="leading" id="g0e-jm-HmK"/>
                                                 <constraint firstAttribute="trailing" secondItem="0pC-vm-9D1" secondAttribute="trailing" constant="8" id="jKW-gk-g3l"/>
-                                                <constraint firstItem="0pC-vm-9D1" firstAttribute="top" secondItem="4r9-9E-ET4" secondAttribute="bottom" constant="8" id="lrQ-mc-Pas"/>
                                                 <constraint firstItem="0pC-vm-9D1" firstAttribute="top" secondItem="SeJ-4i-vSx" secondAttribute="top" id="q2Z-Ez-4xD"/>
                                                 <constraint firstAttribute="bottom" secondItem="mA1-Dh-s9J" secondAttribute="bottom" constant="8" id="s6W-GK-bUg"/>
+                                                <constraint firstItem="AY1-gk-7qk" firstAttribute="top" secondItem="4r9-9E-ET4" secondAttribute="bottom" constant="8" id="sbO-43-hS3"/>
                                                 <constraint firstItem="0pC-vm-9D1" firstAttribute="bottom" secondItem="SeJ-4i-vSx" secondAttribute="bottom" id="tAQ-wm-VTT"/>
                                                 <constraint firstItem="4r9-9E-ET4" firstAttribute="top" secondItem="UKU-nb-Xa5" secondAttribute="top" id="wXi-Xw-4jK"/>
                                             </constraints>
@@ -839,9 +839,19 @@
                     <view key="view" contentMode="scaleToFill" id="VJU-4R-wxt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUv-qe-ZDy" customClass="MKMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="6GC-P5-Yoy"/>
+                    <connections>
+                        <outlet property="mapView" destination="oUv-qe-ZDy" id="bLN-W4-7uc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIB-QF-l3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
