@@ -11,7 +11,7 @@ import Parse
 import ParseUI
 import AVFoundation
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TopTableViewDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let user = PFUser.current()
     
@@ -67,7 +67,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func saveButtonPressed(_ sender: Any) {
         //verify for things that havent been changed or filled in
         if let name = usernameTextField.text {
@@ -114,7 +113,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             myBannerImage = originalImage
             myBannerImage = editedImage
             
-            print("resizing image")
             myBannerImage = resizeImage(image: myBannerImage, targetSize: CGSize(width: 375, height: 100))
             
             bagroundProfilePFImageView.file = getPFFileFromImage(image: myBannerImage)
@@ -136,7 +134,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
         print("finished setting image")
         
-        // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
     }
     
@@ -145,6 +142,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func editProfilePictureButtonPressed(_ sender: Any) {
         isChangingBanner = false
         selectPic()
+        
     }
     
     @IBAction func editBannerPictureButtonPressed(_ sender: Any) {
@@ -174,7 +172,4 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         return nil
     }
     
-    func topTableViewCell(_ topTableViewCell: TopTableViewCell) {
-       topTableViewCell.loadData()
-    }
 }
