@@ -9,15 +9,17 @@
 //TODO:  place autocomplete, tableView for tags, current date, image picker
 
 import UIKit
+import GooglePlaces
+import GoogleMaps
+import GooglePlacePicker
 
-class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, TagsTableViewControllerDelegate, UINavigationControllerDelegate {
+   
+    @IBOutlet weak var addressLabel: UILabel!
+   
     @IBOutlet weak var jobTitleField: UITextField!
     
     @IBOutlet weak var jobDescriptionField: UITextField!
-    
-    @IBOutlet weak var addressField: UITextField!
     
     @IBOutlet weak var payField: UITextField!
     
@@ -40,7 +42,20 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
         self.dismiss(animated: true, completion: nil)
 
     }
+    @IBOutlet weak var enterAddress: UIButton!
     
+    
+    
+    @IBAction func openGMS(_ sender: UIButton) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
+    }
+    
+
+    var resultsController: GMSAutocompleteResultsViewController?
+    var searchController: UISearchController?
+    var resultView: UITextView?
     
     var jobTitle: String = ""
     var jobDescription: String = ""
@@ -54,20 +69,30 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
     }
+
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     
     }
     
+  
+
+    @IBAction func endEditting(_ sender: UITapGestureRecognizer) {
+        
+        view.endEditing(true)
+        
+    }
 
     
     @IBAction func postJob(_ sender: UIButton) {
         jobTitle = jobTitleField.text!
         jobDescription = jobDescriptionField.text!
-        address = addressField.text!
+       
         pay = Double(payField.text!) ?? 0
         jobDate = jobDatePicker.date
         currentDate = Date()
@@ -77,7 +102,7 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
         Job.postJob(location: address, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
             if success {
                 print("Post was saved!")
-                
+                self.dismiss(animated: true, completion: nil)
             } else if let error = error {
                 print("Problem saving message: \(error.localizedDescription)")
             }
@@ -95,15 +120,48 @@ class PostViewController: UIViewController,TagsTableViewControllerDelegate, UIIm
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.jobImageView.image = originalImage
-        
         dismiss(animated: true, completion: nil)
     }
     
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tagsViewController = segue.destination as! TagsTableViewController
         tagsViewController.delegate = self
     }
-        
-
-
+    
 }
+
+extension PostViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
+        
+        address = place.formattedAddress!
+        addressLabel.text = address
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+}
+

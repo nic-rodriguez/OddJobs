@@ -11,8 +11,25 @@ import Parse
 import ParseUI
 
 class UserJobsTableViewCell: UITableViewCell {
-
-    var job: PFObject!
+    
+    var job: PFObject! {
+        didSet {
+            //        jobPFImage.file = user["jobImage"] as? PFFile
+            //        jobPFImage.loadInBackground()
+            
+            jobTitleLabel.text = job["title"] as? String
+            
+            //        jobDateLabel.text = job["dateDue"] as? String
+            
+            //date posted
+            let date = job["dateDue"]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let dateString = dateFormatter.string(from:date as! Date)
+            jobDateLabel.text = dateString as! String
+            
+        }
+    }
     
     @IBOutlet weak var jobPFImage: PFImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
@@ -23,24 +40,13 @@ class UserJobsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-//        jobPFImage.file = user["jobImage"] as? PFFile
-//        jobPFImage.loadInBackground()
-        
-        jobTitleLabel.text = "MY JOB LABEL" //job["title"] as! String
-        
-        //date posted
-//        let date = job["dateDue"]
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        let dateString = dateFormatter.string(from:date as! Date)
-//        jobDateLabel.text = dateString as! String
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

@@ -38,10 +38,9 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     @IBAction func didSaveTags(_ sender: UIButton) {
-       
-        
-        self.delegate?.createTags(tags: tagsToPass)
+       self.delegate?.createTags(tags: tagsToPass)
         print(tagsToPass)
+        
         
     }
 
