@@ -13,7 +13,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
 
     @IBOutlet weak var workersTableView: UITableView!
     
-    var workers: [PFUser]!
+    var workers: [PFUser] = []
     
     var currentLocation: PFGeoPoint!
     
@@ -23,7 +23,10 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
         workersTableView.dataSource = self
         workersTableView.delegate = self
         
+        let currentUser = PFUser.current()
+        
         PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
+            print("is running")
             if geoPoint != nil {
                 let geoPointLat = geoPoint.latitude
                 let geoPointLong = geoPoint.longitude
@@ -31,19 +34,31 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
                 print(self.currentLocation)
                 print("is this printing")
                 
-                var query = PFQuery(className:"User")
+                
+                currentUser!["location"] = self.currentLocation
+                print("User location saved!")
+                currentUser?.saveInBackground()
+
+                
+                let query: PFQuery = PFUser.query()!
                 // Interested in locations near user.
                 query.whereKey("location", nearGeoPoint:self.currentLocation)
                 // Limit what could be a lot of points.
                 query.limit = 10
                 // Final list of objects
-                self.workers = try! query.findObjects() as! [PFUser]
-            }
-            else{
+        
+                try! self.workers = query.findObjects() as! [PFUser]
+                 self.workersTableView.reloadData()
+                
+            } else{
                 print(error?.localizedDescription ?? "Error")
             }
         })
+        
+        
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,7 +67,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return workers.count
     }
     
     
@@ -61,7 +76,22 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
         
         let cell = workersTableView.dequeueReusableCell(withIdentifier: "WorkerCell", for: indexPath) as! WorkersTableViewCell
         
-        
+        cell.user = workers[indexPath.row]
+    
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        workersTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! WorkersTableViewCell
+        if let indexPath = workersTableView.indexPath(for: cell) {
+            let user = workers[indexPath.row]
+            let profileViewController = segue.destination as! ProfileViewController
+            profileViewController.user = user
+        }
     }
 }

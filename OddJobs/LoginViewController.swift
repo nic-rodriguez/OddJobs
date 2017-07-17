@@ -38,6 +38,8 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
+        
+        
         //add segue to next screen
     }
     
@@ -46,9 +48,7 @@ class LoginViewController: UIViewController {
         
         newUser.username = userTextField.text
         newUser.password = passwordTextField.text
-        
-        
-        
+    
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             if let error = error {
                 print("Error: " + error.localizedDescription)
