@@ -12,6 +12,8 @@
 		864CE1121F17F31E00358D5D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864CE1111F17F31E00358D5D /* EditProfileViewController.swift */; };
 		86947B8F1F169F4100BD708F /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86947B8E1F169F4100BD708F /* TopTableViewCell.swift */; };
 		86947B911F169F6F00BD708F /* UserJobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */; };
+		982965471F1D2DB900C18FA8 /* NearbyWorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */; };
+		982965491F1D308C00C18FA8 /* WorkersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982965481F1D308C00C18FA8 /* WorkersTableViewCell.swift */; };
 		984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */; };
 		984C684F1F16ACEB00FB4AE4 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */; };
 		98AC28361F181121000CD55E /* GMSAutocompleteResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AC28351F181121000CD55E /* GMSAutocompleteResultsViewController.swift */; };
@@ -56,6 +58,8 @@
 		86947B8E1F169F4100BD708F /* TopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
 		86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserJobsTableViewCell.swift; sourceTree = "<group>"; };
 		92D75CC1075FA661748BD749 /* Pods-OddJobsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsUITests/Pods-OddJobsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyWorkersViewController.swift; sourceTree = "<group>"; };
+		982965481F1D308C00C18FA8 /* WorkersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkersTableViewCell.swift; sourceTree = "<group>"; };
 		984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
 		984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		98AC28351F181121000CD55E /* GMSAutocompleteResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSAutocompleteResultsViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */,
 				98AC28351F181121000CD55E /* GMSAutocompleteResultsViewController.swift */,
 				A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */,
+				982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			children = (
 				984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */,
 				A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */,
+				982965481F1D308C00C18FA8 /* WorkersTableViewCell.swift */,
 				86947B8E1F169F4100BD708F /* TopTableViewCell.swift */,
 				86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */,
 			);
@@ -509,8 +515,11 @@
 				864CE1121F17F31E00358D5D /* EditProfileViewController.swift in Sources */,
 				984C684F1F16ACEB00FB4AE4 /* TagTableViewCell.swift in Sources */,
 				A92EB48B1F159EF400EB77E8 /* PostViewController.swift in Sources */,
+				982965491F1D308C00C18FA8 /* WorkersTableViewCell.swift in Sources */,
 				A92EB4891F159EEA00EB77E8 /* ProfileViewController.swift in Sources */,
 				A972FBEF1F1693B600446EAC /* HomeFeedTableViewCell.swift in Sources */,
+				A972FBF11F16CEB500446EAC /* MapsViewController.swift in Sources */,
+				982965471F1D2DB900C18FA8 /* NearbyWorkersViewController.swift in Sources */,
 				A907D0321F1425C60069B7E7 /* LoginViewController.swift in Sources */,
 				A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */,
 				984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */,
