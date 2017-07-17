@@ -29,7 +29,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
                 let geoPointLong = geoPoint.longitude
                 self.currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
                 print(self.currentLocation)
-                
+                print("is this printing")
                 
                 var query = PFQuery(className:"User")
                 // Interested in locations near user.
@@ -52,7 +52,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workers.count
+        return 2
     }
     
     
