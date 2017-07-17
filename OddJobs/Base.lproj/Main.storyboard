@@ -264,7 +264,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eNd-Ps-IN5" id="H7f-ON-net">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdY-9E-T22">
@@ -326,7 +326,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CrT-Lg-5ls" id="8GQ-t6-FKy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="143.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TDS-gP-Iid">
@@ -398,7 +398,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="207"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMU-ZJ-rRI" id="UKU-nb-Xa5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="206.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4r9-9E-ET4" customClass="PFImageView">
@@ -545,7 +545,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="237"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9cc-0m-A7x" id="R6A-0z-Qm0" customClass="TopTableViewCell" customModule="OddJobs" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="236.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="236"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient-wallpaper-iphone2" translatesAutoresizingMaskIntoConstraints="NO" id="6Vb-r4-XVk" customClass="PFImageView">
@@ -644,7 +644,7 @@
                                         <rect key="frame" x="0.0" y="265" width="343" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tkI-NK-f3N" id="PRX-xJ-Q4e">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="110.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VPV-3x-ePQ" customClass="PFImageView">
@@ -753,7 +753,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1qu-nj-ctP">
-                                <rect key="frame" x="127" y="293.5" width="224" height="130"/>
+                                <rect key="frame" x="127" y="294" width="224" height="130"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.20483054577464788" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="kXZ-Le-fhl"/>
@@ -952,13 +952,12 @@
             <point key="canvasLocation" x="2965.5999999999999" y="-760.56971514242889"/>
         </scene>
         <!--Navigation Controller-->
-<!--<<<<<< HEAD -->
         <scene sceneID="6tO-WV-R9Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
-<!--                        <<<<<<< HEAD -->
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Sdq-aJ-9g7" kind="relationship" relationship="rootViewController" id="dTq-GG-K4Z"/>
@@ -968,13 +967,14 @@
             </objects>
             <point key="canvasLocation" x="3904.8000000000002" y="751.57421289355329"/>
         </scene>
-<!-- ======= -->
+        <!--Navigation Controller-->
         <scene sceneID="WSE-Mc-lmS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4zK-83-1ct" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bw0-hu-T7s">
-<!-- >>>>>>> nearbyWorkers ======= -->
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
                     <connections>
                         <segue destination="mlJ-Jy-TM4" kind="relationship" relationship="rootViewController" id="Bcj-CS-nOf"/>
@@ -983,7 +983,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygf-ba-qxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4794.3999999999996" y="9.4452773613193415"/>
-<!-- >>>>>>> nearbyWorkers -->
         </scene>
     </scenes>
     <resources>

@@ -12,6 +12,7 @@
 		864CE1121F17F31E00358D5D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864CE1111F17F31E00358D5D /* EditProfileViewController.swift */; };
 		86947B8F1F169F4100BD708F /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86947B8E1F169F4100BD708F /* TopTableViewCell.swift */; };
 		86947B911F169F6F00BD708F /* UserJobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */; };
+		981767FB1F1D430500C71440 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981767FA1F1D430500C71440 /* EditProfileViewController.swift */; };
 		982965471F1D2DB900C18FA8 /* NearbyWorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */; };
 		982965491F1D308C00C18FA8 /* WorkersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982965481F1D308C00C18FA8 /* WorkersTableViewCell.swift */; };
 		984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */; };
@@ -58,6 +59,7 @@
 		86947B8E1F169F4100BD708F /* TopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
 		86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserJobsTableViewCell.swift; sourceTree = "<group>"; };
 		92D75CC1075FA661748BD749 /* Pods-OddJobsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsUITests/Pods-OddJobsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		981767FA1F1D430500C71440 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyWorkersViewController.swift; sourceTree = "<group>"; };
 		982965481F1D308C00C18FA8 /* WorkersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkersTableViewCell.swift; sourceTree = "<group>"; };
 		984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
@@ -130,17 +132,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		86947B8D1F169F2900BD708F /* profileViewControlers */ = {
-			isa = PBXGroup;
-			children = (
-				A92EB4881F159EEA00EB77E8 /* ProfileViewController.swift */,
-				86947B8E1F169F4100BD708F /* TopTableViewCell.swift */,
-				86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */,
-				864CE1111F17F31E00358D5D /* EditProfileViewController.swift */,
-			);
-			name = profileViewControlers;
-			sourceTree = "<group>";
-		};
 		874E5EE1FAB526F84EF99DEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +200,7 @@
 		A907D0331F1425F60069B7E7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				981767FA1F1D430500C71440 /* EditProfileViewController.swift */,
 				A907D0311F1425C60069B7E7 /* LoginViewController.swift */,
 				A92EB4881F159EEA00EB77E8 /* ProfileViewController.swift */,
 				A92EB48A1F159EF400EB77E8 /* PostViewController.swift */,
@@ -318,7 +310,6 @@
 				TargetAttributes = {
 					A907CFFF1F1422D10069B7E7 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = MN547NZ6JQ;
 						DevelopmentTeam = C5DZPHEUD8;
 						ProvisioningStyle = Automatic;
 					};
@@ -531,10 +522,10 @@
 				A92EB4891F159EEA00EB77E8 /* ProfileViewController.swift in Sources */,
 				A98D25881F1D35EC00C4A9C2 /* MapsViewController.swift in Sources */,
 				A972FBEF1F1693B600446EAC /* HomeFeedTableViewCell.swift in Sources */,
-				A972FBF11F16CEB500446EAC /* MapsViewController.swift in Sources */,
 				982965471F1D2DB900C18FA8 /* NearbyWorkersViewController.swift in Sources */,
 				A907D0321F1425C60069B7E7 /* LoginViewController.swift in Sources */,
 				A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */,
+				981767FB1F1D430500C71440 /* EditProfileViewController.swift in Sources */,
 				984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */,
 				A92EB4921F159F4900EB77E8 /* Job.swift in Sources */,
 				98AC28361F181121000CD55E /* GMSAutocompleteResultsViewController.swift in Sources */,
@@ -694,10 +685,6 @@
 			baseConfigurationReference = 9E03042526A246236E533EAF /* Pods-OddJobs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MN547NZ6JQ;
-				INFOPLIST_FILE = OddJobs/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.OddJobs2017;
 				DEVELOPMENT_TEAM = C5DZPHEUD8;
 				INFOPLIST_FILE = OddJobs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -712,10 +699,6 @@
 			baseConfigurationReference = 549566E4FE79AC2C03C02330 /* Pods-OddJobs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MN547NZ6JQ;
-				INFOPLIST_FILE = OddJobs/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.FBU.OddJobs2017;
 				DEVELOPMENT_TEAM = C5DZPHEUD8;
 				INFOPLIST_FILE = OddJobs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
