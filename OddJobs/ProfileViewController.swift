@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Do any additional setup after loading the view.
         jobsTableView.rowHeight = UITableViewAutomaticDimension
+//        jobsTableView.rowHeight = 1000  //got rid of warning but auto layout still goew to shit
         jobsTableView.estimatedRowHeight = 100
 
         fetchJobs()
@@ -71,6 +72,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             //cell.user = user                //for now always will be current user
             
             topCell = cell
+            
+            
             
             return cell
         } else { //job postings
