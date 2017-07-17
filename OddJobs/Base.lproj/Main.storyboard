@@ -630,14 +630,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wtp-y1-iid">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wtp-y1-iid" customClass="PFImageView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="100"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Z11-Eh-rcr"/>
                                 </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Io-8z-PHP">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Io-8z-PHP" customClass="PFImageView">
                                 <rect key="frame" x="32" y="180" width="50" height="50"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -716,9 +716,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backgroundProfileImageView" destination="Wtp-y1-iid" id="Spp-vl-Dwj"/>
+                        <outlet property="bagroundProfilePFImageView" destination="Wtp-y1-iid" id="lNp-SD-98W"/>
                         <outlet property="bioTextField" destination="1qu-nj-ctP" id="0gE-zh-IkX"/>
-                        <outlet property="profilePictureImageView" destination="1Io-8z-PHP" id="Zbg-fm-KuB"/>
+                        <outlet property="profilePicturePFImageView" destination="1Io-8z-PHP" id="AKC-6d-6wk"/>
                         <outlet property="usernameTextField" destination="FXm-In-laJ" id="9Mz-gK-LIm"/>
                     </connections>
                 </viewController>
@@ -752,7 +752,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d3p-eY-rZF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a3V-mP-s7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -791,7 +791,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sye-hu-J6y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="m96-EM-I7f"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hRx-N9-B1U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hRx-N9-B1U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -810,7 +810,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H8Y-ZV-vbz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="IEA-cp-WHs"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d62-N4-tch">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d62-N4-tch">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -827,7 +827,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ccP-HL-wdb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhP-7p-MLR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QhP-7p-MLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -845,7 +845,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

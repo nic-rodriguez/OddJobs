@@ -10,8 +10,13 @@ import UIKit
 import Parse
 import ParseUI
 
-class TopTableViewCell: UITableViewCell {
+protocol TopTableViewDelegate: class {
+    func topTableViewCell(_ topTableViewCell: TopTableViewCell)
+}
 
+
+class TopTableViewCell: UITableViewCell {
+    
     var user: PFUser!
     
     @IBOutlet weak var backgroundProfilePFImage: PFImageView?
@@ -27,9 +32,20 @@ class TopTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-//        if (user == nil) {
-            user = PFUser.current()
-//        }
+        loadData()
+        
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+    func loadData() {
+        //        if (user == nil) {
+        user = PFUser.current()
+        //        }
         
         backgroundProfilePFImage?.file = user["backgroundImage"] as? PFFile
         backgroundProfilePFImage?.loadInBackground()
@@ -41,22 +57,16 @@ class TopTableViewCell: UITableViewCell {
             //set to default
         }
         
-//        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
-//        cell.userImageView.layer.masksToBounds = true
+        //        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
+        //        cell.userImageView.layer.masksToBounds = true
         
         usernameLabel?.text = PFUser.current()?.username!
         
-        ratingLabel?.text = user["rating"] as? String
-        bioLabel?.text = user["bio"] as? String
-        jobsTakenCounterLabel?.text = user["jobsTakenInt"] as? String
-        jobsPosterCounterLabel?.text = user["jobsPostedInt"] as? String
+        ratingLabel?.text = user["rating"] as? String ?? "0"
+        bioLabel?.text = user["bio"] as? String ?? ""
+        jobsTakenCounterLabel?.text = user["jobsTakenInt"] as? String ?? "0"
+        jobsPosterCounterLabel?.text = user["jobsPostedInt"] as? String ?? "0"
         
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }

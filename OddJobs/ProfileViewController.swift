@@ -10,10 +10,11 @@ import UIKit
 import Parse
 import ParseUI
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TopTableViewDelegate {
     
     var user: PFUser!
     var jobs: [PFObject] = []
+    var topCell: TopTableViewCell? = nil
     
     @IBOutlet weak var jobsTableView: UITableView!
     
@@ -67,7 +68,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0){ //profile
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell", for: indexPath) as! TopTableViewCell
-            //cell.user = user                      //for now always will be current user
+            //cell.user = user                //for now always will be current user
+            
+            topCell = cell
+            
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
@@ -97,7 +101,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func refreshControlAction(_ refreshControl: UIRefreshControl!) {
         fetchJobs()
+        jobsTableView.reloadData()
+        if let topCell = topCell {
+            topTableViewCell(topCell)
+        }
         refreshControl.endRefreshing()
     }
 
+    func topTableViewCell(_ topTableViewCell: TopTableViewCell) {
+        topTableViewCell.loadData()
+    }
+    
 }

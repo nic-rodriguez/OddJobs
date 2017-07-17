@@ -11,7 +11,7 @@ import Parse
 import ParseUI
 import AVFoundation
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TopTableViewDelegate {
     
     let user = PFUser.current()
     
@@ -23,23 +23,28 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var profilePicChanged: Bool = false
     var bannerPicChanger: Bool = false
     
-    @IBOutlet weak var backgroundProfileImageView: UIImageView!
-    @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var bioTextField: UITextView!
     
+    @IBOutlet weak var bagroundProfilePFImageView: PFImageView!
+    @IBOutlet weak var profilePicturePFImageView: PFImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         usernameTextField.text = user?.username
+        
         if let bio = user?["bio"] {
             bioTextField.text = bio as! String
         }
-        
-        
-        
+        if user?["profilePicture"] != nil {
+            profilePicturePFImageView?.file = user?["profilePicture"] as? PFFile
+            profilePicturePFImageView?.loadInBackground()
+        }
+        if user?["backgroundImage"] != nil {
+            bagroundProfilePFImageView?.file = user?["backgroundImage"] as? PFFile
+            bagroundProfilePFImageView?.loadInBackground()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,13 +77,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             user?["bio"] = bio
         }
         if profilePicChanged {
-            user?["profilePicture"] = getPFFileFromImage(image: profilePictureImageView.image)
+            user?["profilePicture"] = profilePicturePFImageView.file
         }
         if bannerPicChanger {
-            user?["backgroundImage"] = getPFFileFromImage(image: backgroundProfileImageView.image)
+            user?["backgroundImage"] = bagroundProfilePFImageView.file
         }
         
         user?.saveInBackground()
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -107,9 +113,26 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         if (isChangingBanner) {
             myBannerImage = originalImage
             myBannerImage = editedImage
+            
+            print("resizing image")
+            myBannerImage = resizeImage(image: myBannerImage, targetSize: CGSize(width: 375, height: 100))
+            
+            bagroundProfilePFImageView.file = getPFFileFromImage(image: myBannerImage)
+            bagroundProfilePFImageView.loadInBackground()
+            
+            print("Banner was set")
+            bannerPicChanger = true
         } else {
             myProfileImage = originalImage
             myProfileImage = editedImage
+            
+            myProfileImage = resizeImage(image: myProfileImage, targetSize: CGSize(width: 50, height: 50))
+            
+            profilePicturePFImageView.file = getPFFileFromImage(image: myProfileImage)
+            profilePicturePFImageView.loadInBackground()
+            
+            print("ProfilePic was set")
+            profilePicChanged = true
         }
         print("finished setting image")
         
@@ -122,25 +145,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func editProfilePictureButtonPressed(_ sender: Any) {
         isChangingBanner = false
         selectPic()
-        //if (myProfileImage) != nil {
-            print("resizing image")
-            myProfileImage = resizeImage(image: myProfileImage, targetSize: CGSize(width: 50, height: 50))
-            profilePictureImageView.image = myProfileImage
-            print("ProfilePic was set")
-            profilePicChanged = true
-        //}
     }
     
     @IBAction func editBannerPictureButtonPressed(_ sender: Any) {
         isChangingBanner = true
         selectPic()
-        if (myBannerImage) != nil {
-            print("resizing image")
-            myBannerImage = resizeImage(image: myBannerImage, targetSize: CGSize(width: 375, height: 100))
-            backgroundProfileImageView.image = myBannerImage
-            print("Banner was set")
-            bannerPicChanger = true
-        }
     }
     
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
@@ -163,5 +172,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             }
         }
         return nil
+    }
+    
+    func topTableViewCell(_ topTableViewCell: TopTableViewCell) {
+       topTableViewCell.loadData()
     }
 }
