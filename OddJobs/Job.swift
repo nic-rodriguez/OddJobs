@@ -32,8 +32,8 @@ class Job: NSObject {
      bookmarkedUsers: [PFUser: Bool]?
      tags: [String]?
     */
-
     class func postJob(location: String, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, difficulty: Int, pay: Double, image: UIImage?, completion: PFBooleanResultBlock?) {
+
         
         let job = PFObject(className: "Job")
         

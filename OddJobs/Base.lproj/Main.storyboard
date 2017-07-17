@@ -120,20 +120,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mQ7-NE-h8B">
-                                <rect key="frame" x="27" y="209" width="307" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="521572764.67030501">
-                                    <!--2017-07-12 17:19:24 +0000-->
-                                </date>
-                            </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tv5-gz-wI6">
-                                <rect key="frame" x="27" y="305" width="307" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Mt-87-FpR">
                                 <rect key="frame" x="27" y="354" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -188,6 +174,21 @@
                                 <rect key="frame" x="103" y="437" width="154" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mQ7-NE-h8B">
+                                <rect key="frame" x="27" y="197" width="307" height="80"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="521572764.67030501">
+                                    <!--2017-07-12 17:19:24 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUh-kA-j2F">
+                                <rect key="frame" x="36" y="285" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Enter Address"/>
+                                <connections>
+                                    <action selector="openGMS:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="icJ-KD-7Yo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -204,15 +205,24 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addressField" destination="tv5-gz-wI6" id="SlH-4q-EJn"/>
+                        <outlet property="enterAddress" destination="mUh-kA-j2F" id="Thi-lm-ZWv"/>
                         <outlet property="jobDatePicker" destination="mQ7-NE-h8B" id="T6x-QF-bPZ"/>
                         <outlet property="jobDescriptionField" destination="bwu-dg-7M8" id="FGE-68-cTj"/>
                         <outlet property="jobImageView" destination="5oE-jJ-lCM" id="tx7-Kq-XtJ"/>
                         <outlet property="jobTitleField" destination="W4A-QW-Zli" id="CtG-MP-fhl"/>
                         <outlet property="payField" destination="7Mt-87-FpR" id="7jt-Xo-ceE"/>
+                        <outlet property="searchDisplayController" destination="rGu-6L-Bt6" id="LQQ-6a-wQJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Bp-Z0-ef3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="rGu-6L-Bt6">
+                    <connections>
+                        <outlet property="delegate" destination="xLo-Ms-qaJ" id="A6J-g1-hmH"/>
+                        <outlet property="searchContentsController" destination="xLo-Ms-qaJ" id="6bd-zf-xEa"/>
+                        <outlet property="searchResultsDataSource" destination="xLo-Ms-qaJ" id="8bT-dl-TbE"/>
+                        <outlet property="searchResultsDelegate" destination="xLo-Ms-qaJ" id="7SW-Ui-Rsa"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="3904.8000000000002" y="-760.56971514242889"/>
         </scene>

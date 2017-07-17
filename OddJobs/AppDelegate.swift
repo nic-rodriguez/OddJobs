@@ -37,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = homeViewController
         }
         
-        GMSPlacesClient.provideAPIKey("AIzaSyBIWErF-n_u-qq0SpN9R0qr2DPhdF–Pzg")
-        GMSServices.provideAPIKey("AIzaSyBIWErF-n_u-qq0SpN9R0qr2DPhdF–Pzg")
+        GMSPlacesClient.provideAPIKey("AIzaSyBIWErF-n_u-qq0SpN9R0qr2DPhdF--Pzg")
+        GMSServices.provideAPIKey("AIzaSyBIWErF-n_u-qq0SpN9R0qr2DPhdF--Pzg")
         
         return true
     }
