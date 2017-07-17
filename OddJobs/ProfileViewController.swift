@@ -10,10 +10,11 @@ import UIKit
 import Parse
 import ParseUI
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TopTableViewDelegate {
     
     var user: PFUser!
     var jobs: [PFObject] = []
+    var topCell: TopTableViewCell? = nil
     
     @IBOutlet weak var jobsTableView: UITableView!
     
@@ -25,9 +26,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Do any additional setup after loading the view.
         jobsTableView.rowHeight = UITableViewAutomaticDimension
+//        jobsTableView.rowHeight = 1000  //got rid of warning but auto layout still goew to shit
         jobsTableView.estimatedRowHeight = 100
 
         fetchJobs()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        
+        jobsTableView.insertSubview(refreshControl, at: 1)
         
     }
 
@@ -62,10 +69,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0){ //profile
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell", for: indexPath) as! TopTableViewCell
-            //cell.user = user                      //for now always will be current user
+            //cell.user = user                //for now always will be current user
+            
+            topCell = cell
+            
+            
+            
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
+            //jobsTableView.deselectRow(at: indexPath, animated: true)
             cell.job = jobs[indexPath.row]
             return cell
         }
@@ -75,22 +88,31 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func fetchJobs() {
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
-        query.includeKey("author")
-        query.whereKey("author", equalTo: PFUser.current())
+        query.includeKey("userPosted")
+        query.whereKey("userPosted", equalTo: PFUser.current()!)
+        query.limit = 8
         query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-            
-            if let jobs = jobs  {
-                self.jobs = jobs
-                self.jobsTableView.reloadData()
-                
+            if let error = error {
+                print(error.localizedDescription)
             } else {
-                print(error?.localizedDescription as? String)
+                self.jobs = jobs!
+                self.jobsTableView.reloadData()
             }
-//            self.refreshControl.endRefreshing()
         }
-        // The getObjectInBackgroundWithId methods are asynchronous, so any code after this will run
-        // immediately.  Any code that depends on the query result should be moved
-        // inside the completion block above.
+    }
+    
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl!) {
+        fetchJobs()
+        jobsTableView.reloadData()
+        if let topCell = topCell {
+            topTableViewCell(topCell)
+        }
+        refreshControl.endRefreshing()
     }
 
+    func topTableViewCell(_ topTableViewCell: TopTableViewCell) {
+        topTableViewCell.loadData()
+    }
+    
 }

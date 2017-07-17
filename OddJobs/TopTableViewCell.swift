@@ -10,12 +10,16 @@ import UIKit
 import Parse
 import ParseUI
 
-class TopTableViewCell: UITableViewCell {
+protocol TopTableViewDelegate: class {
+    func topTableViewCell(_ topTableViewCell: TopTableViewCell)
+}
 
+
+class TopTableViewCell: UITableViewCell {
+    
     var user: PFUser!
     
     @IBOutlet weak var backgroundProfilePFImage: PFImageView?
-    
     @IBOutlet weak var profilePFImage: PFImageView?
     @IBOutlet weak var usernameLabel: UILabel?
     @IBOutlet weak var ratingLabel: UILabel?
@@ -28,37 +32,41 @@ class TopTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        //let user = PFUser.current()!
+        loadData()
         
-//        if (user == nil) {
-            user = PFUser.current()
-//        }
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+    func loadData() {
+        //        if (user == nil) {
+        user = PFUser.current()
+        //        }
         
         backgroundProfilePFImage?.file = user["backgroundImage"] as? PFFile
         backgroundProfilePFImage?.loadInBackground()
         
-//        profilePFImage?.file = user["profilePicture"] as? PFFile
-//        profilePFImage?.loadInBackground()
+        profilePFImage?.file = user["profilePicture"] as? PFFile
+        profilePFImage?.loadInBackground()
         
-//        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
-//        cell.userImageView.layer.masksToBounds = true
+        if (backgroundProfilePFImage?.file == nil) {
+            //set to default
+        }
+        
+        //        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
+        //        cell.userImageView.layer.masksToBounds = true
         
         usernameLabel?.text = PFUser.current()?.username!
         
-//        usernameLabel.text = user["author"] as! String
-        
-        
-        ratingLabel?.text = user["rating"] as? String
-        bioLabel?.text = user["bio"] as? String
-        jobsTakenCounterLabel?.text = user["jobsTakenInt"] as? String
-        jobsPosterCounterLabel?.text = user["jobsPostedInt"] as? String
+        ratingLabel?.text = user["rating"] as? String ?? "0"
+        bioLabel?.text = user["bio"] as? String ?? ""
+        jobsTakenCounterLabel?.text = user["jobsTakenInt"] as? String ?? "0"
+        jobsPosterCounterLabel?.text = user["jobsPostedInt"] as? String ?? "0"
         
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
 }
