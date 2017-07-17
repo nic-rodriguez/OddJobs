@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Do any additional setup after loading the view.
         jobsTableView.rowHeight = UITableViewAutomaticDimension
-//        jobsTableView.rowHeight = 1000  //got rid of warning but auto layout still goew to shit
+        //jobsTableView.rowHeight = 400  //got rid of warning but auto layout still goew to shit
         jobsTableView.estimatedRowHeight = 100
 
         fetchJobs()
@@ -43,16 +43,26 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "showDetailView") {
+            let cell = sender as! UITableViewCell //UserJobsTableViewCell
+            if let indexPath = jobsTableView.indexPath(for: cell) {
+                let job = jobs[indexPath.row + 1] //ehs?
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.job = job      //type error
+                jobsTableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
+        
     }
-    */
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -70,11 +80,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         if (indexPath.section == 0){ //profile
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell", for: indexPath) as! TopTableViewCell
             //cell.user = user                //for now always will be current user
-            
             topCell = cell
-            
-            
-            
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
