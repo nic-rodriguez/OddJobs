@@ -181,8 +181,15 @@
                                     <!--2017-07-12 17:19:24 +0000-->
                                 </date>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vV-c9-6Mz">
+                                <rect key="frame" x="27" y="305" width="307" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUh-kA-j2F">
-                                <rect key="frame" x="36" y="285" width="288" height="30"/>
+                                <rect key="frame" x="36" y="278" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Enter Address"/>
                                 <connections>
@@ -191,6 +198,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Bg4-be-SNA" appends="YES" id="BOq-iT-nBH"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Post Job" id="DIg-xp-Flb">
                         <barButtonItem key="leftBarButtonItem" title="Close" style="plain" id="ghv-de-ShG">
@@ -205,6 +216,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addressLabel" destination="8vV-c9-6Mz" id="hFV-e8-Uud"/>
                         <outlet property="enterAddress" destination="mUh-kA-j2F" id="Thi-lm-ZWv"/>
                         <outlet property="jobDatePicker" destination="mQ7-NE-h8B" id="T6x-QF-bPZ"/>
                         <outlet property="jobDescriptionField" destination="bwu-dg-7M8" id="FGE-68-cTj"/>
@@ -223,6 +235,11 @@
                         <outlet property="searchResultsDelegate" destination="xLo-Ms-qaJ" id="7SW-Ui-Rsa"/>
                     </connections>
                 </searchDisplayController>
+                <tapGestureRecognizer id="Bg4-be-SNA">
+                    <connections>
+                        <action selector="endEditting:" destination="xLo-Ms-qaJ" id="iKa-hV-Wxx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3904.8000000000002" y="-760.56971514242889"/>
         </scene>

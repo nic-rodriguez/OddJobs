@@ -41,6 +41,7 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
        self.delegate?.createTags(tags: tagsToPass)
         print(tagsToPass)
         
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
