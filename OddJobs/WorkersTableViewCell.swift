@@ -7,12 +7,35 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class WorkersTableViewCell: UITableViewCell {
 
+    var user: PFUser!{
+        didSet {
+            self.loadData()
+        
+        }
+    }
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var profileImageView: PFImageView!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    func loadData() {
+        nameLabel.text = user.username
+        self.profileImageView.file = user["profilePicture"] as? PFFile
+        self.profileImageView.loadInBackground()
+        //descriptionLabel.text = user["bio"]
+    
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

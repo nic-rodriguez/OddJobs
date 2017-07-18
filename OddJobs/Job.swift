@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import MapKit
 import Parse
 
-class Job: NSObject {
+class Job: NSObject, MKAnnotation {
     
 //    private var userAccepted: User?
 //    private var usersInterested: [User]?
@@ -32,13 +33,25 @@ class Job: NSObject {
      bookmarkedUsers: [PFUser: Bool]?
      tags: [String]?
     */
-    class func postJob(location: String, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, difficulty: Int, pay: Double, image: UIImage?, completion: PFBooleanResultBlock?) {
+    
+    var title: String?
+    var subtitle: String?
+    var coordinate: CLLocationCoordinate2D
+    
+    init(title: String?, subtitle: String?, location: CLLocationCoordinate2D) {
+        self.title = title
+        self.subtitle = subtitle
+        self.coordinate = location
+    }
+    
+    class func postJob(location: CLLocationCoordinate2D, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, difficulty: Int, pay: Double, image: UIImage?, completion: PFBooleanResultBlock?) {
 
         
         let job = PFObject(className: "Job")
         
-        job["location"] = location
         job["title"] = title
+        job["latitude"] = location.latitude
+        job["longitude"] = location.longitude
         job["description"] = description
         job["datePosted"] = datePosted
         job["dateDue"] = dateDue
