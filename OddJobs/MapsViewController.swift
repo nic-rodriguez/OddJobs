@@ -99,7 +99,7 @@ class MapsViewController: UIViewController {
     }
     
     func buttonSegue(sender: UIButton!) {
-        performSegue(withIdentifier: "mapDetailSegue", sender: view)
+        performSegue(withIdentifier: "mapDetailSegue", sender: nil)
     }
     
     @IBAction func userCenter(_ sender: Any) {
