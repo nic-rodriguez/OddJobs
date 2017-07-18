@@ -1023,7 +1023,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6GC-P5-Yoy"/>
+                    <navigationItem key="navigationItem" id="6GC-P5-Yoy">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="rAq-hO-mpA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g7a-ke-dfZ">
+                                <rect key="frame" x="266" y="7" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="user Location"/>
+                                <connections>
+                                    <action selector="userCenter:" destination="ZaD-vr-hIY" eventType="touchUpInside" id="jbI-h9-ul3"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="oUv-qe-ZDy" id="bLN-W4-7uc"/>
                     </connections>

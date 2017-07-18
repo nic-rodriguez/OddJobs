@@ -83,6 +83,12 @@ class MapsViewController: UIViewController {
         }
     }
     
+    @IBAction func userCenter(_ sender: Any) {
+        if let userLocation = mapView.userLocation.location {
+            centerMapOnLocation(location: userLocation)
+        }
+    }
+    
 }
 
 extension MapsViewController: MKMapViewDelegate {
