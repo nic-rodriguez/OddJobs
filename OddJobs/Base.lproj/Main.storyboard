@@ -532,6 +532,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="o4f-Pu-psK" id="FrD-tc-gUB"/>
+                                            <outlet property="distanceFromLabel" destination="mPl-dM-FTx" id="Afu-4y-8U5"/>
                                             <outlet property="nameLabel" destination="wPG-sC-CNa" id="9jx-dn-fHa"/>
                                             <outlet property="profileImageView" destination="TDS-gP-Iid" id="EJ8-OB-phI"/>
                                             <segue destination="NJH-Gg-V93" kind="push" id="yxL-7S-ffg"/>
@@ -1001,9 +1002,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6GC-P5-Yoy"/>
+                    <navigationItem key="navigationItem" id="6GC-P5-Yoy">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="rAq-hO-mpA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g7a-ke-dfZ">
+                                <rect key="frame" x="266" y="7" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="user Location"/>
+                                <connections>
+                                    <action selector="userCenter:" destination="ZaD-vr-hIY" eventType="touchUpInside" id="jbI-h9-ul3"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="oUv-qe-ZDy" id="bLN-W4-7uc"/>
+                        <segue destination="05V-1r-VmG" kind="show" identifier="mapDetailSegue" id="IJf-2u-KdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIB-QF-l3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1069,11 +1082,11 @@
             </objects>
             <point key="canvasLocation" x="2028" y="752"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="qdJ-gp-CUP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H8Y-ZV-vbz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="IEA-cp-WHs"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="IEA-cp-WHs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d62-N4-tch">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
