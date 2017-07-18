@@ -51,6 +51,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = workersTableView.dequeueReusableCell(withIdentifier: "WorkerCell", for: indexPath) as! WorkersTableViewCell
         
         cell.user = workers[indexPath.row]
+        
     
         return cell
     }
@@ -77,7 +78,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
                 let geoPointLong = geoPoint.longitude
                 self.currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
                 print(self.currentLocation)
-                print("is this printing")
+                
                 
                 
                 currentUser!["location"] = self.currentLocation

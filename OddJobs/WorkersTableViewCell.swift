@@ -11,7 +11,8 @@ import Parse
 import ParseUI
 
 class WorkersTableViewCell: UITableViewCell {
-
+    var currentUser = PFUser.current()
+    
     var user: PFUser!{
         didSet {
             self.loadData()
@@ -25,11 +26,19 @@ class WorkersTableViewCell: UITableViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var distanceFromLabel: UILabel!
+    
     func loadData() {
         nameLabel.text = user.username
         self.profileImageView.file = user["profilePicture"] as? PFFile
         self.profileImageView.loadInBackground()
         //descriptionLabel.text = user["bio"]
+        let location = user["location"] as? PFGeoPoint
+        let currentUserLocation = currentUser?["location"] as! PFGeoPoint
+        
+       
+        distanceFromLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " miles away"
+        
     
     }
     
