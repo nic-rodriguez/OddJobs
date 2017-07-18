@@ -1037,6 +1037,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="oUv-qe-ZDy" id="bLN-W4-7uc"/>
+                        <segue destination="05V-1r-VmG" kind="show" identifier="mapDetailSegue" id="IJf-2u-KdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIB-QF-l3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1102,11 +1103,11 @@
             </objects>
             <point key="canvasLocation" x="2028" y="752"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="qdJ-gp-CUP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H8Y-ZV-vbz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="IEA-cp-WHs"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="IEA-cp-WHs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d62-N4-tch">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -1182,6 +1183,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yxL-7S-ffg"/>
-        <segue reference="biL-UF-kBd"/>
+        <segue reference="IJf-2u-KdW"/>
     </inferredMetricsTieBreakers>
 </document>

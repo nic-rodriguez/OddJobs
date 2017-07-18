@@ -83,9 +83,35 @@ class MapsViewController: UIViewController {
         }
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.title! != "My Location" {
+            let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+            button.setTitle("segue", for: .normal)
+            button.titleLabel?.text = "details"
+            button.addTarget(self, action: #selector(buttonSegue), for: .touchUpInside)
+            
+            pinView.rightCalloutAccessoryView = button
+            pinView.canShowCallout = true
+            return pinView
+        }
+        return nil
+    }
+    
+    func buttonSegue(sender: UIButton!) {
+        performSegue(withIdentifier: "mapDetailSegue", sender: view)
+    }
+    
     @IBAction func userCenter(_ sender: Any) {
         if let userLocation = mapView.userLocation.location {
             centerMapOnLocation(location: userLocation)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mapDetailSegue" {
+            let vc = segue.destination as! DetailViewController
+            vc.job = jobs[0]
         }
     }
     
