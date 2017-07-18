@@ -64,7 +64,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, Tag
     var tags: [String] = []
     var currentDate: Date!
     var photoToPost: UIImage!
-    var address: String = ""
+    var address: CLLocationCoordinate2D?
     
     
     override func viewDidLoad() {
@@ -99,7 +99,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, Tag
         photoToPost = jobImageView.image
     
         
-        Job.postJob(location: address, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
+        Job.postJob(location: address!, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
             if success {
                 print("Post was saved!")
                 self.dismiss(animated: true, completion: nil)
@@ -139,8 +139,9 @@ extension PostViewController: GMSAutocompleteViewControllerDelegate {
         print("Place address: \(place.formattedAddress)")
         print("Place attributions: \(place.attributions)")
         
-        address = place.formattedAddress!
-        addressLabel.text = address
+        address = place.coordinate
+        addressLabel.text = place.formattedAddress!
+
         dismiss(animated: true, completion: nil)
     }
     
