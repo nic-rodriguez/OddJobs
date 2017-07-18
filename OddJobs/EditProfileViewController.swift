@@ -142,7 +142,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func editProfilePictureButtonPressed(_ sender: Any) {
         isChangingBanner = false
         selectPic()
-        
     }
     
     @IBAction func editBannerPictureButtonPressed(_ sender: Any) {
