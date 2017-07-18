@@ -827,7 +827,7 @@
                                             <outlet property="jobDateLabel" destination="9C6-y5-Y5S" id="e3I-pY-TFJ"/>
                                             <outlet property="jobPFImage" destination="VPV-3x-ePQ" id="sno-7v-i1H"/>
                                             <outlet property="jobTitleLabel" destination="422-rC-bCm" id="gib-ve-L7O"/>
-                                            <segue destination="05V-1r-VmG" kind="showDetail" identifier="showDetailView" id="fq2-6z-0IN"/>
+                                            <segue destination="05V-1r-VmG" kind="show" identifier="showDetailView" id="PlT-eI-aH9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

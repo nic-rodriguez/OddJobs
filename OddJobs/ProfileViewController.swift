@@ -54,7 +54,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         if (segue.identifier == "showDetailView") {
             let cell = sender as! UITableViewCell //UserJobsTableViewCell
             if let indexPath = jobsTableView.indexPath(for: cell) {
-                let job = jobs[indexPath.row + 1] //ehs?
+                
+                print(indexPath.row)
+                
+                let job = jobs[indexPath.row] //ehs?
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.job = job      //type error
                 jobsTableView.deselectRow(at: indexPath, animated: true)

@@ -12,37 +12,7 @@ import ParseUI
 
 class DetailViewController: UIViewController {
     
-    var job: PFObject! {
-        didSet {
-            
-            //image
-            
-            jobTitleLabel.text = job["title"] as? String
-            
-            dificultyLabel.text = job["difficulty"] as? String
-            
-            usernameLabel.text = job["userPosted"] as? String
-            
-            //date posted
-            let date = job["dateDue"]
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            let dateString = dateFormatter.string(from:date as! Date)
-            datePostedLabel.text = dateString //as! String
-
-            
-            descriptionLabel.text = job["bio"] as? String ?? ""
-            
-            let pay = job["pay"] as? String
-            costLabel.text = "$" + pay!
-            
-            let skills = job["tags"] as! [String]
-            for skill in skills {
-                skillsLabel.text = skill + ", "
-            }
-            
-        }
-    }
+    var job: PFObject!
     
     @IBOutlet weak var jobPostImageView: UIImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
@@ -55,24 +25,52 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //image
+        
+        jobTitleLabel.text = job["title"] as? String
+        
+        dificultyLabel.text = job["difficulty"] as? String
+        
+        usernameLabel.text = job["userPosted"] as? String
+        
+        //date posted
+        let date = job["dateDue"]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from:date as! Date)
+        datePostedLabel.text = dateString //as! String
+        
+        
+        descriptionLabel.text = job["bio"] as? String ?? ""
+        
+//        let pay = job["pay"] as? String
+//        costLabel.text = "$" + pay!
+        
+        let skills = job["tags"] as! [String]
+        for skill in skills {
+            skillsLabel.text = skill + ", "
+        }
+        
+        
+        
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
