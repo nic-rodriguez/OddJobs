@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Do any additional setup after loading the view.
         jobsTableView.rowHeight = UITableViewAutomaticDimension
-        //jobsTableView.rowHeight = 400  //got rid of warning but auto layout still goew to shit
+        //jobsTableView.rowHeight = 400
         jobsTableView.estimatedRowHeight = 100
 
         fetchJobs()
@@ -79,7 +79,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0){ //profile
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell", for: indexPath) as! TopTableViewCell
-            cell.user = user                //for now always will be current user
+            cell.user = user
             topCell = cell
             return cell
         } else { //job postings
@@ -95,7 +95,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
         query.includeKey("userPosted")
-        
         if (user == nil) {
             query.whereKey("userPosted", equalTo: PFUser.current()!)
         } else {

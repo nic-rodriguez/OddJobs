@@ -44,7 +44,7 @@ class DetailViewController: UIViewController {
         datePostedLabel.text = dateString //as! String
         
         
-        descriptionLabel.text = job["bio"] as? String ?? ""
+        descriptionLabel.text = job["description"] as? String ?? ""
         
 //        let pay = job["pay"] as? String
 //        costLabel.text = "$" + pay!
@@ -53,9 +53,6 @@ class DetailViewController: UIViewController {
         for skill in skills {
             skillsLabel.text = skill + ", "
         }
-        
-        
-        
         
     }
     

@@ -18,6 +18,7 @@ protocol TopTableViewDelegate: class {
 class TopTableViewCell: UITableViewCell {
     
     var user: PFUser!
+//    var topTableCell: TopTableViewCell? = nil
     
     @IBOutlet weak var backgroundProfilePFImage: PFImageView?
     @IBOutlet weak var profilePFImage: PFImageView?
@@ -34,6 +35,7 @@ class TopTableViewCell: UITableViewCell {
         
         loadData()
         //we have to refresh the thing
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -45,8 +47,6 @@ class TopTableViewCell: UITableViewCell {
     func loadData() {
         if (user == nil) {
             user = PFUser.current()
-        } else {
-            //user is non nil and u good
         }
         
         backgroundProfilePFImage?.file = user["backgroundImage"] as? PFFile
@@ -55,14 +55,9 @@ class TopTableViewCell: UITableViewCell {
         profilePFImage?.file = user["profilePicture"] as? PFFile
         profilePFImage?.loadInBackground()
         
-        if (backgroundProfilePFImage?.file == nil) {
-            //set to default
-        }
+//        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
+//        cell.userImageView.layer.masksToBounds = true
         
-        //        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
-        //        cell.userImageView.layer.masksToBounds = true
-        
-//        usernameLabel?.text = PFUser.current()?.username!
         usernameLabel?.text = user?.username!
         
         ratingLabel?.text = user["rating"] as? String ?? "0"
