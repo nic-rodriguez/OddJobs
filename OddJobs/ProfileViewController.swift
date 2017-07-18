@@ -59,6 +59,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 detailViewController.job = job      //type error
                 jobsTableView.deselectRow(at: indexPath, animated: true)
             }
+        } else if (segue.identifier == "editProfile") {
+//            let editProfileViewController = segue.destination as! EditProfileViewController
+//            editProfileViewController.topCell = topCell
+            
+//            let homeViewController = storyboard.instantiateViewController(withIdentifier: "tabBarController
+            
+            let editProfileViewController = storyboard?.instantiateViewController(withIdentifier: "editProfileViewController") as! EditProfileViewController
+            editProfileViewController.topCell = topCell
+            print("in the prepare for segue topcell initialization")
         }
         
     }
@@ -81,7 +90,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell", for: indexPath) as! TopTableViewCell
             cell.user = user
             topCell = cell
-            topTableViewCell(topCell!) //eh?
+            topTableViewCell(topCell!) //ah!
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
@@ -99,7 +108,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         else {
             height = 50
         }
-        
         return height
     }
     

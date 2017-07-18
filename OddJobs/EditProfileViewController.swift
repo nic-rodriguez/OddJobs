@@ -11,7 +11,7 @@ import Parse
 import ParseUI
 import AVFoundation
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TopTableViewDelegate {
     
     let user = PFUser.current()
     
@@ -22,6 +22,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     var profilePicChanged: Bool = false
     var bannerPicChanger: Bool = false
+    
+    var topCell: TopTableViewCell? = nil
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var bioTextField: UITextView!
@@ -83,6 +85,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
         
         user?.saveInBackground()
+        
+        if let topCell = topCell {
+            topTableViewCell(topCell)
+            print("in the top cell edit profile")
+        }
         
         dismiss(animated: true, completion: nil)
     }
@@ -170,5 +177,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
         return nil
     }
+    
+    func topTableViewCell(_ topTableViewCell: TopTableViewCell) {
+        topTableViewCell.loadData()
+    }
+
     
 }
