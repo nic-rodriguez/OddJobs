@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     
     var job: PFObject!
     
-    @IBOutlet weak var jobPostImageView: UIImageView!
+    @IBOutlet weak var jobPostPFImageView: PFImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var dificultyLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -26,13 +26,15 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //image
+        jobPostPFImageView.file = job["image"] as! PFFile
+        jobPostPFImageView.loadInBackground()
         
         jobTitleLabel.text = job["title"] as? String
         
         dificultyLabel.text = job["difficulty"] as? String
         
-        usernameLabel.text = job["userPosted"] as? String
+        let user = job["userPosted"] as! PFUser
+        usernameLabel.text = user.username!
         
         //date posted
         let date = job["dateDue"]
