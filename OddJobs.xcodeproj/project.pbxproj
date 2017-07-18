@@ -200,11 +200,11 @@
 			children = (
 				A907D0311F1425C60069B7E7 /* LoginViewController.swift */,
 				A92EB4881F159EEA00EB77E8 /* ProfileViewController.swift */,
-				A92EB48A1F159EF400EB77E8 /* PostViewController.swift */,
 				A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */,
 				984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */,
 				98AC28351F181121000CD55E /* GMSAutocompleteResultsViewController.swift */,
 				A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */,
+				A92EB48A1F159EF400EB77E8 /* PostViewController.swift */,
 				982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */,
 				985E766E1F1D46EC00F87E2B /* EditProfileViewController.swift */,
 			);
