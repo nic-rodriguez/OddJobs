@@ -630,6 +630,7 @@
                                             <outlet property="ratingLabel" destination="SeJ-4i-vSx" id="yxF-8s-Ejk"/>
                                             <outlet property="titleLabel" destination="SvJ-Cz-Ncz" id="l6R-Xw-hve"/>
                                             <outlet property="userImageView" destination="v1K-xG-UYN" id="bUI-3C-uO2"/>
+                                            <segue destination="05V-1r-VmG" kind="show" identifier="showDetailViewFromFeed" id="biL-UF-kBd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1143,4 +1144,7 @@
         <image name="gradient-wallpaper-iphone2" width="736" height="1309"/>
         <image name="profile_tab" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="biL-UF-kBd"/>
+    </inferredMetricsTieBreakers>
 </document>
