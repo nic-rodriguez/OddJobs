@@ -25,10 +25,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         jobsTableView.delegate = self
         
         // Do any additional setup after loading the view.
-        jobsTableView.rowHeight = UITableViewAutomaticDimension
+//        jobsTableView.rowHeight = UITableViewAutomaticDimension
         //jobsTableView.rowHeight = 400
-        jobsTableView.estimatedRowHeight = 100
-
+//        jobsTableView.estimatedRowHeight = 100
+        
         fetchJobs()
         
         let refreshControl = UIRefreshControl()
@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         jobsTableView.insertSubview(refreshControl, at: 1)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -81,6 +81,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell", for: indexPath) as! TopTableViewCell
             cell.user = user
             topCell = cell
+            topTableViewCell(topCell!) //eh?
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
@@ -88,6 +89,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.job = jobs[indexPath.row]
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var height:CGFloat = CGFloat()
+        if indexPath.section == 0 {
+            height = 300
+        }
+        else {
+            height = 50
+        }
+        
+        return height
     }
     
     
@@ -120,7 +133,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         refreshControl.endRefreshing()
     }
-
+    
     func topTableViewCell(_ topTableViewCell: TopTableViewCell) {
         topTableViewCell.loadData()
     }
