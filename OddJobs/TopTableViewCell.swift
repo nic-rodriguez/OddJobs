@@ -33,7 +33,7 @@ class TopTableViewCell: UITableViewCell {
         // Initialization code
         
         loadData()
-        
+        //we have to refresh the thing
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,9 +43,11 @@ class TopTableViewCell: UITableViewCell {
     }
     
     func loadData() {
-        //        if (user == nil) {
-        user = PFUser.current()
-        //        }
+        if (user == nil) {
+            user = PFUser.current()
+        } else {
+            //user is non nil and u good
+        }
         
         backgroundProfilePFImage?.file = user["backgroundImage"] as? PFFile
         backgroundProfilePFImage?.loadInBackground()
@@ -60,7 +62,8 @@ class TopTableViewCell: UITableViewCell {
         //        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
         //        cell.userImageView.layer.masksToBounds = true
         
-        usernameLabel?.text = PFUser.current()?.username!
+//        usernameLabel?.text = PFUser.current()?.username!
+        usernameLabel?.text = user?.username!
         
         ratingLabel?.text = user["rating"] as? String ?? "0"
         bioLabel?.text = user["bio"] as? String ?? ""

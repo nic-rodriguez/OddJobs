@@ -14,12 +14,12 @@ class UserJobsTableViewCell: UITableViewCell {
     
     var job: PFObject! {
         didSet {
-            //        jobPFImage.file = user["jobImage"] as? PFFile
-            //        jobPFImage.loadInBackground()
+//            jobPFImage.file = uer["jobImage"] as? PFFile
+//            jobPFImage.loadInBackground()
             
             jobTitleLabel.text = job["title"] as? String
             
-            //        jobDateLabel.text = job["dateDue"] as? String
+//            jobDateLabel.text = job["dateDue"] as? String
             
             //date posted
             let date = job["dateDue"]

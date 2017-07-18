@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         jobsTableView.dataSource = self
         jobsTableView.delegate = self
         
@@ -79,7 +79,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0){ //profile
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell", for: indexPath) as! TopTableViewCell
-            //cell.user = user                //for now always will be current user
+            cell.user = user                //for now always will be current user
             topCell = cell
             return cell
         } else { //job postings
@@ -95,7 +95,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
         query.includeKey("userPosted")
-        query.whereKey("userPosted", equalTo: PFUser.current()!)
+        
+        if (user == nil) {
+            query.whereKey("userPosted", equalTo: PFUser.current()!)
+        } else {
+            query.whereKey("userPosted", equalTo: user!)
+        }
         query.limit = 8
         query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
             if let error = error {
