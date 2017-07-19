@@ -9,10 +9,13 @@
 import UIKit
 import Parse
 import ParseUI
+import MapKit
 
 class DetailViewController: UIViewController {
     
     var job: PFObject!
+    var initialLocation: MKUserLocation?
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var jobPostPFImageView: PFImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
@@ -22,9 +25,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var skillsLabel: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        requestLocationAccess()
+        mapView.showsUserLocation = true
+        mapView.delegate = self
+        mapView.isZoomEnabled = false
+        mapView.isPitchEnabled = false
+        mapView.isScrollEnabled = false
+        mapView.isRotateEnabled = false
         
         jobPostPFImageView.file = job["image"] as! PFFile
         jobPostPFImageView.loadInBackground()
@@ -54,6 +66,13 @@ class DetailViewController: UIViewController {
             skillsLabel.text = skill + ", "
         }
         
+        let latitude = job["latitude"] as! CLLocationDegrees
+        let longitude = job["longitude"] as! CLLocationDegrees
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let annotation = Job(title: job["title"] as? String, subtitle: job["description"] as? String, location: coordinate)
+        mapView.addAnnotation(annotation)
+//        centerMapOnLocation(location: CLLocation(latitude: latitude, longitude: longitude))
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,15 +80,44 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func requestLocationAccess() {
+        let status = CLLocationManager.authorizationStatus()
+        
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            return
+            
+        case .denied, .restricted:
+            print("location access denied")
+            
+        default:
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func centerMapOnLocation(firstCoordinate: CLLocationCoordinate2D, secondCoordinate: CLLocationCoordinate2D) {
+        let newLatitude = (firstCoordinate.latitude + secondCoordinate.latitude)/2
+        let newLongitude = (firstCoordinate.longitude + secondCoordinate.longitude)/2
+        let newLocation = CLLocation(latitude: newLatitude, longitude: newLongitude)
+        
+        let firstLocation = CLLocation(latitude: firstCoordinate.latitude, longitude: firstCoordinate.longitude)
+        let secondLocation = CLLocation(latitude: secondCoordinate.latitude, longitude: secondCoordinate.longitude)
+        let distance = firstLocation.distance(from: secondLocation)
+        
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, distance, distance)
+        mapView.setRegion(coordinateRegion, animated: false)
+        
+    }
     
+}
+
+extension DetailViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        if initialLocation == nil {
+            initialLocation = userLocation
+            let jobCoordinate = CLLocationCoordinate2D(latitude: job["latitude"] as! CLLocationDegrees, longitude: job["longitude"] as! CLLocationDegrees)
+            centerMapOnLocation(firstCoordinate: userLocation.coordinate, secondCoordinate: jobCoordinate)
+        }
+    }
 }
