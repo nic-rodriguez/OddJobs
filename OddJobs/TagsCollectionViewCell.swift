@@ -13,7 +13,9 @@ class TagsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var filterTagLabel: UILabel!
     
-    @IBAction func tagIsSelected(_ sender: Any) {
+    @IBAction func tagIsSelected(_ sender: UIButton) {
+        print("button pressed")
+        sender.isSelected = !sender.isSelected
         
     }
     
