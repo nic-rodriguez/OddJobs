@@ -43,11 +43,11 @@ class DetailViewController: UIViewController {
         let dateString = dateFormatter.string(from:date as! Date)
         datePostedLabel.text = dateString //as! String
         
-        
         descriptionLabel.text = job["description"] as? String ?? ""
         
-//        let pay = job["pay"] as? String
-//        costLabel.text = "$" + pay!
+        let a:Double = job["pay"] as! Double
+        let b:String = String(format:"%.2f", a)
+        costLabel.text = "$" + b
         
         let skills = job["tags"] as! [String]
         for skill in skills {

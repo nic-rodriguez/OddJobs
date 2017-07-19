@@ -35,8 +35,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         queryServer()
         
-        filteredJobs = jobs //eh?
-        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         
@@ -58,7 +56,13 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "HomeFeedTableViewCell", for: indexPath) as! HomeFeedTableViewCell
         
-        cell.job = filteredJobs[indexPath.row] //eh?
+        //cell.job = filteredJobs[indexPath.row] //eh?
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            cell.job = filteredJobs[indexPath.row]
+        } else {
+            cell.job = jobs[indexPath.row]
+        }
         return cell
     }
     
@@ -73,6 +77,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 print(error.localizedDescription)
             } else {
                 self.jobs = jobs!
+                self.filteredJobs = jobs! // eh?
                 self.homeFeedTableView.reloadData()
             }
         }
@@ -101,17 +106,15 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
         if (segue.identifier == "showDetailViewFromFeed") {
             let cell = sender as! UITableViewCell //UserJobsTableViewCell
             if let indexPath = homeFeedTableView.indexPath(for: cell) {
-                let job = jobs[indexPath.row]
+                let job = filteredJobs[indexPath.row]
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.job = job
                 homeFeedTableView.deselectRow(at: indexPath, animated: true)
             }
         }
-        
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -123,35 +126,11 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         searchBar.text = ""
         searchBar.resignFirstResponder()
     }
- 
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        filteredJobs = searchText.isEmpty ? data : data.filter { (item: [String: Any]) -> Bool in
-//            // If dataItem matches the searchText, return true to include it
-//            return (item["title"] as! String).range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-//            
-//            //(item["title"] as! String).range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-//        }
-        
-        filteredJobs = jobs.filter({ (job) -> Bool in
-            let range = (job["title"] as! String).range(of: searchText)
-            
-            
-            
-            
-            //rangeOfString(searchText, options:NSString.CompareOptions.CaseInsensitiveSearch)
-            return range != nil
-        })
-        
-        
-        
-        homeFeedTableView.reloadData()
-    }
     
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
             filteredJobs = jobs.filter({ (job) -> Bool in
-                let range = (job["title"] as! String).range(of: searchText)
+                let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
                 return range != nil
             })
             
