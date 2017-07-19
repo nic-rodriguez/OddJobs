@@ -27,6 +27,32 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var skillsLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBAction func requestJob(_ sender: UIBarButtonItem) {
+        let currentUser = PFUser.current()
+        
+        if (self.job["usersInterested"] == nil){
+        
+            var usersInterested: [PFUser]! = []
+            
+           
+            usersInterested.append(currentUser!)
+            self.job["usersInterested"] = usersInterested as! [PFUser]
+            print("user saved!")
+            self.job.saveInBackground()
+            
+        } else {
+            var usersInterested = self.job["usersInterested"] as! [PFUser]
+            usersInterested.append(currentUser!)
+            self.job["usersInterested"] = usersInterested
+            self.job.saveInBackground()
+        }
+        
+    }
+   
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
