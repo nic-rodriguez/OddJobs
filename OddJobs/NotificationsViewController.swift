@@ -8,10 +8,38 @@
 
 import UIKit
 
-class NotificationsViewController: UIViewController {
+class NotificationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var notificationsTableView: UITableView!
+    
+    @IBOutlet weak var notificationControl: UISegmentedControl!
+    
+    @IBOutlet weak var headerView: UIView!
+    
+
+    
+    @IBAction func onChange(_ sender: UISegmentedControl) {
+        switch notificationControl.selectedSegmentIndex
+        {
+        case 0:
+            break
+        case 1:
+            break
+            
+        default:
+            break
+            
+        }
+        
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        notificationsTableView.dataSource = self
+        notificationsTableView.delegate = self
+        notificationsTableView.tableHeaderView = headerView
 
         // Do any additional setup after loading the view.
     }
@@ -22,14 +50,21 @@ class NotificationsViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
+        
+        if notificationControl.selectedSegmentIndex == 0 {
+            notificationsTableView.dequeueReusableCell(withIdentifier: "PendingJobsCell", for: indexPath) as! PendingJobsCell
+        }
+        
+        return cell
+        
+    }
 
+    
 }
