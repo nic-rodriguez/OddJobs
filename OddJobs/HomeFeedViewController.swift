@@ -15,6 +15,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var homeFeedTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
     var jobs: [PFObject] = []
     var filteredJobs: [PFObject] = []
     
@@ -52,22 +53,36 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredJobs.count //eh?
+        if (section == 0) {
+            return 1
+        } else {
+            return filteredJobs.count //eh?
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "HomeFeedTableViewCell", for: indexPath) as! HomeFeedTableViewCell
-        
-        //cell.job = filteredJobs[indexPath.row] //eh?
-        
-        if searchController.isActive && searchController.searchBar.text != "" {
-            cell.job = filteredJobs[indexPath.row]
+        if (indexPath.section == 0) {
+            let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "TagsCollectionViewCell", for: indexPath) as! TagsRowTableViewCell
+            print ("am i even doing anything")
+            return cell
         } else {
-            cell.job = jobs[indexPath.row]
+            let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "HomeFeedTableViewCell", for: indexPath) as! HomeFeedTableViewCell
+            
+            //cell.job = filteredJobs[indexPath.row] //eh?
+            if searchController.isActive && searchController.searchBar.text != "" {
+                cell.job = filteredJobs[indexPath.row]
+            } else {
+                cell.job = jobs[indexPath.row]
+            }
+            return cell
         }
-        return cell
     }
+    
     
     func queryServer() {
         let query = PFQuery(className: "Job")
@@ -140,6 +155,4 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             homeFeedTableView.reloadData()
         }
     }
-
-
 }
