@@ -8,18 +8,22 @@
 
 import UIKit
 
-class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+protocol TagsRowTableViewCellDelegate: class {
+    func toggleTag1(position: Int) 
+}
+
+class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, TagsCollectionViewCellDelegate {
 
     @IBOutlet weak var tagsCollectionView: UICollectionView!
+    weak var delegate1: TagsRowTableViewCellDelegate?
     
     var tags: [String] = ["Gardening", "Food", "Delivery", "Cleaning", "Pets", "Housework", "Caretaker", "Survey", "App Testing", "Logo Design", "Plumbing", "Sewing", "Dry Cleaning"]
-    
+    var selectedTags: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false, false]
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         tagsCollectionView.dataSource = self
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,8 +38,25 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagsCell", for: indexPath) as! TagsCollectionViewCell
         cell.filterTagLabel.text = tags[indexPath.row]
+        cell.positionInArr = indexPath.row
+        cell.delegate = self //as? TagsCollectionViewCellDelegate
         return cell
     }
-
+    
+    func toggleTag(position: Int) {
+        selectedTags[position] = !selectedTags[position]
+        
+        delegate1?.toggleTag1(position: position)
+        //this no werk
+        
+        print ("from tagsRowTableViewCell")
+        for obj in selectedTags { //for verifying if the delegate worked
+            print(obj)
+        }
+        //this delegate works fuuuu man fuuuu
+    }
     
 }
+
+
+

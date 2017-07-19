@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Foundation
 
-class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
+class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, TagsRowTableViewCellDelegate {
 
     @IBOutlet weak var homeFeedTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -18,6 +18,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     var jobs: [PFObject] = []
     var filteredJobs: [PFObject] = []
+    var selectedTags: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false, false]
     
     var searchController: UISearchController!
     
@@ -34,7 +35,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         homeFeedTableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
         
-        searchController.searchBar.scopeButtonTitles = ["All", "type", "year", "country"]
+        //searchController.searchBar.scopeButtonTitles = ["All", "type", "year", "country"]
         //just a test thingy
         
         queryServer()
@@ -61,7 +62,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         if (section == 0) {
             return 1
         } else {
-            return filteredJobs.count //eh?
+            return filteredJobs.count
         }
     }
     
@@ -69,6 +70,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         if (indexPath.section == 0) {
             let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "TagsCollectionViewCell", for: indexPath) as! TagsRowTableViewCell
             print ("memes")
+            cell.delegate1 = self //eh?
             return cell
         } else {
             let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "HomeFeedTableViewCell", for: indexPath) as! HomeFeedTableViewCell
@@ -155,4 +157,15 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             homeFeedTableView.reloadData()
         }
     }
+    
+    func toggleTag1(position: Int) {
+        selectedTags[position] = !selectedTags[position]
+        print ("From homefeedViewController")
+        for obj in selectedTags { //for verifying if the delegate worked
+            print(obj)
+        }
+        //this delegate works fuuuu man fuuuu
+    }
+
+    
 }
