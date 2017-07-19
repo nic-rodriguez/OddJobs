@@ -33,6 +33,7 @@
 		A92EB48B1F159EF400EB77E8 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EB48A1F159EF400EB77E8 /* PostViewController.swift */; };
 		A92EB48D1F159F0000EB77E8 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */; };
 		A92EB4921F159F4900EB77E8 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EB4911F159F4900EB77E8 /* Job.swift */; };
+		A9545C2F1F2017EC0064E61D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */; };
 		A972FBEF1F1693B600446EAC /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */; };
 		A98D258C1F1D438100C4A9C2 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		A92EB48A1F159EF400EB77E8 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		A92EB4911F159F4900EB77E8 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedTableViewCell.swift; sourceTree = "<group>"; };
 		A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		AB942B23DE191E8065E74075 /* Pods-OddJobsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsUITests/Pods-OddJobsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				985E766E1F1D46EC00F87E2B /* EditProfileViewController.swift */,
 				86C8F90A1F1D571F00228818 /* DetailViewController.swift */,
 				985E76701F1ECC7100F87E2B /* NotificationsViewController.swift */,
+				A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */,
 				A92EB4921F159F4900EB77E8 /* Job.swift in Sources */,
 				A98D258C1F1D438100C4A9C2 /* MapsViewController.swift in Sources */,
+				A9545C2F1F2017EC0064E61D /* SignUpViewController.swift in Sources */,
 				98AC28361F181121000CD55E /* GMSAutocompleteResultsViewController.swift in Sources */,
 				A92EB48D1F159F0000EB77E8 /* HomeFeedViewController.swift in Sources */,
 				86947B911F169F6F00BD708F /* UserJobsTableViewCell.swift in Sources */,
