@@ -11,7 +11,7 @@ import Parse
 import Foundation
 
 class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, TagsRowTableViewCellDelegate {
-
+    
     @IBOutlet weak var homeFeedTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -45,10 +45,10 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         homeFeedTableView.insertSubview(refreshControl, at: 0)
         
-//        homeFeedTableView.estimatedRowHeight = 100
-//        homeFeedTableView.rowHeight = UITableViewAutomaticDimension
+        //        homeFeedTableView.estimatedRowHeight = 100
+        //        homeFeedTableView.rowHeight = UITableViewAutomaticDimension
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -118,10 +118,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
     }
-
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -151,9 +150,11 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         if let searchText = searchController.searchBar.text {
             filteredJobs = jobs.filter({ (job) -> Bool in
                 let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
+                
+                
+                
                 return range != nil
             })
-            
             homeFeedTableView.reloadData()
         }
     }
@@ -166,6 +167,27 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         }
         //this delegate works fuuuu man fuuuu
     }
-
+    
+    func tagIsSelected(givenTags: [String]?) -> Bool{
+        var found: Bool = true
+        
+        //to be filled in
+        //make the bool array into a dictionary of all key and their true / false
+        //if the obj in job["tag"]
+        // basically
+        
+//        if let givenTags = givenTags {
+//            for obj in givenTags {
+//                if selectedTags[obj] {
+//                    //found still tru
+//                } else {
+//                    found = false
+//                }
+//            }
+//        }
+        
+        
+        return found
+    }
     
 }

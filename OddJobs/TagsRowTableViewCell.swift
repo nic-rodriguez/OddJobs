@@ -18,7 +18,6 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     weak var delegate1: TagsRowTableViewCellDelegate?
     
     var tags: [String] = ["Gardening", "Food", "Delivery", "Cleaning", "Pets", "Housework", "Caretaker", "Survey", "App Testing", "Logo Design", "Plumbing", "Sewing", "Dry Cleaning"]
-    var selectedTags: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false, false]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,16 +43,7 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     }
     
     func toggleTag(position: Int) {
-        selectedTags[position] = !selectedTags[position]
-        
         delegate1?.toggleTag1(position: position)
-        //this no werk
-        
-        print ("from tagsRowTableViewCell")
-        for obj in selectedTags { //for verifying if the delegate worked
-            print(obj)
-        }
-        //this delegate works fuuuu man fuuuu
     }
     
 }
