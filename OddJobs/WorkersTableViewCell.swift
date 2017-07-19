@@ -37,7 +37,7 @@ class WorkersTableViewCell: UITableViewCell {
         let currentUserLocation = currentUser?["location"] as! PFGeoPoint
         
        
-        distanceFromLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " miles away"
+        distanceFromLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " mi away"
         
     
     }

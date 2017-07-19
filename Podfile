@@ -11,6 +11,7 @@ target 'OddJobs' do
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
+  pod 'Carnival'
 
   target 'OddJobsTests' do
     inherit! :search_paths
