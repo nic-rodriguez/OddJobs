@@ -8,19 +8,34 @@
 
 import UIKit
 import Parse
+import Foundation
 
-class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var homeFeedTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var jobs: [PFObject] = []
+    var filteredJobs: [PFObject] = []
+    
+    var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         homeFeedTableView.dataSource = self
         homeFeedTableView.delegate = self
+        searchBar.delegate = self
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+        homeFeedTableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
         
         queryServer()
+        
+        filteredJobs = jobs //eh?
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
@@ -37,13 +52,13 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return jobs.count
+        return filteredJobs.count //eh?
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "HomeFeedTableViewCell", for: indexPath) as! HomeFeedTableViewCell
         
-        cell.job = jobs[indexPath.row]
+        cell.job = filteredJobs[indexPath.row] //eh?
         return cell
     }
     
@@ -98,6 +113,51 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
  
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        filteredJobs = searchText.isEmpty ? data : data.filter { (item: [String: Any]) -> Bool in
+//            // If dataItem matches the searchText, return true to include it
+//            return (item["title"] as! String).range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+//            
+//            //(item["title"] as! String).range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+//        }
+        
+        filteredJobs = jobs.filter({ (job) -> Bool in
+            let range = (job["title"] as! String).range(of: searchText)
+            
+            
+            
+            
+            //rangeOfString(searchText, options:NSString.CompareOptions.CaseInsensitiveSearch)
+            return range != nil
+        })
+        
+        
+        
+        homeFeedTableView.reloadData()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filteredJobs = jobs.filter({ (job) -> Bool in
+                let range = (job["title"] as! String).range(of: searchText)
+                return range != nil
+            })
+            
+            homeFeedTableView.reloadData()
+        }
+    }
+
 
 }
