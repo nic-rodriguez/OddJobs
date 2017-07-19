@@ -39,7 +39,11 @@ class HomeFeedTableViewCell: UITableViewCell {
             self.nameLabel.text = jobPoster.username!
             self.titleLabel.text = job["title"] as? String
             self.dateLabel.text = job["dateDue"] as? String
-            self.costLabel.text = job["pay"] as? String
+//            self.costLabel.text = job["pay"] as? String
+            let a:Double = job["pay"] as! Double
+            let b:String = String(format:"%.2f", a)
+            self.costLabel.text = "$" + b
+
         }
     }
     
