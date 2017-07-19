@@ -9,10 +9,12 @@
 import UIKit
 import Parse
 import ParseUI
+import MapKit
 
 class DetailViewController: UIViewController {
     
     var job: PFObject!
+    let regionRadius: CLLocationDistance = 1000
     
     @IBOutlet weak var jobPostPFImageView: PFImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
@@ -22,6 +24,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var skillsLabel: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +57,13 @@ class DetailViewController: UIViewController {
             skillsLabel.text = skill + ", "
         }
         
+        let latitude = job["latitude"] as! CLLocationDegrees
+        let longitude = job["longitude"] as! CLLocationDegrees
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let annotation = Job(title: job["title"] as? String, subtitle: job["description"] as? String, location: coordinate)
+        mapView.addAnnotation(annotation)
+        centerMapOnLocation(location: CLLocation(latitude: latitude, longitude: longitude))
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,7 +71,11 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius*2, regionRadius*2)
+        mapView.setRegion(coordinateRegion, animated: false)
+        
+    }
     /*
      // MARK: - Navigation
      

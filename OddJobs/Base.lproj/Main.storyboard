@@ -326,8 +326,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prefered skills:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-Jv-fJk">
-                                <rect key="frame" x="16" y="406" width="130" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferred skills:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-Jv-fJk">
+                                <rect key="frame" x="16" y="406" width="137" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -338,6 +338,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZCB-m3-mao" customClass="MKMapView">
+                                <rect key="frame" x="0.0" y="490" width="375" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -383,13 +388,14 @@
                         <outlet property="dificultyLabel" destination="wdV-5r-n4k" id="Pp9-DR-ry6"/>
                         <outlet property="jobPostPFImageView" destination="uJ0-N2-7X9" id="bqF-iS-yeH"/>
                         <outlet property="jobTitleLabel" destination="c4f-uq-eEc" id="jae-cZ-sXe"/>
+                        <outlet property="mapView" destination="ZCB-m3-mao" id="ufm-uR-WzM"/>
                         <outlet property="skillsLabel" destination="7Ov-Zm-S0x" id="JnB-oh-jho"/>
                         <outlet property="usernameLabel" destination="N1T-dJ-Y0G" id="rlg-St-v1o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjW-fY-dLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3905" y="-8"/>
+            <point key="canvasLocation" x="3904.8000000000002" y="-8.5457271364317844"/>
         </scene>
         <!--Choose Tags-->
         <scene sceneID="4nr-ro-pWw">
@@ -1218,6 +1224,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yxL-7S-ffg"/>
-        <segue reference="PlT-eI-aH9"/>
+        <segue reference="IJf-2u-KdW"/>
     </inferredMetricsTieBreakers>
 </document>
