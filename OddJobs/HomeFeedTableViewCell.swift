@@ -34,8 +34,6 @@ class HomeFeedTableViewCell: UITableViewCell {
 //            self.userImageView.loadInBackground()
 //            print(jobPoster["PFUser"].username)
             
-            
-            
             self.nameLabel.text = jobPoster.username!
             self.titleLabel.text = job["title"] as? String
             self.dateLabel.text = job["dateDue"] as? String

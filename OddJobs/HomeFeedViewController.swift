@@ -33,6 +33,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         homeFeedTableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
         
+        searchController.searchBar.scopeButtonTitles = ["All", "type", "year", "country"]
+        //just a test thingy
+        
         queryServer()
         
         let refreshControl = UIRefreshControl()
