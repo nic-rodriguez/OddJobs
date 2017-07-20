@@ -11,7 +11,7 @@ import Parse
 import Foundation
 
 class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, TagsRowTableViewCellDelegate {
-    
+
     @IBOutlet weak var homeFeedTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -19,6 +19,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     var jobs: [PFObject] = []
     var filteredJobs: [PFObject] = []
     var selectedTags: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false, false]
+    var tags: [String] = ["Gardening", "Food", "Delivery", "Cleaning", "Pets", "Housework", "Caretaker", "Survey", "App Testing", "Logo Design", "Plumbing", "Sewing", "Dry Cleaning"]
     
     var searchController: UISearchController!
     
@@ -45,10 +46,10 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         homeFeedTableView.insertSubview(refreshControl, at: 0)
         
-        //        homeFeedTableView.estimatedRowHeight = 100
-        //        homeFeedTableView.rowHeight = UITableViewAutomaticDimension
+//        homeFeedTableView.estimatedRowHeight = 100
+//        homeFeedTableView.rowHeight = UITableViewAutomaticDimension
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -167,9 +168,11 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         }
         //this delegate works fuuuu man fuuuu
     }
-    
+
     func tagIsSelected(givenTags: [String]?) -> Bool{
         var found: Bool = true
+        
+        
         
         //to be filled in
         //make the bool array into a dictionary of all key and their true / false
@@ -177,13 +180,14 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         // basically
         
 //        if let givenTags = givenTags {
-//            for obj in givenTags {
-//                if selectedTags[obj] {
-//                    //found still tru
-//                } else {
-//                    found = false
-//                }
+//        for obj in givenTags {
+//            if selectedTags[obj] {
+//                //found still tru
+//            } else {
+//                found = false
 //            }
+//            
+//        }
 //        }
         
         

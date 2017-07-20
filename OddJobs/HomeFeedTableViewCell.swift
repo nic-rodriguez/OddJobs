@@ -12,6 +12,8 @@ import ParseUI
 
 class HomeFeedTableViewCell: UITableViewCell {
 
+    var currentUser = PFUser.current()
+    
     @IBOutlet weak var postImageView: PFImageView?
     @IBOutlet weak var userImageView: PFImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -41,7 +43,16 @@ class HomeFeedTableViewCell: UITableViewCell {
             let a:Double = job["pay"] as! Double
             let b:String = String(format:"%.2f", a)
             self.costLabel.text = "$" + b
-
+            
+//            job["latitude"] = location.latitude
+//            job["longitude"] = location.longitude
+            
+            let descLocation: PFGeoPoint = PFGeoPoint()
+            descLocation.latitude = job["latitude"] as! Double
+            descLocation.longitude = job["longitude"] as! Double
+            let currentUserLocation = currentUser?["location"] as! PFGeoPoint
+            distanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: descLocation)) + " miles away"
+            
         }
     }
     

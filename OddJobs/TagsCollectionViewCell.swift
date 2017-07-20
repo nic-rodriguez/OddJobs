@@ -16,6 +16,7 @@ class TagsCollectionViewCell: UICollectionViewCell {
     
     var positionInArr: Int!
     weak var delegate:TagsCollectionViewCellDelegate?
+
     
     @IBOutlet weak var filterTagLabel: UILabel!
     
@@ -24,5 +25,9 @@ class TagsCollectionViewCell: UICollectionViewCell {
         sender.isSelected = !sender.isSelected
         delegate?.toggleTag(position: positionInArr)
     }
+
+    
     
 }
+
+
