@@ -13,7 +13,7 @@ import GoogleMaps
 import GooglePlaces
 import GooglePlacePicker
 
-class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TagsTableViewControllerDelegate {
 
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passField: UITextField!
@@ -23,6 +23,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var addressLabel: UILabel!
     
     var address: CLLocationCoordinate2D?
+    var tags: [String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +81,25 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         profileImageView.image = originalImage
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func cancelPress(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func createTags(tags: [String]) {
+        self.tags = tags
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tagsSegue" {
+            let tagsViewController = segue.destination as! TagsTableViewController
+            tagsViewController.delegate = self
+            
+        }
+    }
 }
+
+
 
 extension SignUpViewController: GMSAutocompleteViewControllerDelegate {
     // Handle the user's selection.
