@@ -12,6 +12,13 @@ import ParseUI
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var userField: UITextField!
+    @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var confirmField: UITextField!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var bioField: UITextField!
+    @IBOutlet weak var addressLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +30,30 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func createUserPress(_ sender: Any) {
+        let newUser = PFUser()
+
+        newUser.username = userField.text
+        if passField.text == confirmField.text {
+            newUser.password = passField.text
+            
+            newUser.signUpInBackground { (success: Bool, error: Error?) in
+                if let error = error {
+                    print("Error: " + error.localizedDescription)
+                } else {
+                    print("User successfully signed up!")
+                    self.performSegue(withIdentifier: "signUpSegue", sender: nil)
+                }
+            }
+
+        } else {
+            // raise alert controller
+        }
+    }
+    
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
+    }
 
     /*
     // MARK: - Navigation

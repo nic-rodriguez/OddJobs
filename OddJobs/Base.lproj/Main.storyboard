@@ -59,7 +59,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <action selector="onSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DZa-Rn-Nwe"/>
                                     <segue destination="Lcz-Mp-dUc" kind="show" id="5Xz-2e-nMS"/>
                                 </connections>
                             </button>
@@ -125,21 +124,16 @@ EFBhc3N3b3JkA
                                 <rect key="frame" x="67" y="260" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ViA-tl-Blu">
-                                <rect key="frame" x="67" y="452" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWC-hw-NHZ">
-                                <rect key="frame" x="120" y="616" width="82" height="30"/>
+                                <rect key="frame" x="236" y="616" width="82" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create User"/>
+                                <connections>
+                                    <action selector="createUserPress:" destination="Lcz-Mp-dUc" eventType="touchUpInside" id="YCi-7x-glU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3Y-WP-TGY">
-                                <rect key="frame" x="41" y="616" width="36" height="30"/>
+                                <rect key="frame" x="56" y="616" width="36" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Skills"/>
                             </button>
@@ -165,8 +159,8 @@ EEVudGVyIFBhc3N3b3JkA
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Password Again" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bga-VI-Iex">
-                                <rect key="frame" x="45" y="184" width="166" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bga-VI-Iex">
+                                <rect key="frame" x="45" y="184" width="140" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -180,17 +174,49 @@ EEVudGVyIFBhc3N3b3JkA
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltd-eO-Qyt">
-                                <rect key="frame" x="238" y="616" width="124" height="30"/>
+                                <rect key="frame" x="125" y="497" width="124" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select an Address"/>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Sd-7H-O3W">
+                                <rect key="frame" x="56" y="459" width="262" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjP-oN-c4V">
+                                <rect key="frame" x="156" y="543" width="63" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fq8-EV-HUP" appends="YES" id="1th-WM-Nh0"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="BjP-oN-c4V" id="vhM-De-b2P"/>
+                        <outlet property="bioField" destination="6Sd-7H-O3W" id="uzF-14-ncX"/>
+                        <outlet property="confirmField" destination="FBe-xK-gSs" id="CJp-wV-kLg"/>
+                        <outlet property="passField" destination="0rE-k6-g7z" id="z2g-rY-3qO"/>
+                        <outlet property="profileImageView" destination="DsC-dD-BjZ" id="A2D-1B-b7V"/>
+                        <outlet property="userField" destination="vSn-X9-ypK" id="vmb-ns-Xtl"/>
+                        <segue destination="BLs-gu-Rdh" kind="show" identifier="signUpSegue" id="s4a-PH-UvH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7m-aB-f3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fq8-EV-HUP">
+                    <connections>
+                        <action selector="onTap:" destination="Lcz-Mp-dUc" id="xqk-rP-8SH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="46" y="908"/>
+            <point key="canvasLocation" x="46" y="866"/>
         </scene>
         <!--Post Job-->
         <scene sceneID="C11-98-Y0A">
@@ -1453,7 +1479,8 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yxL-7S-ffg"/>
+        <segue reference="s4a-PH-UvH"/>
         <segue reference="IJf-2u-KdW"/>
+        <segue reference="yxL-7S-ffg"/>
     </inferredMetricsTieBreakers>
 </document>
