@@ -47,6 +47,16 @@ class DetailViewController: UIViewController {
             self.job.saveInBackground()
         }
         
+        
+        let alertController = UIAlertController(title: "Job request sent!", message: "", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
+        }
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true) {
+        }
+        
     }
    
     
