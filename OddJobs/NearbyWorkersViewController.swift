@@ -26,6 +26,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
         let refreshControl = UIRefreshControl()
         
         refreshControl.addTarget(self, action: #selector (self.didPullToRefresh(_:)), for: .valueChanged)
+       
         workersTableView.insertSubview(refreshControl, at: 0)
         
         queryNearbyUsers()

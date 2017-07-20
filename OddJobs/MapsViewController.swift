@@ -18,6 +18,8 @@ class MapsViewController: UIViewController {
     let locationManager = CLLocationManager()
     var jobs: [PFObject] = []
     var initalLocation: MKUserLocation?
+    var annotations: [Job] = []
+    var currentJob: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,7 @@ class MapsViewController: UIViewController {
         }
     }
     
+    
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius*2, regionRadius*2)
         mapView.setRegion(coordinateRegion, animated: true)
@@ -62,6 +65,7 @@ class MapsViewController: UIViewController {
             let longitude = job["longitude"] as! CLLocationDegrees
             let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let annotation = Job(title: job["title"] as? String, subtitle: job["description"] as? String, location: coordinate)
+            annotations.append(annotation)
             map.addAnnotation(annotation)
         }
     }
@@ -111,7 +115,7 @@ class MapsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mapDetailSegue" {
             let vc = segue.destination as! DetailViewController
-            vc.job = jobs[0]
+            vc.job = currentJob!
         }
     }
     
@@ -123,6 +127,23 @@ extension MapsViewController: MKMapViewDelegate {
         if initalLocation == nil {
             initalLocation = userLocation
             centerMapOnLocation(location: userLocation.location!)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        for job in jobs {
+            let latitude = job["latitude"] as! CLLocationDegrees
+            let longitude = job["longitude"] as! CLLocationDegrees
+            let title = job["title"] as? String
+            let subtitle = job["description"] as? String
+            if let annotation = view.annotation {
+                if latitude == annotation.coordinate.latitude && longitude == annotation.coordinate.longitude {
+                    if title == annotation.title! && subtitle == annotation.subtitle! {
+                       currentJob = job
+                    }
+                }
+            }
+
         }
     }
     

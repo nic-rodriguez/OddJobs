@@ -12,6 +12,7 @@ import UIKit
 import GooglePlaces
 import GoogleMaps
 import GooglePlacePicker
+import Parse
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, TagsTableViewControllerDelegate, UINavigationControllerDelegate {
    
@@ -107,6 +108,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, Tag
                 print("Problem saving message: \(error.localizedDescription)")
             }
         })
+        
+        let currentUser = PFUser.current()
+        
         
     }
     

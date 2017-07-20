@@ -53,6 +53,16 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Please refer to our privacy policy and terms of service at http://carnival.io</string>
+			<key>License</key>
+			<string>commercial</string>
+			<key>Title</key>
+			<string>Carnival</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright 2017 Google</string>
 			<key>License</key>
 			<string>Copyright</string>
