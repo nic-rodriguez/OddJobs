@@ -38,28 +38,8 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
-        
-        
-        //add segue to next screen
     }
     
-    @IBAction func onSignUp(_ sender: Any) {
-        let newUser = PFUser()
-        
-        newUser.username = userTextField.text
-        newUser.password = passwordTextField.text
-    
-        newUser.signUpInBackground { (success: Bool, error: Error?) in
-            if let error = error {
-                print("Error: " + error.localizedDescription)
-            } else {
-                print("User successfully signed up!")
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            }
-        }
-        
-        //add segue to next screen
-    }
     
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
