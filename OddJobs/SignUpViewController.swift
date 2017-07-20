@@ -18,7 +18,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var confirmField: UITextField!
-    @IBOutlet weak var profileImageView: PFImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var bioField: UITextField!
     @IBOutlet weak var addressLabel: UILabel!
     
@@ -44,7 +44,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             newUser.password = passField.text
             newUser["bio"] = bioField.text ?? ""
             newUser["profilePicture"] = Job.getPFFileFromImage(image: profileImageView.image)
-            print(tags)
             newUser["skills"] = tags
             
             newUser.signUpInBackground { (success: Bool, error: Error?) in
