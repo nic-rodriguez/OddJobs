@@ -40,24 +40,42 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         let newUser = PFUser()
 
         newUser.username = userField.text
+        
+        let alertController = UIAlertController(title: "Error", message: "Error", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            print("User dismissed error")
+        })
+        alertController.addAction(okAction)
+        
         if passField.text == confirmField.text {
             newUser.password = passField.text
             newUser["bio"] = bioField.text ?? ""
-            newUser["profilePicture"] = Job.getPFFileFromImage(image: profileImageView.image)
+            newUser["profilePicture"] = Job.getPFFileFromImage(image: profileImageView.image) ?? NSNull()
             newUser["skills"] = tags
-            
-            newUser.signUpInBackground { (success: Bool, error: Error?) in
-                if let error = error {
-                    print("Error: " + error.localizedDescription)
-                } else {
-                    print("User successfully signed up!")
-                    self.dismiss(animated: true, completion: nil)
-//                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            if let address = address {
+                newUser["homeLocation"] = PFGeoPoint(latitude: address.latitude, longitude: address.longitude)
+                newUser.signUpInBackground { (success: Bool, error: Error?) in
+                    if let error = error {
+                        print("Error: " + error.localizedDescription)
+                        alertController.message = error.localizedDescription
+                        self.present(alertController, animated: true)
+                    } else {
+                        print("User successfully signed up!")
+                        self.dismiss(animated: true, completion: nil)
+                        //                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    }
                 }
+            } else {
+                alertController.title = "You didn't enter a home address"
+                alertController.message = "Please select a home address"
+                present(alertController, animated: true)
+                // raise alert controller: need address
             }
 
         } else {
-            // raise alert controller
+            alertController.title = "Your passwords don't match"
+            alertController.message = "Please re-type your password"
+            present(alertController, animated: true)
         }
     }
     
