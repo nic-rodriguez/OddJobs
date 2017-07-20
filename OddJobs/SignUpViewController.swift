@@ -18,12 +18,12 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var confirmField: UITextField!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: PFImageView!
     @IBOutlet weak var bioField: UITextField!
     @IBOutlet weak var addressLabel: UILabel!
     
     var address: CLLocationCoordinate2D?
-    var tags: [String]?
+    var tags: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +42,18 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         newUser.username = userField.text
         if passField.text == confirmField.text {
             newUser.password = passField.text
+            newUser["bio"] = bioField.text ?? ""
+            newUser["profilePicture"] = Job.getPFFileFromImage(image: profileImageView.image)
+            print(tags)
+            newUser["skills"] = tags
             
             newUser.signUpInBackground { (success: Bool, error: Error?) in
                 if let error = error {
                     print("Error: " + error.localizedDescription)
                 } else {
                     print("User successfully signed up!")
-                    self.performSegue(withIdentifier: "signUpSegue", sender: nil)
+                    self.dismiss(animated: true, completion: nil)
+//                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 }
             }
 

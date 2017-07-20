@@ -118,7 +118,7 @@ EFBhc3N3b3JkA
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DsC-dD-BjZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DsC-dD-BjZ" customClass="PFImageView">
                                 <rect key="frame" x="67" y="226" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -225,7 +225,6 @@ EEVudGVyIFBhc3N3b3JkA
                         <outlet property="passField" destination="0rE-k6-g7z" id="z2g-rY-3qO"/>
                         <outlet property="profileImageView" destination="DsC-dD-BjZ" id="A2D-1B-b7V"/>
                         <outlet property="userField" destination="vSn-X9-ypK" id="vmb-ns-Xtl"/>
-                        <segue destination="BLs-gu-Rdh" kind="show" identifier="signUpSegue" id="s4a-PH-UvH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7m-aB-f3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1495,7 +1494,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLA-qn-ZIQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVJ-V0-srk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dVJ-V0-srk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1516,7 +1515,6 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s4a-PH-UvH"/>
         <segue reference="XBR-ei-GAb"/>
         <segue reference="IJf-2u-KdW"/>
         <segue reference="yxL-7S-ffg"/>
