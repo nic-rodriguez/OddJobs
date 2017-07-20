@@ -45,6 +45,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             newUser["bio"] = bioField.text ?? ""
             newUser["profilePicture"] = Job.getPFFileFromImage(image: profileImageView.image)
             newUser["skills"] = tags
+            if let address = address {
+                newUser["homeLocation"] = PFGeoPoint(latitude: address.latitude, longitude: address.longitude)
+            }
             
             newUser.signUpInBackground { (success: Bool, error: Error?) in
                 if let error = error {
