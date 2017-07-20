@@ -151,10 +151,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         if let searchText = searchController.searchBar.text {
             filteredJobs = jobs.filter({ (job) -> Bool in
                 let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
-                
-                
-                
-                return range != nil
+                return (range != nil) //&&
             })
             homeFeedTableView.reloadData()
         }
@@ -162,36 +159,69 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func toggleTag1(position: Int) {
         selectedTags[position] = !selectedTags[position]
-        print ("From homefeedViewController")
-        for obj in selectedTags { //for verifying if the delegate worked
-            print(obj)
-        }
-        //this delegate works fuuuu man fuuuu
+//        print ("From homefeedViewController")
+//        for obj in selectedTags { //for verifying if the delegate worked
+//            print(obj)
+//        }
+        //this delegate works
+        
+        //requery this so we only hold the ones where the thing 
+//        filteredJobs = jobs.filter({ (job) -> Bool in
+//            let range = tagIsSelected(givenTags: job["tags"] as! [String])
+//            return (range != nil) //&&
+//        })
+        
+        
+        
+        //WORK IN PROGRESS
+//        let query = PFQuery(className: "Job")
+//        query.addDescendingOrder("createdAt")
+//        query.includeKey("userPosted")
+//        query.limit = 8
+//        
+//        //sort the job array
+//        //sort current tags selectd array
+//        //compare
+//        //if same hold onto these
+//        //else pichea
+//        
+//        query.whereKey("tags", equalTo: PFUser.current()!)
+//        
+//        
+//        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else {
+//                self.jobs = jobs!
+//                self.filteredJobs = jobs! // eh?
+//                self.homeFeedTableView.reloadData()
+//            }
+//        }
+
     }
 
     func tagIsSelected(givenTags: [String]?) -> Bool{
-        var found: Bool = true
+        var totalFound: Int = 0
         
+        for (index, element) in selectedTags.enumerated() {
+            print("Item \(index): \(element)")
+            
+            if (element) { //if this location holds true
+                //then we look which tag it is
+                for obj in givenTags! {
+                    if (tags[index] == obj){
+                        totalFound = totalFound + 1
+                    }
+                }
+            }
+        }
+        print (totalFound)
         
-        
-        //to be filled in
-        //make the bool array into a dictionary of all key and their true / false
-        //if the obj in job["tag"]
-        // basically
-        
-//        if let givenTags = givenTags {
-//        for obj in givenTags {
-//            if selectedTags[obj] {
-//                //found still tru
-//            } else {
-//                found = false
-//            }
-//            
-//        }
-//        }
-        
-        
-        return found
+        if totalFound == (givenTags?.count)! {
+            return true
+        } else {
+            return false
+        }
     }
     
 }
