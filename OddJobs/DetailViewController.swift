@@ -30,11 +30,9 @@ class DetailViewController: UIViewController {
     @IBAction func requestJob(_ sender: UIBarButtonItem) {
         let currentUser = PFUser.current()
         
-        if (self.job["usersInterested"] == nil){
+        if self.job["usersInterested"] == nil{
         
             var usersInterested: [PFUser]! = []
-            
-           
             usersInterested.append(currentUser!)
             self.job["usersInterested"] = usersInterested as! [PFUser]
             print("user saved!")
@@ -47,14 +45,18 @@ class DetailViewController: UIViewController {
             self.job.saveInBackground()
         }
         
-        
-        let alertController = UIAlertController(title: "Job request sent!", message: "", preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
-        }
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true) {
+        if currentUser?["jobsInterested"] == nil {
+            var jobsInterested: [PFObject] = []
+            jobsInterested.append(self.job)
+            currentUser?["jobsInterested"] = jobsInterested
+            currentUser?.saveInBackground()
+            print("saved interested job")
+        } else {
+            var jobsInterested = currentUser?["jobsInterested"] as! [PFObject]
+            jobsInterested.append(self.job)
+            currentUser?["jobsInterested"] = jobsInterested
+            currentUser?.saveInBackground()
+            print("saved interested job")
         }
         
     }

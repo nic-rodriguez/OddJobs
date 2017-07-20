@@ -20,22 +20,15 @@ class NotificationCell: UITableViewCell {
     var correspondingJob: PFObject!{
         didSet {
             self.loadJobData()
-            print("did set ho")
         }
     }
 
-    
     
     @IBOutlet weak var jobTitleLabel: UILabel!
     
     @IBOutlet weak var usernameLabel: UILabel!
     
     @IBOutlet weak var userDistanceLabel: UILabel!
-    
-    @IBOutlet weak var userRatingLabel: UILabel!
-    
-   
-    
     
     
     override func awakeFromNib() {
@@ -51,12 +44,9 @@ class NotificationCell: UITableViewCell {
     
     
     func loadUserData() {
-                
-    
-    
-        
+   
         usernameLabel.text = userInterested.username as? String ?? "error"
-        print(usernameLabel.text)
+        
         
         let location = self.userInterested["location"] as? PFGeoPoint
         let currentUserLocation = PFUser.current()?["location"] as! PFGeoPoint
@@ -66,7 +56,6 @@ class NotificationCell: UITableViewCell {
     }
     
     func loadJobData() {
-        print("is setting")
         jobTitleLabel.text = correspondingJob["title"] as! String
                
     }
