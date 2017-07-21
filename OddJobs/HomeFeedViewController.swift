@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Foundation
 
-class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, TagsRowTableViewCellDelegate {
+class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, TagsRowTableViewCellDelegate, CustomSearchControllerDelegate {
 
     @IBOutlet weak var homeFeedTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -23,13 +23,16 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     var shouldShowSearchResults = false
     var searchController: UISearchController!
+    var customSearchController: CustomSearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         homeFeedTableView.dataSource = self
         homeFeedTableView.delegate = self
         
-        configureSearchController()
+//        configureSearchController()
+        configureCustomSearchController()
+        
         
         definesPresentationContext = true
         
@@ -75,7 +78,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         } else {
             let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "HomeFeedTableViewCell", for: indexPath) as! HomeFeedTableViewCell
             
-            if searchController.isActive && searchController.searchBar.text != "" { //shouldShowSearchResults
+            if shouldShowSearchResults { //searchController.isActive && searchController.searchBar.text != "" { //shouldShowSearchResults
                 cell.job = filteredJobs[indexPath.row]
             } else {
                 cell.job = jobs[indexPath.row]
@@ -127,7 +130,17 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         if (segue.identifier == "showDetailViewFromFeed") {
             let cell = sender as! UITableViewCell //UserJobsTableViewCell
             if let indexPath = homeFeedTableView.indexPath(for: cell) {
-                let job = filteredJobs[indexPath.row]
+                
+                let job: PFObject
+                
+                if shouldShowSearchResults { //searchController.isActive && searchController.searchBar.text != "" { //shouldShowSearchResults
+                    job = filteredJobs[indexPath.row]
+                } else {
+                    job = jobs[indexPath.row]
+                }
+//                let job = filteredJobs[indexPath.row]
+                
+                
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.job = job
                 homeFeedTableView.deselectRow(at: indexPath, animated: true)
@@ -248,5 +261,39 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             // Reload the tableview.
             homeFeedTableView.reloadData()
         }
+    }
+    
+    func configureCustomSearchController() {
+        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.orange, searchBarTintColor: UIColor.black)
+        
+        
+        customSearchController.customSearchBar.placeholder = "Search in this awesome bar..."
+        homeFeedTableView.tableHeaderView = customSearchController.customSearchBar
+        customSearchController.customDelegate = self
+    }
+    
+    func didStartSearching() {
+        shouldShowSearchResults = true
+        homeFeedTableView.reloadData()
+    }
+    func didTapOnSearchButton() {
+        if !shouldShowSearchResults {
+            shouldShowSearchResults = true
+             homeFeedTableView.reloadData()
+        }
+    }
+    func didTapOnCancelButton() {
+        shouldShowSearchResults = false
+        homeFeedTableView.reloadData()
+    }
+    func didChangeSearchText(searchText: String) {
+        filteredJobs = jobs.filter({ (job) -> Bool in
+            let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
+            return (range != nil) //&&
+        })
+
+        
+        // Reload the tableview.
+        homeFeedTableView.reloadData()
     }
 }
