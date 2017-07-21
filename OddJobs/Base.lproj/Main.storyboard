@@ -1602,9 +1602,8 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="red_check" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yxL-7S-ffg"/>
-        <segue reference="biL-UF-kBd"/>
         <segue reference="XBR-ei-GAb"/>
         <segue reference="IJf-2u-KdW"/>
+        <segue reference="yxL-7S-ffg"/>
     </inferredMetricsTieBreakers>
 </document>

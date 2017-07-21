@@ -21,23 +21,17 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     var selectedTags: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false, false]
     var tags: [String] = ["Gardening", "Food", "Delivery", "Cleaning", "Pets", "Housework", "Caretaker", "Survey", "App Testing", "Logo Design", "Plumbing", "Sewing", "Dry Cleaning"]
     
+    var shouldShowSearchResults = false
     var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         homeFeedTableView.dataSource = self
         homeFeedTableView.delegate = self
-        searchBar.delegate = self
         
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.sizeToFit()
-        homeFeedTableView.tableHeaderView = searchController.searchBar
+        configureSearchController()
+        
         definesPresentationContext = true
-        
-        //searchController.searchBar.scopeButtonTitles = ["All", "type", "year", "country"]
-        //just a test thingy
         
         queryServer()
         
@@ -63,7 +57,12 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         if (section == 0) {
             return 1
         } else {
-            return filteredJobs.count
+            
+            if shouldShowSearchResults {
+                return filteredJobs.count
+            } else {
+                return jobs.count
+            }
         }
     }
     
@@ -76,16 +75,15 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         } else {
             let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "HomeFeedTableViewCell", for: indexPath) as! HomeFeedTableViewCell
             
-            //cell.job = filteredJobs[indexPath.row] //eh?
-            if searchController.isActive && searchController.searchBar.text != "" {
+            if searchController.isActive && searchController.searchBar.text != "" { //shouldShowSearchResults
                 cell.job = filteredJobs[indexPath.row]
             } else {
                 cell.job = jobs[indexPath.row]
             }
+            
             return cell
         }
     }
-    
     
     func queryServer() {
         let query = PFQuery(className: "Job")
@@ -137,26 +135,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.searchBar.showsCancelButton = true
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            filteredJobs = jobs.filter({ (job) -> Bool in
-                let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
-                return (range != nil) //&&
-            })
-            homeFeedTableView.reloadData()
-        }
-    }
-    
     func toggleTag1(position: Int) {
         selectedTags[position] = !selectedTags[position]
 //        print ("From homefeedViewController")
@@ -165,39 +143,38 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
 //        }
         //this delegate works
         
-        //requery this so we only hold the ones where the thing 
-//        filteredJobs = jobs.filter({ (job) -> Bool in
-//            let range = tagIsSelected(givenTags: job["tags"] as! [String])
-//            return (range != nil) //&&
-//        })
-        
         
         
         //WORK IN PROGRESS
-//        let query = PFQuery(className: "Job")
-//        query.addDescendingOrder("createdAt")
-//        query.includeKey("userPosted")
-//        query.limit = 8
-//        
-//        //sort the job array
-//        //sort current tags selectd array
-//        //compare
-//        //if same hold onto these
-//        //else pichea
-//        
+        let query = PFQuery(className: "Job")
+        query.addDescendingOrder("createdAt")
+        query.includeKey("userPosted")
+        query.includeKey("tags") //eh?
+        query.limit = 8
+        
+        //creat an array that holds only marked true objects
+        var selected: [String] = []
+        
+        for (index, element) in selectedTags.enumerated() {
+            if (element) { //if this location holds true
+                selected.append(tags[index])
+            }
+        }
+        
+        
+        query.whereKey("tags", containsAllObjectsIn: selected)
 //        query.whereKey("tags", equalTo: PFUser.current()!)
-//        
-//        
-//        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else {
-//                self.jobs = jobs!
-//                self.filteredJobs = jobs! // eh?
-//                self.homeFeedTableView.reloadData()
-//            }
-//        }
-
+        
+        
+        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.jobs = jobs!
+                self.filteredJobs = jobs! // eh?
+                self.homeFeedTableView.reloadData()
+            }
+        }
     }
 
     func tagIsSelected(givenTags: [String]?) -> Bool{
@@ -224,4 +201,52 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    func configureSearchController() {
+        // Initialize and perform a minimum configuration to the search controller.
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search here..."
+        searchController.searchBar.delegate = self
+        searchController.searchBar.sizeToFit()
+        
+        // Place the search bar view to the tableview headerview.
+        homeFeedTableView.tableHeaderView = searchController.searchBar
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        shouldShowSearchResults = true
+        homeFeedTableView.reloadData()
+        //        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        shouldShowSearchResults = false
+        homeFeedTableView.reloadData()
+        //        searchBar.showsCancelButton = false
+        //        searchBar.text = ""
+        //        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if !shouldShowSearchResults {
+            shouldShowSearchResults = true
+            homeFeedTableView.reloadData()
+        }
+        searchController.searchBar.resignFirstResponder()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            
+            // Filter the data array
+            filteredJobs = jobs.filter({ (job) -> Bool in
+                let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
+                return (range != nil) //&&
+            })
+            
+            // Reload the tableview.
+            homeFeedTableView.reloadData()
+        }
+    }
 }
