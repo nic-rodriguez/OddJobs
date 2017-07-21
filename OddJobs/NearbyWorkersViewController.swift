@@ -82,14 +82,14 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
                 
                 
                 
-                currentUser!["location"] = self.currentLocation
+                currentUser!["currentLocation"] = self.currentLocation
                 print("User location saved!")
                 currentUser?.saveInBackground()
                 
                 
                 let query: PFQuery = PFUser.query()!
                 // Interested in locations near user.
-                query.whereKey("location", nearGeoPoint:self.currentLocation)
+                query.whereKey("homeLocation", nearGeoPoint:self.currentLocation)
                 // Limit what could be a lot of points.
                 query.limit = 10
                 // Final list of objects

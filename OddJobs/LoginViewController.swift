@@ -33,6 +33,13 @@ class LoginViewController: UIViewController {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
             if let error = error {
                 print("Error: " + error.localizedDescription)
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    print("User dismissed error")
+                })
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+                
             } else {
                 print("User successfully logged in!")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
