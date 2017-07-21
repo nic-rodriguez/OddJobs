@@ -260,10 +260,14 @@ extension HomeFeedViewController: UIScrollViewDelegate {
             let scrollViewContentHeight = homeFeedTableView.contentSize.height
             let scrollOffsetThreshold = scrollViewContentHeight-homeFeedTableView.bounds.size.height
             if scrollView.contentOffset.y > scrollOffsetThreshold && homeFeedTableView.isDragging {
-                print("scrolling")
+                let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                spinner.startAnimating()
+                spinner.hidesWhenStopped = true
+                homeFeedTableView.tableFooterView = spinner
                 isMoreDataLoading = true
                 queryTotal += initialQueryTotal
                 queryServer()
+                spinner.stopAnimating()
             }
         }
     }
