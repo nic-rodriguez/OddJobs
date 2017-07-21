@@ -23,6 +23,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     var shouldShowSearchResults = false
     var searchController: UISearchController!
+    var isMoreDataLoading = false
+    let initialQueryTotal = 3
+    var queryTotal = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,14 +92,14 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
         query.includeKey("userPosted")
-        query.limit = 8
-        
+        query.limit = queryTotal
         query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
+                self.isMoreDataLoading = false
                 self.jobs = jobs!
-                self.filteredJobs = jobs! // eh?
+                self.filteredJobs = jobs! // eh? // might need to change based on infinite scrolling
                 self.homeFeedTableView.reloadData()
             }
         }
@@ -249,4 +252,20 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             homeFeedTableView.reloadData()
         }
     }
+}
+
+extension HomeFeedViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if !isMoreDataLoading {
+            let scrollViewContentHeight = homeFeedTableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight-homeFeedTableView.bounds.size.height
+            if scrollView.contentOffset.y > scrollOffsetThreshold && homeFeedTableView.isDragging {
+                print("scrolling")
+                isMoreDataLoading = true
+                queryTotal += initialQueryTotal
+                queryServer()
+            }
+        }
+    }
+    
 }
