@@ -32,8 +32,8 @@ class HomeFeedTableViewCell: UITableViewCell {
             
             
 //            print(jobPoster["PFUser"])
-//            self.userImageView.file = jobPoster["profilePic"] as? PFFile
-//            self.userImageView.loadInBackground()
+            self.userImageView.file = jobPoster["profilePicture"] as? PFFile
+            self.userImageView.loadInBackground()
 //            print(jobPoster["PFUser"].username)
             
             self.nameLabel.text = jobPoster.username!
