@@ -11,7 +11,7 @@ import Parse
 import Foundation
 
 class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, TagsRowTableViewCellDelegate, CustomSearchControllerDelegate {
-
+    
     @IBOutlet weak var homeFeedTableView: UITableView!
     
     var jobs: [PFObject] = []
@@ -38,7 +38,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         homeFeedTableView.insertSubview(refreshControl, at: 0)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,30 +72,70 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 cell.job = jobs[indexPath.row]
             }
+            print(cell.job["tags"])
             return cell
         }
     }
     
     func queryServer() {
+        //        let query = PFQuery(className: "Job")
+        //        query.addDescendingOrder("createdAt")
+        //        query.includeKey("userPosted")
+        //        query.limit = queryTotal
+        //        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+        //            if let error = error {
+        //                print(error.localizedDescription)
+        //            } else {
+        //                self.isMoreDataLoading = false
+        //                self.jobs = jobs!
+        //                self.filteredJobs = jobs!
+        //                self.homeFeedTableView.reloadData()
+        //            }
+        //        }
+        
+        //Mels Query
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
         query.includeKey("userPosted")
+        query.includeKey("tags")
         query.limit = queryTotal
-        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                self.isMoreDataLoading = false
-                self.jobs = jobs!
-                self.filteredJobs = jobs!
-                self.homeFeedTableView.reloadData()
+        //creat an array that holds only marked true objects
+        var selected: [String] = []
+        for (index, element) in selectedTags.enumerated() {
+            if (element) { //if this location holds true
+                selected.append(tags[index])
             }
         }
+        if selected.count > 0 {
+            query.whereKey("tags", containsAllObjectsIn: selected)
+            query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.jobs = jobs!
+                    self.filteredJobs = jobs!
+                    self.homeFeedTableView.reloadData()
+                }
+            }
+        } else {
+            query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.jobs = jobs!
+                    self.filteredJobs = jobs!
+                    self.homeFeedTableView.reloadData()
+                }
+            }
+        }
+        
+        
     }
     
     func refreshControlAction(_ refreshControl: UIRefreshControl!) {
         queryTotal = initialQueryTotal
         queryServer()
+        //reset the data in the tags?
         refreshControl.endRefreshing()
     }
     
@@ -135,6 +175,8 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func toggleTag1(position: Int) {
         selectedTags[position] = !selectedTags[position]
         
+        print(selectedTags)
+        
         //WORK IN PROGRESS
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
@@ -148,14 +190,29 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 selected.append(tags[index])
             }
         }
-        query.whereKey("tags", containsAllObjectsIn: selected)
-        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                self.jobs = jobs!
-                self.filteredJobs = jobs!
-                self.homeFeedTableView.reloadData()
+        
+        print (selected)
+        
+        if selected.count > 0 {
+            query.whereKey("tags", containsAllObjectsIn: selected)
+            query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.jobs = jobs!
+                    self.filteredJobs = jobs!
+                    self.homeFeedTableView.reloadData()
+                }
+            }
+        } else {
+            query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.jobs = jobs!
+                    self.filteredJobs = jobs!
+                    self.homeFeedTableView.reloadData()
+                }
             }
         }
     }
@@ -186,7 +243,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func didTapOnSearchButton() {
         if !shouldShowSearchResults {
             shouldShowSearchResults = true
-             homeFeedTableView.reloadData()
+            homeFeedTableView.reloadData()
         }
     }
     func didTapOnCancelButton() {
