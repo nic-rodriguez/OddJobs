@@ -1400,6 +1400,10 @@ EEVudGVyIFBhc3N3b3JkA
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <state key="normal" title="Message"/>
+                                                    <connections>
+                                                        <action selector="messageUser:" destination="Q8t-fG-9BY" eventType="touchUpInside" id="r9l-2T-h0q"/>
+                                                        <segue destination="eVF-vZ-Rou" kind="push" identifier="sendMessage" id="AEr-sX-oYg"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgU-5S-nF7">
                                                     <rect key="frame" x="239" y="61" width="64" height="35"/>
@@ -1430,6 +1434,7 @@ EEVudGVyIFBhc3N3b3JkA
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="jobTitleLabel" destination="0b9-jC-BOr" id="4yi-dq-oJg"/>
+                                            <outlet property="messageButton" destination="6ZX-d0-p9v" id="LNH-Ju-Feg"/>
                                             <outlet property="userDistanceLabel" destination="3pH-d8-WRG" id="U9q-NR-yXr"/>
                                             <outlet property="usernameLabel" destination="F2T-Kp-gTY" id="Dm7-2h-Z8J"/>
                                         </connections>
@@ -1524,6 +1529,9 @@ EEVudGVyIFBhc3N3b3JkA
                                 <state key="normal" title="Chats">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="eVF-vZ-Rou" kind="push" id="2cK-fF-9sh"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -1536,6 +1544,25 @@ EEVudGVyIFBhc3N3b3JkA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37t-MP-8oL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2965.5999999999999" y="-2251.1244377811095"/>
+        </scene>
+        <!--Chats-->
+        <scene sceneID="a7x-sL-ehY">
+            <objects>
+                <viewController id="eVF-vZ-Rou" customClass="ChatViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ndc-IU-O4g"/>
+                        <viewControllerLayoutGuide type="bottom" id="xnd-W2-mXb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aoV-8P-PV7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chats" id="QJR-bp-2bk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AR0-Gw-M3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3838" y="-2249"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="WSE-Mc-lmS">
@@ -1603,7 +1630,8 @@ EEVudGVyIFBhc3N3b3JkA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XBR-ei-GAb"/>
-        <segue reference="IJf-2u-KdW"/>
+        <segue reference="AEr-sX-oYg"/>
         <segue reference="yxL-7S-ffg"/>
+        <segue reference="biL-UF-kBd"/>
     </inferredMetricsTieBreakers>
 </document>

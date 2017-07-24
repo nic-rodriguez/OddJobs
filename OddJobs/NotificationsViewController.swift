@@ -8,8 +8,9 @@
 
 import UIKit
 import Parse
+import SendBirdSDK
 
-class NotificationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NotificationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, notificationCellDelegate {
     
     @IBOutlet weak var notificationsTableView: UITableView!
     
@@ -30,6 +31,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     var jobsInterested: [PFObject] = []
     
+    var userToChat: String!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,15 +46,20 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         fetchNotificationData()
         fetchPendingJobsData()
         
-        print("function running")
-       
-        // Do any additional setup after loading the view.
+        
+        
+        
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,9 +78,14 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         if notificationControl.selectedSegmentIndex == 0 {
             let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
             
+            cell.delegate = self
+            
+            cell.cellIndex = indexPath.row
+            
             cell.correspondingJob = jobsUserInterested[indexPath.row]
             
             cell.userInterested = totalUsersInterested[indexPath.row]
+            
             
             return cell
             
@@ -84,6 +99,24 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
             return cell
         }
         
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        let chatViewController = segue.destination as! ChatViewController
+            
+
+        chatViewController.userToChat = self.userToChat
+        
+        
+        
+    }
+    
+    func callSegueFromCell(userID: String, cellIndex: Int) {
+        self.userToChat = userID
+
     }
     
     

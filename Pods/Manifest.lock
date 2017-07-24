@@ -16,6 +16,7 @@ PODS:
   - ParseUI (1.2.0):
     - Bolts/Tasks (~> 1.3)
     - Parse (~> 1.9)
+  - SendBirdSDK (3.0.55)
 
 DEPENDENCIES:
   - Carnival
@@ -24,6 +25,7 @@ DEPENDENCIES:
   - GooglePlaces
   - Parse
   - ParseUI
+  - SendBirdSDK
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -33,7 +35,8 @@ SPEC CHECKSUMS:
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
+  SendBirdSDK: 8a6d7eda614cfb5b19a6df9a3f7838dfe422d561
 
-PODFILE CHECKSUM: 8ef12b1946a594f756611e7a5c162a13afbbd2f4
+PODFILE CHECKSUM: bc736c22866d3faa5f379c1756d13cc2b8f9527b
 
 COCOAPODS: 1.2.1

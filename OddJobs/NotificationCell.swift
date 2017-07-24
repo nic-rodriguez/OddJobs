@@ -9,7 +9,15 @@
 import UIKit
 import Parse
 
+protocol notificationCellDelegate: class {
+    func callSegueFromCell(userID: String, cellIndex: Int)
+}
+
 class NotificationCell: UITableViewCell {
+    
+    weak var delegate: notificationCellDelegate?
+    
+    var cellIndex: Int!
     
     var userInterested: PFUser!{
         didSet {
@@ -30,6 +38,7 @@ class NotificationCell: UITableViewCell {
     
     @IBOutlet weak var userDistanceLabel: UILabel!
     
+    @IBOutlet weak var messageButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,6 +51,15 @@ class NotificationCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func messageUser(_ sender: Any) {
+        let userInterestedId = userInterested.username as! String
+        
+        self.delegate?.callSegueFromCell(userID: userInterestedId, cellIndex: self.cellIndex)
+        
+    }
+    
+    
+ 
     
     func loadUserData() {
    

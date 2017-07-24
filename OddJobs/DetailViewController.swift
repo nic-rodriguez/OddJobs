@@ -29,16 +29,6 @@ class DetailViewController: UIViewController {
     
     @IBAction func requestJob(_ sender: UIBarButtonItem) {
         savejobData()
-        
-        let alertController = UIAlertController(title: "Job Request Sent!", message: "Please await approval", preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
-        }
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true) {
-        }
-
     }
    
     
@@ -53,6 +43,7 @@ class DetailViewController: UIViewController {
             print("user saved!")
             self.job.saveInBackground().continue({ (task:BFTask<NSNumber>) -> Any? in
                 self.saveUserData()
+                
             })
             
         } else {
@@ -74,30 +65,34 @@ class DetailViewController: UIViewController {
             var jobsInterested: [PFObject] = []
             jobsInterested.append(self.job)
             currentUser?["jobsInterested"] = jobsInterested
-            currentUser?.saveInBackground(block: { (success: Bool, error: Error?) in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    print("error here")
-                } else {
-                    print("success user")
-                }
+            currentUser?.saveInBackground().continue({ (task: BFTask<NSNumber>) -> Any? in
+               self.requestSentAlert()
+                
             })
             
         } else {
             var jobsInterested = currentUser?["jobsInterested"] as! [PFObject]
             jobsInterested.append(self.job)
             currentUser?["jobsInterested"] = jobsInterested
-            currentUser?.saveInBackground(block: { (sucess: Bool, error: Error?) in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    print("error here")
-                }
+            currentUser?.saveInBackground().continue({ (task: BFTask<NSNumber>) -> Any? in
+                self.requestSentAlert()
             })
             print("saved interested job")
         }
         
     }
     
+    
+    func requestSentAlert() {
+            let alertController = UIAlertController(title: "Job Request Sent!", message: "Please await approval", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
+            }
+            alertController.addAction(cancelAction)
+            
+            present(alertController, animated: true)
+        
+    }
     
     
     override func viewDidLoad() {

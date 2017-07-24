@@ -16,6 +16,7 @@
 		86C8F9131F1FF50C00228818 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C8F9121F1FF50C00228818 /* TagsCollectionViewCell.swift */; };
 		982965471F1D2DB900C18FA8 /* NearbyWorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */; };
 		982965491F1D308C00C18FA8 /* WorkersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982965481F1D308C00C18FA8 /* WorkersTableViewCell.swift */; };
+		983CA83B1F229CA800AD9B3A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983CA83A1F229CA800AD9B3A /* ChatViewController.swift */; };
 		984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */; };
 		984C684F1F16ACEB00FB4AE4 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */; };
 		985E766F1F1D46EC00F87E2B /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985E766E1F1D46EC00F87E2B /* EditProfileViewController.swift */; };
@@ -69,6 +70,7 @@
 		92D75CC1075FA661748BD749 /* Pods-OddJobsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsUITests/Pods-OddJobsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyWorkersViewController.swift; sourceTree = "<group>"; };
 		982965481F1D308C00C18FA8 /* WorkersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkersTableViewCell.swift; sourceTree = "<group>"; };
+		983CA83A1F229CA800AD9B3A /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
 		984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		985E766E1F1D46EC00F87E2B /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				86C8F90A1F1D571F00228818 /* DetailViewController.swift */,
 				985E76701F1ECC7100F87E2B /* NotificationsViewController.swift */,
 				A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */,
+				983CA83A1F229CA800AD9B3A /* ChatViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				A972FBEF1F1693B600446EAC /* HomeFeedTableViewCell.swift in Sources */,
 				985E76731F1EDCA800F87E2B /* NotificationCell.swift in Sources */,
 				982965471F1D2DB900C18FA8 /* NearbyWorkersViewController.swift in Sources */,
+				983CA83B1F229CA800AD9B3A /* ChatViewController.swift in Sources */,
 				A907D0321F1425C60069B7E7 /* LoginViewController.swift in Sources */,
 				985E76711F1ECC7100F87E2B /* NotificationsViewController.swift in Sources */,
 				A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */,
