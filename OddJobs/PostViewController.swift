@@ -14,50 +14,19 @@ import GoogleMaps
 import GooglePlacePicker
 import Parse
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate, TagsTableViewControllerDelegate, UINavigationControllerDelegate {
+class PostViewController: UIViewController {
    
     @IBOutlet weak var addressLabel: UILabel!
-   
     @IBOutlet weak var jobTitleField: UITextField!
-    
     @IBOutlet weak var jobDescriptionField: UITextField!
-    
     @IBOutlet weak var payField: UITextField!
-    
     @IBOutlet weak var jobDatePicker: UIDatePicker!
-    
     @IBOutlet weak var jobImageView: UIImageView!
-  
-    @IBAction func addJobImage(_ sender: UIButton) {
-        let vc = UIImagePickerController()
-        vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
-        self.present(vc, animated: true, completion: nil)
-        
-    }
-    
-    
-    @IBAction func closePostView(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-
-    }
     @IBOutlet weak var enterAddress: UIButton!
     
-    
-    
-    @IBAction func openGMS(_ sender: UIButton) {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        present(autocompleteController, animated: true, completion: nil)
-    }
-    
-
     var resultsController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
-    
     var jobTitle: String = ""
     var jobDescription: String = ""
     var pay: Double = 0
@@ -67,29 +36,34 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, Tag
     var photoToPost: UIImage!
     var address: CLLocationCoordinate2D?
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
-
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let tagsViewController = segue.destination as! TagsTableViewController
+        tagsViewController.delegate = self
     }
     
-  
+    @IBAction func addJobImage(_ sender: UIButton) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func closePostView(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func openGMS(_ sender: UIButton) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
+    }
 
     @IBAction func endEditting(_ sender: UITapGestureRecognizer) {
-        
         view.endEditing(true)
-        
     }
 
-    
     @IBAction func postJob(_ sender: UIButton) {
         jobTitle = jobTitleField.text!
         jobDescription = jobDescriptionField.text!
@@ -99,7 +73,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, Tag
         currentDate = Date()
         photoToPost = jobImageView.image
     
-        
         Job.postJob(location: address!, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
             if success {
                 print("Post was saved!")
@@ -108,40 +81,13 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, Tag
                 print("Problem saving message: \(error.localizedDescription)")
             }
         })
-        
-        let currentUser = PFUser.current()
-        
-        
     }
-    
-    func createTags(tags: [String]) {
-        self.tags = tags
-    
-    }
-    
-    
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : Any]) {
-        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        self.jobImageView.image = originalImage
-        dismiss(animated: true, completion: nil)
-    }
-    
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let tagsViewController = segue.destination as! TagsTableViewController
-        tagsViewController.delegate = self
-    }
-    
 }
 
 extension PostViewController: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
         
         address = place.coordinate
         addressLabel.text = place.formattedAddress!
@@ -150,7 +96,6 @@ extension PostViewController: GMSAutocompleteViewControllerDelegate {
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
         print("Error: ", error.localizedDescription)
     }
     
@@ -170,3 +115,18 @@ extension PostViewController: GMSAutocompleteViewControllerDelegate {
     
 }
 
+extension PostViewController: TagsTableViewControllerDelegate {
+    
+    func createTags(tags: [String]) {
+        self.tags = tags
+    }
+}
+
+extension PostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        jobImageView.image = originalImage
+        dismiss(animated: true, completion: nil)
+    }
+}
