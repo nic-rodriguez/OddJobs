@@ -20,20 +20,7 @@ class WorkersTableViewCell: UITableViewCell {
     
     @IBOutlet weak var distanceFromLabel: UILabel!
     
-<<<<<<< HEAD
     var currentUser = PFUser.current()
-=======
-    func loadData() {
-        nameLabel.text = user.username
-        self.profileImageView.file = user["profilePicture"] as? PFFile
-        self.profileImageView.loadInBackground()
-        //descriptionLabel.text = user["bio"]
-        let location = user["location"] as? PFGeoPoint
-        let currentUserLocation = currentUser?["homeLocation"] as! PFGeoPoint
-        
-        distanceFromLabel.text = String(format: "%.0f", self.currentUserLocation.distanceInMiles(to: location)) + " mi away"
-        
->>>>>>> a71460c62bc7a3301932f7492040c8ed97b158c7
     
     var currentUserLocation: PFGeoPoint! {
         didSet {

@@ -160,37 +160,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-//    func configureSearchController() {
-//        // Initialize and perform a minimum configuration to the search controller.
-//        searchController = UISearchController(searchResultsController: nil)
-//        searchController.searchResultsUpdater = self
-//        searchController.dimsBackgroundDuringPresentation = false
-//        searchController.searchBar.placeholder = "Search here..."
-//        searchController.searchBar.delegate = self
-//        searchController.searchBar.sizeToFit()
-//        
-//        // Place the search bar view to the tableview headerview.
-//        homeFeedTableView.tableHeaderView = searchController.searchBar
-//    }
-//    
-//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        shouldShowSearchResults = true
-//        homeFeedTableView.reloadData()
-//    }
-//    
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        shouldShowSearchResults = false
-//        homeFeedTableView.reloadData()
-//    }
-//    
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        if !shouldShowSearchResults {
-//            shouldShowSearchResults = true
-//            homeFeedTableView.reloadData()
-//        }
-//        searchController.searchBar.resignFirstResponder()
-//    }
-    
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
             // Filter the data array
