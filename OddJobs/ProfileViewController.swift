@@ -146,4 +146,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         topTableViewCell.loadData()
     }
     
+    @IBAction func didLogOut(_ sender: Any) {
+        PFUser.logOutInBackground { (error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("User logged out successfully")
+                NotificationCenter.default.post(name: NSNotification.Name("logoutNotification"), object: nil)
+            }
+        }
+    }
+    
+    
 }
