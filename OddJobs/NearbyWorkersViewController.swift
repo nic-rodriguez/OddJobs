@@ -70,7 +70,6 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func queryNearbyUsers() {
-        let currentUser = PFUser.current()
         
         PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
             print("is running")
@@ -79,13 +78,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
                 let geoPointLong = geoPoint.longitude
                 self.currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
                 print(self.currentLocation)
-                
-                
-                
-                currentUser!["currentLocation"] = self.currentLocation
-                print("User location saved!")
-                currentUser?.saveInBackground()
-                
+            
                 
                 let query: PFQuery = PFUser.query()!
                 // Interested in locations near user.
