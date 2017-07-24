@@ -24,18 +24,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         jobsTableView.dataSource = self
         jobsTableView.delegate = self
         
-        // Do any additional setup after loading the view.
-//        jobsTableView.rowHeight = UITableViewAutomaticDimension
-        //jobsTableView.rowHeight = 400
-//        jobsTableView.estimatedRowHeight = 100
-        
         fetchJobs()
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         
         jobsTableView.insertSubview(refreshControl, at: 1)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,26 +44,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
         if (segue.identifier == "showDetailView") {
-            let cell = sender as! UITableViewCell //UserJobsTableViewCell
+            let cell = sender as! UITableViewCell
             if let indexPath = jobsTableView.indexPath(for: cell) {
-                let job = jobs[indexPath.row] //ehs?
+                let job = jobs[indexPath.row]
                 let detailViewController = segue.destination as! DetailViewController
-                detailViewController.job = job      //type error
+                detailViewController.job = job
                 jobsTableView.deselectRow(at: indexPath, animated: true)
             }
         } else if (segue.identifier == "editProfile") {
-//            let editProfileViewController = segue.destination as! EditProfileViewController
-//            editProfileViewController.topCell = topCell
-            
-//            let homeViewController = storyboard.instantiateViewController(withIdentifier: "tabBarController
-            
             let editProfileViewController = storyboard?.instantiateViewController(withIdentifier: "editProfileViewController") as! EditProfileViewController
             editProfileViewController.topCell = topCell
-            print("in the prepare for segue topcell initialization")
         }
-        
     }
     
     
@@ -90,11 +76,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell", for: indexPath) as! TopTableViewCell
             cell.user = user
             topCell = cell
-            topTableViewCell(topCell!) //ah!
+            topTableViewCell(topCell!)
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
-            //jobsTableView.deselectRow(at: indexPath, animated: true)
             cell.job = jobs[indexPath.row]
             return cell
         }
@@ -131,7 +116,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
     }
-    
     
     func refreshControlAction(_ refreshControl: UIRefreshControl!) {
         fetchJobs()

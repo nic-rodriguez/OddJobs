@@ -22,7 +22,6 @@ class CustomSearchController: UISearchController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -44,18 +43,15 @@ class CustomSearchController: UISearchController, UISearchBarDelegate {
     
     func configureSearchBar(frame: CGRect, font: UIFont, textColor: UIColor, bgColor: UIColor) {
         customSearchBar = CustomSearchBar(frame: frame, font: font , textColor: textColor)
-        
         customSearchBar.barTintColor = bgColor
         customSearchBar.tintColor = textColor
         customSearchBar.showsBookmarkButton = false
         customSearchBar.showsCancelButton = true
-        
         customSearchBar.delegate = self
     }
 
     init(searchResultsController: UIViewController!, searchBarFrame: CGRect, searchBarFont: UIFont, searchBarTextColor: UIColor, searchBarTintColor: UIColor) {
         super.init(searchResultsController: searchResultsController)
-        
         configureSearchBar(frame: searchBarFrame, font: searchBarFont, textColor: searchBarTextColor, bgColor: searchBarTintColor)
     }
     

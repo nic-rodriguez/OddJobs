@@ -30,11 +30,16 @@ class PendingJobsCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+<<<<<<< HEAD
+=======
+        // Configure the view for the selected state
+>>>>>>> a71460c62bc7a3301932f7492040c8ed97b158c7
     }
     
     func loadJobData() {
         jobTitleLabel.text = jobInterested["title"] as! String
         descriptionLabel.text = jobInterested["description"] as! String
+<<<<<<< HEAD
         
         let date = jobInterested["dateDue"]
         let dateFormatter = DateFormatter()
@@ -44,6 +49,10 @@ class PendingJobsCell: UITableViewCell {
         
         let userPosted = jobInterested["userPosted"] as! PFUser
         userPostedLabel.text = userPosted.username as! String
+=======
+        //datePostedLabel.text = jobInterested["dateDue"] as! String
+        //userPostedLabel.text = jobInterested["userPosted"]["username"] as! String
+>>>>>>> a71460c62bc7a3301932f7492040c8ed97b158c7
     }
 
 }

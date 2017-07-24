@@ -44,7 +44,7 @@ class HomeFeedTableViewCell: UITableViewCell {
             let descLocation: PFGeoPoint = PFGeoPoint()
             descLocation.latitude = job["latitude"] as! Double
             descLocation.longitude = job["longitude"] as! Double
-            let currentUserLocation = currentUser?["location"] as! PFGeoPoint
+            let currentUserLocation = currentUser?["currentLocation"] as! PFGeoPoint
             distanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: descLocation)) + " miles away"
             
         }
