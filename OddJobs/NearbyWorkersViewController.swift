@@ -52,7 +52,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = workersTableView.dequeueReusableCell(withIdentifier: "WorkerCell", for: indexPath) as! WorkersTableViewCell
         
         cell.user = workers[indexPath.row]
-        
+        cell.currentUserLocation = self.currentLocation
     
         return cell
     }

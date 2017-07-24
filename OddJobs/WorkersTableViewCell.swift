@@ -13,6 +13,8 @@ import ParseUI
 class WorkersTableViewCell: UITableViewCell {
     var currentUser = PFUser.current()
     
+    var currentUserLocation: PFGeoPoint!
+    
     var user: PFUser!{
         didSet {
             self.loadData()
@@ -33,11 +35,10 @@ class WorkersTableViewCell: UITableViewCell {
         self.profileImageView.file = user["profilePicture"] as? PFFile
         self.profileImageView.loadInBackground()
         //descriptionLabel.text = user["bio"]
-        let location = user["location"] as? PFGeoPoint
-        let currentUserLocation = currentUser?["location"] as! PFGeoPoint
-        
+        let location = user["homeLocation"] as? PFGeoPoint
+
        
-        distanceFromLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " mi away"
+        distanceFromLabel.text = String(format: "%.0f", self.currentUserLocation.distanceInMiles(to: location)) + " mi away"
         
     
     }
