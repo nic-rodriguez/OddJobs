@@ -893,16 +893,6 @@ EEVudGVyIFBhc3N3b3JkA
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home Feed" id="y5d-K3-9Ft">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="O5a-3u-vS9">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qGS-MW-trb">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="didLogOut:" destination="zbq-xx-y2d" eventType="touchUpInside" id="aWW-4B-Jgj"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Kod-nj-aTM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jr6-PM-39d">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
@@ -1069,16 +1059,6 @@ EEVudGVyIFBhc3N3b3JkA
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jpc-p5-cx0">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="3WR-em-6PC">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oA3-85-j9l">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="didLogOut:" destination="NJH-Gg-V93" eventType="touchUpInside" id="Gcc-O2-PXa"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="gear" id="Jn2-e2-c2B">
                             <connections>
                                 <segue destination="xPa-rw-Gjg" kind="presentation" identifier="editProfile" id="w4r-ZY-Ecz"/>
@@ -1160,6 +1140,14 @@ EEVudGVyIFBhc3N3b3JkA
                                 <state key="normal" title="Banner pic"/>
                                 <connections>
                                     <action selector="editBannerPictureButtonPressed:" destination="Sdq-aJ-9g7" eventType="touchUpInside" id="bfD-GK-cqG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfk-7j-pnc">
+                                <rect key="frame" x="160" y="574" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="didLogOut:" destination="Sdq-aJ-9g7" eventType="touchUpInside" id="GWN-lR-p6P"/>
                                 </connections>
                             </button>
                         </subviews>
