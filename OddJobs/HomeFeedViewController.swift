@@ -13,8 +13,6 @@ import Foundation
 class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, TagsRowTableViewCellDelegate, CustomSearchControllerDelegate {
 
     @IBOutlet weak var homeFeedTableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     
     var jobs: [PFObject] = []
     var filteredJobs: [PFObject] = []
@@ -29,27 +27,17 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     let initialQueryTotal = 3
     var queryTotal = 3
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         homeFeedTableView.dataSource = self
         homeFeedTableView.delegate = self
-        
-//        configureSearchController()
         configureCustomSearchController()
-        
-        
         definesPresentationContext = true
-        
         queryServer()
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
-        
         homeFeedTableView.insertSubview(refreshControl, at: 0)
-        
-//        homeFeedTableView.estimatedRowHeight = 100
-//        homeFeedTableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,7 +53,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         if (section == 0) {
             return 1
         } else {
-            
             if shouldShowSearchResults {
                 return filteredJobs.count
             } else {
@@ -77,18 +64,15 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
             let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "TagsCollectionViewCell", for: indexPath) as! TagsRowTableViewCell
-            print ("memes")
-            cell.delegate1 = self //eh?
+            cell.delegate1 = self
             return cell
         } else {
             let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "HomeFeedTableViewCell", for: indexPath) as! HomeFeedTableViewCell
-            
-            if shouldShowSearchResults { //searchController.isActive && searchController.searchBar.text != "" { //shouldShowSearchResults
+            if shouldShowSearchResults {
                 cell.job = filteredJobs[indexPath.row]
             } else {
                 cell.job = jobs[indexPath.row]
             }
-            
             return cell
         }
     }
@@ -104,7 +88,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 self.isMoreDataLoading = false
                 self.jobs = jobs!
-                self.filteredJobs = jobs! // eh? // might need to change based on infinite scrolling
+                self.filteredJobs = jobs!
                 self.homeFeedTableView.reloadData()
             }
         }
@@ -134,19 +118,14 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "showDetailViewFromFeed") {
-            let cell = sender as! UITableViewCell //UserJobsTableViewCell
+            let cell = sender as! UITableViewCell
             if let indexPath = homeFeedTableView.indexPath(for: cell) {
-                
                 let job: PFObject
-                
-                if shouldShowSearchResults { //searchController.isActive && searchController.searchBar.text != "" { //shouldShowSearchResults
+                if shouldShowSearchResults {
                     job = filteredJobs[indexPath.row]
                 } else {
                     job = jobs[indexPath.row]
                 }
-//                let job = filteredJobs[indexPath.row]
-                
-                
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.job = job
                 homeFeedTableView.deselectRow(at: indexPath, animated: true)
@@ -156,122 +135,76 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func toggleTag1(position: Int) {
         selectedTags[position] = !selectedTags[position]
-//        print ("From homefeedViewController")
-//        for obj in selectedTags { //for verifying if the delegate worked
-//            print(obj)
-//        }
-        //this delegate works
-        
-        
         
         //WORK IN PROGRESS
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
         query.includeKey("userPosted")
-        query.includeKey("tags") //eh?
+        query.includeKey("tags")
         query.limit = 8
-        
         //creat an array that holds only marked true objects
         var selected: [String] = []
-        
         for (index, element) in selectedTags.enumerated() {
             if (element) { //if this location holds true
                 selected.append(tags[index])
             }
         }
-        
-        
         query.whereKey("tags", containsAllObjectsIn: selected)
-//        query.whereKey("tags", equalTo: PFUser.current()!)
-        
-        
         query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
                 self.jobs = jobs!
-                self.filteredJobs = jobs! // eh?
+                self.filteredJobs = jobs!
                 self.homeFeedTableView.reloadData()
             }
         }
     }
-
-    func tagIsSelected(givenTags: [String]?) -> Bool{
-        var totalFound: Int = 0
-        
-        for (index, element) in selectedTags.enumerated() {
-            print("Item \(index): \(element)")
-            
-            if (element) { //if this location holds true
-                //then we look which tag it is
-                for obj in givenTags! {
-                    if (tags[index] == obj){
-                        totalFound = totalFound + 1
-                    }
-                }
-            }
-        }
-        print (totalFound)
-        
-        if totalFound == (givenTags?.count)! {
-            return true
-        } else {
-            return false
-        }
-    }
     
-    func configureSearchController() {
-        // Initialize and perform a minimum configuration to the search controller.
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search here..."
-        searchController.searchBar.delegate = self
-        searchController.searchBar.sizeToFit()
-        
-        // Place the search bar view to the tableview headerview.
-        homeFeedTableView.tableHeaderView = searchController.searchBar
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        shouldShowSearchResults = true
-        homeFeedTableView.reloadData()
-        //        self.searchBar.showsCancelButton = true
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        shouldShowSearchResults = false
-        homeFeedTableView.reloadData()
-        //        searchBar.showsCancelButton = false
-        //        searchBar.text = ""
-        //        searchBar.resignFirstResponder()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if !shouldShowSearchResults {
-            shouldShowSearchResults = true
-            homeFeedTableView.reloadData()
-        }
-        searchController.searchBar.resignFirstResponder()
-    }
+//    func configureSearchController() {
+//        // Initialize and perform a minimum configuration to the search controller.
+//        searchController = UISearchController(searchResultsController: nil)
+//        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
+//        searchController.searchBar.placeholder = "Search here..."
+//        searchController.searchBar.delegate = self
+//        searchController.searchBar.sizeToFit()
+//        
+//        // Place the search bar view to the tableview headerview.
+//        homeFeedTableView.tableHeaderView = searchController.searchBar
+//    }
+//    
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        shouldShowSearchResults = true
+//        homeFeedTableView.reloadData()
+//    }
+//    
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        shouldShowSearchResults = false
+//        homeFeedTableView.reloadData()
+//    }
+//    
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        if !shouldShowSearchResults {
+//            shouldShowSearchResults = true
+//            homeFeedTableView.reloadData()
+//        }
+//        searchController.searchBar.resignFirstResponder()
+//    }
     
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
-            
             // Filter the data array
             filteredJobs = jobs.filter({ (job) -> Bool in
                 let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
-                return (range != nil) //&&
+                return (range != nil)
             })
-            
-            // Reload the tableview.
             homeFeedTableView.reloadData()
         }
     }
     
     func configureCustomSearchController() {
         customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.orange, searchBarTintColor: UIColor.black)
-        
         
         customSearchController.customSearchBar.placeholder = "Search in this awesome bar..."
         homeFeedTableView.tableHeaderView = customSearchController.customSearchBar
@@ -295,10 +228,8 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func didChangeSearchText(searchText: String) {
         filteredJobs = jobs.filter({ (job) -> Bool in
             let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
-            return (range != nil) //&&
+            return (range != nil)
         })
-
-        
         // Reload the tableview.
         homeFeedTableView.reloadData()
     }
@@ -321,5 +252,4 @@ extension HomeFeedViewController: UIScrollViewDelegate {
             }
         }
     }
-    
 }

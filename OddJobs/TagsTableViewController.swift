@@ -14,13 +14,11 @@ protocol TagsTableViewControllerDelegate: class {
 
 class TagsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tagsTableView: UITableView!
     weak var delegate: TagsTableViewControllerDelegate?
     
-    var tags: [String] = ["Gardening", "Food", "Delivery", "Cleaning", "Pets", "Housework", "Caretaker", "Survey", "App Testing", "Logo Design", "Plumbing", "Sewing", "Dry Cleaning"]
-
     var tagsToPass: [String] = []
-    
-    @IBOutlet weak var tagsTableView: UITableView!
+    var tags: [String] = ["Gardening", "Food", "Delivery", "Cleaning", "Pets", "Housework", "Caretaker", "Survey", "App Testing", "Logo Design", "Plumbing", "Sewing", "Dry Cleaning"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,63 +31,40 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
-    
-    @IBAction func didSaveTags(_ sender: UIButton) {
-       self.delegate?.createTags(tags: tagsToPass)
-        print(tagsToPass)
-        
-        
-    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tags.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tagsTableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath) as! TagTableViewCell
-        
         cell.tagLabel.text = tags[indexPath.row]
-        
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         if let cell = tagsTableView.cellForRow(at: indexPath as IndexPath) as? TagTableViewCell {
             if cell.accessoryType == .checkmark{
                 cell.accessoryType = .none
-                
                 var count = -1
                 for tag in tagsToPass {
                     count += 1
                     if tag == cell.tagLabel.text {
                         tagsToPass.remove(at: count)
                     }
-                    
                 }
-                
-                
-    
-                
             }
             else{
                 cell.accessoryType = .checkmark
                 tagsToPass.append(tags[indexPath.row])
-                
             }
         }
     }
     
+    @IBAction func didSaveTags(_ sender: UIButton) {
+        self.delegate?.createTags(tags: tagsToPass)
+        print(tagsToPass)
+    }
     
-    
-    
-    
-
 }

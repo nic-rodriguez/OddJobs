@@ -11,18 +11,10 @@ import Parse
 
 class PendingJobsCell: UITableViewCell {
 
-    
     @IBOutlet weak var jobTitleLabel: UILabel!
-    
-    
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var userPostedLabel: UILabel!
-    
-    
     @IBOutlet weak var datePostedLabel: UILabel!
-    
-    
     @IBOutlet weak var distanceLabel: UILabel!
     
     var jobInterested: PFObject!{
@@ -39,7 +31,6 @@ class PendingJobsCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
@@ -48,8 +39,6 @@ class PendingJobsCell: UITableViewCell {
         descriptionLabel.text = jobInterested["description"] as! String
         //datePostedLabel.text = jobInterested["dateDue"] as! String
         //userPostedLabel.text = jobInterested["userPosted"]["username"] as! String
-
-        
     }
 
 }

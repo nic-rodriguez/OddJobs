@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -47,10 +46,10 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
     }
+    
     /*
     // MARK: - Navigation
 

@@ -149,11 +149,17 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func editProfilePictureButtonPressed(_ sender: Any) {
         isChangingBanner = false
         selectPic()
+        //ehhhhh
+        profilePicturePFImageView?.file = user?["profilePicture"] as? PFFile
+        profilePicturePFImageView?.loadInBackground()
     }
     
     @IBAction func editBannerPictureButtonPressed(_ sender: Any) {
         isChangingBanner = true
         selectPic()
+        //ehhhh
+        bagroundProfilePFImageView?.file = user?["backgroundImage"] as? PFFile
+        bagroundProfilePFImageView?.loadInBackground()
     }
     
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
@@ -181,6 +187,5 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     func topTableViewCell(_ topTableViewCell: TopTableViewCell) {
         topTableViewCell.loadData()
     }
-
     
 }
