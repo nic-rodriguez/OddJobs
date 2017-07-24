@@ -13,7 +13,7 @@ import GoogleMaps
 import GooglePlaces
 import GooglePlacePicker
 
-class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TagsTableViewControllerDelegate {
+class SignUpViewController: UIViewController {
 
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passField: UITextField!
@@ -27,18 +27,10 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func createUserPress(_ sender: Any) {
         let newUser = PFUser()
-
         newUser.username = userField.text
         
         let alertController = UIAlertController(title: "Error", message: "Error", preferredStyle: .alert)
@@ -48,13 +40,17 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         alertController.addAction(okAction)
         
         if passField.text == confirmField.text {
+            
             newUser.password = passField.text
             newUser["bio"] = bioField.text ?? ""
             newUser["profilePicture"] = Job.getPFFileFromImage(image: profileImageView.image) ?? NSNull()
             newUser["skills"] = tags
+            
             if let address = address {
+                
                 newUser["homeLocation"] = PFGeoPoint(latitude: address.latitude, longitude: address.longitude)
                 newUser.signUpInBackground { (success: Bool, error: Error?) in
+                    
                     if let error = error {
                         print("Error: " + error.localizedDescription)
                         alertController.message = error.localizedDescription
@@ -62,16 +58,13 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                     } else {
                         print("User successfully signed up!")
                         self.dismiss(animated: true, completion: nil)
-                        //                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
                     }
                 }
             } else {
                 alertController.title = "You didn't enter a home address"
                 alertController.message = "Please select a home address"
                 present(alertController, animated: true)
-                // raise alert controller: need address
             }
-
         } else {
             alertController.title = "Your passwords don't match"
             alertController.message = "Please re-type your password"
@@ -88,7 +81,6 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         vc.delegate = self
         vc.allowsEditing = true
         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
         present(vc, animated: true, completion: nil)
     }
     
@@ -98,38 +90,22 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(autocompleteController, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        profileImageView.image = originalImage
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func cancelPress(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    func createTags(tags: [String]) {
-        self.tags = tags
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tagsSegue" {
             let tagsViewController = segue.destination as! TagsTableViewController
             tagsViewController.delegate = self
-            
         }
     }
 }
 
-
-
 extension SignUpViewController: GMSAutocompleteViewControllerDelegate {
-    // Handle the user's selection.
+    
+    // handle user selection
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
-        
         address = place.coordinate
         addressLabel.text = place.formattedAddress!
         
@@ -137,11 +113,9 @@ extension SignUpViewController: GMSAutocompleteViewControllerDelegate {
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
         print("Error: ", error.localizedDescription)
     }
     
-    // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         dismiss(animated: true, completion: nil)
     }
@@ -155,4 +129,21 @@ extension SignUpViewController: GMSAutocompleteViewControllerDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 
+}
+
+extension SignUpViewController: TagsTableViewControllerDelegate {
+    
+    func createTags(tags: [String]) {
+        self.tags = tags
+    }
+    
+}
+
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        profileImageView.image = originalImage
+        dismiss(animated: true, completion: nil)
+    }
 }
