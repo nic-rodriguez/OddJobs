@@ -22,11 +22,10 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     var shouldShowSearchResults = false
     var searchController: UISearchController!
     var customSearchController: CustomSearchController!
-
     var isMoreDataLoading = false
     let initialQueryTotal = 3
     var queryTotal = 3
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         homeFeedTableView.dataSource = self

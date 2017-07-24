@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MapKit
 
 class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -19,7 +20,6 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         workersTableView.dataSource = self
         workersTableView.delegate = self
         
@@ -33,7 +33,10 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
         //Find a way to not include current user in nearby users
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        let userLocation = MKUserLocation()
+        currentLocation = PFGeoPoint(location: userLocation.location)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,7 +55,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = workersTableView.dequeueReusableCell(withIdentifier: "WorkerCell", for: indexPath) as! WorkersTableViewCell
         
         cell.user = workers[indexPath.row]
-        
+        cell.currentUserLocation = self.currentLocation
     
         return cell
     }

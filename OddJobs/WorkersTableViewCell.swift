@@ -13,12 +13,13 @@ import ParseUI
 class WorkersTableViewCell: UITableViewCell {
     var currentUser = PFUser.current()
     
-    var user: PFUser!{
+    var currentUserLocation: PFGeoPoint! {
         didSet {
             self.loadData()
-        
         }
     }
+    
+    var user: PFUser!
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -36,8 +37,7 @@ class WorkersTableViewCell: UITableViewCell {
         let location = user["location"] as? PFGeoPoint
         let currentUserLocation = currentUser?["homeLocation"] as! PFGeoPoint
         
-       
-        distanceFromLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " mi away"
+        distanceFromLabel.text = String(format: "%.0f", self.currentUserLocation.distanceInMiles(to: location)) + " mi away"
         
     
     }
