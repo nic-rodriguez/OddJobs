@@ -10,12 +10,11 @@ import UIKit
 import Parse
 import MapKit
 
-class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NearbyWorkersViewController: UIViewController {
 
     @IBOutlet weak var workersTableView: UITableView!
     
     var workers: [PFUser] = []
-    
     var currentLocation: PFGeoPoint!
     
     override func viewDidLoad() {
@@ -24,64 +23,31 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
         workersTableView.delegate = self
         
         let refreshControl = UIRefreshControl()
-        
         refreshControl.addTarget(self, action: #selector (self.didPullToRefresh(_:)), for: .valueChanged)
-       
         workersTableView.insertSubview(refreshControl, at: 0)
         
         queryNearbyUsers()
-        //Find a way to not include current user in nearby users
     }
     
     override func viewWillAppear(_ animated: Bool) {
         let userLocation = MKUserLocation()
         currentLocation = PFGeoPoint(location: userLocation.location)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
-    
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workers.count
-    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = workersTableView.dequeueReusableCell(withIdentifier: "WorkerCell", for: indexPath) as! WorkersTableViewCell
-        
-        cell.user = workers[indexPath.row]
-        cell.currentUserLocation = self.currentLocation
-    
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        workersTableView.deselectRow(at: indexPath, animated: true)
-    }
     
     func didPullToRefresh(_ refreshControl: UIRefreshControl) {
         queryNearbyUsers()
-        
         self.workersTableView.reloadData()
-        
+    
         refreshControl.endRefreshing()
     }
     
     func queryNearbyUsers() {
-        
+        //func can probably be changed since we're passing the currentLocation through using MapKit
         PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
-            print("is running")
             if geoPoint != nil {
                 let geoPointLat = geoPoint.latitude
                 let geoPointLong = geoPoint.longitude
                 self.currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
-                print(self.currentLocation)
-            
                 
                 let query: PFQuery = PFUser.query()!
                 // Interested in locations near user.
@@ -93,7 +59,7 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
                 try! self.workers = query.findObjects() as! [PFUser]
                 self.workersTableView.reloadData()
                 
-            } else{
+            } else {
                 print(error?.localizedDescription ?? "Error")
             }
         })
@@ -109,5 +75,26 @@ class NearbyWorkersViewController: UIViewController, UITableViewDelegate, UITabl
             let profileViewController = segue.destination as! ProfileViewController
             profileViewController.user = user
         }
+    }
+}
+
+extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return workers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = workersTableView.dequeueReusableCell(withIdentifier: "WorkerCell", for: indexPath) as! WorkersTableViewCell
+        
+        cell.user = workers[indexPath.row]
+        cell.currentUserLocation = self.currentLocation
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        workersTableView.deselectRow(at: indexPath, animated: true)
     }
 }

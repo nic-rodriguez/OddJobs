@@ -14,12 +14,12 @@ class MapsViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    let regionRadius: CLLocationDistance = 1000
-    let locationManager = CLLocationManager()
     var jobs: [PFObject] = []
     var initalLocation: MKUserLocation?
     var annotations: [Job] = []
     var currentJob: PFObject?
+    let regionRadius: CLLocationDistance = 1000
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +27,6 @@ class MapsViewController: UIViewController {
         queryServer()
         mapView.showsUserLocation = true
         mapView.delegate = self
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
     }
     
     func requestLocationAccess() {
@@ -51,7 +43,6 @@ class MapsViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
         }
     }
-    
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius*2, regionRadius*2)
@@ -87,6 +78,33 @@ class MapsViewController: UIViewController {
         }
     }
     
+    func buttonSegue(sender: UIButton!) {
+        performSegue(withIdentifier: "mapDetailSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mapDetailSegue" {
+            let vc = segue.destination as! DetailViewController
+            vc.job = currentJob!
+        }
+    }
+    
+    @IBAction func userCenter(_ sender: Any) {
+        if let userLocation = mapView.userLocation.location {
+            centerMapOnLocation(location: userLocation)
+        }
+    }
+}
+
+extension MapsViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        if initalLocation == nil {
+            initalLocation = userLocation
+            centerMapOnLocation(location: userLocation.location!)
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation.title! != "My Location" {
             let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
@@ -102,34 +120,6 @@ class MapsViewController: UIViewController {
         return nil
     }
     
-    func buttonSegue(sender: UIButton!) {
-        performSegue(withIdentifier: "mapDetailSegue", sender: nil)
-    }
-    
-    @IBAction func userCenter(_ sender: Any) {
-        if let userLocation = mapView.userLocation.location {
-            centerMapOnLocation(location: userLocation)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "mapDetailSegue" {
-            let vc = segue.destination as! DetailViewController
-            vc.job = currentJob!
-        }
-    }
-    
-}
-
-extension MapsViewController: MKMapViewDelegate {
-    
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        if initalLocation == nil {
-            initalLocation = userLocation
-            centerMapOnLocation(location: userLocation.location!)
-        }
-    }
-    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         for job in jobs {
             let latitude = job["latitude"] as! CLLocationDegrees
@@ -143,7 +133,6 @@ extension MapsViewController: MKMapViewDelegate {
                     }
                 }
             }
-
         }
     }
     
