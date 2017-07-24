@@ -719,14 +719,9 @@ EEVudGVyIFBhc3N3b3JkA
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="207" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5cr-bE-XdA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="Ncg-Op-Uwn">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TagsCollectionViewCell" rowHeight="99" id="uVb-7u-ggj" customClass="TagsRowTableViewCell" customModule="OddJobs" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="99"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="uVb-7u-ggj" id="SSg-mg-grU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
@@ -796,7 +791,7 @@ EEVudGVyIFBhc3N3b3JkA
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeFeedTableViewCell" rowHeight="207" id="sMU-ZJ-rRI" customClass="HomeFeedTableViewCell" customModule="OddJobs" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="171" width="375" height="207"/>
+                                        <rect key="frame" x="0.0" y="127" width="375" height="207"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMU-ZJ-rRI" id="UKU-nb-Xa5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
@@ -921,7 +916,6 @@ EEVudGVyIFBhc3N3b3JkA
                     </navigationItem>
                     <connections>
                         <outlet property="homeFeedTableView" destination="5cr-bE-XdA" id="Xcz-vj-JsZ"/>
-                        <outlet property="searchBar" destination="Ncg-Op-Uwn" id="13t-Zh-PGL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TcK-O4-OkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
