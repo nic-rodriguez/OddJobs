@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
             configuration.applicationId = "oddJobs"
-            configuration.clientKey = "supersecretmasterkey12345"
-            configuration.server = "https://calm-bastion-66801.herokuapp.com/parse"
+            configuration.clientKey = "oddJobsMasterKey12345"
+            configuration.server = "https://calm-shore-72958.herokuapp.com/parse"
         }))
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name("logoutNotification"), object: nil, queue: OperationQueue.main) { (Notification) in
