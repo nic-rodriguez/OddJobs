@@ -13,10 +13,6 @@ import MapKit
 
 class DetailViewController: UIViewController {
     
-    var job: PFObject!
-    var initialLocation: MKUserLocation?
-    let locationManager = CLLocationManager()
-    
     @IBOutlet weak var jobPostPFImageView: PFImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var dificultyLabel: UILabel!
@@ -27,43 +23,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var skillsLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBAction func requestJob(_ sender: UIBarButtonItem) {
-        let currentUser = PFUser.current()
-        
-        if self.job["usersInterested"] == nil{
-        
-            var usersInterested: [PFUser]! = []
-            usersInterested.append(currentUser!)
-            self.job["usersInterested"] = usersInterested as! [PFUser]
-            print("user saved!")
-            self.job.saveInBackground()
-            
-        } else {
-            var usersInterested = self.job["usersInterested"] as! [PFUser]
-            usersInterested.append(currentUser!)
-            self.job["usersInterested"] = usersInterested
-            self.job.saveInBackground()
-        }
-        
-        if currentUser?["jobsInterested"] == nil {
-            var jobsInterested: [PFObject] = []
-            jobsInterested.append(self.job)
-            currentUser?["jobsInterested"] = jobsInterested
-            currentUser?.saveInBackground()
-            print("saved interested job")
-        } else {
-            var jobsInterested = currentUser?["jobsInterested"] as! [PFObject]
-            jobsInterested.append(self.job)
-            currentUser?["jobsInterested"] = jobsInterested
-            currentUser?.saveInBackground()
-            print("saved interested job")
-        }
-        
-    }
-   
-    
-    
-    
+    var job: PFObject!
+    var initialLocation: MKUserLocation?
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,28 +38,23 @@ class DetailViewController: UIViewController {
         mapView.isScrollEnabled = false
         mapView.isRotateEnabled = false
         
-        jobPostPFImageView.file = job["image"] as! PFFile
+        jobPostPFImageView.file = job["image"] as? PFFile
         jobPostPFImageView.loadInBackground()
         
-        jobTitleLabel.text = job["title"] as? String
-        
-        dificultyLabel.text = job["difficulty"] as? String
-        
         let user = job["userPosted"] as! PFUser
-        usernameLabel.text = user.username!
-        
-        //date posted
         let date = job["dateDue"]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from:date as! Date)
-        datePostedLabel.text = dateString //as! String
+        let pay = job["pay"] as! Double
+        let payString = String(format:"%.2f", pay)
         
+        usernameLabel.text = user.username!
+        jobTitleLabel.text = job["title"] as? String
+        dificultyLabel.text = job["difficulty"] as? String
         descriptionLabel.text = job["description"] as? String ?? ""
-        
-        let a:Double = job["pay"] as! Double
-        let b:String = String(format:"%.2f", a)
-        costLabel.text = "$" + b
+        datePostedLabel.text = dateString
+        costLabel.text = "$" + payString
         
         let skills = job["tags"] as! [String]
         for skill in skills {
@@ -109,27 +66,20 @@ class DetailViewController: UIViewController {
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let annotation = Job(title: job["title"] as? String, subtitle: job["description"] as? String, location: coordinate)
         mapView.addAnnotation(annotation)
-//        centerMapOnLocation(location: CLLocation(latitude: latitude, longitude: longitude))
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func requestLocationAccess() {
         let status = CLLocationManager.authorizationStatus()
         
         switch status {
-        case .authorizedAlways, .authorizedWhenInUse:
-            return
-            
-        case .denied, .restricted:
-            print("location access denied")
-            
-        default:
-            locationManager.requestWhenInUseAuthorization()
+            case .authorizedAlways, .authorizedWhenInUse:
+                return
+                
+            case .denied, .restricted:
+                print("location access denied")
+                
+            default:
+                locationManager.requestWhenInUseAuthorization()
         }
     }
     
@@ -144,6 +94,39 @@ class DetailViewController: UIViewController {
         
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, distance, distance)
         mapView.setRegion(coordinateRegion, animated: false)
+        
+    }
+    
+    @IBAction func requestJob(_ sender: UIBarButtonItem) {
+        let currentUser = PFUser.current()
+        
+        if job["usersInterested"] == nil{
+            var usersInterested: [PFUser]! = []
+            usersInterested.append(currentUser!)
+            job["usersInterested"] = usersInterested!
+            print("user saved!")
+            job.saveInBackground()
+            
+        } else {
+            var usersInterested = job["usersInterested"] as! [PFUser]
+            usersInterested.append(currentUser!)
+            job["usersInterested"] = usersInterested
+            job.saveInBackground()
+        }
+        if currentUser?["jobsInterested"] == nil {
+            var jobsInterested: [PFObject] = []
+            jobsInterested.append(job)
+            currentUser?["jobsInterested"] = jobsInterested
+            currentUser?.saveInBackground()
+            print("saved interested job")
+            
+        } else {
+            var jobsInterested = currentUser?["jobsInterested"] as! [PFObject]
+            jobsInterested.append(job)
+            currentUser?["jobsInterested"] = jobsInterested
+            currentUser?.saveInBackground()
+            print("saved interested job")
+        }
         
     }
     
