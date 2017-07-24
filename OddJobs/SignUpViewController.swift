@@ -29,6 +29,13 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tagsSegue" {
+            let tagsViewController = segue.destination as! TagsTableViewController
+            tagsViewController.delegate = self
+        }
+    }
+    
     @IBAction func createUserPress(_ sender: Any) {
         let newUser = PFUser()
         newUser.username = userField.text
@@ -92,13 +99,6 @@ class SignUpViewController: UIViewController {
     
     @IBAction func cancelPress(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "tagsSegue" {
-            let tagsViewController = segue.destination as! TagsTableViewController
-            tagsViewController.delegate = self
-        }
     }
 }
 
