@@ -111,6 +111,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func refreshControlAction(_ refreshControl: UIRefreshControl!) {
+        queryTotal = initialQueryTotal
         queryServer()
         refreshControl.endRefreshing()
     }
