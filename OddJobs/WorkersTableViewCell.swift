@@ -34,7 +34,7 @@ class WorkersTableViewCell: UITableViewCell {
         self.profileImageView.loadInBackground()
         //descriptionLabel.text = user["bio"]
         let location = user["location"] as? PFGeoPoint
-        let currentUserLocation = currentUser?["location"] as! PFGeoPoint
+        let currentUserLocation = currentUser?["homeLocation"] as! PFGeoPoint
         
        
         distanceFromLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " mi away"
