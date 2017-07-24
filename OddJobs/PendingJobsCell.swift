@@ -11,18 +11,10 @@ import Parse
 
 class PendingJobsCell: UITableViewCell {
 
-    
     @IBOutlet weak var jobTitleLabel: UILabel!
-    
-    
     @IBOutlet weak var descriptionLabel: UILabel!
-    
     @IBOutlet weak var userPostedLabel: UILabel!
-    
-    
     @IBOutlet weak var datePostedLabel: UILabel!
-    
-    
     @IBOutlet weak var distanceLabel: UILabel!
     
     var jobInterested: PFObject!{
@@ -31,25 +23,27 @@ class PendingJobsCell: UITableViewCell {
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func loadJobData() {
         jobTitleLabel.text = jobInterested["title"] as! String
         descriptionLabel.text = jobInterested["description"] as! String
-        //datePostedLabel.text = jobInterested["dateDue"] as! String
-        //userPostedLabel.text = jobInterested["userPosted"]["username"] as! String
-
         
+        let date = jobInterested["dateDue"]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from:date as! Date)
+        datePostedLabel.text = dateString as! String
+        
+        let userPosted = jobInterested["userPosted"] as! PFUser
+        userPostedLabel.text = userPosted.username as! String
     }
 
 }

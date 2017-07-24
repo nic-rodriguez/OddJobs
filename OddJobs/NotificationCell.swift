@@ -11,6 +11,10 @@ import Parse
 
 class NotificationCell: UITableViewCell {
     
+    @IBOutlet weak var jobTitleLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var userDistanceLabel: UILabel!
+
     var userInterested: PFUser!{
         didSet {
             self.loadUserData()
@@ -22,29 +26,19 @@ class NotificationCell: UITableViewCell {
             self.loadJobData()
         }
     }
-
-    
-    @IBOutlet weak var jobTitleLabel: UILabel!
-    
-    @IBOutlet weak var usernameLabel: UILabel!
-    
-    @IBOutlet weak var userDistanceLabel: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     
     func loadUserData() {
-   
+        
         usernameLabel.text = userInterested.username as? String ?? "error"
         
         

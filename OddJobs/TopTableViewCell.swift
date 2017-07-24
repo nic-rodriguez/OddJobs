@@ -14,11 +14,7 @@ protocol TopTableViewDelegate: class {
     func topTableViewCell(_ topTableViewCell: TopTableViewCell)
 }
 
-
 class TopTableViewCell: UITableViewCell {
-    
-    var user: PFUser!
-//    var topTableCell: TopTableViewCell? = nil
     
     @IBOutlet weak var backgroundProfilePFImage: PFImageView?
     @IBOutlet weak var profilePFImage: PFImageView?
@@ -28,20 +24,17 @@ class TopTableViewCell: UITableViewCell {
     @IBOutlet weak var jobsTakenCounterLabel: UILabel?
     @IBOutlet weak var jobsPosterCounterLabel: UILabel?
     
+    var user: PFUser!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         loadData()
-        //we have to refresh the thing
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
     }
     
     func loadData() {
@@ -54,9 +47,6 @@ class TopTableViewCell: UITableViewCell {
         
         profilePFImage?.file = user["profilePicture"] as? PFFile
         profilePFImage?.loadInBackground()
-        
-//        cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
-//        cell.userImageView.layer.masksToBounds = true
         
         usernameLabel?.text = user?.username!
         

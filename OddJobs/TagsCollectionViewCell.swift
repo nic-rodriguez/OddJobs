@@ -14,11 +14,11 @@ protocol TagsCollectionViewCellDelegate: class {
 
 class TagsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var filterTagLabel: UILabel!
+    
     var positionInArr: Int!
     weak var delegate:TagsCollectionViewCellDelegate?
 
-    
-    @IBOutlet weak var filterTagLabel: UILabel!
     
     @IBAction func tagIsSelected(_ sender: UIButton) {
         //print("button pressed")

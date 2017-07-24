@@ -12,16 +12,15 @@ import ParseUI
 
 class UserJobsTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var jobPFImage: PFImageView!
+    @IBOutlet weak var jobTitleLabel: UILabel!
+    @IBOutlet weak var jobDateLabel: UILabel!
+
     var job: PFObject! {
         didSet {
-//            jobPFImage.file = uer["jobImage"] as? PFFile
-//            jobPFImage.loadInBackground()
-            
+
             jobTitleLabel.text = job["title"] as? String
-            
-//            jobDateLabel.text = job["dateDue"] as? String
-            
-            //date posted
+
             let date = job["dateDue"]
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -31,22 +30,13 @@ class UserJobsTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var jobPFImage: PFImageView!
-    @IBOutlet weak var jobTitleLabel: UILabel!
-    @IBOutlet weak var jobDateLabel: UILabel!       //might have conflict, like what if ur getting date posted or date completed
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
         
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
     }
-    
 }

@@ -11,17 +11,9 @@ import MapKit
 import Parse
 
 class Job: NSObject, MKAnnotation {
-    
-//    private var userAccepted: User?
-//    private var usersInterested: [User]?
-//    private var id: Int64
-    
-    /* important user vars
+    /* Important User variables for reference:
      
-     initialize user vars with user["location"] syntax
-     reference Instagram for example code/syntax
-     
-     location: String //Google maps type
+     homeLocation: String //Google maps type
      name: String
      username: String
      bio: String?
@@ -46,7 +38,6 @@ class Job: NSObject, MKAnnotation {
     
     class func postJob(location: CLLocationCoordinate2D, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, difficulty: Int, pay: Double, image: UIImage?, completion: PFBooleanResultBlock?) {
 
-        
         let job = PFObject(className: "Job")
         
         job["title"] = title

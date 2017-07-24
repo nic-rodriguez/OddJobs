@@ -11,9 +11,7 @@ import Parse
 import ParseUI
 
 class HomeFeedTableViewCell: UITableViewCell {
-
-    var currentUser = PFUser.current()
-    
+  
     @IBOutlet weak var postImageView: PFImageView?
     @IBOutlet weak var userImageView: PFImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,6 +21,8 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
+    var currentUser = PFUser.current()
+    
     var job: PFObject! {
         didSet {
             self.postImageView?.file = job["image"] as? PFFile
@@ -30,22 +30,16 @@ class HomeFeedTableViewCell: UITableViewCell {
             
             let jobPoster = job["userPosted"] as! PFUser
             
-            
-//            print(jobPoster["PFUser"])
             self.userImageView.file = jobPoster["profilePicture"] as? PFFile
             self.userImageView.loadInBackground()
-//            print(jobPoster["PFUser"].username)
             
             self.nameLabel.text = jobPoster.username!
             self.titleLabel.text = job["title"] as? String
             self.dateLabel.text = job["dateDue"] as? String
-//            self.costLabel.text = job["pay"] as? String
+
             let a:Double = job["pay"] as! Double
             let b:String = String(format:"%.2f", a)
             self.costLabel.text = "$" + b
-            
-//            job["latitude"] = location.latitude
-//            job["longitude"] = location.longitude
             
             let descLocation: PFGeoPoint = PFGeoPoint()
             descLocation.latitude = job["latitude"] as! Double
@@ -58,13 +52,11 @@ class HomeFeedTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
