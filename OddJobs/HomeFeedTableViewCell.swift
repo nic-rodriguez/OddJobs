@@ -58,8 +58,7 @@ class HomeFeedTableViewCell: UITableViewCell {
                 }
             })
 
-            distanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: descLocation)) + " miles away"
-            
+//            distanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: descLocation)) + " miles away"
         }
     }
     

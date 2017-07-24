@@ -11,23 +11,6 @@ import MapKit
 import Parse
 
 class Job: NSObject, MKAnnotation {
-<<<<<<< HEAD
-    /* Important User variables for reference:
-     
-     homeLocation: String //Google maps type
-     name: String
-     username: String
-     bio: String?
-     profilePic: URL?
-     jobsTaken: [Job]?
-     jobsPosted: [Job]?
-     currentJob: Job?
-     rating: Double
-     bookmarkedUsers: [PFUser: Bool]?
-     tags: [String]?
-    */
-=======
->>>>>>> a71460c62bc7a3301932f7492040c8ed97b158c7
     
     var title: String?
     var subtitle: String?
