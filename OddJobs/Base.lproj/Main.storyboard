@@ -403,11 +403,6 @@ EEVudGVyIFBhc3N3b3JkA
                                     <constraint firstAttribute="height" constant="130" id="JfY-nB-67T"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03Z-lv-2sm">
-                                <rect key="frame" x="10" y="10" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4f-uq-eEc">
                                 <rect key="frame" x="16" y="198" width="154" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
@@ -893,23 +888,23 @@ EEVudGVyIFBhc3N3b3JkA
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home Feed" id="y5d-K3-9Ft">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="O5a-3u-vS9">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qGS-MW-trb">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="didLogOut:" destination="zbq-xx-y2d" eventType="touchUpInside" id="aWW-4B-Jgj"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Kod-nj-aTM">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Kod-nj-aTM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jr6-PM-39d">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="New Post"/>
                                 <connections>
                                     <segue destination="ccP-HL-wdb" kind="presentation" id="GAy-Cc-rFH"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="9sc-et-Zef">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yqD-9Z-96g">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Map"/>
+                                <connections>
+                                    <segue destination="1HX-fI-nHN" kind="presentation" identifier="mapSegue" modalTransitionStyle="flipHorizontal" id="wkY-Vs-1jz"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -1069,16 +1064,6 @@ EEVudGVyIFBhc3N3b3JkA
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jpc-p5-cx0">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="3WR-em-6PC">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oA3-85-j9l">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="didLogOut:" destination="NJH-Gg-V93" eventType="touchUpInside" id="Gcc-O2-PXa"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="gear" id="Jn2-e2-c2B">
                             <connections>
                                 <segue destination="xPa-rw-Gjg" kind="presentation" identifier="editProfile" id="w4r-ZY-Ecz"/>
@@ -1162,6 +1147,14 @@ EEVudGVyIFBhc3N3b3JkA
                                     <action selector="editBannerPictureButtonPressed:" destination="Sdq-aJ-9g7" eventType="touchUpInside" id="bfD-GK-cqG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfk-7j-pnc">
+                                <rect key="frame" x="160" y="574" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="didLogOut:" destination="Sdq-aJ-9g7" eventType="touchUpInside" id="GWN-lR-p6P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -1235,6 +1228,16 @@ EEVudGVyIFBhc3N3b3JkA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="6GC-P5-Yoy">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="6vW-QU-lDR">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5yY-Iy-JTd">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Feed"/>
+                                <connections>
+                                    <segue destination="BLs-gu-Rdh" kind="presentation" modalTransitionStyle="flipHorizontal" id="AUn-dp-549"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="rAq-hO-mpA">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g7a-ke-dfZ">
                                 <rect key="frame" x="266" y="7" width="93" height="30"/>
@@ -1253,7 +1256,7 @@ EEVudGVyIFBhc3N3b3JkA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIB-QF-l3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3906.4000000000001" y="1466.7166416791606"/>
+            <point key="canvasLocation" x="3905" y="1467"/>
         </scene>
         <!--Home-->
         <scene sceneID="eWW-K9-kMr">
@@ -1261,7 +1264,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d3p-eY-rZF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a3V-mP-s7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1287,7 +1290,6 @@ EEVudGVyIFBhc3N3b3JkA
                     <connections>
                         <segue destination="d3p-eY-rZF" kind="relationship" relationship="viewControllers" id="aV6-NW-ILL"/>
                         <segue destination="sye-hu-J6y" kind="relationship" relationship="viewControllers" id="Gfa-Ew-bU4"/>
-                        <segue destination="H8Y-ZV-vbz" kind="relationship" relationship="viewControllers" id="p0x-D6-uwi"/>
                         <segue destination="4zK-83-1ct" kind="relationship" relationship="viewControllers" id="m9m-yO-xS9"/>
                         <segue destination="pcL-L4-j11" kind="relationship" relationship="viewControllers" id="Api-bS-spY"/>
                     </connections>
@@ -1302,7 +1304,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sye-hu-J6y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="m96-EM-I7f"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hRx-N9-B1U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hRx-N9-B1U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1315,30 +1317,12 @@ EEVudGVyIFBhc3N3b3JkA
             </objects>
             <point key="canvasLocation" x="2967.1999999999998" y="751.57421289355329"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="qdJ-gp-CUP">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H8Y-ZV-vbz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="IEA-cp-WHs"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d62-N4-tch">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="ZaD-vr-hIY" kind="relationship" relationship="rootViewController" id="nLS-2C-ncb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hag-rB-gFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2967.1999999999998" y="1466.7166416791606"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="elE-4h-uAZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ccP-HL-wdb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhP-7p-MLR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QhP-7p-MLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1356,7 +1340,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -1547,7 +1531,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4zK-83-1ct" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Nearby" id="qTR-Wh-P3h"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bw0-hu-T7s">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bw0-hu-T7s">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -1565,7 +1549,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pcL-L4-j11" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notifications" id="hcY-1g-4WS"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gg4-x5-OkN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gg4-x5-OkN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1583,7 +1567,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLA-qn-ZIQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVJ-V0-srk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dVJ-V0-srk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1596,6 +1580,24 @@ EEVudGVyIFBhc3N3b3JkA
             </objects>
             <point key="canvasLocation" x="45.600000000000001" y="865.81709145427294"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sgU-F3-nel">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1HX-fI-nHN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Pvv-Dg-Iwo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZaD-vr-hIY" kind="relationship" relationship="rootViewController" id="Pli-QP-2Qe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IPv-cz-9v7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2966" y="1467"/>
+        </scene>
     </scenes>
     <resources>
         <image name="defaultUser" width="24" height="24"/>
@@ -1606,8 +1608,9 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="red_check" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="AUn-dp-549"/>
+        <segue reference="IJf-2u-KdW"/>
+        <segue reference="H5h-KT-Jbe"/>
         <segue reference="XBR-ei-GAb"/>
-        <segue reference="yxL-7S-ffg"/>
-        <segue reference="PlT-eI-aH9"/>
     </inferredMetricsTieBreakers>
 </document>

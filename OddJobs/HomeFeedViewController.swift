@@ -39,11 +39,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         homeFeedTableView.insertSubview(refreshControl, at: 0)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -138,24 +133,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         //reset the data in the tags?
         refreshControl.endRefreshing()
     }
-    
-    @IBAction func didLogOut(_ sender: Any) {
-        PFUser.logOutInBackground { (error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                print("User logged out successfully")
-                NotificationCenter.default.post(name: NSNotification.Name("logoutNotification"), object: nil)
-            }
-        }
-    }
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
         if (segue.identifier == "showDetailViewFromFeed") {
             let cell = sender as! UITableViewCell
             if let indexPath = homeFeedTableView.indexPath(for: cell) {
@@ -169,6 +149,12 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 detailViewController.job = job
                 homeFeedTableView.deselectRow(at: indexPath, animated: true)
             }
+        }
+        
+        if segue.identifier == "mapSegue" {
+            let nav = segue.destination as! UINavigationController
+            let vc = nav.topViewController as! MapsViewController
+            vc.jobs = filteredJobs
         }
     }
     

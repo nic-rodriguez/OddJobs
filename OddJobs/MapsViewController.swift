@@ -24,9 +24,9 @@ class MapsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestLocationAccess()
-        queryServer()
         mapView.showsUserLocation = true
         mapView.delegate = self
+        createAnnotations(jobs: jobs, map: mapView)
     }
     
     func requestLocationAccess() {
@@ -60,24 +60,7 @@ class MapsViewController: UIViewController {
             map.addAnnotation(annotation)
         }
     }
-    
-    func queryServer() {
-        let query = PFQuery(className: "Job")
-        query.addDescendingOrder("createdAt")
-        query.includeKey("userPosted")
-        query.includeKey("location")
-        query.limit = 25
         
-        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                self.jobs = jobs!
-                self.createAnnotations(jobs: self.jobs, map: self.mapView)
-            }
-        }
-    }
-    
     func buttonSegue(sender: UIButton!) {
         performSegue(withIdentifier: "mapDetailSegue", sender: nil)
     }
