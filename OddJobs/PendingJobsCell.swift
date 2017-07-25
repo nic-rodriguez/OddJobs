@@ -23,6 +23,12 @@ class PendingJobsCell: UITableViewCell {
         }
     }
     
+    var userPosted: PFUser!{
+        didSet {
+            self.fetchUserData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -42,8 +48,30 @@ class PendingJobsCell: UITableViewCell {
         let dateString = dateFormatter.string(from:date as! Date)
         datePostedLabel.text = dateString as! String
         
-        let userPosted = jobInterested["userPosted"] as! PFUser
-        userPostedLabel.text = userPosted.username as! String
+        //Need to get distance from the job
+    
+    }
+    
+    
+    
+    func fetchUserData(){
+        
+        let query = PFQuery(className: "_User")
+        query.includeKey("_User")
+        query.includeKey("username")
+       
+        //Need to load profile picture
+        print("starting query")
+        
+        query.getObjectInBackground(withId: self.userPosted.objectId!) { (user: PFObject?, error:Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.userPostedLabel.text = user?["username"] as! String
+                
+            }
+        }
+        
     }
 
 }

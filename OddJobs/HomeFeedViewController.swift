@@ -37,6 +37,8 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         homeFeedTableView.insertSubview(refreshControl, at: 0)
+        
+        self.tabBarController?.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
