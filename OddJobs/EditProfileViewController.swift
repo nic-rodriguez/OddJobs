@@ -103,15 +103,29 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         vc.delegate = self
         vc.allowsEditing = true
         
-        let cameraAvailable = UIImagePickerController.isSourceTypeAvailable(.camera)
-        if (cameraAvailable) { //&& cameraRollBool
-            print("Camera is available 📸 and willing to be used")
-            vc.sourceType = .camera
-        } else {
-            print("Camera 🚫 available so we will use photo library instead")
+        let alert = UIAlertController(title: "Image Selection", message: "Do you wish to take a new photo or selecte an image from your camrea roll?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { action in
+            print("user wishes to take a photo")
+            let cameraAvailable = UIImagePickerController.isSourceTypeAvailable(.camera)
+            if (cameraAvailable) {
+                print("Camera is available 📸 and willing to be used")
+                vc.sourceType = .camera
+            } else {
+                print("Camera 🚫 available so we will use photo library instead")
+                vc.sourceType = .photoLibrary
+            }
+            self.present(vc, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Camera Roll", style: .default, handler: { action in
+            print("user wishes to use the camera roll")
             vc.sourceType = .photoLibrary
-        }
-        present(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+
+       
+        self.present(alert, animated: true, completion: nil)
+        
     }
 
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
