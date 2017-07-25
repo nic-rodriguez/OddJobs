@@ -38,11 +38,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         homeFeedTableView.insertSubview(refreshControl, at: 0)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -114,6 +109,12 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 detailViewController.job = job
                 homeFeedTableView.deselectRow(at: indexPath, animated: true)
             }
+        }
+        
+        if segue.identifier == "mapSegue" {
+            let nav = segue.destination as! UINavigationController
+            let vc = nav.topViewController as! MapsViewController
+            vc.jobs = filteredJobs
         }
     }
     
