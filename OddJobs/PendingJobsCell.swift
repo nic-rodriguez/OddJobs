@@ -63,7 +63,7 @@ class PendingJobsCell: UITableViewCell {
         //Need to load profile picture
         print("starting query")
         
-        query.getObjectInBackground(withId: PFUser.current()!.objectId!) { (user: PFObject?, error:Error?) in
+        query.getObjectInBackground(withId: self.userPosted.objectId!) { (user: PFObject?, error:Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
