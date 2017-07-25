@@ -65,6 +65,8 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func didSaveTags(_ sender: UIButton) {
         self.delegate?.createTags(tags: tagsToPass)
         print(tagsToPass)
+        //dismiss self?
+//        dismiss(animated: true, completion: nil) //this is now the function we need
     }
     
 }
