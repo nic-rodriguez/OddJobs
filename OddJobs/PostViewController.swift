@@ -65,6 +65,7 @@ class PostViewController: UIViewController {
     }
 
     @IBAction func postJob(_ sender: UIButton) {
+        print ("entered")
         jobTitle = jobTitleField.text!
         jobDescription = jobDescriptionField.text!
        
@@ -73,14 +74,21 @@ class PostViewController: UIViewController {
         currentDate = Date()
         photoToPost = jobImageView.image
     
-        Job.postJob(location: address!, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
-            if success {
-                print("Post was saved!")
-                self.dismiss(animated: true, completion: nil)
-            } else if let error = error {
-                print("Problem saving message: \(error.localizedDescription)")
-            }
-        })
+        if (pay != nil) && (jobDate != nil) && (currentDate != nil) && (photoToPost != nil) {
+            Job.postJob(location: address!, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
+                if success {
+                    print("Post was saved!")
+                    self.dismiss(animated: true, completion: nil)
+                } else if let error = error {
+                    print("Problem saving message: \(error.localizedDescription)")
+                }
+            })
+        } else {
+            print("user tried to post an empty thing")
+            let alert = UIAlertController(title: "Error", message: "Some or all of the required fields are incomplete. Please fill in the missing information.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
