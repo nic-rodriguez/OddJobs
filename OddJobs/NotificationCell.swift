@@ -15,6 +15,8 @@ class NotificationCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userDistanceLabel: UILabel!
 
+    
+    
     var userInterested: PFUser!{
         didSet {
             self.loadUserData()
@@ -42,10 +44,22 @@ class NotificationCell: UITableViewCell {
         usernameLabel.text = userInterested.username as? String ?? "error"
         
         
-        let location = self.userInterested["location"] as? PFGeoPoint
-        let currentUserLocation = PFUser.current()?["location"] as! PFGeoPoint
+        let location = self.userInterested["homeLocation"] as? PFGeoPoint
+//        let currentUserLocation = PFUser.current()?["location"] as! PFGeoPoint
         
-        userDistanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " mi away"
+        
+        var currentUserLocation: PFGeoPoint!
+        PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
+            if geoPoint != nil {
+                let geoPointLat = geoPoint.latitude
+                let geoPointLong = geoPoint.longitude
+                currentUserLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+                self.userDistanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " mi away"
+            } else {
+                print(error?.localizedDescription ?? "Error")
+            }
+        })
+
         
     }
     
@@ -53,5 +67,5 @@ class NotificationCell: UITableViewCell {
         jobTitleLabel.text = correspondingJob["title"] as! String
                
     }
-
+    
 }

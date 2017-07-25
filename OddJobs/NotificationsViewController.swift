@@ -108,6 +108,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
         } else {
             let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "PendingJobsCell", for: indexPath) as! PendingJobsCell
             if jobsInterested.count > 0 {
+                print(jobsInterested[indexPath.row])
                 cell.jobInterested = jobsInterested[indexPath.row]
             }
             return cell

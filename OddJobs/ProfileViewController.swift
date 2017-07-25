@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TopTableViewDelegate {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TopTableViewDelegate, ProfileViewControllerDelegate {
     
     var user: PFUser!
     var jobs: [PFObject] = []
@@ -36,7 +36,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     // MARK: - Navigation
     

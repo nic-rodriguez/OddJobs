@@ -11,6 +11,10 @@ import Parse
 import ParseUI
 import AVFoundation
 
+protocol ProfileViewControllerDelegate {
+    func topTableViewCell(_ topTableViewCell: TopTableViewCell)
+}
+
 class EditProfileViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -26,6 +30,7 @@ class EditProfileViewController: UIViewController {
     var bannerPicChanger: Bool = false
     var topCell: TopTableViewCell? = nil
     let user = PFUser.current()!
+    var delegate: ProfileViewControllerDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,10 +71,8 @@ class EditProfileViewController: UIViewController {
         
         user.saveInBackground()
         
-        if let topCell = topCell {
-            topTableViewCell(topCell)
-            print("in the top cell edit profile")
-        }
+        delegate?.topTableViewCell(topCell!)
+        //this delegate doesnt seem to actually refresh anything
         
         dismiss(animated: true, completion: nil)
     }
@@ -148,12 +151,4 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         
         dismiss(animated: true, completion: nil)
     }
-}
-
-extension EditProfileViewController: TopTableViewDelegate {
-    
-    func topTableViewCell(_ topTableViewCell: TopTableViewCell) {
-        topTableViewCell.loadData()
-    }
-    
 }

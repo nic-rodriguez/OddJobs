@@ -24,7 +24,6 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     @IBAction func onLogIn(_ sender: Any) {
         let username = userTextField.text ?? ""
         let password = passwordTextField.text ?? ""
