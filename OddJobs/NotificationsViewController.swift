@@ -19,6 +19,8 @@ class NotificationsViewController: UIViewController {
     var jobsUserInterested: [PFObject] = []
     var totalUsersInterested: [PFUser] = []
     var jobsInterested: [PFObject] = []
+    var usersPosted: [PFUser] = []
+    
     
     @IBAction func onChange(_ sender: UISegmentedControl) {
         notificationsTableView.reloadData()
@@ -42,6 +44,7 @@ class NotificationsViewController: UIViewController {
         query.addDescendingOrder("createdAt")
         query.includeKey("userPosted")
         query.includeKey("usersInterested")
+        query.includeKey("_User")
         query.whereKey("userPosted", equalTo: PFUser.current()!)
         
         query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
@@ -71,8 +74,13 @@ class NotificationsViewController: UIViewController {
     
     
     func fetchPendingJobsData() {
-        let query = PFUser.query()!
+        let query = PFQuery(className: "_User")
         query.includeKey("jobsInterested")
+        query.includeKey("_p_userPosted")
+        query.includeKey("_User")
+        query.includeKey("Job")
+        query.includeKey("username")
+         
         
         query.getObjectInBackground(withId: PFUser.current()!.objectId!) { (user: PFObject?, error:Error?) in
             if let error = error {
@@ -80,6 +88,9 @@ class NotificationsViewController: UIViewController {
             } else {
                 if user?["jobsInterested"] != nil {
                     self.jobsInterested = user?["jobsInterested"] as! [PFObject]
+                    for job in self.jobsInterested{
+                        self.usersPosted.append(job["userPosted"] as! PFUser)
+                    }
                 }
                 self.notificationsTableView.reloadData()
             }
@@ -109,6 +120,8 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "PendingJobsCell", for: indexPath) as! PendingJobsCell
             if jobsInterested.count > 0 {
                 cell.jobInterested = jobsInterested[indexPath.row]
+                cell.userPosted = self.usersPosted[indexPath.row]
+               
             }
             return cell
         }

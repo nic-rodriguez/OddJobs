@@ -43,9 +43,20 @@ class NotificationCell: UITableViewCell {
         
         
         let location = self.userInterested["location"] as? PFGeoPoint
-        let currentUserLocation = PFUser.current()?["location"] as! PFGeoPoint
+        var currentUserLocation: PFGeoPoint!
         
-        userDistanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " mi away"
+        PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
+            if geoPoint != nil {
+                let geoPointLat = geoPoint.latitude
+                let geoPointLong = geoPoint.longitude
+                currentUserLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+                self.userDistanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " mi away"
+            } else {
+                print(error?.localizedDescription ?? "Error")
+            }
+        })
+        
+        
         
     }
     
