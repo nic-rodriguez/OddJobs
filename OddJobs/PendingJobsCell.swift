@@ -20,6 +20,8 @@ class PendingJobsCell: UITableViewCell {
     var jobInterested: PFObject!{
         didSet {
             self.loadJobData()
+            print("words")
+            print(jobInterested)
         }
     }
     
@@ -42,8 +44,27 @@ class PendingJobsCell: UITableViewCell {
         let dateString = dateFormatter.string(from:date as! Date)
         datePostedLabel.text = dateString as! String
         
+        
         let userPosted = jobInterested["userPosted"] as! PFUser
-        userPostedLabel.text = userPosted.username as! String
+        print("user poset:")
+        print(userPosted)
+        
+        let location = userPosted["homeLocation"] as? PFGeoPoint
+        var currentUserLocation: PFGeoPoint!
+        PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
+            if geoPoint != nil {
+                let geoPointLat = geoPoint.latitude
+                let geoPointLong = geoPoint.longitude
+                currentUserLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+                self.distanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: location)) + " mi away"
+            } else {
+                print(error?.localizedDescription ?? "Error")
+            }
+        })
+
+        
+        
+//        userPostedLabel.text = userPosted.username as! String
     }
 
 }
