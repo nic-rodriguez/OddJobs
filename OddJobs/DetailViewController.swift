@@ -122,12 +122,15 @@ class DetailViewController: UIViewController {
             
         } else {
             var usersInterested = self.job["usersInterested"] as! [PFUser]
+            if usersInterested.contains(currentUser!){
+                hasAlreadyAppliedAlert()
+            } else {
             usersInterested.append(currentUser!)
             self.job["usersInterested"] = usersInterested
             self.job.saveInBackground().continue({ (task:BFTask<NSNumber>) -> Any? in
                 self.saveUserData()
-            })
-        }
+                 })
+            }}
         
         
     }
@@ -163,22 +166,21 @@ class DetailViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    func hasAlreadyAppliedAlert() {
+        let alert = UIAlertController(title: "Whoops!", message: "Looks like you've already applied to this job. Don't worry about it.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Got it", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    
 
     
     @IBAction func requestJob(_ sender: UIBarButtonItem) {
-       // var successfullyApplied: Bool = true
-        
         savejobData()
         
-      /*  if (successfullyApplied) {
-            let alert = UIAlertController(title: "Congratulations!", message: "Nice work. You've successfully applies to this job. A notification will be sent to the job poster. Thanks you for you interest.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "You're welcome :)", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Whoops!", message: "Looks like you've already applied to this job. Don't worry about it.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Got it", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }*/
     }
     
 }
