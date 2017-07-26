@@ -15,11 +15,10 @@ class ChatRoom: NSObject {
         //firstUser is the user that posted the job
         
         let chatRoom = PFObject(className: "ChatRoom")
-        var messageDict = [String: [PFObject]]()
-        messageDict[firstUser.username!] = []
-        messageDict[secondUser.username!] = []
-        chatRoom["messages"] = messageDict
+        chatRoom["messageArray"] = []
         chatRoom["job"] = job
+        chatRoom["firstUser"] = firstUser
+        chatRoom["secondUser"] = secondUser
         chatRoom.saveInBackground(block: completion)
         
         return chatRoom

@@ -146,21 +146,16 @@ extension NotificationsViewController: NotificationCellDelegate {
     func queryChatRooms(notificationCell: NotificationCell, job: PFObject, firstUser: PFUser, secondUser: PFUser) {
         let query = PFQuery(className: "ChatRoom")
         query.whereKey("job", equalTo: job)
+        query.whereKey("firstUser", containedIn: [firstUser, secondUser])
+        query.whereKey("secondUser", containedIn: [firstUser, secondUser])
         query.findObjectsInBackground { (chatRooms: [PFObject]?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                if let chatRooms = chatRooms {
-                    for chatRoom in chatRooms {
-                        let messageDict = chatRoom["messages"] as! [String: [PFObject]]
-                        if messageDict[firstUser.username!] != nil && messageDict[secondUser.username!] != nil {
-                            notificationCell.chatRoom = chatRoom
-                            self.performSegue(withIdentifier: "messageSegue", sender: notificationCell)
-                        }
-                        
-                    }
-                }
-                if notificationCell.chatRoom == nil {
+                if chatRooms! != [] {
+                    notificationCell.chatRoom = chatRooms![0]
+                    self.performSegue(withIdentifier: "messageSegue", sender: notificationCell)
+                } else {
                     notificationCell.chatRoom = ChatRoom.createChatRoom(firstUser: firstUser, secondUser: secondUser, job: job, completion: { (success: Bool, error: Error?) in
                         if let error = error {
                             print(error.localizedDescription)
