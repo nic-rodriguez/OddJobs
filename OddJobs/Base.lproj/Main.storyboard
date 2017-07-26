@@ -1568,7 +1568,7 @@ EEVudGVyIFBhc3N3b3JkA
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdz-oh-iC9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdz-oh-iC9" customClass="PFImageView">
                                 <rect key="frame" x="19" y="39" width="77" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1591,13 +1591,14 @@ EEVudGVyIFBhc3N3b3JkA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="commentsTextField" destination="jGm-A3-PLD" id="nZ8-Sr-kmV"/>
                         <outlet property="fiveStar" destination="VFO-9F-eMm" id="IjQ-By-5we"/>
                         <outlet property="fourStar" destination="DiJ-Tm-aon" id="Y93-du-383"/>
-                        <outlet property="jobImageView" destination="jdz-oh-iC9" id="td8-24-dkJ"/>
                         <outlet property="jobLabel" destination="oHE-Jg-4je" id="gNx-CY-FpV"/>
                         <outlet property="oneStar" destination="dP3-te-xl9" id="qQn-cS-h9g"/>
                         <outlet property="threeStar" destination="m2o-3g-mdt" id="dF3-ii-3Vg"/>
                         <outlet property="twoStar" destination="Ast-cB-sDd" id="7Dq-iI-RnP"/>
+                        <outlet property="userImageView" destination="jdz-oh-iC9" id="hgg-YR-WTr"/>
                         <outlet property="userLabel" destination="bS0-tI-7Qm" id="x1Y-sZ-Tip"/>
                     </connections>
                 </viewController>
