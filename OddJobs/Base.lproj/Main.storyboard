@@ -1253,9 +1253,9 @@ EEVudGVyIFBhc3N3b3JkA
         <scene sceneID="eWW-K9-kMr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d3p-eY-rZF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="r7b-Vi-CNX"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a3V-mP-s7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1280,10 +1280,10 @@ EEVudGVyIFBhc3N3b3JkA
                     </tabBar>
                     <connections>
                         <segue destination="d3p-eY-rZF" kind="relationship" relationship="viewControllers" id="aV6-NW-ILL"/>
-                        <segue destination="sye-hu-J6y" kind="relationship" relationship="viewControllers" id="Gfa-Ew-bU4"/>
                         <segue destination="4zK-83-1ct" kind="relationship" relationship="viewControllers" id="m9m-yO-xS9"/>
-                        <segue destination="pcL-L4-j11" kind="relationship" relationship="viewControllers" id="Api-bS-spY"/>
                         <segue destination="ccP-HL-wdb" kind="relationship" relationship="viewControllers" id="hOL-GB-Wh7"/>
+                        <segue destination="pcL-L4-j11" kind="relationship" relationship="viewControllers" id="Api-bS-spY"/>
+                        <segue destination="sye-hu-J6y" kind="relationship" relationship="viewControllers" id="Gfa-Ew-bU4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nfo-MH-WR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1309,13 +1309,13 @@ EEVudGVyIFBhc3N3b3JkA
             </objects>
             <point key="canvasLocation" x="2967.1999999999998" y="751.57421289355329"/>
         </scene>
-        <!--Item-->
+        <!--Post-->
         <scene sceneID="elE-4h-uAZ">
             <objects>
                 <navigationController storyboardIdentifier="PostNavController" automaticallyAdjustsScrollViewInsets="NO" id="ccP-HL-wdb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LL7-2d-aby"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="pluss" id="LL7-2d-aby"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhP-7p-MLR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QhP-7p-MLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1623,9 +1623,9 @@ EEVudGVyIFBhc3N3b3JkA
         <scene sceneID="WSE-Mc-lmS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4zK-83-1ct" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nearby" id="qTR-Wh-P3h"/>
+                    <tabBarItem key="tabBarItem" title="Nearby" image="globe" id="qTR-Wh-P3h"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bw0-hu-T7s">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bw0-hu-T7s">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -1641,9 +1641,9 @@ EEVudGVyIFBhc3N3b3JkA
         <scene sceneID="S24-vo-S0n">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pcL-L4-j11" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" id="hcY-1g-4WS"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="mail" id="hcY-1g-4WS"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gg4-x5-OkN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gg4-x5-OkN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1661,7 +1661,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLA-qn-ZIQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVJ-V0-srk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dVJ-V0-srk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1679,7 +1679,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1HX-fI-nHN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pvv-Dg-Iwo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Pvv-Dg-Iwo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1696,8 +1696,12 @@ EEVudGVyIFBhc3N3b3JkA
     <resources>
         <image name="defaultUser" width="24" height="24"/>
         <image name="gear" width="24" height="24"/>
+        <image name="globe" width="24" height="24"/>
         <image name="gradient-wallpaper-iphone2" width="736" height="1309"/>
         <image name="green_check" width="24" height="24"/>
+        <image name="home" width="24" height="24"/>
+        <image name="mail" width="24" height="24"/>
+        <image name="pluss" width="24" height="24"/>
         <image name="profile_tab" width="25" height="25"/>
         <image name="red_check" width="24" height="24"/>
     </resources>
