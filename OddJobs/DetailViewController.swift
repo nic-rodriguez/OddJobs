@@ -15,7 +15,6 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var jobPostPFImageView: PFImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
-    @IBOutlet weak var dificultyLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var datePostedLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -51,7 +50,6 @@ class DetailViewController: UIViewController {
         
         usernameLabel.text = user.username!
         jobTitleLabel.text = job["title"] as? String
-        dificultyLabel.text = job["difficulty"] as? String
         descriptionLabel.text = job["description"] as? String ?? ""
         datePostedLabel.text = dateString
         costLabel.text = "$" + payString
@@ -74,6 +72,9 @@ class DetailViewController: UIViewController {
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let annotation = Job(title: job["title"] as? String, subtitle: job["description"] as? String, location: coordinate)
         mapView.addAnnotation(annotation)
+        
+        print("height of skills label")
+        print(skillsLabel.frame.height)
     }
     
     func requestLocationAccess() {
