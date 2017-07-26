@@ -1380,6 +1380,9 @@ EEVudGVyIFBhc3N3b3JkA
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <state key="normal" title="Message"/>
+                                                    <connections>
+                                                        <action selector="messagePress:" destination="Q8t-fG-9BY" eventType="touchUpInside" id="F4u-Dd-hWr"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgU-5S-nF7">
                                                     <rect key="frame" x="239" y="61" width="64" height="35"/>
@@ -1511,11 +1514,31 @@ EEVudGVyIFBhc3N3b3JkA
                         <outlet property="headerView" destination="l2b-TN-w2W" id="qwY-Dc-s8X"/>
                         <outlet property="notificationControl" destination="Rpo-qM-P53" id="jbY-Py-Xei"/>
                         <outlet property="notificationsTableView" destination="IIO-ke-HR2" id="2j8-bh-z3u"/>
+                        <segue destination="jTG-7Z-Vos" kind="push" identifier="messageSegue" id="rEe-wG-xrW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37t-MP-8oL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2965.5999999999999" y="-2251.1244377811095"/>
+        </scene>
+        <!--Message View Controller-->
+        <scene sceneID="9gy-I9-yrU">
+            <objects>
+                <viewController id="jTG-7Z-Vos" customClass="MessageViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NIv-AR-br3"/>
+                        <viewControllerLayoutGuide type="bottom" id="TB3-3o-ibN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gmd-DR-HEb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IdF-Wj-GeA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e7z-om-JtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3829.5999999999999" y="-2251.1244377811095"/>
         </scene>
         <!--Rating View Controller-->
         <scene sceneID="1NY-J3-Mkc">

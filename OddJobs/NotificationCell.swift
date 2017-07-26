@@ -9,6 +9,10 @@
 import UIKit
 import Parse
 
+@objc protocol NotificationCellDelegate {
+    func didSelectMessage(notificationCell: NotificationCell)
+}
+
 class NotificationCell: UITableViewCell {
     
     @IBOutlet weak var jobTitleLabel: UILabel!
@@ -26,6 +30,8 @@ class NotificationCell: UITableViewCell {
             self.loadJobData()
         }
     }
+    
+    var delegate: NotificationCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,5 +70,11 @@ class NotificationCell: UITableViewCell {
         jobTitleLabel.text = correspondingJob["title"] as! String
                
     }
+    
+    
+    @IBAction func messagePress(_ sender: Any) {
+        delegate!.didSelectMessage(notificationCell: self)
+    }
+    
 
 }

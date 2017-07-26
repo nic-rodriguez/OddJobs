@@ -38,6 +38,20 @@ class NotificationsViewController: UIViewController {
         fetchPendingJobsData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "messageSegue" {
+            let vc = segue.destination as! MessageViewController
+            let cell = sender as! NotificationCell
+            vc.chatRoom = ChatRoom.createChatRoom(firstUser: PFUser.current()!, secondUser: cell.userInterested, completion: { (success: Bool, error: Error?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("chat room created")
+                }
+            })
+        }
+    }
+    
     //Query jobs that user has posted and find if usersInterested is nil or not
     func fetchNotificationData() {
         let query = PFQuery(className: "Job")
@@ -96,6 +110,7 @@ class NotificationsViewController: UIViewController {
             }
         }
     }
+    
 }
 
 extension NotificationsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -112,6 +127,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if notificationControl.selectedSegmentIndex == 0 {
             let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
+            cell.delegate = self
             cell.correspondingJob = jobsUserInterested[indexPath.row]
             cell.userInterested = totalUsersInterested[indexPath.row]
             
@@ -126,5 +142,12 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
             return cell
         }
         
+    }
+}
+
+extension NotificationsViewController: NotificationCellDelegate {
+    
+    func didSelectMessage(notificationCell: NotificationCell) {
+        performSegue(withIdentifier: "messageSegue", sender: notificationCell)
     }
 }

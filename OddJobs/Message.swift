@@ -17,6 +17,7 @@ class Message: NSObject {
         var secondMessages = chatRoom["secondMessgaes"] as! [PFObject]
         
         message["text"] = text
+        message["chatRoom"] = chatRoom
         
         if user == firstMessages[0] {
             firstMessages.append(message)

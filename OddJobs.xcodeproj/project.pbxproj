@@ -40,6 +40,7 @@
 		A93790201F27FE9F009D1E58 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937901F1F27FE9F009D1E58 /* RatingViewController.swift */; };
 		A93790221F28323C009D1E58 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93790211F28323C009D1E58 /* ChatRoom.swift */; };
 		A93790261F2842D9009D1E58 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93790251F2842D9009D1E58 /* Message.swift */; };
+		A93790281F2845A6009D1E58 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93790271F2845A6009D1E58 /* MessageViewController.swift */; };
 		A9545C2F1F2017EC0064E61D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */; };
 		A972FBEF1F1693B600446EAC /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */; };
 		A98D258C1F1D438100C4A9C2 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */; };
@@ -105,6 +106,7 @@
 		A937901F1F27FE9F009D1E58 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		A93790211F28323C009D1E58 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		A93790251F2842D9009D1E58 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A93790271F2845A6009D1E58 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedTableViewCell.swift; sourceTree = "<group>"; };
 		A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				985E76701F1ECC7100F87E2B /* NotificationsViewController.swift */,
 				A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */,
 				A937901F1F27FE9F009D1E58 /* RatingViewController.swift */,
+				A93790271F2845A6009D1E58 /* MessageViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				A972FBEF1F1693B600446EAC /* HomeFeedTableViewCell.swift in Sources */,
 				A93790221F28323C009D1E58 /* ChatRoom.swift in Sources */,
 				985E76731F1EDCA800F87E2B /* NotificationCell.swift in Sources */,
+				A93790281F2845A6009D1E58 /* MessageViewController.swift in Sources */,
 				982965471F1D2DB900C18FA8 /* NearbyWorkersViewController.swift in Sources */,
 				A907D0321F1425C60069B7E7 /* LoginViewController.swift in Sources */,
 				A93790261F2842D9009D1E58 /* Message.swift in Sources */,
