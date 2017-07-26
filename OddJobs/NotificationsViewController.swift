@@ -36,6 +36,10 @@ class NotificationsViewController: UIViewController {
         
         fetchNotificationData()
         fetchPendingJobsData()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        notificationsTableView.insertSubview(refreshControl, at: 0)
     }
     
     //Query jobs that user has posted and find if usersInterested is nil or not
@@ -72,7 +76,7 @@ class NotificationsViewController: UIViewController {
         }
     }
     
-    
+
     func fetchPendingJobsData() {
         let query = PFQuery(className: "_User")
         query.includeKey("jobsInterested")
@@ -96,7 +100,19 @@ class NotificationsViewController: UIViewController {
             }
         }
     }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl!) {
+        fetchNotificationData()
+        fetchPendingJobsData()
+        
+        refreshControl.endRefreshing()
+    }
 }
+
+
+
+
+
 
 extension NotificationsViewController: UITableViewDelegate, UITableViewDataSource {
     
