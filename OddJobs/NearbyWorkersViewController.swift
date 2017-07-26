@@ -57,6 +57,18 @@ class NearbyWorkersViewController: UIViewController {
                 // Final list of objects
                 
                 try! self.workers = query.findObjects() as! [PFUser]
+                
+                
+                var count = 0
+                var indexToRemove: Int!
+                for worker in self.workers {
+                    if worker.objectId == PFUser.current()?.objectId{
+                        indexToRemove = count
+                    }
+                    count+=1
+                }
+                
+                self.workers.remove(at: indexToRemove)
                 self.workersTableView.reloadData()
                 
             } else {
