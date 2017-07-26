@@ -1518,6 +1518,107 @@ EEVudGVyIFBhc3N3b3JkA
             </objects>
             <point key="canvasLocation" x="2965.5999999999999" y="-2251.1244377811095"/>
         </scene>
+        <!--Rating View Controller-->
+        <scene sceneID="1NY-J3-Mkc">
+            <objects>
+                <viewController id="rWy-fe-dY7" customClass="RatingViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wGn-WZ-CLh"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qnq-eY-SOq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gaG-Uq-vm1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dP3-te-xl9">
+                                <rect key="frame" x="43" y="213" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ast-cB-sDd">
+                                <rect key="frame" x="109" y="213" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="twoPress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="cQU-6H-DPA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2o-3g-mdt">
+                                <rect key="frame" x="173" y="213" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="threePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="Uyt-Sp-yIy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiJ-Tm-aon">
+                                <rect key="frame" x="235" y="213" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="fourPress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="Qem-fq-rNq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFO-9F-eMm">
+                                <rect key="frame" x="308" y="213" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="fivePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="0lQ-70-bgD"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Any comments?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGm-A3-PLD">
+                                <rect key="frame" x="52" y="318" width="293" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bS0-tI-7Qm">
+                                <rect key="frame" x="116" y="76" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdz-oh-iC9" customClass="PFImageView">
+                                <rect key="frame" x="19" y="39" width="77" height="94"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHE-Jg-4je">
+                                <rect key="frame" x="20" y="141" width="76" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIs-OB-8qe">
+                                <rect key="frame" x="180" y="587" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="donePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="KcD-og-cKw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentsTextField" destination="jGm-A3-PLD" id="nZ8-Sr-kmV"/>
+                        <outlet property="fiveStar" destination="VFO-9F-eMm" id="IjQ-By-5we"/>
+                        <outlet property="fourStar" destination="DiJ-Tm-aon" id="Y93-du-383"/>
+                        <outlet property="jobLabel" destination="oHE-Jg-4je" id="gNx-CY-FpV"/>
+                        <outlet property="oneStar" destination="dP3-te-xl9" id="qQn-cS-h9g"/>
+                        <outlet property="threeStar" destination="m2o-3g-mdt" id="dF3-ii-3Vg"/>
+                        <outlet property="twoStar" destination="Ast-cB-sDd" id="7Dq-iI-RnP"/>
+                        <outlet property="userImageView" destination="jdz-oh-iC9" id="hgg-YR-WTr"/>
+                        <outlet property="userLabel" destination="bS0-tI-7Qm" id="x1Y-sZ-Tip"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXr-4r-Oh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5724" y="-1531.4842578710645"/>
+        </scene>
         <!--Nearby-->
         <scene sceneID="WSE-Mc-lmS">
             <objects>
