@@ -61,7 +61,6 @@ class RatingViewController: UIViewController {
         oneStar.isSelected = true
     }
     
-    
     @IBAction func donePress(_ sender: Any) {
         var comments = user["comments"] as? [String]
         var rating = user["rating"] as? [Int]
@@ -89,7 +88,12 @@ class RatingViewController: UIViewController {
         } else if oneStar.isSelected {
             rating!.append(1)
         } else {
-            //raise alert controller: please select a rating
+            let alertController = UIAlertController(title: "No rating selected", message: "Please select a rating", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                print("User dismissed error")
+            })
+            alertController.addAction(okAction)
+            present(alertController, animated: true)
             ratingSelected = false
         }
         if ratingSelected {
