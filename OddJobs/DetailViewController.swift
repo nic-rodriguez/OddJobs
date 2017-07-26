@@ -13,6 +13,7 @@ import MapKit
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var jobPosterPFImage: PFImageView!
     @IBOutlet weak var jobPostPFImageView: PFImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -37,9 +38,6 @@ class DetailViewController: UIViewController {
         mapView.isScrollEnabled = false
         mapView.isRotateEnabled = false
         
-        jobPostPFImageView.file = job["image"] as? PFFile
-        jobPostPFImageView.loadInBackground()
-        
         let user = job["userPosted"] as! PFUser
         let date = job["dateDue"]
         let dateFormatter = DateFormatter()
@@ -47,6 +45,14 @@ class DetailViewController: UIViewController {
         let dateString = dateFormatter.string(from:date as! Date)
         let pay = job["pay"] as! Double
         let payString = String(format:"%.2f", pay)
+        
+        jobPosterPFImage.file = user["profilePicture"] as? PFFile
+        jobPosterPFImage.layer.cornerRadius = jobPosterPFImage.frame.size.width/2
+        jobPosterPFImage.layer.masksToBounds = true
+        jobPosterPFImage.loadInBackground()
+        
+        jobPostPFImageView.file = job["image"] as? PFFile
+        jobPostPFImageView.loadInBackground()
         
         usernameLabel.text = user.username!
         jobTitleLabel.text = job["title"] as? String
@@ -58,6 +64,7 @@ class DetailViewController: UIViewController {
         let skills = job["tags"] as! [String]
         print(skills)
         
+        skillsLabel.text = ""
         for (index, element) in skills.enumerated() {
             //prints the word skills appended to the first ?
             skillsLabel.text = skillsLabel.text! + element

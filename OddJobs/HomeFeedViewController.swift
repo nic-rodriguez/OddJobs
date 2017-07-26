@@ -48,9 +48,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //Choose your custom row height
         if (indexPath.section == 0){
-            return 55.0
+            return 100.0
         } else {
-            return 200.0
+            return 240.0
         }
     }
 
@@ -74,6 +74,10 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             return cell
         } else {
             let cell = homeFeedTableView.dequeueReusableCell(withIdentifier: "HomeFeedTableViewCell", for: indexPath) as! HomeFeedTableViewCell
+            
+            cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width/2
+            cell.userImageView.layer.masksToBounds = true
+            
             if shouldShowSearchResults {
                 cell.job = filteredJobs[indexPath.row]
             } else {
