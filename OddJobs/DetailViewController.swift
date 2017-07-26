@@ -29,6 +29,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func requestJob(_ sender: UIBarButtonItem) {
         savejobData()
+        
     }
    
     
