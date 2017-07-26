@@ -38,7 +38,30 @@ class RatingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    
+    @IBAction func fivePress(_ sender: Any) {
+        fourStar.isSelected = true
+        threeStar.isSelected = true
+        twoStar.isSelected = true
+        oneStar.isSelected = true
+    }
+    
+    @IBAction func fourPress(_ sender: Any) {
+        threeStar.isSelected = true
+        twoStar.isSelected = true
+        oneStar.isSelected = true
+    }
+    
+    @IBAction func threePress(_ sender: Any) {
+        twoStar.isSelected = true
+        oneStar.isSelected = true
+    }
+    
+    @IBAction func twoPress(_ sender: Any) {
+        oneStar.isSelected = true
+    }
+    
+    
     @IBAction func donePress(_ sender: Any) {
         var comments = user["comments"] as? [String]
         var rating = user["rating"] as? [Int]
