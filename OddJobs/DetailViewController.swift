@@ -162,7 +162,7 @@ class DetailViewController: UIViewController {
     
     func requestSentAlert() {
         let alert = UIAlertController(title: "Job request sent!", message: "Nice work. You've successfully applied to this job. A notification will be sent to the job poster. Thank you for you interest.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "You're welcome :)", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
     }
