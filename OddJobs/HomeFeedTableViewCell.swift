@@ -33,10 +33,14 @@ class HomeFeedTableViewCell: UITableViewCell {
             self.userImageView.file = jobPoster["profilePicture"] as? PFFile
             self.userImageView.loadInBackground()
             
-            self.nameLabel.text = jobPoster.username!
             self.titleLabel.text = job["title"] as? String
-            self.dateLabel.text = job["dateDue"] as? String
-
+//            self.dateLabel.text = job["dateDue"] as? String ?? "helloi" 
+            
+            let date = job["dateDue"]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateLabel.text = dateFormatter.string(from:date as! Date)
+            
             let a:Double = job["pay"] as! Double
             let b:String = String(format:"%.2f", a)
             self.costLabel.text = "$" + b
@@ -58,6 +62,7 @@ class HomeFeedTableViewCell: UITableViewCell {
                     print(error?.localizedDescription ?? "Error")
                 }
             })
+            
         }
     }
     
