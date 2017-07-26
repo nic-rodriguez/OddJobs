@@ -38,6 +38,10 @@
 		A92EB48D1F159F0000EB77E8 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */; };
 		A92EB4921F159F4900EB77E8 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EB4911F159F4900EB77E8 /* Job.swift */; };
 		A93790201F27FE9F009D1E58 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A937901F1F27FE9F009D1E58 /* RatingViewController.swift */; };
+		A93790221F28323C009D1E58 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93790211F28323C009D1E58 /* ChatRoom.swift */; };
+		A93790261F2842D9009D1E58 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93790251F2842D9009D1E58 /* Message.swift */; };
+		A93790281F2845A6009D1E58 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93790271F2845A6009D1E58 /* MessageViewController.swift */; };
+		A937902A1F2931EE009D1E58 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93790291F2931EE009D1E58 /* MessageTableViewCell.swift */; };
 		A9545C2F1F2017EC0064E61D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */; };
 		A972FBEF1F1693B600446EAC /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */; };
 		A98D258C1F1D438100C4A9C2 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */; };
@@ -101,6 +105,10 @@
 		A92EB48C1F159F0000EB77E8 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		A92EB4911F159F4900EB77E8 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		A937901F1F27FE9F009D1E58 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		A93790211F28323C009D1E58 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		A93790251F2842D9009D1E58 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A93790271F2845A6009D1E58 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		A93790291F2931EE009D1E58 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedTableViewCell.swift; sourceTree = "<group>"; };
 		A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +241,7 @@
 				985E76701F1ECC7100F87E2B /* NotificationsViewController.swift */,
 				A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */,
 				A937901F1F27FE9F009D1E58 /* RatingViewController.swift */,
+				A93790271F2845A6009D1E58 /* MessageViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -241,6 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				A92EB4911F159F4900EB77E8 /* Job.swift */,
+				A93790211F28323C009D1E58 /* ChatRoom.swift */,
+				A93790251F2842D9009D1E58 /* Message.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -257,6 +268,7 @@
 				86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */,
 				985E76721F1EDCA800F87E2B /* NotificationCell.swift */,
 				985E76741F1FDA8A00F87E2B /* PendingJobsCell.swift */,
+				A93790291F2931EE009D1E58 /* MessageTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -552,9 +564,12 @@
 				86C8F9131F1FF50C00228818 /* TagsCollectionViewCell.swift in Sources */,
 				A92EB4891F159EEA00EB77E8 /* ProfileViewController.swift in Sources */,
 				A972FBEF1F1693B600446EAC /* HomeFeedTableViewCell.swift in Sources */,
+				A93790221F28323C009D1E58 /* ChatRoom.swift in Sources */,
 				985E76731F1EDCA800F87E2B /* NotificationCell.swift in Sources */,
+				A93790281F2845A6009D1E58 /* MessageViewController.swift in Sources */,
 				982965471F1D2DB900C18FA8 /* NearbyWorkersViewController.swift in Sources */,
 				A907D0321F1425C60069B7E7 /* LoginViewController.swift in Sources */,
+				A93790261F2842D9009D1E58 /* Message.swift in Sources */,
 				985E76711F1ECC7100F87E2B /* NotificationsViewController.swift in Sources */,
 				A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */,
 				984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */,
@@ -563,6 +578,7 @@
 				A93790201F27FE9F009D1E58 /* RatingViewController.swift in Sources */,
 				A98D258C1F1D438100C4A9C2 /* MapsViewController.swift in Sources */,
 				86C8F9111F1FF43C00228818 /* TagsRowTableViewCell.swift in Sources */,
+				A937902A1F2931EE009D1E58 /* MessageTableViewCell.swift in Sources */,
 				A9545C2F1F2017EC0064E61D /* SignUpViewController.swift in Sources */,
 				98AC28361F181121000CD55E /* GMSAutocompleteResultsViewController.swift in Sources */,
 				A92EB48D1F159F0000EB77E8 /* HomeFeedViewController.swift in Sources */,
