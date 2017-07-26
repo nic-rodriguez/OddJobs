@@ -20,6 +20,7 @@ class NotificationsViewController: UIViewController {
     var totalUsersInterested: [PFUser] = []
     var jobsInterested: [PFObject] = []
     var usersPosted: [PFUser] = []
+    var chatRooms: [PFObject]?
     
     
     @IBAction func onChange(_ sender: UISegmentedControl) {
@@ -42,13 +43,7 @@ class NotificationsViewController: UIViewController {
         if segue.identifier == "messageSegue" {
             let vc = segue.destination as! MessageViewController
             let cell = sender as! NotificationCell
-            vc.chatRoom = ChatRoom.createChatRoom(firstUser: PFUser.current()!, secondUser: cell.userInterested, completion: { (success: Bool, error: Error?) in
-                if let error = error {
-                    print(error.localizedDescription)
-                } else {
-                    print("chat room created")
-                }
-            })
+            vc.chatRoom = cell.chatRoom!
         }
     }
     
@@ -147,7 +142,35 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
 
 extension NotificationsViewController: NotificationCellDelegate {
     
-    func didSelectMessage(notificationCell: NotificationCell) {
-        performSegue(withIdentifier: "messageSegue", sender: notificationCell)
+    
+    func queryChatRooms(notificationCell: NotificationCell, job: PFObject, firstUser: PFUser, secondUser: PFUser) {
+        let query = PFQuery(className: "ChatRoom")
+        query.whereKey("job", equalTo: job)
+        query.findObjectsInBackground { (chatRooms: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if let chatRooms = chatRooms {
+                    for chatRoom in chatRooms {
+                        let messageDict = chatRoom["messages"] as! [String: [PFObject]]
+                        if messageDict[firstUser.username!] != nil && messageDict[secondUser.username!] != nil {
+                            notificationCell.chatRoom = chatRoom
+                            self.performSegue(withIdentifier: "messageSegue", sender: notificationCell)
+                        }
+                        
+                    }
+                }
+                if notificationCell.chatRoom == nil {
+                    notificationCell.chatRoom = ChatRoom.createChatRoom(firstUser: firstUser, secondUser: secondUser, job: job, completion: { (success: Bool, error: Error?) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            print("chat room created")
+                            self.performSegue(withIdentifier: "messageSegue", sender: notificationCell)
+                        }
+                    })
+                }
+            }
+        }
     }
 }

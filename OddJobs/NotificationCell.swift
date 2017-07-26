@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 @objc protocol NotificationCellDelegate {
-    func didSelectMessage(notificationCell: NotificationCell)
+    func queryChatRooms(notificationCell: NotificationCell, job: PFObject, firstUser: PFUser, secondUser: PFUser)
 }
 
 class NotificationCell: UITableViewCell {
@@ -30,6 +30,7 @@ class NotificationCell: UITableViewCell {
             self.loadJobData()
         }
     }
+    var chatRoom: PFObject?
     
     var delegate: NotificationCellDelegate?
     
@@ -73,7 +74,7 @@ class NotificationCell: UITableViewCell {
     
     
     @IBAction func messagePress(_ sender: Any) {
-        delegate!.didSelectMessage(notificationCell: self)
+        delegate!.queryChatRooms(notificationCell: self, job: correspondingJob, firstUser: PFUser.current()!, secondUser: userInterested)
     }
     
 
