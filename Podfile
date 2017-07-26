@@ -12,6 +12,11 @@ target 'OddJobs' do
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
   pod 'Carnival'
+  pod 'ChatSDKCore', :path => '../ChatSDK/ChatSDKCore'
+  pod 'ChatSDKCoreData', :path => '../ChatSDK/ChatSDKCoreData'
+  pod 'ChatSDKUI', :path => '../ChatSDK/ChatSDKUI'
+  pod 'ChatSDKFirebaseAdapter', :path => '../ChatSDK/ChatSDKFirebaseAdapter'
+  
 
   target 'OddJobsTests' do
     inherit! :search_paths

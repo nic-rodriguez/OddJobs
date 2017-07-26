@@ -1,0 +1,6 @@
+framework module ChatSDKUI {
+  umbrella header "ChatSDKUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

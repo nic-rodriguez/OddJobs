@@ -1,0 +1,41 @@
+{
+  "name": "ChatSDKCore",
+  "version": "4.2.5",
+  "summary": "Chat SDK - Mobile messaging framework for iOS",
+  "homepage": "http://chatsdk.co",
+  "license": "MIT",
+  "authors": {
+    "Ben Smiley": "ben@chatsdk.co"
+  },
+  "source": {
+    "git": "https://github.com/chat-sdk/chat-sdk-ios.git",
+    "tag": "4.2.5"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": [
+    "Classes/**/*"
+  ],
+  "dependencies": {
+    "RXPromise": [
+      "~> 1.0"
+    ],
+    "PromiseKit": [
+
+    ],
+    "Reachability": [
+      "~> 3.0"
+    ],
+    "AFNetworking": [
+      "~>3.1.0"
+    ]
+  },
+  "pod_target_xcconfig": {
+    "ENABLE_BITCODE": "false"
+  },
+  "user_target_xcconfig": {
+    "ENABLE_BITCODE": "false"
+  }
+}

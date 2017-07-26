@@ -1,0 +1,202 @@
+{
+  "name": "ChatSDKFirebaseAdapter",
+  "version": "4.2.5",
+  "summary": "Chat SDK - Mobile messaging framework for iOS",
+  "homepage": "http://chatsdk.co",
+  "license": "MIT",
+  "authors": {
+    "Ben Smiley": "ben@chatsdk.co"
+  },
+  "source": {
+    "git": "https://github.com/chat-sdk/chat-sdk-ios.git",
+    "tag": "4.2.5"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "FirebaseAdapter",
+  "source_files": [
+    "Classes/**/*"
+  ],
+  "frameworks": [
+    "CoreData",
+    "SystemConfiguration",
+    "Security",
+    "MobileCoreServices",
+    "CFNetwork",
+    "MessageUI",
+    "Accounts",
+    "Social",
+    "CoreLocation",
+    "AddressBook",
+    "AdSupport"
+  ],
+  "libraries": [
+    "icucore",
+    "c++",
+    "sqlite3"
+  ],
+  "subspecs": [
+    {
+      "name": "FirebaseAdapter",
+      "pod_target_xcconfig": {
+        "ENABLE_BITCODE": "false"
+      },
+      "dependencies": {
+        "ChatSDKCore": [
+
+        ],
+        "ChatSDKFirebaseAdapter/FirebaseFrameworks": [
+
+        ]
+      }
+    },
+    {
+      "name": "FirebaseFrameworks",
+      "dependencies": {
+        "GTMSessionFetcher": [
+          "~>1.1"
+        ],
+        "GoogleToolboxForMac/NSData+zlib": [
+          "~>2.1.1"
+        ]
+      },
+      "vendored_frameworks": "FirebaseFrameworks/*",
+      "user_target_xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "\"${PODS_ROOT}/../../ChatSDK/ChatSDKFirebaseAdapter/FirebaseFrameworks\""
+      }
+    },
+    {
+      "name": "SocialFrameworks",
+      "vendored_frameworks": "SocialFrameworks/*.framework",
+      "dependencies": {
+        "GTMOAuth2": [
+          "~> 1.0"
+        ],
+        "GTMSessionFetcher/Core": [
+          "~> 1.1"
+        ],
+        "GoogleToolboxForMac/NSDictionary+URLArguments": [
+          "~> 2.1"
+        ],
+        "GoogleToolboxForMac/NSString+URLArguments": [
+          "~> 2.1"
+        ]
+      }
+    },
+    {
+      "name": "AuthBase",
+      "source_files": "FirebaseAuthUI/**/*.{h,m}",
+      "resource_bundles": {
+        "FirebaseAuthUI": [
+          "FirebaseAuthUI/Strings/**/*",
+          "FirebaseAuthUI/Resources/**/*",
+          "FirebaseAuthUI/**/*.xib"
+        ]
+      },
+      "dependencies": {
+        "ChatSDKFirebaseAdapter/FirebaseFrameworks": [
+
+        ]
+      }
+    },
+    {
+      "name": "Phone",
+      "source_files": "FirebasePhoneAuthUI/**/*.{h,m}",
+      "resource_bundles": {
+        "FirebasePhoneAuthUI": [
+          "FirebasePhoneAuthUI/Strings/**/*",
+          "FirebasePhoneAuthUI/Resources/**/*",
+          "FirebasePhoneAuthUI/**/*.xib"
+        ]
+      },
+      "dependencies": {
+        "ChatSDKFirebaseAdapter/AuthBase": [
+
+        ]
+      }
+    },
+    {
+      "name": "Database",
+      "source_files": "FirebaseDatabaseUI/**/*.{h,m}",
+      "dependencies": {
+        "ChatSDKFirebaseAdapter/FirebaseFrameworks": [
+
+        ]
+      }
+    },
+    {
+      "name": "Facebook",
+      "source_files": "FirebaseFacebookAuthUI/**/*.{h,m}",
+      "resource_bundles": {
+        "FirebaseFacebookAuthUI": [
+          "FirebaseFacebookAuthUI/Strings/**/*",
+          "FirebaseFacebookAuthUI/Resources/**/*",
+          "FirebaseFacebookAuthUI/**/*.xib"
+        ]
+      },
+      "dependencies": {
+        "ChatSDKFirebaseAdapter/AuthBase": [
+
+        ],
+        "FBSDKLoginKit": [
+          "~> 4.0"
+        ]
+      }
+    },
+    {
+      "name": "Google",
+      "source_files": "FirebaseGoogleAuthUI/**/*.{h,m}",
+      "resource_bundles": {
+        "FirebaseGoogleAuthUI": [
+          "FirebaseGoogleAuthUI/Strings/**/*",
+          "FirebaseGoogleAuthUI/Resources/**/*",
+          "FirebaseGoogleAuthUI/**/*.xib"
+        ]
+      },
+      "dependencies": {
+        "ChatSDKFirebaseAdapter/AuthBase": [
+
+        ],
+        "ChatSDKFirebaseAdapter/SocialFrameworks": [
+
+        ]
+      }
+    },
+    {
+      "name": "Storage",
+      "source_files": "FirebaseStorageUI/**/*.{h,m}",
+      "dependencies": {
+        "ChatSDKFirebaseAdapter/FirebaseFrameworks": [
+
+        ],
+        "SDWebImage": [
+
+        ]
+      }
+    },
+    {
+      "name": "Twitter",
+      "source_files": "FirebaseTwitterAuthUI/*.{h,m}",
+      "resource_bundles": {
+        "FirebaseTwitterAuthUI": [
+          "FirebaseTwitterAuthUI/Strings/**/*",
+          "FirebaseTwitterAuthUI/Resources/**/*",
+          "FirebaseTwitterAuthUI/**/*.xib"
+        ]
+      },
+      "dependencies": {
+        "ChatSDKFirebaseAdapter/AuthBase": [
+
+        ],
+        "ChatSDKFirebaseAdapter/SocialFrameworks": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "FRAMEWORK_SEARCH_PATHS": "\"$(PROJECT_DIR)/TwitterCore/iOS\""
+      }
+    }
+  ]
+}

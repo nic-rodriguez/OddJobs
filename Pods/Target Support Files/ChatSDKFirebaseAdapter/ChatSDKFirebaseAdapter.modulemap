@@ -1,0 +1,6 @@
+framework module ChatSDKFirebaseAdapter {
+  umbrella header "ChatSDKFirebaseAdapter-umbrella.h"
+
+  export *
+  module * { export * }
+}

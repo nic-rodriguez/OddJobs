@@ -1,0 +1,12 @@
+CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/ChatSDKFirebaseAdapter
+ENABLE_BITCODE = false
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../ChatSDK/ChatSDKFirebaseAdapter/FirebaseFrameworks" "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking" "$PODS_CONFIGURATION_BUILD_DIR/ChatSDKCore" "$PODS_CONFIGURATION_BUILD_DIR/GTMSessionFetcher" "$PODS_CONFIGURATION_BUILD_DIR/GoogleToolboxForMac" "$PODS_CONFIGURATION_BUILD_DIR/PromiseKit" "$PODS_CONFIGURATION_BUILD_DIR/RXPromise" "$PODS_CONFIGURATION_BUILD_DIR/Reachability"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Carnival" "${PODS_ROOT}/Headers/Public/GoogleMaps" "${PODS_ROOT}/Headers/Public/GooglePlacePicker" "${PODS_ROOT}/Headers/Public/GooglePlaces"
+OTHER_LDFLAGS = -l"c++" -l"icucore" -l"sqlite3" -framework "Accounts" -framework "AdSupport" -framework "AddressBook" -framework "CFNetwork" -framework "CoreData" -framework "CoreLocation" -framework "Firebase" -framework "FirebaseAnalytics" -framework "FirebaseAuth" -framework "FirebaseCore" -framework "FirebaseDatabase" -framework "FirebaseInstanceID" -framework "FirebaseMessaging" -framework "FirebaseStorage" -framework "GoogleMobileAds" -framework "MessageUI" -framework "MobileCoreServices" -framework "Protobuf" -framework "Security" -framework "Social" -framework "SystemConfiguration"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}
+PODS_TARGET_SRCROOT = ${PODS_ROOT}/../../ChatSDK/ChatSDKFirebaseAdapter
+PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
+SKIP_INSTALL = YES
