@@ -14,21 +14,22 @@ class MessageViewController: UIViewController {
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     
-    var chatRoom: PFObject?
+    var chatRoom: PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(chatRoom!)
-        // Do any additional setup after loading the view.
+        
+        messageTableView.delegate = self
+        messageTableView.dataSource = self
     }
     
     @IBAction func sendMessage(_ sender: Any) {
         if let messageText = messageTextField.text {
-            var messages = chatRoom!["messageArray"] as! [[String: String]]
+            var messages = chatRoom["messageArray"] as! [[String: String]]
             let messageArray = [PFUser.current()!.username! : messageText]
             messages.append(messageArray)
-            chatRoom!["messageArray"] = messages
-            chatRoom!.saveInBackground()
+            chatRoom["messageArray"] = messages
+            chatRoom.saveInBackground()
         }
     }
 
@@ -37,15 +38,16 @@ class MessageViewController: UIViewController {
 extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        let messages = chatRoom["messageArray"] as! [[String : String]]
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = messageTableView.dequeueReusableCell(withIdentifier: "MessageTableViewCell", for: indexPath) as! MessageTableViewCell
-//        let user =
-//        
-//        cell.userLabel.text =
-        
+        let messages = chatRoom["messageArray"] as! [[String : String]]
+        let message = messages[indexPath.row]
+        cell.userLabel.text = message.first!.key
+        cell.messageLabel.text = message.first!.value
         return cell
     }
 }
