@@ -79,6 +79,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 cell.job = jobs[indexPath.row]
             }
+            print("from cell render")
             print(cell.job["tags"])
             return cell
         }
@@ -135,14 +136,11 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
         }
-        
-        
     }
     
     func refreshControlAction(_ refreshControl: UIRefreshControl!) {
         queryTotal = initialQueryTotal
         queryServer()
-        //reset the data in the tags?
         refreshControl.endRefreshing()
     }
 
@@ -172,6 +170,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func toggleTag1(position: Int) {
         selectedTags[position] = !selectedTags[position]
         
+        print("from toggleTag")
         print(selectedTags)
         
         //WORK IN PROGRESS
@@ -188,6 +187,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         
+        print("from toggle tag selected")
         print (selected)
         
         if selected.count > 0 {

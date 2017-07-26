@@ -56,10 +56,18 @@ class DetailViewController: UIViewController {
         datePostedLabel.text = dateString
         costLabel.text = "$" + payString
         
+        
         let skills = job["tags"] as! [String]
-        for skill in skills {
-            skillsLabel.text = skill + ", "
+        print(skills)
+        
+        for (index, element) in skills.enumerated() {
+            //prints the word skills appended to the first ?
+            skillsLabel.text = skillsLabel.text! + element
+            if (index < skills.count - 1) {
+                skillsLabel.text = skillsLabel.text! + ", "
+            }
         }
+        
         
         let latitude = job["latitude"] as! CLLocationDegrees
         let longitude = job["longitude"] as! CLLocationDegrees
@@ -99,6 +107,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func requestJob(_ sender: UIBarButtonItem) {
         let currentUser = PFUser.current()
+        var successfullyApplied: Bool = true
         
         if job["usersInterested"] == nil{
             var usersInterested: [PFUser]! = []
@@ -106,20 +115,19 @@ class DetailViewController: UIViewController {
             job["usersInterested"] = usersInterested!
             print("user saved!")
             job.saveInBackground()
-            
         } else {
             var usersInterested = job["usersInterested"] as! [PFUser]
             usersInterested.append(currentUser!)
             job["usersInterested"] = usersInterested
             job.saveInBackground()
         }
+        
         if currentUser?["jobsInterested"] == nil {
             var jobsInterested: [PFObject] = []
             jobsInterested.append(job)
             currentUser?["jobsInterested"] = jobsInterested
             currentUser?.saveInBackground()
             print("saved interested job")
-            
         } else {
             var jobsInterested = currentUser?["jobsInterested"] as! [PFObject]
             jobsInterested.append(job)
@@ -128,6 +136,15 @@ class DetailViewController: UIViewController {
             print("saved interested job")
         }
         
+        if (successfullyApplied) {
+            let alert = UIAlertController(title: "Congratulations!", message: "Nice work. You've successfully applies to this job. A notification will be sent to the job poster. Thanks you for you interest.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "You're welcome :)", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Whoops!", message: "Looks like you've already applied to this job. Don't worry about it.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Got it", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
 }

@@ -22,12 +22,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if (user != PFUser.current()){
-//            print(user)
-//            self.editProfileButton.isEnabled = false //not perfect, side note turns grey when disabled
-//            self.editProfileButton.tintColor = UIColor.white
-//        }
-        
         jobsTableView.dataSource = self
         jobsTableView.delegate = self
         
