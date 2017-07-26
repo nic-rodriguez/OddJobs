@@ -74,6 +74,9 @@ class NearbyWorkersViewController: UIViewController {
             let user = workers[indexPath.row]
             let profileViewController = segue.destination as! ProfileViewController
             profileViewController.user = user
+            //just to hide the gear bar button item so it's only seen in other profiles
+            profileViewController.editProfileButton.isEnabled = false
+            profileViewController.editProfileButton.tintColor = UIColor.white
         }
     }
 }

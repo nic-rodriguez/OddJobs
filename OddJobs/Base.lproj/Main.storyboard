@@ -559,7 +559,7 @@ EEVudGVyIFBhc3N3b3JkA
                                         <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eNd-Ps-IN5" id="H7f-ON-net">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdY-9E-T22">
@@ -622,7 +622,7 @@ EEVudGVyIFBhc3N3b3JkA
                                         <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CrT-Lg-5ls" id="8GQ-t6-FKy">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="143.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TDS-gP-Iid" customClass="PFImageView">
@@ -719,7 +719,7 @@ EEVudGVyIFBhc3N3b3JkA
                                         <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="uVb-7u-ggj" id="SSg-mg-grU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zWS-9x-cuX">
@@ -789,7 +789,7 @@ EEVudGVyIFBhc3N3b3JkA
                                         <rect key="frame" x="0.0" y="127" width="375" height="207"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMU-ZJ-rRI" id="UKU-nb-Xa5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="206.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4r9-9E-ET4" customClass="PFImageView">
@@ -920,14 +920,14 @@ EEVudGVyIFBhc3N3b3JkA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xH6-AH-C3Z">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTableViewCell" rowHeight="240" id="9cc-0m-A7x" customClass="TopTableViewCell" customModule="OddJobs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9cc-0m-A7x" id="R6A-0z-Qm0" customClass="TopTableViewCell" customModule="OddJobs" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="239.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient-wallpaper-iphone2" translatesAutoresizingMaskIntoConstraints="NO" id="6Vb-r4-XVk" customClass="PFImageView">
@@ -1004,7 +1004,7 @@ EEVudGVyIFBhc3N3b3JkA
                                         <rect key="frame" x="0.0" y="268" width="343" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tkI-NK-f3N" id="PRX-xJ-Q4e">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="111"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="110.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VPV-3x-ePQ" customClass="PFImageView">
@@ -1061,6 +1061,7 @@ EEVudGVyIFBhc3N3b3JkA
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editProfileButton" destination="Jn2-e2-c2B" id="Kbo-ht-B18"/>
                         <outlet property="jobsTableView" destination="xH6-AH-C3Z" id="6oa-Uq-5lY"/>
                     </connections>
                 </viewController>
@@ -1081,26 +1082,26 @@ EEVudGVyIFBhc3N3b3JkA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBO-Hg-9Tx">
-                                <rect key="frame" x="32" y="202" width="45" height="21"/>
+                                <rect key="frame" x="32" y="246" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2a-Hm-qTQ">
-                                <rect key="frame" x="32" y="239" width="25" height="21"/>
+                                <rect key="frame" x="32" y="283" width="25" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wtp-y1-iid" customClass="PFImageView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Z11-Eh-rcr"/>
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Io-8z-PHP" customClass="PFImageView">
-                                <rect key="frame" x="32" y="136" width="50" height="50"/>
+                                <rect key="frame" x="32" y="180" width="50" height="50"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="5ad-PS-bgX"/>
@@ -1108,13 +1109,13 @@ EEVudGVyIFBhc3N3b3JkA
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXm-In-laJ">
-                                <rect key="frame" x="127" y="198" width="224" height="30"/>
+                                <rect key="frame" x="127" y="242" width="224" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1qu-nj-ctP">
-                                <rect key="frame" x="127" y="250" width="224" height="130"/>
+                                <rect key="frame" x="127" y="294" width="224" height="130"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.20483054577464788" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="kXZ-Le-fhl"/>
@@ -1124,14 +1125,14 @@ EEVudGVyIFBhc3N3b3JkA
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1s-Cq-XRm">
-                                <rect key="frame" x="127" y="146" width="69" height="30"/>
+                                <rect key="frame" x="127" y="190" width="69" height="30"/>
                                 <state key="normal" title="Profile pic"/>
                                 <connections>
                                     <action selector="editProfilePictureButtonPressed:" destination="Sdq-aJ-9g7" eventType="touchUpInside" id="gwx-wK-wNU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cw9-8x-A87">
-                                <rect key="frame" x="277" y="146" width="74" height="30"/>
+                                <rect key="frame" x="277" y="190" width="74" height="30"/>
                                 <state key="normal" title="Banner pic"/>
                                 <connections>
                                     <action selector="editBannerPictureButtonPressed:" destination="Sdq-aJ-9g7" eventType="touchUpInside" id="bfD-GK-cqG"/>
@@ -1365,7 +1366,7 @@ EEVudGVyIFBhc3N3b3JkA
                                         <rect key="frame" x="0.0" y="28" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q8t-fG-9BY" id="3zc-Bd-z10">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Interested" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2T-Kp-gTY">
@@ -1418,7 +1419,7 @@ EEVudGVyIFBhc3N3b3JkA
                                         <rect key="frame" x="0.0" y="133" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54e-Zc-lV5" id="dJw-w8-akC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVE-gW-Dkp">
@@ -1600,9 +1601,9 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="red_check" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="H5h-KT-Jbe"/>
         <segue reference="oDQ-rl-QRn"/>
-        <segue reference="biL-UF-kBd"/>
+        <segue reference="H5h-KT-Jbe"/>
+        <segue reference="PlT-eI-aH9"/>
         <segue reference="lB1-b4-akp"/>
     </inferredMetricsTieBreakers>
 </document>

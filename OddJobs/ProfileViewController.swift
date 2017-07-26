@@ -17,9 +17,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var topCell: TopTableViewCell? = nil
     
     @IBOutlet weak var jobsTableView: UITableView!
+    @IBOutlet weak var editProfileButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        if (user != PFUser.current()){
+//            print(user)
+//            self.editProfileButton.isEnabled = false //not perfect, side note turns grey when disabled
+//            self.editProfileButton.tintColor = UIColor.white
+//        }
         
         jobsTableView.dataSource = self
         jobsTableView.delegate = self
