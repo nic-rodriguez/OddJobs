@@ -45,6 +45,16 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         return 2
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //Choose your custom row height
+        if (indexPath.section == 0){
+            return 55.0
+        } else {
+            return 200.0
+        }
+    }
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
             return 1
@@ -137,7 +147,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
         if (segue.identifier == "showDetailViewFromFeed") {
             let cell = sender as! UITableViewCell
             if let indexPath = homeFeedTableView.indexPath(for: cell) {
