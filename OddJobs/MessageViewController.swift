@@ -15,12 +15,67 @@ class MessageViewController: UIViewController {
     @IBOutlet weak var messageTextField: UITextField!
     
     var chatRoom: PFObject!
+    var job: PFObject!
+    var poster: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         messageTableView.delegate = self
         messageTableView.dataSource = self
+        
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryChatRooms), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryJobs), userInfo: nil, repeats: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ratingSegue" {
+            let vc = segue.destination as! RatingViewController
+            vc.job = job
+            if poster! {
+                vc.user = job["userAccepted"] as! PFUser
+            } else {
+                vc.user = job["userPosted"] as! PFUser
+            }
+        }
+    }
+    
+    func queryChatRooms() {
+        let query = PFQuery(className: "ChatRoom")
+        let job = chatRoom["job"] as! PFObject
+        let firstUser = chatRoom["firstUser"] as! PFUser
+        let secondUser = chatRoom["secondUser"] as! PFUser
+        query.whereKey("job", equalTo: job)
+        query.whereKey("firstUser", equalTo: firstUser)
+        query.whereKey("secondUser", equalTo: secondUser)
+        
+        query.findObjectsInBackground { (chatRooms: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.chatRoom = chatRooms![0]
+                self.messageTableView.reloadData()
+            }
+        }
+    }
+    
+    func queryJobs() {
+        let query = PFQuery(className: "Job")
+        let id = job["id"] as! String
+        query.whereKey("id", equalTo: id)
+        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.job = jobs![0]
+                let posterBool = self.job["posterCompleted"] as! Bool
+                let workerBool = self.job["workerCompleted"] as! Bool
+                
+                if posterBool && workerBool {
+                    self.performSegue(withIdentifier: "ratingSegue", sender: nil)
+                }
+            }
+        }
     }
     
     @IBAction func sendMessage(_ sender: Any) {
@@ -30,9 +85,26 @@ class MessageViewController: UIViewController {
             messages.append(messageArray)
             chatRoom["messageArray"] = messages
             chatRoom.saveInBackground()
+            messageTextField.text = nil
         }
     }
-
+    
+    @IBAction func completeJob(_ sender: Any) {
+        let jobPoster = job["userPosted"] as! PFUser
+        let jobWorker = job["userAccepted"] as! PFUser
+        
+        if PFUser.current() == jobPoster {
+            poster = true
+            job["posterCompleted"] = true
+            job.saveInBackground()
+        } else if PFUser.current() == jobWorker {
+            poster = false
+            job["workerCompleted"] = true
+            job.saveInBackground()
+        }
+        
+        
+    }
 }
 
 extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
