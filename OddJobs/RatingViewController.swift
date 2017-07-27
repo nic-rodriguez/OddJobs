@@ -22,21 +22,44 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var userImageView: PFImageView!
     @IBOutlet weak var commentsTextField: UITextField!
     
-    var user: PFUser!
+    var user: PFUser! {
+        didSet {
+        }
+    }
     var job: PFObject! {
         didSet {
-//            user = job["userPosted"] as? PFUser
-            userImageView.file = user["profilePicture"] as? PFFile
-            userImageView.loadInBackground()
-            jobLabel.text = job["title"] as? String
+            print(job)
+            print(job["title"])
         }
     }
     var ratingSelected = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        jobLabel.text = job["title"] as? String
+        fetchUserData()
+    }
+    
+    func fetchUserData() {
+        let query = PFQuery(className: "_User")
+        query.includeKey("jobsInterested")
+        query.includeKey("_p_userPosted")
+        query.includeKey("_User")
+        query.includeKey("username")
+        
+        
+        query.getObjectInBackground(withId: user.objectId!) { (user: PFObject?, error:Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.user = user as! PFUser
+                self.userImageView.file = self.user["profilePicture"] as? PFFile
+                self.userLabel.text = self.user["username"] as? String
+                self.userImageView.loadInBackground()
 
-        // Do any additional setup after loading the view.
+            }
+        }
     }
     
     @IBAction func fivePress(_ sender: Any) {
