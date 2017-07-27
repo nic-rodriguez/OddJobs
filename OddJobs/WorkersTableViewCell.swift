@@ -18,6 +18,8 @@ class WorkersTableViewCell: UITableViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var skillsLabel: UILabel!
+    
     @IBOutlet weak var distanceFromLabel: UILabel!
     
     var currentUser = PFUser.current()
@@ -43,8 +45,28 @@ class WorkersTableViewCell: UITableViewCell {
     func loadData() {
         nameLabel.text = user.username
         self.profileImageView.file = user["profilePicture"] as? PFFile
+        self.profileImageView.layer.borderWidth=1.0
+        self.profileImageView.layer.borderColor = UIColor.white.cgColor
+        self.profileImageView.layer.masksToBounds = false
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.height/2
+        self.profileImageView.clipsToBounds = true
         self.profileImageView.loadInBackground()
         descriptionLabel.text = user["bio"] as? String ?? ""
+        
+        let skills = user["skills"] as! [String]
+    
+        if skills.count != 0 {
+        skillsLabel.text = "Skills: "}
+        
+        for (index, element) in skills.enumerated() {
+            //prints the word skills appended to the first ?
+            skillsLabel.text = skillsLabel.text! + element
+            if (index < skills.count - 1) {
+                skillsLabel.text = skillsLabel.text! + ", "
+            }
+        }
+
+    
         let location = user["homeLocation"] as? PFGeoPoint
         print(self.currentUserLocation)
         
