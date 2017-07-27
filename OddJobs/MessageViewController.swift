@@ -21,6 +21,27 @@ class MessageViewController: UIViewController {
         
         messageTableView.delegate = self
         messageTableView.dataSource = self
+        
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryChatRooms), userInfo: nil, repeats: true)
+    }
+    
+    func queryChatRooms() {
+        let query = PFQuery(className: "ChatRoom")
+        let job = chatRoom["job"] as! PFObject
+        let firstUser = chatRoom["firstUser"] as! PFUser
+        let secondUser = chatRoom["secondUser"] as! PFUser
+        query.whereKey("job", equalTo: job)
+        query.whereKey("firstUser", equalTo: firstUser)
+        query.whereKey("secondUser", equalTo: secondUser)
+        
+        query.findObjectsInBackground { (chatRooms: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.chatRoom = chatRooms![0]
+                self.messageTableView.reloadData()
+            }
+        }
     }
     
     @IBAction func sendMessage(_ sender: Any) {
@@ -32,7 +53,6 @@ class MessageViewController: UIViewController {
             chatRoom.saveInBackground()
         }
     }
-
 }
 
 extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
