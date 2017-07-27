@@ -12,7 +12,7 @@ import Parse
 @objc protocol NotificationCellDelegate {
     func queryChatRooms(notificationCell: NotificationCell, job: PFObject, firstUser: PFUser, secondUser: PFUser)
     
-    func acceptUser(userInterested: PFUser)
+    func acceptUser(userInterested: PFUser, cellIndex: Int)
 }
 
 class NotificationCell: UITableViewCell {
@@ -33,6 +33,8 @@ class NotificationCell: UITableViewCell {
         }
     }
     var chatRoom: PFObject?
+    
+    var cellIndex: Int!
     
     var delegate: NotificationCellDelegate?
     
@@ -81,7 +83,7 @@ class NotificationCell: UITableViewCell {
     
     
     @IBAction func acceptUser(_ sender: UIButton) {
-        delegate?.acceptUser()
+        delegate?.acceptUser(userInterested: userInterested, cellIndex: cellIndex)
     }
 
 }
