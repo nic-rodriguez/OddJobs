@@ -97,7 +97,6 @@ class EditProfileViewController: UIViewController {
             print(user["skills"])
         }
         
-        
         user.saveInBackground()
         
         if let topCell = topCell {
@@ -164,7 +163,6 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         
         
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
@@ -225,12 +223,11 @@ extension EditProfileViewController: TagsTableViewControllerDelegate {
         self.tags = tags
         self.skillsChanged = true
         
-        //changing the label on teh tag
-        let skills = user["skills"] as! [String]
+        //changing the label on the tag
         self.skillLabel.text = ""
-        for (index, element) in skills.enumerated() {
+        for (index, element) in tags.enumerated() {
             self.skillLabel.text = skillLabel.text! + element
-            if (index < skills.count - 1) {
+            if (index < tags.count - 1) {
                 self.skillLabel.text = skillLabel.text! + ", "
             }
         }
