@@ -25,7 +25,7 @@ class RatingViewController: UIViewController {
     var user: PFUser!
     var job: PFObject! {
         didSet {
-            user = job["userPosted"] as? PFUser
+//            user = job["userPosted"] as? PFUser
             userImageView.file = user["profilePicture"] as? PFFile
             userImageView.loadInBackground()
             jobLabel.text = job["title"] as? String
@@ -44,21 +44,25 @@ class RatingViewController: UIViewController {
         threeStar.isSelected = true
         twoStar.isSelected = true
         oneStar.isSelected = true
+        ratingSelected = true
     }
     
     @IBAction func fourPress(_ sender: Any) {
         threeStar.isSelected = true
         twoStar.isSelected = true
         oneStar.isSelected = true
+        ratingSelected = true
     }
     
     @IBAction func threePress(_ sender: Any) {
         twoStar.isSelected = true
         oneStar.isSelected = true
+        ratingSelected = true
     }
     
     @IBAction func twoPress(_ sender: Any) {
         oneStar.isSelected = true
+        ratingSelected = true
     }
     
     @IBAction func donePress(_ sender: Any) {

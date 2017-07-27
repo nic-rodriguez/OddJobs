@@ -1576,10 +1576,22 @@ EEVudGVyIFBhc3N3b3JkA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IdF-Wj-GeA"/>
+                    <navigationItem key="navigationItem" id="IdF-Wj-GeA">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="DrD-9B-fFA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jXM-vL-fDr">
+                                <rect key="frame" x="263" y="7" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Complete Job"/>
+                                <connections>
+                                    <action selector="completeJob:" destination="jTG-7Z-Vos" eventType="touchUpInside" id="Di4-RP-jRj"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="messageTableView" destination="Opk-TY-DUW" id="53H-2m-eCB"/>
                         <outlet property="messageTextField" destination="rTb-wT-whd" id="nU1-eM-fWI"/>
+                        <segue destination="rWy-fe-dY7" kind="presentation" identifier="ratingSegue" id="foc-Dy-2oh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7z-om-JtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1685,7 +1697,7 @@ EEVudGVyIFBhc3N3b3JkA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXr-4r-Oh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5724" y="-1531.4842578710645"/>
+            <point key="canvasLocation" x="4785" y="-2251"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="WSE-Mc-lmS">

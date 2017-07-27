@@ -15,6 +15,8 @@ class MessageViewController: UIViewController {
     @IBOutlet weak var messageTextField: UITextField!
     
     var chatRoom: PFObject!
+    var job: PFObject!
+    var poster: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,19 @@ class MessageViewController: UIViewController {
         messageTableView.dataSource = self
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryChatRooms), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryJobs), userInfo: nil, repeats: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ratingSegue" {
+            let vc = segue.destination as! RatingViewController
+            vc.job = job
+            if poster! {
+                vc.user = job["userAccepted"] as! PFUser
+            } else {
+                vc.user = job["userPosted"] as! PFUser
+            }
+        }
     }
     
     func queryChatRooms() {
@@ -44,6 +59,25 @@ class MessageViewController: UIViewController {
         }
     }
     
+    func queryJobs() {
+        let query = PFQuery(className: "Job")
+        let id = job["id"] as! String
+        query.whereKey("id", equalTo: id)
+        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.job = jobs![0]
+                let posterBool = self.job["posterCompleted"] as! Bool
+                let workerBool = self.job["workerCompleted"] as! Bool
+                
+                if posterBool && workerBool {
+                    self.performSegue(withIdentifier: "ratingSegue", sender: nil)
+                }
+            }
+        }
+    }
+    
     @IBAction func sendMessage(_ sender: Any) {
         if let messageText = messageTextField.text {
             var messages = chatRoom["messageArray"] as! [[String: String]]
@@ -51,7 +85,25 @@ class MessageViewController: UIViewController {
             messages.append(messageArray)
             chatRoom["messageArray"] = messages
             chatRoom.saveInBackground()
+            messageTextField.text = nil
         }
+    }
+    
+    @IBAction func completeJob(_ sender: Any) {
+        let jobPoster = job["userPosted"] as! PFUser
+        let jobWorker = job["userAccepted"] as! PFUser
+        
+        if PFUser.current() == jobPoster {
+            poster = true
+            job["posterCompleted"] = true
+            job.saveInBackground()
+        } else if PFUser.current() == jobWorker {
+            poster = false
+            job["workerCompleted"] = true
+            job.saveInBackground()
+        }
+        
+        
     }
 }
 

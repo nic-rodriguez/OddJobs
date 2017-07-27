@@ -48,6 +48,7 @@ class NotificationsViewController: UIViewController {
             let vc = segue.destination as! MessageViewController
             let cell = sender as! NotificationCell
             vc.chatRoom = cell.chatRoom!
+            vc.job = cell.correspondingJob
         }
     }
     
