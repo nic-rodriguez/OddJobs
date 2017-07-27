@@ -143,6 +143,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
         if notificationControl.selectedSegmentIndex == 0 {
             let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
             cell.delegate = self
+            cell.cellIndex = indexPath.row
             cell.correspondingJob = jobsUserInterested[indexPath.row]
             cell.userInterested = totalUsersInterested[indexPath.row]
             
