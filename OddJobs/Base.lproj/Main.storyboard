@@ -1272,7 +1272,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d3p-eY-rZF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a3V-mP-s7F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1313,7 +1313,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sye-hu-J6y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="m96-EM-I7f"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hRx-N9-B1U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hRx-N9-B1U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1332,7 +1332,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController storyboardIdentifier="PostNavController" automaticallyAdjustsScrollViewInsets="NO" id="ccP-HL-wdb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Post" image="pluss" id="LL7-2d-aby"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QhP-7p-MLR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhP-7p-MLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1350,7 +1350,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -1646,38 +1646,41 @@ EEVudGVyIFBhc3N3b3JkA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dP3-te-xl9">
-                                <rect key="frame" x="43" y="213" width="46" height="30"/>
+                                <rect key="frame" x="51" y="213" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="1"/>
+                                <connections>
+                                    <action selector="onePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="YVS-1d-Sbx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ast-cB-sDd">
-                                <rect key="frame" x="109" y="213" width="46" height="30"/>
+                                <rect key="frame" x="117" y="213" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="2"/>
                                 <connections>
                                     <action selector="twoPress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="cQU-6H-DPA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2o-3g-mdt">
-                                <rect key="frame" x="173" y="213" width="46" height="30"/>
+                                <rect key="frame" x="181" y="213" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="3"/>
                                 <connections>
                                     <action selector="threePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="Uyt-Sp-yIy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiJ-Tm-aon">
-                                <rect key="frame" x="235" y="213" width="46" height="30"/>
+                                <rect key="frame" x="243" y="213" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="4"/>
                                 <connections>
                                     <action selector="fourPress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="Qem-fq-rNq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFO-9F-eMm">
-                                <rect key="frame" x="308" y="213" width="46" height="30"/>
+                                <rect key="frame" x="316" y="213" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="5"/>
                                 <connections>
                                     <action selector="fivePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="0lQ-70-bgD"/>
                                 </connections>
@@ -1740,7 +1743,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4zK-83-1ct" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Nearby" image="globe" id="qTR-Wh-P3h"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bw0-hu-T7s">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bw0-hu-T7s">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -1758,7 +1761,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pcL-L4-j11" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notifications" image="mail" id="hcY-1g-4WS"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gg4-x5-OkN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gg4-x5-OkN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1776,7 +1779,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLA-qn-ZIQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dVJ-V0-srk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVJ-V0-srk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1795,7 +1798,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1HX-fI-nHN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="wlD-01-xTb"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Pvv-Dg-Iwo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pvv-Dg-Iwo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

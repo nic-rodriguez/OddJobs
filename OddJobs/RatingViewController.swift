@@ -63,6 +63,7 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func fivePress(_ sender: Any) {
+        fiveStar.isSelected = true
         fourStar.isSelected = true
         threeStar.isSelected = true
         twoStar.isSelected = true
@@ -71,6 +72,7 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func fourPress(_ sender: Any) {
+        fourStar.isSelected = true
         threeStar.isSelected = true
         twoStar.isSelected = true
         oneStar.isSelected = true
@@ -78,16 +80,22 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func threePress(_ sender: Any) {
+        threeStar.isSelected = true
         twoStar.isSelected = true
         oneStar.isSelected = true
         ratingSelected = true
     }
     
     @IBAction func twoPress(_ sender: Any) {
+        twoStar.isSelected = true
         oneStar.isSelected = true
         ratingSelected = true
     }
     
+    @IBAction func onePress(_ sender: Any) {
+        oneStar.isSelected = true
+        ratingSelected = true
+    }
     @IBAction func donePress(_ sender: Any) {
         var comments = user["comments"] as? [String]
         var rating = user["rating"] as? [Int]
