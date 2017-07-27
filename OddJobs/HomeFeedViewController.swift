@@ -48,7 +48,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //Choose your custom row height
         if (indexPath.section == 0){
-            return 50.0
+            return 60.0
         } else {
             return 240.0
         }
@@ -157,9 +157,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func toggleTag1(position: Int) {
         selectedTags[position] = !selectedTags[position]
-        
-        print("from toggleTag")
-        print(selectedTags)
         
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")

@@ -749,38 +749,29 @@ EEVudGVyIFBhc3N3b3JkA
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3zo-QO-EAL">
                                                                         <rect key="frame" x="0.0" y="0.0" width="95" height="30"/>
-                                                                        <state key="normal" backgroundImage="blankBlue">
+                                                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                                                        <state key="normal">
                                                                             <attributedString key="attributedTitle"/>
                                                                         </state>
-                                                                        <state key="selected" backgroundImage="fullBlue">
+                                                                        <state key="selected">
                                                                             <attributedString key="attributedTitle"/>
                                                                         </state>
                                                                         <connections>
                                                                             <action selector="tagIsSelected:" destination="rH7-Vw-qf2" eventType="touchUpInside" id="z6T-T7-aBH"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68b-4o-vCr">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
                                                                 </subviews>
                                                             </view>
                                                             <color key="backgroundColor" red="1" green="0.90269841800144313" blue="0.17883396452751277" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstItem="3zo-QO-EAL" firstAttribute="leading" secondItem="rH7-Vw-qf2" secondAttribute="leading" id="GsB-9h-W3p"/>
-                                                                <constraint firstItem="68b-4o-vCr" firstAttribute="top" secondItem="rH7-Vw-qf2" secondAttribute="top" id="Khb-cf-0gq"/>
-                                                                <constraint firstItem="68b-4o-vCr" firstAttribute="leading" secondItem="rH7-Vw-qf2" secondAttribute="leading" id="MfI-63-cCS"/>
                                                                 <constraint firstItem="3zo-QO-EAL" firstAttribute="top" secondItem="rH7-Vw-qf2" secondAttribute="top" id="PGQ-EY-Rbd"/>
                                                                 <constraint firstItem="3zo-QO-EAL" firstAttribute="trailing" secondItem="rH7-Vw-qf2" secondAttribute="trailing" id="Vck-57-4DU"/>
-                                                                <constraint firstAttribute="bottom" secondItem="68b-4o-vCr" secondAttribute="bottom" id="XH8-TS-cSn"/>
                                                                 <constraint firstItem="3zo-QO-EAL" firstAttribute="bottom" secondItem="rH7-Vw-qf2" secondAttribute="bottom" id="Ypb-NV-pmi"/>
                                                             </constraints>
                                                             <size key="customSize" width="95" height="30"/>
                                                             <connections>
                                                                 <outlet property="filterTagButton" destination="3zo-QO-EAL" id="b0c-oJ-qxW"/>
-                                                                <outlet property="filterTagLabel" destination="68b-4o-vCr" id="mr6-No-nfJ"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -1803,9 +1794,7 @@ EEVudGVyIFBhc3N3b3JkA
         </scene>
     </scenes>
     <resources>
-        <image name="blankBlue" width="240" height="240"/>
         <image name="defaultUser" width="24" height="24"/>
-        <image name="fullBlue" width="240" height="240"/>
         <image name="gear" width="24" height="24"/>
         <image name="globe" width="24" height="24"/>
         <image name="gradient-wallpaper-iphone2" width="736" height="1309"/>
@@ -1816,9 +1805,13 @@ EEVudGVyIFBhc3N3b3JkA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AUn-dp-549"/>
+<<<<<<< HEAD
+        <segue reference="biL-UF-kBd"/>
+=======
         <segue reference="IJf-2u-KdW"/>
         <segue reference="lB1-b4-akp"/>
         <segue reference="yxL-7S-ffg"/>
+>>>>>>> 56f3490723d7966faeee99953973a00a4c69db92
         <segue reference="rEe-wG-xrW"/>
     </inferredMetricsTieBreakers>
 </document>

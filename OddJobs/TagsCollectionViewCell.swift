@@ -14,7 +14,6 @@ protocol TagsCollectionViewCellDelegate: class {
 
 class TagsCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var filterTagLabel: UILabel!
     @IBOutlet weak var filterTagButton: UIButton!
     
     var positionInArr: Int!
