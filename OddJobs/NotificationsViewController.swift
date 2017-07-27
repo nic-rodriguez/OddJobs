@@ -157,7 +157,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.userPosted = self.usersPosted[indexPath.row]
                
             }
-            cell.delegate = self as! PendingJobsCellDelegate
+            cell.delegate = self as PendingJobsCellDelegate
             return cell
         }
         
