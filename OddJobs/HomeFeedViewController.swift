@@ -48,7 +48,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //Choose your custom row height
         if (indexPath.section == 0){
-            return 100.0
+            return 50.0
         } else {
             return 240.0
         }
@@ -90,20 +90,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func queryServer() {
-        //        let query = PFQuery(className: "Job")
-        //        query.addDescendingOrder("createdAt")
-        //        query.includeKey("userPosted")
-        //        query.limit = queryTotal
-        //        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-        //            if let error = error {
-        //                print(error.localizedDescription)
-        //            } else {
-        //                self.isMoreDataLoading = false
-        //                self.jobs = jobs!
-        //                self.filteredJobs = jobs!
-        //                self.homeFeedTableView.reloadData()
-        //            }
-        //        }
         
         //Mels Query
         let query = PFQuery(className: "Job")
