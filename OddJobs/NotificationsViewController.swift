@@ -53,6 +53,7 @@ class NotificationsViewController: UIViewController {
             let vc = segue.destination as! MessageViewController
             let cell = sender as! PendingJobsCell
             vc.chatRoom = cell.chatRoom!
+            vc.job = cell.jobInterested
         }
     }
     
@@ -156,7 +157,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.userPosted = self.usersPosted[indexPath.row]
                
             }
-            cell.delegate = self as! PendingJobsCellDelegate
+            cell.delegate = self as PendingJobsCellDelegate
             return cell
         }
         

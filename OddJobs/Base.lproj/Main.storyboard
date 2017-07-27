@@ -263,23 +263,12 @@ EEVudGVyIFBhc3N3b3JkA
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Mt-87-FpR">
-                                <rect key="frame" x="27" y="354" width="85" height="30"/>
+                                <rect key="frame" x="138" y="353" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Y2-Dz-AvN">
-                                <rect key="frame" x="198" y="353" width="138" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvL-kz-jpS">
-                                <rect key="frame" x="129" y="354" width="63" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfI-um-a5g">
                                 <rect key="frame" x="230" y="398" width="94" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -290,22 +279,10 @@ EEVudGVyIFBhc3N3b3JkA
                                     <action selector="addJobImage:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="Lke-yF-KXI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8X-cl-n5W">
-                                <rect key="frame" x="149" y="577" width="68" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
-                                <state key="normal" title="Post">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="postJob:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="98Y-89-p9q"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGI-U7-Lho">
-                                <rect key="frame" x="50" y="399" width="62" height="30"/>
+                                <rect key="frame" x="49" y="399" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add tags">
+                                <state key="normal" title="Add Tags">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -333,9 +310,22 @@ EEVudGVyIFBhc3N3b3JkA
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUh-kA-j2F">
                                 <rect key="frame" x="36" y="278" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Enter Address"/>
+                                <state key="normal" title="Add Address"/>
                                 <connections>
                                     <action selector="openGMS:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="icJ-KD-7Yo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8X-cl-n5W">
+                                <rect key="frame" x="133" y="572" width="95" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postJob:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="98Y-89-p9q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1637,38 +1627,41 @@ EEVudGVyIFBhc3N3b3JkA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dP3-te-xl9">
-                                <rect key="frame" x="43" y="213" width="46" height="30"/>
+                                <rect key="frame" x="51" y="213" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="1"/>
+                                <connections>
+                                    <action selector="onePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="YVS-1d-Sbx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ast-cB-sDd">
-                                <rect key="frame" x="109" y="213" width="46" height="30"/>
+                                <rect key="frame" x="117" y="213" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="2"/>
                                 <connections>
                                     <action selector="twoPress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="cQU-6H-DPA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2o-3g-mdt">
-                                <rect key="frame" x="173" y="213" width="46" height="30"/>
+                                <rect key="frame" x="181" y="213" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="3"/>
                                 <connections>
                                     <action selector="threePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="Uyt-Sp-yIy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiJ-Tm-aon">
-                                <rect key="frame" x="235" y="213" width="46" height="30"/>
+                                <rect key="frame" x="243" y="213" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="4"/>
                                 <connections>
                                     <action selector="fourPress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="Qem-fq-rNq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFO-9F-eMm">
-                                <rect key="frame" x="308" y="213" width="46" height="30"/>
+                                <rect key="frame" x="316" y="213" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="5"/>
                                 <connections>
                                     <action selector="fivePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="0lQ-70-bgD"/>
                                 </connections>
@@ -1811,10 +1804,14 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yxL-7S-ffg"/>
         <segue reference="AUn-dp-549"/>
+<<<<<<< HEAD
         <segue reference="biL-UF-kBd"/>
+=======
+        <segue reference="IJf-2u-KdW"/>
+        <segue reference="lB1-b4-akp"/>
+        <segue reference="yxL-7S-ffg"/>
+>>>>>>> 56f3490723d7966faeee99953973a00a4c69db92
         <segue reference="rEe-wG-xrW"/>
-        <segue reference="Ezm-gC-DJs"/>
     </inferredMetricsTieBreakers>
 </document>

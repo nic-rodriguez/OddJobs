@@ -17,6 +17,7 @@ class MessageViewController: UIViewController {
     var chatRoom: PFObject!
     var job: PFObject!
     var poster: Bool?
+    var completeTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,17 +26,21 @@ class MessageViewController: UIViewController {
         messageTableView.dataSource = self
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryChatRooms), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryJobs), userInfo: nil, repeats: true)
-    }
+        }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ratingSegue" {
+            print("correct segue")
             let vc = segue.destination as! RatingViewController
             vc.job = job
+//            vc.jobLabel.text = job["title"] as? String
+            print("poster!" + String(describing:poster!))
             if poster! {
                 vc.user = job["userAccepted"] as! PFUser
+                print(vc.user)
             } else {
                 vc.user = job["userPosted"] as! PFUser
+                print(vc.user)
             }
         }
     }
@@ -61,20 +66,33 @@ class MessageViewController: UIViewController {
     
     func queryJobs() {
         let query = PFQuery(className: "Job")
-        let id = job["id"] as! String
-        query.whereKey("id", equalTo: id)
-        query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+        let id = job.objectId!
+        query.getObjectInBackground(withId: id) { (job: PFObject?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                self.job = jobs![0]
-                let posterBool = self.job["posterCompleted"] as! Bool
-                let workerBool = self.job["workerCompleted"] as! Bool
+                self.job = job
+                let posterBool = self.job["posterCompleted"] as? Bool
+                let workerBool = self.job["workerCompleted"] as? Bool
                 
-                if posterBool && workerBool {
+                if posterBool == true && workerBool == true {
+                    self.stopCompleteTimer()
                     self.performSegue(withIdentifier: "ratingSegue", sender: nil)
                 }
             }
+        }
+    }
+    
+    func startCompleteTimer() {
+        if completeTimer == nil {
+            completeTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryJobs), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func stopCompleteTimer() {
+        if completeTimer != nil {
+            completeTimer!.invalidate()
+            completeTimer = nil
         }
     }
     
@@ -92,17 +110,17 @@ class MessageViewController: UIViewController {
     @IBAction func completeJob(_ sender: Any) {
         let jobPoster = job["userPosted"] as! PFUser
         let jobWorker = job["userAccepted"] as! PFUser
-        
-        if PFUser.current() == jobPoster {
+        if PFUser.current()!.objectId! == jobPoster.objectId! {
             poster = true
             job["posterCompleted"] = true
             job.saveInBackground()
-        } else if PFUser.current() == jobWorker {
+        } else if PFUser.current()!.objectId! == jobWorker.objectId! {
             poster = false
             job["workerCompleted"] = true
             job.saveInBackground()
         }
         
+        startCompleteTimer()
         
     }
 }
