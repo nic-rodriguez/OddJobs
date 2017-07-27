@@ -104,7 +104,7 @@ class PostViewController: UIViewController {
             Job.postJob(location: address!, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, difficulty: 0, pay: pay, image: photoToPost , completion: { (success, error) in
                 if success {
                     print("Post was saved!")
-                    self.dismiss(animated: true, completion: nil)
+                    
                 } else if let error = error {
                     print("Problem saving message: \(error.localizedDescription)")
                 }

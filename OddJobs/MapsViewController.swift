@@ -92,10 +92,8 @@ extension MapsViewController: MKMapViewDelegate {
         if annotation.title! != "My Location" {
             let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-            button.setTitle("segue", for: .normal)
-            button.titleLabel?.text = "details"
+            button.setImage(#imageLiteral(resourceName: "Info"), for: .normal)
             button.addTarget(self, action: #selector(buttonSegue), for: .touchUpInside)
-            
             pinView.rightCalloutAccessoryView = button
             pinView.canShowCallout = true
             return pinView
