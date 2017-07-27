@@ -150,8 +150,8 @@ extension PostViewController: GMSAutocompleteViewControllerDelegate {
 }
 
 extension PostViewController: TagsTableViewControllerDelegate {
-    
     func createTags(tags: [String]) {
+        print("creating tags in post")
         self.tags = tags
     }
 }

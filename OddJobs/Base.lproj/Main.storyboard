@@ -1140,22 +1140,44 @@ EEVudGVyIFBhc3N3b3JkA
                                     <action selector="didLogOut:" destination="Sdq-aJ-9g7" eventType="touchUpInside" id="GWN-lR-p6P"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3x-qB-jJN">
+                                <rect key="frame" x="32" y="391.5" width="58" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6OA-Cb-f7d"/>
+                                    <constraint firstAttribute="width" constant="58" id="Jh3-WX-5j0"/>
+                                </constraints>
+                                <state key="normal" title="Add skill"/>
+                                <connections>
+                                    <action selector="editSkillsLabelButtonPressed:" destination="Sdq-aJ-9g7" eventType="touchUpInside" id="yCK-th-cwt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksQ-EX-fFy">
+                                <rect key="frame" x="127" y="396" width="224" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="H3x-qB-jJN" firstAttribute="leading" secondItem="MOh-cn-Btg" secondAttribute="leadingMargin" constant="16" id="5bF-IW-doN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FXm-In-laJ" secondAttribute="trailing" constant="8" id="9jS-wI-3xT"/>
+                            <constraint firstItem="ksQ-EX-fFy" firstAttribute="centerY" secondItem="H3x-qB-jJN" secondAttribute="centerY" id="B6C-Ms-x6i"/>
                             <constraint firstItem="1qu-nj-ctP" firstAttribute="trailing" secondItem="FXm-In-laJ" secondAttribute="trailing" id="BM6-Gy-WxM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ksQ-EX-fFy" secondAttribute="trailing" constant="8" id="BkL-23-TN7"/>
                             <constraint firstItem="1qu-nj-ctP" firstAttribute="top" secondItem="H2a-Hm-qTQ" secondAttribute="centerY" id="EjH-IK-a8R"/>
                             <constraint firstItem="H2a-Hm-qTQ" firstAttribute="leading" secondItem="DBO-Hg-9Tx" secondAttribute="leading" id="Hwv-HO-NAq"/>
                             <constraint firstItem="1Io-8z-PHP" firstAttribute="leading" secondItem="MOh-cn-Btg" secondAttribute="leadingMargin" constant="16" id="JMJ-kk-YEL"/>
                             <constraint firstAttribute="trailing" secondItem="Wtp-y1-iid" secondAttribute="trailing" id="Lyi-9C-bZr"/>
                             <constraint firstItem="Cw9-8x-A87" firstAttribute="trailing" secondItem="FXm-In-laJ" secondAttribute="trailing" id="O7B-L2-qMg"/>
                             <constraint firstItem="1Io-8z-PHP" firstAttribute="top" secondItem="Wtp-y1-iid" secondAttribute="bottom" constant="16" id="QEj-ix-A9X"/>
+                            <constraint firstItem="ksQ-EX-fFy" firstAttribute="leading" secondItem="H3x-qB-jJN" secondAttribute="trailing" constant="37" id="Wgv-xK-qhm"/>
                             <constraint firstItem="DBO-Hg-9Tx" firstAttribute="top" secondItem="1Io-8z-PHP" secondAttribute="bottom" constant="16" id="ZgN-Ss-hue"/>
                             <constraint firstItem="FXm-In-laJ" firstAttribute="leading" secondItem="DBO-Hg-9Tx" secondAttribute="trailing" constant="50" id="b0U-hc-40H"/>
                             <constraint firstItem="Cw9-8x-A87" firstAttribute="centerY" secondItem="1Io-8z-PHP" secondAttribute="centerY" id="ed4-aH-Wux"/>
                             <constraint firstItem="DBO-Hg-9Tx" firstAttribute="leading" secondItem="1Io-8z-PHP" secondAttribute="leading" id="hGY-MR-hqZ"/>
+                            <constraint firstItem="ksQ-EX-fFy" firstAttribute="top" secondItem="1qu-nj-ctP" secondAttribute="bottom" constant="16" id="iWY-O4-G3X"/>
                             <constraint firstItem="Wtp-y1-iid" firstAttribute="leading" secondItem="MOh-cn-Btg" secondAttribute="leading" id="nte-9w-KCx"/>
                             <constraint firstItem="1qu-nj-ctP" firstAttribute="leading" secondItem="FXm-In-laJ" secondAttribute="leading" id="oZk-wf-a1H"/>
                             <constraint firstItem="n1s-Cq-XRm" firstAttribute="centerY" secondItem="1Io-8z-PHP" secondAttribute="centerY" id="rKr-Ev-sVg"/>
@@ -1184,7 +1206,9 @@ EEVudGVyIFBhc3N3b3JkA
                         <outlet property="bagroundProfilePFImageView" destination="Wtp-y1-iid" id="lNp-SD-98W"/>
                         <outlet property="bioTextField" destination="1qu-nj-ctP" id="0gE-zh-IkX"/>
                         <outlet property="profilePicturePFImageView" destination="1Io-8z-PHP" id="AKC-6d-6wk"/>
+                        <outlet property="skillLabel" destination="ksQ-EX-fFy" id="7vn-bj-9iN"/>
                         <outlet property="usernameTextField" destination="FXm-In-laJ" id="9Mz-gK-LIm"/>
+                        <segue destination="UXn-hY-JgH" kind="show" identifier="chooseSkills" id="Ezm-gC-DJs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5C-Ca-DfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1249,7 +1273,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d3p-eY-rZF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a3V-mP-s7F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1290,7 +1314,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sye-hu-J6y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="m96-EM-I7f"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hRx-N9-B1U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hRx-N9-B1U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1309,7 +1333,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController storyboardIdentifier="PostNavController" automaticallyAdjustsScrollViewInsets="NO" id="ccP-HL-wdb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Post" image="pluss" id="LL7-2d-aby"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QhP-7p-MLR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhP-7p-MLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1327,7 +1351,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -1619,7 +1643,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4zK-83-1ct" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Nearby" image="globe" id="qTR-Wh-P3h"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bw0-hu-T7s">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bw0-hu-T7s">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -1637,7 +1661,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pcL-L4-j11" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notifications" image="mail" id="hcY-1g-4WS"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gg4-x5-OkN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gg4-x5-OkN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1655,7 +1679,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLA-qn-ZIQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dVJ-V0-srk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVJ-V0-srk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1674,7 +1698,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1HX-fI-nHN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="wlD-01-xTb"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Pvv-Dg-Iwo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pvv-Dg-Iwo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1702,8 +1726,8 @@ EEVudGVyIFBhc3N3b3JkA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AUn-dp-549"/>
-        <segue reference="biL-UF-kBd"/>
+        <segue reference="IJf-2u-KdW"/>
         <segue reference="yxL-7S-ffg"/>
-        <segue reference="lB1-b4-akp"/>
+        <segue reference="Ezm-gC-DJs"/>
     </inferredMetricsTieBreakers>
 </document>

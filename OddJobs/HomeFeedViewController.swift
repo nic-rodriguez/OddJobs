@@ -83,8 +83,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 cell.job = jobs[indexPath.row]
             }
-            print("from cell render")
-            print(cell.job["tags"])
             return cell
         }
     }
@@ -163,7 +161,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         print("from toggleTag")
         print(selectedTags)
         
-        //WORK IN PROGRESS
         let query = PFQuery(className: "Job")
         query.addDescendingOrder("createdAt")
         query.includeKey("userPosted")
@@ -176,9 +173,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 selected.append(tags[index])
             }
         }
-        
-        print("from toggle tag selected")
-        print (selected)
         
         if selected.count > 0 {
             query.whereKey("tags", containsAllObjectsIn: selected)

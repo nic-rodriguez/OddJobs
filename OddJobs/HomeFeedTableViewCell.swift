@@ -34,7 +34,6 @@ class HomeFeedTableViewCell: UITableViewCell {
             self.userImageView.loadInBackground()
             
             self.titleLabel.text = job["title"] as? String
-//            self.dateLabel.text = job["dateDue"] as? String ?? "helloi" 
             
             let date = job["dateDue"]
             let dateFormatter = DateFormatter()

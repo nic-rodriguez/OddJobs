@@ -60,7 +60,6 @@ class DetailViewController: UIViewController {
         datePostedLabel.text = dateString
         costLabel.text = "$" + payString
         
-        
         let skills = job["tags"] as! [String]
         print(skills)
         
@@ -184,11 +183,8 @@ class DetailViewController: UIViewController {
     }
     
     
-
-    
     @IBAction func requestJob(_ sender: UIBarButtonItem) {
         savejobData()
-        
     }
     
 }

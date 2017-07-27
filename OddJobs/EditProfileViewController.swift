@@ -17,6 +17,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var bioTextField: UITextView!
     @IBOutlet weak var bagroundProfilePFImageView: PFImageView!
     @IBOutlet weak var profilePicturePFImageView: PFImageView!
+    @IBOutlet weak var skillLabel: UILabel!
     
     var cameraRollBool: Bool = false
     var isChangingBanner: Bool = true
@@ -25,6 +26,7 @@ class EditProfileViewController: UIViewController {
     var profilePicChanged: Bool = false
     var bannerPicChanger: Bool = false
     var topCell: TopTableViewCell? = nil
+    var tags: [String] = []
     let user = PFUser.current()!
     
     override func viewDidLoad() {
@@ -43,6 +45,21 @@ class EditProfileViewController: UIViewController {
             bagroundProfilePFImageView?.file = user["backgroundImage"] as? PFFile
             bagroundProfilePFImageView?.loadInBackground()
         }
+        
+        let skills = user["skills"] as! [String]
+        skillLabel.text = ""
+        for (index, element) in skills.enumerated() {
+            skillLabel.text = skillLabel.text! + element
+            if (index < skills.count - 1) {
+                skillLabel.text = skillLabel.text! + ", "
+            }
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let tagsViewController = segue.destination as! TagsTableViewController
+        tagsViewController.delegate = self
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -64,11 +81,23 @@ class EditProfileViewController: UIViewController {
             user["backgroundImage"] = bagroundProfilePFImageView.file
         }
         
+        print("tags holds")
+        print(tags)
+        user["skills"] = []
+        var temp: [String] = []
+        for skill in tags {
+            temp.append(skill)
+        }
+        user["skills"] = temp
+        print("temps var holds:")
+        print(temp)
+        print("user skills holds:")
+        print(user["skills"])
+        
         user.saveInBackground()
         
         if let topCell = topCell {
             topTableViewCell(topCell)
-            print("in the top cell edit profile")
         }
         
         dismiss(animated: true, completion: nil)
@@ -94,6 +123,12 @@ class EditProfileViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func editSkillsLabelButtonPressed(_ sender: Any) {
+        print("edit skills button pressed")
+        performSegue(withIdentifier: "chooseSkills", sender: nil)
+    }
+    
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -122,12 +157,12 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
             self.present(vc, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-
-       
+        
+        
         self.present(alert, animated: true, completion: nil)
         
     }
-
+    
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
         // This is the rect that we've calculated out and this is what is actually used below
         let targetRect = CGRect(origin: CGPoint.zero, size: targetSize)
@@ -176,9 +211,14 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
 }
 
 extension EditProfileViewController: TopTableViewDelegate {
-    
     func topTableViewCell(_ topTableViewCell: TopTableViewCell) {
         topTableViewCell.loadData()
     }
-    
+}
+
+extension EditProfileViewController: TagsTableViewControllerDelegate {
+    func createTags(tags: [String]) {
+        print ("in create tags")
+        self.tags = tags
+    }
 }
