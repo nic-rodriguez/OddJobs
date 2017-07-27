@@ -9,8 +9,13 @@
 import UIKit
 import Parse
 
+@objc protocol PendingJobsCellDelegate {
+    func queryChatRooms(pendingCell: PendingJobsCell, job: PFObject, firstUser: PFUser, secondUser: PFUser)
+}
+
 class PendingJobsCell: UITableViewCell {
 
+    @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var userPostedLabel: UILabel!
@@ -28,6 +33,10 @@ class PendingJobsCell: UITableViewCell {
             self.fetchUserData()
         }
     }
+    
+    var chatRoom: PFObject?
+    
+    var delegate: PendingJobsCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -73,5 +82,11 @@ class PendingJobsCell: UITableViewCell {
         }
         
     }
+    
+    
+    @IBAction func checkMessages(_ sender: Any) {
+        delegate!.queryChatRooms(pendingCell: self, job: jobInterested, firstUser: userPosted, secondUser: PFUser.current()!)
+    }
+    
 
 }

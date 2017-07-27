@@ -20,6 +20,7 @@ class NotificationsViewController: UIViewController {
     var totalUsersInterested: [PFUser] = []
     var jobsInterested: [PFObject] = []
     var usersPosted: [PFUser] = []
+    var chatRooms: [PFObject]?
     
     
     @IBAction func onChange(_ sender: UISegmentedControl) {
@@ -40,6 +41,18 @@ class NotificationsViewController: UIViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         notificationsTableView.insertSubview(refreshControl, at: 0)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "messageSegue" {
+            let vc = segue.destination as! MessageViewController
+            let cell = sender as! NotificationCell
+            vc.chatRoom = cell.chatRoom!
+        } else if segue.identifier == "pendingMessageSegue" {
+            let vc = segue.destination as! MessageViewController
+            let cell = sender as! PendingJobsCell
+            vc.chatRoom = cell.chatRoom!
+        }
     }
     
     //Query jobs that user has posted and find if usersInterested is nil or not
@@ -107,6 +120,7 @@ class NotificationsViewController: UIViewController {
         
         refreshControl.endRefreshing()
     }
+
 }
 
 
@@ -128,6 +142,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if notificationControl.selectedSegmentIndex == 0 {
             let cell = notificationsTableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
+            cell.delegate = self
             cell.correspondingJob = jobsUserInterested[indexPath.row]
             cell.userInterested = totalUsersInterested[indexPath.row]
             
@@ -139,8 +154,58 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.userPosted = self.usersPosted[indexPath.row]
                
             }
+            cell.delegate = self
             return cell
         }
         
+    }
+}
+
+extension NotificationsViewController: NotificationCellDelegate {
+    
+    
+    func queryChatRooms(notificationCell: NotificationCell, job: PFObject, firstUser: PFUser, secondUser: PFUser) {
+        let query = PFQuery(className: "ChatRoom")
+        query.whereKey("job", equalTo: job)
+        query.whereKey("firstUser", containedIn: [firstUser, secondUser])
+        query.whereKey("secondUser", containedIn: [firstUser, secondUser])
+        query.findObjectsInBackground { (chatRooms: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if chatRooms! != [] {
+                    notificationCell.chatRoom = chatRooms![0]
+                    self.performSegue(withIdentifier: "messageSegue", sender: notificationCell)
+                } else {
+                    notificationCell.chatRoom = ChatRoom.createChatRoom(firstUser: firstUser, secondUser: secondUser, job: job, completion: { (success: Bool, error: Error?) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            print("chat room created")
+                            self.performSegue(withIdentifier: "messageSegue", sender: notificationCell)
+                        }
+                    })
+                }
+            }
+        }
+    }
+}
+
+extension NotificationsViewController: PendingJobsCellDelegate {
+    func queryChatRooms(pendingCell: PendingJobsCell, job: PFObject, firstUser: PFUser, secondUser: PFUser) {
+        let query = PFQuery(className: "ChatRoom")
+        query.whereKey("job", equalTo: job)
+        query.whereKey("firstUser", containedIn: [firstUser, secondUser])
+        query.whereKey("secondUser", containedIn: [firstUser, secondUser])
+        query.findObjectsInBackground { (chatRooms: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if chatRooms! != [] {
+                    pendingCell.chatRoom = chatRooms![0]
+                    self.performSegue(withIdentifier: "pendingMessageSegue", sender: pendingCell)
+                }
+            }
+        }
     }
 }
