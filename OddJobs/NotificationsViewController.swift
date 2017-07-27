@@ -48,6 +48,10 @@ class NotificationsViewController: UIViewController {
             let vc = segue.destination as! MessageViewController
             let cell = sender as! NotificationCell
             vc.chatRoom = cell.chatRoom!
+        } else if segue.identifier == "pendingMessageSegue" {
+            let vc = segue.destination as! MessageViewController
+            let cell = sender as! PendingJobsCell
+            vc.chatRoom = cell.chatRoom!
         }
     }
     
@@ -150,6 +154,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.userPosted = self.usersPosted[indexPath.row]
                
             }
+            cell.delegate = self
             return cell
         }
         
@@ -180,6 +185,25 @@ extension NotificationsViewController: NotificationCellDelegate {
                             self.performSegue(withIdentifier: "messageSegue", sender: notificationCell)
                         }
                     })
+                }
+            }
+        }
+    }
+}
+
+extension NotificationsViewController: PendingJobsCellDelegate {
+    func queryChatRooms(pendingCell: PendingJobsCell, job: PFObject, firstUser: PFUser, secondUser: PFUser) {
+        let query = PFQuery(className: "ChatRoom")
+        query.whereKey("job", equalTo: job)
+        query.whereKey("firstUser", containedIn: [firstUser, secondUser])
+        query.whereKey("secondUser", containedIn: [firstUser, secondUser])
+        query.findObjectsInBackground { (chatRooms: [PFObject]?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if chatRooms! != [] {
+                    pendingCell.chatRoom = chatRooms![0]
+                    self.performSegue(withIdentifier: "pendingMessageSegue", sender: pendingCell)
                 }
             }
         }
