@@ -27,6 +27,7 @@ class EditProfileViewController: UIViewController {
     var bannerPicChanger: Bool = false
     var topCell: TopTableViewCell? = nil
     var tags: [String] = []
+    var skillsChanged: Bool = false
     let user = PFUser.current()!
     
     override func viewDidLoad() {
@@ -45,6 +46,7 @@ class EditProfileViewController: UIViewController {
             bagroundProfilePFImageView?.file = user["backgroundImage"] as? PFFile
             bagroundProfilePFImageView?.loadInBackground()
         }
+        
         
         let skills = user["skills"] as! [String]
         skillLabel.text = ""
@@ -80,19 +82,21 @@ class EditProfileViewController: UIViewController {
         if bannerPicChanger {
             user["backgroundImage"] = bagroundProfilePFImageView.file
         }
-        
-        print("tags holds")
-        print(tags)
-        user["skills"] = []
-        var temp: [String] = []
-        for skill in tags {
-            temp.append(skill)
+        if (skillsChanged) {
+            print("tags holds")
+            print(tags)
+            user["skills"] = []
+            var temp: [String] = []
+            for skill in tags {
+                temp.append(skill)
+            }
+            user["skills"] = temp
+            print("temps var holds:")
+            print(temp)
+            print("user skills holds:")
+            print(user["skills"])
         }
-        user["skills"] = temp
-        print("temps var holds:")
-        print(temp)
-        print("user skills holds:")
-        print(user["skills"])
+        
         
         user.saveInBackground()
         
@@ -205,7 +209,6 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
             profilePicChanged = true
         }
         print("finished setting image")
-        
         dismiss(animated: true, completion: nil)
     }
 }
@@ -220,5 +223,16 @@ extension EditProfileViewController: TagsTableViewControllerDelegate {
     func createTags(tags: [String]) {
         print ("in create tags")
         self.tags = tags
+        self.skillsChanged = true
+        
+        //changing the label on teh tag
+        let skills = user["skills"] as! [String]
+        self.skillLabel.text = ""
+        for (index, element) in skills.enumerated() {
+            self.skillLabel.text = skillLabel.text! + element
+            if (index < skills.count - 1) {
+                self.skillLabel.text = skillLabel.text! + ", "
+            }
+        }
     }
 }
