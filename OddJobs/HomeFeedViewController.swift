@@ -111,6 +111,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                     self.jobs = jobs!
                     self.filteredJobs = jobs!
                     self.homeFeedTableView.reloadData()
+                    self.isMoreDataLoading = false
                 }
             }
         } else {
@@ -121,6 +122,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                     self.jobs = jobs!
                     self.filteredJobs = jobs!
                     self.homeFeedTableView.reloadData()
+                    self.isMoreDataLoading = false
                 }
             }
         }
