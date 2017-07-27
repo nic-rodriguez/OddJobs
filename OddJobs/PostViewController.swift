@@ -105,7 +105,6 @@ class PostViewController: UIViewController {
                 if success {
                     print("Post was saved!")
                     
-                    self.dismiss(animated: true, completion: nil)
                 } else if let error = error {
                     print("Problem saving message: \(error.localizedDescription)")
                 }
