@@ -25,6 +25,8 @@ class DetailViewController: UIViewController {
     
     var job: PFObject!
     var initialLocation: MKUserLocation?
+    var chatRoom: PFObject!
+    var justApplied: Bool?
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -81,6 +83,19 @@ class DetailViewController: UIViewController {
         
         print("height of skills label")
         print(skillsLabel.frame.height)
+        
+        if justApplied == true {
+            requestSentAlert()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "applySegue" {
+            let nav = segue.destination as! UINavigationController
+            let vc = nav.topViewController! as! FirstMessageViewController
+            vc.chatRoom = chatRoom
+            vc.job = job
+        }
     }
     
     func requestLocationAccess() {
@@ -98,6 +113,47 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func requestSentAlert() {
+        let alert = UIAlertController(title: "Job request sent!", message: "Nice work. You've successfully applied to this job. A notification will be sent to the job poster. Thank you for you interest.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func hasAlreadyAppliedAlert() {
+        let alert = UIAlertController(title: "Whoops!", message: "Looks like you've already applied to this job. Don't worry about it.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Got it", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func requestJob(_ sender: UIBarButtonItem) {
+        let poster = job["userPosted"] as! PFUser
+        if PFUser.current()!.objectId! != poster.objectId! {
+            let usersInterested = job["usersInterested"] as? [PFUser] ?? []
+            if usersInterested.contains(PFUser.current()!) {
+                hasAlreadyAppliedAlert()
+            } else {
+//                savejobData()
+                chatRoom = ChatRoom.createChatRoom(firstUser: PFUser.current()!, secondUser: job["userPosted"] as! PFUser, job: job, completion: { (success: Bool, error: Error?) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        print("chat room created")
+                    }
+                })
+                performSegue(withIdentifier: "applySegue", sender: nil)
+            }
+        } else {
+            let alert = UIAlertController(title: "Whoops!", message: "You can't apply to your own job!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+}
+
+extension DetailViewController: MKMapViewDelegate {
+    
     func centerMapOnLocation(firstCoordinate: CLLocationCoordinate2D, secondCoordinate: CLLocationCoordinate2D) {
         let newLatitude = (firstCoordinate.latitude + secondCoordinate.latitude)/2
         let newLongitude = (firstCoordinate.longitude + secondCoordinate.longitude)/2
@@ -111,85 +167,6 @@ class DetailViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: false)
         
     }
-    
-    
-    func savejobData() {
-        let currentUser = PFUser.current()
-        
-        if self.job["usersInterested"] == nil{
-            
-            var usersInterested: [PFUser]! = []
-            usersInterested.append(currentUser!)
-            self.job["usersInterested"] = usersInterested as! [PFUser]
-            print("user saved!")
-            self.job.saveInBackground().continue({ (task:BFTask<NSNumber>) -> Any? in
-                self.saveUserData()
-                
-            })
-            
-        } else {
-            var usersInterested = self.job["usersInterested"] as! [PFUser]
-            if usersInterested.contains(currentUser!){
-                hasAlreadyAppliedAlert()
-            } else {
-            usersInterested.append(currentUser!)
-            self.job["usersInterested"] = usersInterested
-            self.job.saveInBackground().continue({ (task:BFTask<NSNumber>) -> Any? in
-                self.saveUserData()
-                 })
-            }}
-        
-        
-    }
-    
-    func saveUserData() {
-        let currentUser = PFUser.current()
-        
-        if currentUser?["jobsInterested"] == nil {
-            var jobsInterested: [PFObject] = []
-            jobsInterested.append(self.job)
-            currentUser?["jobsInterested"] = jobsInterested
-            currentUser?.saveInBackground().continue({ (task: BFTask<NSNumber>) -> Any? in
-                self.requestSentAlert()
-                
-            })
-            
-        } else {
-            var jobsInterested = currentUser?["jobsInterested"] as! [PFObject]
-            jobsInterested.append(self.job)
-            currentUser?["jobsInterested"] = jobsInterested
-            currentUser?.saveInBackground().continue({ (task: BFTask<NSNumber>) -> Any? in
-                self.requestSentAlert()
-            })
-            print("saved interested job")
-        }
-        
-    }
-    
-    
-    func requestSentAlert() {
-        let alert = UIAlertController(title: "Job request sent!", message: "Nice work. You've successfully applied to this job. A notification will be sent to the job poster. Thank you for you interest.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
-    func hasAlreadyAppliedAlert() {
-        let alert = UIAlertController(title: "Whoops!", message: "Looks like you've already applied to this job. Don't worry about it.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Got it", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        
-        
-    }
-    
-    
-    @IBAction func requestJob(_ sender: UIBarButtonItem) {
-        savejobData()
-    }
-    
-}
-
-extension DetailViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         if initialLocation == nil {

@@ -49,6 +49,7 @@
 		A9545C2F1F2017EC0064E61D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */; };
 		A972FBEF1F1693B600446EAC /* HomeFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */; };
 		A98D258C1F1D438100C4A9C2 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */; };
+		A99DB2381F2BD92C0051FAA2 /* FirstMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99DB2371F2BD92C0051FAA2 /* FirstMessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A972FBEE1F1693B600446EAC /* HomeFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedTableViewCell.swift; sourceTree = "<group>"; };
 		A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		A99DB2371F2BD92C0051FAA2 /* FirstMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstMessageViewController.swift; sourceTree = "<group>"; };
 		AB942B23DE191E8065E74075 /* Pods-OddJobsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsUITests/Pods-OddJobsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DD37B9102EF326B03F2143EA /* Pods_OddJobs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OddJobs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA70B562AD67A94CADEC2D96 /* Pods_OddJobsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OddJobsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +255,7 @@
 				A937901F1F27FE9F009D1E58 /* RatingViewController.swift */,
 				A93790271F2845A6009D1E58 /* MessageViewController.swift */,
 				983B81A61F2BA19900BC4B6D /* ConfirmPostViewController.swift */,
+				A99DB2371F2BD92C0051FAA2 /* FirstMessageViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				86DF61B21F2BE69F0085518D /* ColorObject.swift in Sources */,
 				A93790201F27FE9F009D1E58 /* RatingViewController.swift in Sources */,
 				A98D258C1F1D438100C4A9C2 /* MapsViewController.swift in Sources */,
+				A99DB2381F2BD92C0051FAA2 /* FirstMessageViewController.swift in Sources */,
 				86C8F9111F1FF43C00228818 /* TagsRowTableViewCell.swift in Sources */,
 				A937902A1F2931EE009D1E58 /* MessageTableViewCell.swift in Sources */,
 				A9545C2F1F2017EC0064E61D /* SignUpViewController.swift in Sources */,

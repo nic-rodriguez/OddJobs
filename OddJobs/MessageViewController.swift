@@ -26,21 +26,16 @@ class MessageViewController: UIViewController {
         messageTableView.dataSource = self
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryChatRooms), userInfo: nil, repeats: true)
-        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ratingSegue" {
-            print("correct segue")
             let vc = segue.destination as! RatingViewController
             vc.job = job
-//            vc.jobLabel.text = job["title"] as? String
-            print("poster!" + String(describing:poster!))
             if poster! {
                 vc.user = job["userAccepted"] as! PFUser
-                print(vc.user)
             } else {
                 vc.user = job["userPosted"] as! PFUser
-                print(vc.user)
             }
         }
     }
@@ -51,8 +46,8 @@ class MessageViewController: UIViewController {
         let firstUser = chatRoom["firstUser"] as! PFUser
         let secondUser = chatRoom["secondUser"] as! PFUser
         query.whereKey("job", equalTo: job)
-        query.whereKey("firstUser", equalTo: firstUser)
-        query.whereKey("secondUser", equalTo: secondUser)
+        query.whereKey("firstUser", containedIn: [firstUser, secondUser])
+        query.whereKey("secondUser", containedIn: [firstUser, secondUser])
         
         query.findObjectsInBackground { (chatRooms: [PFObject]?, error: Error?) in
             if let error = error {
@@ -105,6 +100,10 @@ class MessageViewController: UIViewController {
             chatRoom.saveInBackground()
             messageTextField.text = nil
         }
+    }
+    
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
     }
     
     @IBAction func completeJob(_ sender: Any) {
