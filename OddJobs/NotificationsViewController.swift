@@ -75,6 +75,9 @@ class NotificationsViewController: UIViewController {
                 self.notificationsTableView.reloadData()
                 
                 //explain this code block later
+                self.jobsUserInterested = []
+                self.totalUsersInterested = []
+                //
                 for job in self.jobsPosted {
                     if job["usersInterested"] != nil {
                         let usersInterested = job["usersInterested"] as! [PFUser]
@@ -195,7 +198,7 @@ extension NotificationsViewController: NotificationCellDelegate {
     
     
     func acceptUser(userInterested: PFUser, cellIndex: Int) {
-        jobsPosted[cellIndex]["userAccepted"] = userInterested as! PFUser
+        jobsPosted[cellIndex]["userAccepted"] = userInterested
         jobsPosted[cellIndex].saveInBackground().continue({ (task: BFTask<NSNumber>) -> Void in
             let alert = UIAlertController(title: "User accepted!", message: "You have accepted this user to complete your task. Please select the complete button when your task has been finished", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
