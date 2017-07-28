@@ -215,11 +215,12 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    let myFont = UIFont(name: "Futura", size: 16.0)
-    
     //this is where we set the colors up
     func configureCustomSearchController() {
-        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.orange, searchBarTintColor: UIColor.black)
+        //customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.orange, searchBarTintColor: UIColor.black)
+        
+        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: color.myTealColor, searchBarTintColor: color.myDarkColor)
+        
         
         customSearchController.customSearchBar.placeholder = "Search in this awesome bar..."
         homeFeedTableView.tableHeaderView = customSearchController.customSearchBar
