@@ -22,7 +22,7 @@ class Job: NSObject, MKAnnotation {
         self.coordinate = location
     }
     
-    class func postJob(location: CLLocationCoordinate2D, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, difficulty: Int, pay: Double, image: UIImage?, completion: PFBooleanResultBlock?) {
+    class func postJob(location: CLLocationCoordinate2D, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, pay: Double, completion: PFBooleanResultBlock?) {
 
         let job = PFObject(className: "Job")
         
@@ -33,9 +33,7 @@ class Job: NSObject, MKAnnotation {
         job["datePosted"] = datePosted
         job["dateDue"] = dateDue
         job["tags"] = tags
-        job["difficulty"] = difficulty
         job["pay"] = pay
-        job["image"] = getPFFileFromImage(image: image)
         job["userPosted"] = PFUser.current()
         job["isAvailable"] = true
         

@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import GooglePlaces
+import GoogleMaps
+import GooglePlacePicker
+import Parse
+import RSKPlaceholderTextView
 
 protocol TagsTableViewControllerDelegate: class {
     func createTags(tags: [String])
@@ -17,9 +22,19 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tagsTableView: UITableView!
     weak var delegate: TagsTableViewControllerDelegate?
     
-    var tagsToPass: [String] = []
+    
     var tags: [String] = ["Gardening", "Food", "Delivery", "Cleaning", "Pets", "Housework", "Caretaker", "Survey", "App Testing", "Logo Design", "Plumbing", "Sewing", "Dry Cleaning"]
     
+    var jobDate: Date!
+    var tagsToPass: [String] = []
+    var address: CLLocationCoordinate2D?
+    var formattedAddress: String!
+    var jobTitle: String = ""
+    var jobDescription: String = ""
+    var pay: Double = 0
+    var currentDate: Date!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,9 +77,28 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "confirmPostSegue" {
+            let destination = segue.destination as! ConfirmPostViewController
+            destination.jobTitle = jobTitle
+            destination.jobDescription = jobDescription
+            destination.pay = pay
+            destination.address = address
+            destination.formattedAddress = formattedAddress
+            destination.jobDate = jobDate
+            destination.tags = tagsToPass
+            
+            
+        }
+    }
+    
     @IBAction func didSaveTags(_ sender: UIButton) {
         self.delegate?.createTags(tags: tagsToPass)
-        print(tagsToPass)
+        
+        if self.address != nil {
+            self.performSegue(withIdentifier: "confirmPostSegue", sender: UIBarButtonItem.self)
+            
+        }
         
         //dismiss self?
 //        dismiss(animated: true, completion: nil) //this is not the function we need
