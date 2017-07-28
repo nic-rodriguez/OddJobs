@@ -24,8 +24,7 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var backgroundCardView: UIView!
     
     var currentUser = PFUser.current()
-    let myColor = UIColor(red: 255/255.0 , green: 107/255.0, blue: 107/255.0, alpha: 1.0)
-    
+    let color = ColorObject()
     
     
     var job: PFObject! {
@@ -63,9 +62,13 @@ class HomeFeedTableViewCell: UITableViewCell {
             })
             
             
-            //setup UI
-            contentView.backgroundColor = myColor
-            self.backgroundCardView.backgroundColor = UIColor.white
+            //UIColor
+            costLabel.textColor = color.myDarkColor
+            titleLabel.textColor = color.myDarkColor
+            distanceLabel.textColor = color.myDarkColor
+            descriptionLabel.textColor = color.myTealColor
+            contentView.backgroundColor = color.myRedColor //myColor
+            self.backgroundCardView.backgroundColor = color.myLightColor
             self.backgroundCardView.layer.cornerRadius = 3.0
             self.backgroundCardView.layer.masksToBounds = false
             self.backgroundCardView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor

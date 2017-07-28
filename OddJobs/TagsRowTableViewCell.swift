@@ -20,7 +20,7 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     let myFont = UIFont(name: "Helvetica", size: 12)
     let myColor = UIColor(red: 255/255.0 , green: 107/255.0, blue: 107/255.0, alpha: 1.0)
-    
+    let color = ColorObject()
     
     weak var delegate1: TagsRowTableViewCellDelegate?
     
@@ -50,7 +50,6 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         
         protoCell.filterTagButton.setTitle(tags[indexPath.row], for: .normal)
         protoCell.filterTagButton.titleLabel?.font = myFont
-
         
         var size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.leastNormalMagnitude))
         size.width = size.width + 10
@@ -65,19 +64,19 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         cell.filterTagButton.setTitle(tags[indexPath.row], for: .normal)
         cell.filterTagButton.setTitle(tags[indexPath.row], for: .selected)
         
-        cell.filterTagButton.setTitleColor(UIColor.white, for: .normal)
-        cell.filterTagButton.setTitleColor(myColor, for: .selected)
+        cell.filterTagButton.setTitleColor(color.myLightColor, for: .normal)
+        cell.filterTagButton.setTitleColor(color.myRedColor, for: .selected)
         
         cell.filterTagButton.titleLabel?.font = myFont
         
-        self.contentView.backgroundColor = myColor
+        self.contentView.backgroundColor = color.myRedColor
         cell.filterTagButton.layer.cornerRadius = 5.0
         cell.filterTagButton.layer.masksToBounds = false
         cell.filterTagButton.layer.shadowColor = myColor.cgColor
         cell.filterTagButton.layer.shadowOpacity = 0.8
         
         cell.filterTagButton.layer.borderWidth = 2
-        cell.filterTagButton.layer.borderColor = UIColor.white.cgColor
+        cell.filterTagButton.layer.borderColor = color.myLightColor.cgColor
         
         cell.positionInArr = indexPath.row
         cell.delegate = self
@@ -94,7 +93,6 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
-    
     
     func toggleTag(position: Int) {
         delegate1?.toggleTag1(position: position)

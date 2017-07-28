@@ -25,12 +25,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     var isMoreDataLoading = false
     let initialQueryTotal = 3
     var queryTotal = 3
-    
-    let myDarkColor = UIColor(red: 41/255.0, green: 47/255.0, blue: 54/255.0, alpha: 1.0)
-    let myTealColor = UIColor(red: 78/255.0, green: 205/255.0, blue: 196/255.0, alpha: 1.0)
-    let myLightColor = UIColor(red: 247/255.0, green: 255/255.0, blue: 247/255.0, alpha: 1.0)
-    let myRedColor = UIColor(red: 255/255.0 , green: 95/255.0, blue: 111/255.0, alpha: 1.0)
-    let myYellowColor = UIColor(red: 255/255.0, green: 230/255.0, blue: 109/255.0, alpha: 1.0)
+    let color = ColorObject()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +45,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         homeFeedTableView.rowHeight = UITableViewAutomaticDimension
         
         homeFeedTableView.separatorStyle = .none
+        homeFeedTableView.backgroundColor = color.myLightColor
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

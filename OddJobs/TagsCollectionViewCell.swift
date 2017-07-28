@@ -15,8 +15,7 @@ protocol TagsCollectionViewCellDelegate: class {
 class TagsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var filterTagButton: UIButton!
-    let myColor = UIColor(red: 255/255.0 , green: 107/255.0, blue: 107/255.0, alpha: 1.0)
-
+    let color = ColorObject()
     
     var positionInArr: Int!
     weak var delegate:TagsCollectionViewCellDelegate?
@@ -28,9 +27,9 @@ class TagsCollectionViewCell: UICollectionViewCell {
         
         
         if (filterTagButton.isSelected) {
-            filterTagButton.backgroundColor = UIColor.white
+            filterTagButton.backgroundColor = color.myLightColor
         } else {
-            filterTagButton.backgroundColor = myColor
+            filterTagButton.backgroundColor = color.myRedColor
         }
         
         
