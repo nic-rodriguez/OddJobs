@@ -116,11 +116,11 @@ class DetailViewController: UIViewController {
     func savejobData() {
         let currentUser = PFUser.current()
         
-        if self.job["usersInterested"] == nil{
+        if self.job["usersInterested"] == nil {
             
             var usersInterested: [PFUser]! = []
             usersInterested.append(currentUser!)
-            self.job["usersInterested"] = usersInterested as! [PFUser]
+            self.job["usersInterested"] = usersInterested!
             print("user saved!")
             self.job.saveInBackground().continue({ (task:BFTask<NSNumber>) -> Any? in
                 self.saveUserData()
@@ -132,11 +132,11 @@ class DetailViewController: UIViewController {
             if usersInterested.contains(currentUser!){
                 hasAlreadyAppliedAlert()
             } else {
-            usersInterested.append(currentUser!)
-            self.job["usersInterested"] = usersInterested
-            self.job.saveInBackground().continue({ (task:BFTask<NSNumber>) -> Any? in
-                self.saveUserData()
-                 })
+                usersInterested.append(currentUser!)
+                self.job["usersInterested"] = usersInterested
+                self.job.saveInBackground().continue({ (task:BFTask<NSNumber>) -> Any? in
+                    self.saveUserData()
+                })
             }}
         
         
@@ -184,7 +184,14 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func requestJob(_ sender: UIBarButtonItem) {
-        savejobData()
+        let poster = job["userPosted"] as! PFUser
+        if PFUser.current()!.objectId! != poster.objectId! {
+            savejobData()
+        } else {
+            let alert = UIAlertController(title: "Whoops!", message: "You can't apply to your own job!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
     
 }
