@@ -20,8 +20,11 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var backgroundCardView: UIView!
     
     var currentUser = PFUser.current()
+    let myColor = UIColor(red: 249/255.0 , green: 152/255.0, blue: 145/255.0, alpha: 1.0)
     
     var job: PFObject! {
         didSet {
@@ -29,16 +32,11 @@ class HomeFeedTableViewCell: UITableViewCell {
             self.postImageView?.loadInBackground()
             
             let jobPoster = job["userPosted"] as! PFUser
-            
             self.userImageView.file = jobPoster["profilePicture"] as? PFFile
             self.userImageView.loadInBackground()
             
             self.titleLabel.text = job["title"] as? String
-            
-            let date = job["dateDue"]
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            dateLabel.text = dateFormatter.string(from:date as! Date)
+            self.descriptionLabel.text = job["description"] as? String
             
             let a:Double = job["pay"] as! Double
             let b:String = String(format:"%.2f", a)
@@ -62,6 +60,15 @@ class HomeFeedTableViewCell: UITableViewCell {
                 }
             })
             
+            
+            //setup UI
+            contentView.backgroundColor = myColor
+            self.backgroundCardView.backgroundColor = UIColor.white
+            self.backgroundCardView.layer.cornerRadius = 3.0
+            self.backgroundCardView.layer.masksToBounds = false
+            self.backgroundCardView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+            self.backgroundCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.backgroundCardView.layer.shadowOpacity = 0.8
         }
     }
     

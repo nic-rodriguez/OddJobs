@@ -18,6 +18,8 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     var protoCell: TagsCollectionViewCell!
     
+    let myFont = UIFont(name: "Helvetica", size: 12)
+    let myColor = UIColor(red: 249/255.0 , green: 152/255.0, blue: 145/255.0, alpha: 1.0)
     
     weak var delegate1: TagsRowTableViewCellDelegate?
     
@@ -46,6 +48,8 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         protoCell.filterTagButton.setTitle(tags[indexPath.row], for: .normal)
+        protoCell.filterTagButton.titleLabel?.font = myFont
+
         
         var size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.leastNormalMagnitude))
         size.width = size.width + 10
@@ -60,49 +64,36 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         cell.filterTagButton.setTitle(tags[indexPath.row], for: .normal)
         cell.filterTagButton.setTitle(tags[indexPath.row], for: .selected)
         
-        cell.filterTagButton.setTitleColor(UIColor.blue, for: .normal)
-        cell.filterTagButton.setTitleColor(UIColor.white, for: .selected)
+        cell.filterTagButton.setTitleColor(UIColor.white, for: .normal)
+        cell.filterTagButton.setTitleColor(myColor, for: .selected)
         
-//        cell.filterTagLabel.text = tags[indexPath.row] //as! String //also is invisible
-//        cell.filterTagButton.sizeToFit()
+        cell.filterTagButton.titleLabel?.font = myFont
+        
+        self.contentView.backgroundColor = myColor
+        cell.filterTagButton.layer.cornerRadius = 5.0
+        cell.filterTagButton.layer.masksToBounds = false
+        cell.filterTagButton.layer.shadowColor = myColor.cgColor
+        cell.filterTagButton.layer.shadowOpacity = 0.8
+        
+        cell.filterTagButton.layer.borderWidth = 2
+        cell.filterTagButton.layer.borderColor = UIColor.white.cgColor
         
         cell.positionInArr = indexPath.row
         cell.delegate = self
-        
-//        cell.filterTagButton.bounds.width = cell.filterTagLabel.intrinsicContentSize.width
-        
-//        var buttonFrame: CGRect = cell.filterTagButton.frame;
-        
-//        cell.filterTagButton.frame.width = 0.0
-        
-            
-//            = //        cell.filterTagButton.frame = buttonFrame;
-        
-//        cell.filterTagButton.sizeThatFits(CGSize(width: cell.filterTagLabel.intrinsicContentSize.width, height: 20.0))
-        
-        
-//        cell.filterTagButton.frame.size = CGSize.init(width: cell.filterTagLabel.intrinsicContentSize.width, height: 30.0)
-        
-            
-            //CGRect.init(x: 0, y: 0, width: cell.filterTagLabel.intrinsicContentSize.width, height: cell.filterTagButton.bounds.height)
-
-        
-        
-        
-        
-        
-//        cell.filterTagButton.backgroundRect(forBounds: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: cell.filterTagLabel.intrinsicContentSize.width, height: 30)))
-//        cell.filterTagButton.contentRect(forBounds: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: cell.filterTagLabel.intrinsicContentSize.width, height: 30)))
-        
-//        print(cell.filterTagLabel.intrinsicContentSize.width)
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        NSLog("\(self), collectionView:layout:sizeForItemAtIndexPath")
-//        return cellSizes[indexPath.item]
-//    }
-
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5.0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
     
     func toggleTag(position: Int) {
         delegate1?.toggleTag1(position: position)

@@ -39,6 +39,11 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         homeFeedTableView.insertSubview(refreshControl, at: 0)
         
         self.tabBarController?.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
+        
+        homeFeedTableView.estimatedRowHeight = 100
+        homeFeedTableView.rowHeight = UITableViewAutomaticDimension
+        
+        homeFeedTableView.separatorStyle = .none
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,9 +53,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //Choose your custom row height
         if (indexPath.section == 0){
-            return 60.0
+            return 40.0
         } else {
-            return 240.0
+            return homeFeedTableView.rowHeight
         }
     }
 
@@ -208,6 +213,10 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    let myColor = UIColor(red: 249/255.0 , green: 152/255.0, blue: 145/255.0, alpha: 1.0)
+    let myFont = UIFont(name: "Futura", size: 16.0)
+    
+    //this is where we set the colors up
     func configureCustomSearchController() {
         customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.orange, searchBarTintColor: UIColor.black)
         

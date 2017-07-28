@@ -20,6 +20,7 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ka-ii-0vP">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="30"/>
+                        <color key="backgroundColor" red="0.98278695344924927" green="0.64497989416122437" blue="0.60333395004272461" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                         <connections>
                             <action selector="tagIsSelected:" destination="Sm7-T4-2P6" eventType="touchUpInside" id="bob-xi-ByH"/>

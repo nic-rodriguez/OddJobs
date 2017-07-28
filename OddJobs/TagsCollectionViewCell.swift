@@ -23,6 +23,15 @@ class TagsCollectionViewCell: UICollectionViewCell {
     @IBAction func tagIsSelected(_ sender: UIButton) {
         //print("button pressed")
         sender.isSelected = !sender.isSelected
+        
+        
+        if (filterTagButton.isSelected) {
+            filterTagButton.backgroundColor = UIColor.white
+        } else {
+            filterTagButton.backgroundColor = UIColor(red: 249/255.0 , green: 152/255.0, blue: 145/255.0, alpha: 1.0)
+        }
+        
+        
         delegate?.toggleTag(position: positionInArr)
     }
 
