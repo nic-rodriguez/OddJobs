@@ -26,21 +26,16 @@ class MessageViewController: UIViewController {
         messageTableView.dataSource = self
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryChatRooms), userInfo: nil, repeats: true)
-        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ratingSegue" {
-            print("correct segue")
             let vc = segue.destination as! RatingViewController
             vc.job = job
-//            vc.jobLabel.text = job["title"] as? String
-            print("poster!" + String(describing:poster!))
             if poster! {
                 vc.user = job["userAccepted"] as! PFUser
-                print(vc.user)
             } else {
                 vc.user = job["userPosted"] as! PFUser
-                print(vc.user)
             }
         }
     }
@@ -105,6 +100,10 @@ class MessageViewController: UIViewController {
             chatRoom.saveInBackground()
             messageTextField.text = nil
         }
+    }
+    
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
     }
     
     @IBAction func completeJob(_ sender: Any) {
