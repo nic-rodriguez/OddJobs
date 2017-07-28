@@ -24,7 +24,7 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var backgroundCardView: UIView!
     
     var currentUser = PFUser.current()
-    let myColor = UIColor(red: 249/255.0 , green: 152/255.0, blue: 145/255.0, alpha: 1.0)
+    let myColor = UIColor(red: 255/255.0 , green: 107/255.0, blue: 107/255.0, alpha: 1.0)
     
     var job: PFObject! {
         didSet {
