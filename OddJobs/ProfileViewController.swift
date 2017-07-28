@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var user: PFUser!
     var jobs: [PFObject] = []
     var topCell: TopTableViewCell? = nil
+    let color = ColorObject()
     
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var editProfileButton: UIBarButtonItem!
@@ -31,6 +32,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         
         jobsTableView.insertSubview(refreshControl, at: 1)
+        jobsTableView.backgroundColor = color.myLightColor
+        jobsTableView.separatorStyle = .none
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

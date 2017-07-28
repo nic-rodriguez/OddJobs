@@ -23,8 +23,10 @@ class TopTableViewCell: UITableViewCell {
     @IBOutlet weak var bioLabel: UILabel?
     @IBOutlet weak var jobsTakenCounterLabel: UILabel?
     @IBOutlet weak var jobsPosterCounterLabel: UILabel?
+    @IBOutlet weak var topProfileCardView: UIView!
     
     var user: PFUser!
+    let color = ColorObject()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,6 +57,18 @@ class TopTableViewCell: UITableViewCell {
         jobsTakenCounterLabel?.text = user["jobsTakenInt"] as? String ?? "0"
         jobsPosterCounterLabel?.text = user["jobsPostedInt"] as? String ?? "0"
         
+        profilePFImage?.layer.cornerRadius = (profilePFImage?.frame.size.width)!/2
+        profilePFImage?.layer.masksToBounds = true
+        
+        backgroundProfilePFImage?.layer.cornerRadius = 10.0
+        backgroundProfilePFImage?.layer.masksToBounds = true
+        
+        jobsPosterCounterLabel?.textColor = color.myDarkColor
+        jobsTakenCounterLabel?.textColor = color.myDarkColor
+        usernameLabel?.textColor = color.myDarkColor
+        ratingLabel?.textColor = color.myDarkColor
+        bioLabel?.textColor = color.myDarkColor
+        contentView.backgroundColor = color.myRedColor //myColor
     }
     
 }
