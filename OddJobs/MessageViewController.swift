@@ -46,8 +46,8 @@ class MessageViewController: UIViewController {
         let firstUser = chatRoom["firstUser"] as! PFUser
         let secondUser = chatRoom["secondUser"] as! PFUser
         query.whereKey("job", equalTo: job)
-        query.whereKey("firstUser", equalTo: firstUser)
-        query.whereKey("secondUser", equalTo: secondUser)
+        query.whereKey("firstUser", containedIn: [firstUser, secondUser])
+        query.whereKey("secondUser", containedIn: [firstUser, secondUser])
         
         query.findObjectsInBackground { (chatRooms: [PFObject]?, error: Error?) in
             if let error = error {

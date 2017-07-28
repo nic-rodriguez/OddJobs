@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
     var job: PFObject!
     var initialLocation: MKUserLocation?
     var chatRoom: PFObject!
+    var justApplied: Bool?
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -82,6 +83,10 @@ class DetailViewController: UIViewController {
         
         print("height of skills label")
         print(skillsLabel.frame.height)
+        
+        if justApplied == true {
+            requestSentAlert()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,63 +113,10 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func savejobData() {
-        let currentUser = PFUser.current()
-        
-        if self.job["usersInterested"] == nil {
-            
-            var usersInterested: [PFUser]! = []
-            usersInterested.append(currentUser!)
-            self.job["usersInterested"] = usersInterested!
-            print("user saved!")
-            self.job.saveInBackground().continue({ (task:BFTask<NSNumber>) -> Any? in
-                self.saveUserData()
-                
-            })
-            
-        } else {
-            var usersInterested = self.job["usersInterested"] as! [PFUser]
-            if usersInterested.contains(currentUser!){
-                hasAlreadyAppliedAlert()
-            } else {
-                usersInterested.append(currentUser!)
-                self.job["usersInterested"] = usersInterested
-                self.job.saveInBackground().continue({ (task:BFTask<NSNumber>) -> Any? in
-                    self.saveUserData()
-                })
-            }}
-        
-        
-    }
-    
-    func saveUserData() {
-        let currentUser = PFUser.current()
-        
-        if currentUser?["jobsInterested"] == nil {
-            var jobsInterested: [PFObject] = []
-            jobsInterested.append(self.job)
-            currentUser?["jobsInterested"] = jobsInterested
-            currentUser?.saveInBackground().continue({ (task: BFTask<NSNumber>) -> Any? in
-                self.requestSentAlert()
-                
-            })
-            
-        } else {
-            var jobsInterested = currentUser?["jobsInterested"] as! [PFObject]
-            jobsInterested.append(self.job)
-            currentUser?["jobsInterested"] = jobsInterested
-            currentUser?.saveInBackground().continue({ (task: BFTask<NSNumber>) -> Any? in
-                self.requestSentAlert()
-            })
-            print("saved interested job")
-        }
-        
-    }
-    
     func requestSentAlert() {
         let alert = UIAlertController(title: "Job request sent!", message: "Nice work. You've successfully applied to this job. A notification will be sent to the job poster. Thank you for you interest.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     func hasAlreadyAppliedAlert() {
@@ -177,11 +129,11 @@ class DetailViewController: UIViewController {
     @IBAction func requestJob(_ sender: UIBarButtonItem) {
         let poster = job["userPosted"] as! PFUser
         if PFUser.current()!.objectId! != poster.objectId! {
-            let usersInterested = job["usersInterested"] as! [PFUser]
+            let usersInterested = job["usersInterested"] as? [PFUser] ?? []
             if usersInterested.contains(PFUser.current()!) {
                 hasAlreadyAppliedAlert()
             } else {
-                savejobData()
+//                savejobData()
                 chatRoom = ChatRoom.createChatRoom(firstUser: PFUser.current()!, secondUser: job["userPosted"] as! PFUser, job: job, completion: { (success: Bool, error: Error?) in
                     if let error = error {
                         print(error.localizedDescription)
