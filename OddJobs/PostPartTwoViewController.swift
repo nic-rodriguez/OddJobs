@@ -29,12 +29,13 @@ class PostPartTwoViewController: UIViewController {
     var resultsController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var jobDate: Date!
-    var tags: [String] = []
     var address: CLLocationCoordinate2D?
+    var formattedAddress: String!
     var jobTitle: String = ""
     var jobDescription: String = ""
     var pay: Double = 0
     var currentDate: Date!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,7 @@ class PostPartTwoViewController: UIViewController {
         
         datePickerView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         
+        jobDate = datePicker.date
         
     }
 
@@ -76,8 +78,15 @@ class PostPartTwoViewController: UIViewController {
  
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let tagsViewController = segue.destination as! TagsTableViewController
-        tagsViewController.delegate = self
+        let destination = segue.destination as! TagsTableViewController
+        destination.jobTitle = jobTitle
+        destination.jobDescription = jobDescription
+        destination.pay = pay
+        destination.address = address
+        destination.formattedAddress = formattedAddress
+        destination.jobDate = jobDate
+        
+        
     }
     
     
@@ -101,6 +110,7 @@ extension PostPartTwoViewController: GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
         address = place.coordinate
+        formattedAddress = place.formattedAddress!
         addressPreviewLabel.text = place.formattedAddress!
         
         dismiss(animated: true, completion: nil)
@@ -127,13 +137,6 @@ extension PostPartTwoViewController: GMSAutocompleteViewControllerDelegate {
 }
 
 
-
-extension PostPartTwoViewController: TagsTableViewControllerDelegate {
-    func createTags(tags: [String]) {
-        print("creating tags in post")
-        self.tags = tags
-    }
-}
 
 extension UITextField {
     func setBottomBorder() {
