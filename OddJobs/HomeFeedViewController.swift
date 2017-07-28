@@ -26,6 +26,12 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     let initialQueryTotal = 3
     var queryTotal = 3
     
+    let myDarkColor = UIColor(red: 41/255.0, green: 47/255.0, blue: 54/255.0, alpha: 1.0)
+    let myTealColor = UIColor(red: 78/255.0, green: 205/255.0, blue: 196/255.0, alpha: 1.0)
+    let myLightColor = UIColor(red: 247/255.0, green: 255/255.0, blue: 247/255.0, alpha: 1.0)
+    let myRedColor = UIColor(red: 255/255.0 , green: 95/255.0, blue: 111/255.0, alpha: 1.0)
+    let myYellowColor = UIColor(red: 255/255.0, green: 230/255.0, blue: 109/255.0, alpha: 1.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         homeFeedTableView.dataSource = self
@@ -213,7 +219,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    let myColor = UIColor(red: 249/255.0 , green: 152/255.0, blue: 145/255.0, alpha: 1.0)
     let myFont = UIFont(name: "Futura", size: 16.0)
     
     //this is where we set the colors up

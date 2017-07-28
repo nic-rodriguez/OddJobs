@@ -26,6 +26,8 @@ class HomeFeedTableViewCell: UITableViewCell {
     var currentUser = PFUser.current()
     let myColor = UIColor(red: 255/255.0 , green: 107/255.0, blue: 107/255.0, alpha: 1.0)
     
+    
+    
     var job: PFObject! {
         didSet {
             self.postImageView?.file = job["image"] as? PFFile
