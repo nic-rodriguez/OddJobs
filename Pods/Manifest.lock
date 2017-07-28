@@ -16,6 +16,7 @@ PODS:
   - ParseUI (1.2.0):
     - Bolts/Tasks (~> 1.3)
     - Parse (~> 1.9)
+  - RSKPlaceholderTextView (2.1.1)
 
 DEPENDENCIES:
   - Carnival
@@ -24,6 +25,7 @@ DEPENDENCIES:
   - GooglePlaces
   - Parse
   - ParseUI
+  - RSKPlaceholderTextView
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -33,7 +35,8 @@ SPEC CHECKSUMS:
   GooglePlaces: 4a7b22debfa1af65017b82943431822607e45201
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
+  RSKPlaceholderTextView: e62914c917a14ab3ec6ab583b451e61122c9f7e7
 
-PODFILE CHECKSUM: 8ef12b1946a594f756611e7a5c162a13afbbd2f4
+PODFILE CHECKSUM: ef6ede0f2eb65623d5200fed77190326a676df50
 
 COCOAPODS: 1.2.1

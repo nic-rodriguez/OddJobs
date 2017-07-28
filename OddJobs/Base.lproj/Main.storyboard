@@ -236,7 +236,7 @@ EEVudGVyIFBhc3N3b3JkA
             </objects>
             <point key="canvasLocation" x="984.79999999999995" y="865.81709145427294"/>
         </scene>
-        <!--Post Job-->
+        <!--Post View Controller-->
         <scene sceneID="C11-98-Y0A">
             <objects>
                 <viewController storyboardIdentifier="PostViewController" id="xLo-Ms-qaJ" customClass="PostViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
@@ -248,86 +248,38 @@ EEVudGVyIFBhc3N3b3JkA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Job Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4A-QW-Zli">
-                                <rect key="frame" x="27" y="91" width="307" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bwu-dg-7M8">
-                                <rect key="frame" x="27" y="151" width="307" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Mt-87-FpR">
-                                <rect key="frame" x="138" y="353" width="85" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfI-um-a5g">
-                                <rect key="frame" x="230" y="398" width="94" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add an Image">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addJobImage:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="Lke-yF-KXI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGI-U7-Lho">
-                                <rect key="frame" x="49" y="399" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Tags">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="UXn-hY-JgH" kind="push" id="lB1-b4-akp"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5oE-jJ-lCM">
-                                <rect key="frame" x="103" y="437" width="154" height="105"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient1" translatesAutoresizingMaskIntoConstraints="NO" id="iST-cO-nfp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mQ7-NE-h8B">
-                                <rect key="frame" x="27" y="197" width="307" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="521572764.67030501">
-                                    <!--2017-07-12 17:19:24 +0000-->
-                                </date>
-                            </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vV-c9-6Mz">
-                                <rect key="frame" x="27" y="305" width="307" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Job Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4A-QW-Zli">
+                                <rect key="frame" x="27" y="115" width="326" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUh-kA-j2F">
-                                <rect key="frame" x="36" y="278" width="288" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Address"/>
-                                <connections>
-                                    <action selector="openGMS:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="icJ-KD-7Yo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8X-cl-n5W">
-                                <rect key="frame" x="133" y="572" width="95" height="33"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5BA-3e-DYl" customClass="RSKPlaceholderTextView" customModule="RSKPlaceholderTextView">
+                                <rect key="frame" x="21" y="198" width="332" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Post">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="postJob:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="98Y-89-p9q"/>
-                                </connections>
-                            </button>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="0.60929247359154926" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter estimated pay" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Mt-87-FpR">
+                                <rect key="frame" x="95" y="456" width="184" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -335,7 +287,8 @@ EEVudGVyIFBhc3N3b3JkA
                             <outletCollection property="gestureRecognizers" destination="Bg4-be-SNA" appends="YES" id="BOq-iT-nBH"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Post Job" id="DIg-xp-Flb">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="DIg-xp-Flb">
                         <barButtonItem key="leftBarButtonItem" title="Close" style="plain" id="ghv-de-ShG">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="chr-Is-aSA">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
@@ -346,16 +299,19 @@ EEVudGVyIFBhc3N3b3JkA
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="1xo-N7-qFa">
+                            <connections>
+                                <action selector="nextPostPart:" destination="xLo-Ms-qaJ" id="meK-Oj-Qt3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addressLabel" destination="8vV-c9-6Mz" id="hFV-e8-Uud"/>
-                        <outlet property="enterAddress" destination="mUh-kA-j2F" id="Thi-lm-ZWv"/>
-                        <outlet property="jobDatePicker" destination="mQ7-NE-h8B" id="T6x-QF-bPZ"/>
-                        <outlet property="jobDescriptionField" destination="bwu-dg-7M8" id="FGE-68-cTj"/>
-                        <outlet property="jobImageView" destination="5oE-jJ-lCM" id="tx7-Kq-XtJ"/>
+                        <outlet property="descriptionTextView" destination="5BA-3e-DYl" id="nVm-Mk-ABS"/>
                         <outlet property="jobTitleField" destination="W4A-QW-Zli" id="CtG-MP-fhl"/>
                         <outlet property="payField" destination="7Mt-87-FpR" id="7jt-Xo-ceE"/>
                         <outlet property="searchDisplayController" destination="rGu-6L-Bt6" id="LQQ-6a-wQJ"/>
+                        <segue destination="BgS-CP-JEQ" kind="push" identifier="postPartTwoSegue" id="L8I-sG-fxT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Bp-Z0-ef3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -543,9 +499,9 @@ EEVudGVyIFBhc3N3b3JkA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjW-fY-dLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5724" y="-96.251874062968525"/>
+            <point key="canvasLocation" x="5724" y="-28"/>
         </scene>
-        <!--Choose Tags-->
+        <!--Choose Job Tags-->
         <scene sceneID="4nr-ro-pWw">
             <objects>
                 <viewController id="UXn-hY-JgH" customClass="TagsTableViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
@@ -578,6 +534,7 @@ EEVudGVyIFBhc3N3b3JkA
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="tagLabel" destination="GdY-9E-T22" id="MOd-Op-3KH"/>
                                         </connections>
@@ -587,7 +544,7 @@ EEVudGVyIFBhc3N3b3JkA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose Tags" id="eMM-iK-Ckf">
+                    <navigationItem key="navigationItem" title="Choose Job Tags" id="eMM-iK-Ckf">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="UA1-Wr-5h9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t49-h5-FRm">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
@@ -597,6 +554,9 @@ EEVudGVyIFBhc3N3b3JkA
                                     <action selector="didSaveTags:" destination="UXn-hY-JgH" eventType="touchUpInside" id="Fkc-ek-Rj5"/>
                                 </connections>
                             </button>
+                            <connections>
+                                <segue destination="ubC-pW-cp5" kind="push" id="siC-K3-bJF"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -605,7 +565,123 @@ EEVudGVyIFBhc3N3b3JkA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6h-zC-qzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4784.8000000000002" y="-760.56971514242889"/>
+            <point key="canvasLocation" x="5516" y="-761"/>
+        </scene>
+        <!--Post Part Two View Controller-->
+        <scene sceneID="wFZ-rs-Vo9">
+            <objects>
+                <viewController id="BgS-CP-JEQ" customClass="PostPartTwoViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xsN-Jd-FIp"/>
+                        <viewControllerLayoutGuide type="bottom" id="6UQ-OZ-FKA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8lX-Uv-bgT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient2" translatesAutoresizingMaskIntoConstraints="NO" id="GAQ-Ll-ecm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a68-4F-BqQ">
+                                <rect key="frame" x="16" y="406" width="343" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mQ7-NE-h8B">
+                                        <rect key="frame" x="18" y="12" width="307" height="103"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="521572764.67030501">
+                                            <!--2017-07-12 17:19:24 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HkW-i0-Ukb">
+                                <rect key="frame" x="33" y="156" width="310" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="openGMS:" destination="BgS-CP-JEQ" eventType="touchUpInside" id="2Nw-IW-KDA"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSf-0c-1c9">
+                                <rect key="frame" x="33" y="156" width="307" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="openGMS:" destination="BgS-CP-JEQ" eventType="touchUpInside" id="j0L-1a-iXG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8k-XT-ZjZ">
+                                <rect key="frame" x="34" y="203" width="307" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Estimated Date &amp; Time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gzj-cg-HMu">
+                                <rect key="frame" x="73" y="355" width="235" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="openGMS:" destination="BgS-CP-JEQ" eventType="touchUpInside" id="pVy-ce-0mP"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rht-ND-svO">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="5vW-dr-BRh">
+                            <connections>
+                                <action selector="openTags:" destination="BgS-CP-JEQ" id="7mb-ln-seB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addressPreviewLabel" destination="B8k-XT-ZjZ" id="2iX-MF-KoM"/>
+                        <outlet property="datePicker" destination="mQ7-NE-h8B" id="ON9-w1-s7d"/>
+                        <outlet property="datePickerView" destination="a68-4F-BqQ" id="UaH-PS-vuQ"/>
+                        <outlet property="dateTimeLabel" destination="gzj-cg-HMu" id="eEO-8P-6zv"/>
+                        <outlet property="enterAddressField" destination="HkW-i0-Ukb" id="4Cs-Ng-fHi"/>
+                        <segue destination="UXn-hY-JgH" kind="push" identifier="jobTagsSegue" id="eYs-PF-4Pm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yCf-H6-U1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4736.8000000000002" y="-761.46926536731644"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2W6-8K-859">
+            <objects>
+                <viewController id="ubC-pW-cp5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lUn-jF-0Er"/>
+                        <viewControllerLayoutGuide type="bottom" id="UN4-zA-gsY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b83-IA-67m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient3" translatesAutoresizingMaskIntoConstraints="NO" id="4UV-FE-yKh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cV1-TF-4JW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4uH-q0-5Ei" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6485.6000000000004" y="-761.46926536731644"/>
         </scene>
         <!--Nearby Workers-->
         <scene sceneID="6jX-Ra-axX">
@@ -1808,6 +1884,9 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="gear" width="24" height="24"/>
         <image name="globe" width="24" height="24"/>
         <image name="gradient-wallpaper-iphone2" width="736" height="1309"/>
+        <image name="gradient1" width="750" height="1334"/>
+        <image name="gradient2" width="736" height="1377"/>
+        <image name="gradient3" width="750" height="1334"/>
         <image name="home" width="24" height="24"/>
         <image name="mail" width="24" height="24"/>
         <image name="pluss" width="24" height="24"/>
@@ -1817,6 +1896,8 @@ EEVudGVyIFBhc3N3b3JkA
         <segue reference="lB1-b4-akp"/>
         <segue reference="AUn-dp-549"/>
         <segue reference="biL-UF-kBd"/>
+        <segue reference="IJf-2u-KdW"/>
+        <segue reference="eYs-PF-4Pm"/>
         <segue reference="yxL-7S-ffg"/>
         <segue reference="rEe-wG-xrW"/>
     </inferredMetricsTieBreakers>
