@@ -242,6 +242,7 @@
 				98AC28351F181121000CD55E /* GMSAutocompleteResultsViewController.swift */,
 				A98D258B1F1D438100C4A9C2 /* MapsViewController.swift */,
 				A92EB48A1F159EF400EB77E8 /* PostViewController.swift */,
+				983B81A81F2BA23300BC4B6D /* PostPartTwoViewController.swift */,
 				982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */,
 				985E766E1F1D46EC00F87E2B /* EditProfileViewController.swift */,
 				86C8F90A1F1D571F00228818 /* DetailViewController.swift */,
@@ -250,7 +251,6 @@
 				A937901F1F27FE9F009D1E58 /* RatingViewController.swift */,
 				A93790271F2845A6009D1E58 /* MessageViewController.swift */,
 				983B81A61F2BA19900BC4B6D /* ConfirmPostViewController.swift */,
-				983B81A81F2BA23300BC4B6D /* PostPartTwoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

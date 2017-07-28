@@ -51,7 +51,7 @@ class NearbyWorkersViewController: UIViewController {
                 
                 let query: PFQuery = PFUser.query()!
                 // Interested in locations near user.
-                query.whereKey("homeLocation", nearGeoPoint:self.currentLocation, withinMiles:40)
+                query.whereKey("homeLocation", nearGeoPoint:self.currentLocation)
                 // Limit what could be a lot of points.
                 query.limit = 10
                 // Final list of objects

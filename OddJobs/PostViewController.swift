@@ -13,13 +13,14 @@ import GooglePlaces
 import GoogleMaps
 import GooglePlacePicker
 import Parse
+import RSKPlaceholderTextView
 
 class PostViewController: UIViewController {
   
     
     @IBOutlet weak var jobTitleField: UITextField!
     
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionTextView: RSKPlaceholderTextView!
     
     
     @IBOutlet weak var payField: UITextField!
@@ -36,15 +37,39 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
+        
         
         jobTitleField.setBottomBorder()
-        descriptionTextView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        
+    
+        
+        let titlePlaceholder = NSAttributedString(string: "Enter Job Title", attributes: [NSForegroundColorAttributeName:UIColor.white.withAlphaComponent(0.6)])
+        
+        jobTitleField.attributedPlaceholder = titlePlaceholder
+    
+        
+        descriptionTextView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        
+        descriptionTextView.placeholder = "Add a description"
+        
+        payField.setBottomBorder()
+        
+        let payPlaceholder = NSAttributedString(string: "Estimated Pay", attributes: [NSForegroundColorAttributeName:UIColor.white.withAlphaComponent(0.6)])
+        
+        payField.attributedPlaceholder = payPlaceholder
+        
+        
+
+      
     }
 
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         let postPartTwo = segue.destination as! PostPartTwoViewController
+         postPartTwo.jobTitle = jobTitleField.text!
+         postPartTwo.jobDescription = descriptionTextView.text
+         postPartTwo.pay = Double(payField.text!)!
         
     }
 
@@ -56,22 +81,30 @@ class PostViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-
-}
-
-extension UITextField {
-    func setBottomBorder() {
-        self.borderStyle = .none
-        
-        
-        let width = 1.0
     
+    
+    @IBAction func nextPostPart(_ sender: Any) {
+       
+        let jobTitle = jobTitleField.text ?? nil
+        let jobDescription = descriptionTextView.text
+        let pay = Double(payField.text!) ?? nil
         
-        let borderLine = UIView()
-        borderLine.frame = CGRect(x: 0, y: Double(self.frame.height) - width, width: Double(self.frame.width), height: width)
+        if (jobTitle != nil) && (jobDescription != nil) && (pay != nil) {
+            self.performSegue(withIdentifier: "postPartTwoSegue", sender: UIBarButtonItem.self)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Some or all of the required fields are incomplete. Please fill in the missing information.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+
+            
+        }
         
-        borderLine.backgroundColor = UIColor.white
-        self.addSubview(borderLine)
     }
+    
+    
+
 }
+
+
+
 
