@@ -20,6 +20,8 @@
 		86CB3ED41F2A93CD007D091A /* nibCustomCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86CB3ED31F2A93CD007D091A /* nibCustomCollectionCell.xib */; };
 		982965471F1D2DB900C18FA8 /* NearbyWorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */; };
 		982965491F1D308C00C18FA8 /* WorkersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982965481F1D308C00C18FA8 /* WorkersTableViewCell.swift */; };
+		983B81A71F2BA19900BC4B6D /* ConfirmPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983B81A61F2BA19900BC4B6D /* ConfirmPostViewController.swift */; };
+		983B81A91F2BA23300BC4B6D /* PostPartTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983B81A81F2BA23300BC4B6D /* PostPartTwoViewController.swift */; };
 		984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */; };
 		984C684F1F16ACEB00FB4AE4 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */; };
 		985E766F1F1D46EC00F87E2B /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985E766E1F1D46EC00F87E2B /* EditProfileViewController.swift */; };
@@ -81,6 +83,8 @@
 		92D75CC1075FA661748BD749 /* Pods-OddJobsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobsUITests/Pods-OddJobsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		982965461F1D2DB900C18FA8 /* NearbyWorkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyWorkersViewController.swift; sourceTree = "<group>"; };
 		982965481F1D308C00C18FA8 /* WorkersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkersTableViewCell.swift; sourceTree = "<group>"; };
+		983B81A61F2BA19900BC4B6D /* ConfirmPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPostViewController.swift; sourceTree = "<group>"; };
+		983B81A81F2BA23300BC4B6D /* PostPartTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPartTwoViewController.swift; sourceTree = "<group>"; };
 		984C684C1F16AC5A00FB4AE4 /* TagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
 		984C684E1F16ACEB00FB4AE4 /* TagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		985E766E1F1D46EC00F87E2B /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 				A9545C2E1F2017EC0064E61D /* SignUpViewController.swift */,
 				A937901F1F27FE9F009D1E58 /* RatingViewController.swift */,
 				A93790271F2845A6009D1E58 /* MessageViewController.swift */,
+				983B81A61F2BA19900BC4B6D /* ConfirmPostViewController.swift */,
+				983B81A81F2BA23300BC4B6D /* PostPartTwoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -571,9 +577,11 @@
 				A93790221F28323C009D1E58 /* ChatRoom.swift in Sources */,
 				985E76731F1EDCA800F87E2B /* NotificationCell.swift in Sources */,
 				A93790281F2845A6009D1E58 /* MessageViewController.swift in Sources */,
+				983B81A71F2BA19900BC4B6D /* ConfirmPostViewController.swift in Sources */,
 				982965471F1D2DB900C18FA8 /* NearbyWorkersViewController.swift in Sources */,
 				A907D0321F1425C60069B7E7 /* LoginViewController.swift in Sources */,
 				A93790261F2842D9009D1E58 /* Message.swift in Sources */,
+				983B81A91F2BA23300BC4B6D /* PostPartTwoViewController.swift in Sources */,
 				985E76711F1ECC7100F87E2B /* NotificationsViewController.swift in Sources */,
 				A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */,
 				984C684D1F16AC5A00FB4AE4 /* TagsTableViewController.swift in Sources */,
