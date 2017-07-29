@@ -24,6 +24,8 @@ class TopTableViewCell: UITableViewCell {
     @IBOutlet weak var jobsTakenCounterLabel: UILabel?
     @IBOutlet weak var jobsPosterCounterLabel: UILabel?
     @IBOutlet weak var topProfileCardView: UIView!
+    @IBOutlet weak var jobPostedLabel: UILabel!
+    @IBOutlet weak var jobTakenLabel: UILabel!
     
     var user: PFUser!
     let color = ColorObject()
@@ -66,6 +68,8 @@ class TopTableViewCell: UITableViewCell {
         jobsPosterCounterLabel?.textColor = color.myDarkColor
         jobsTakenCounterLabel?.textColor = color.myDarkColor
         usernameLabel?.textColor = color.myDarkColor
+        jobPostedLabel?.textColor = color.myTealColor
+        jobTakenLabel?.textColor = color.myTealColor
         ratingLabel?.textColor = color.myDarkColor
         bioLabel?.textColor = color.myDarkColor
         contentView.backgroundColor = color.myRedColor //myColor

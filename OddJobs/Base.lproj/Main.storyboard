@@ -1092,6 +1092,8 @@ EEVudGVyIFBhc3N3b3JkA
                                         <connections>
                                             <outlet property="backgroundProfilePFImage" destination="6Vb-r4-XVk" id="gfD-fL-I6a"/>
                                             <outlet property="bioLabel" destination="9ok-ez-3Pj" id="RNK-BP-c2O"/>
+                                            <outlet property="jobPostedLabel" destination="7Ae-h2-yxC" id="yEz-i4-WKi"/>
+                                            <outlet property="jobTakenLabel" destination="x8L-f6-jLZ" id="9VG-CO-3DC"/>
                                             <outlet property="jobsPosterCounterLabel" destination="kda-Q4-D69" id="iYc-n7-Fzq"/>
                                             <outlet property="jobsTakenCounterLabel" destination="U2g-fQ-uTI" id="UsJ-Wk-Ctn"/>
                                             <outlet property="profilePFImage" destination="ulg-Gd-5Cr" id="NMd-hA-W9k"/>

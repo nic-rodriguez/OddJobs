@@ -45,7 +45,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         homeFeedTableView.rowHeight = UITableViewAutomaticDimension
         
         homeFeedTableView.separatorStyle = .none
-        homeFeedTableView.backgroundColor = color.myLightColor
+        homeFeedTableView.backgroundColor = color.myRedColor
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
