@@ -85,7 +85,10 @@ class ConfirmPostViewController: UIViewController {
                 print("Post was saved!")
                 let alert = UIAlertController(title: "Posted!", message: "Your job is offically posted! Look out for notifications from potential workers", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                self.dismiss(animated: true, completion: {
+                    
+                })
+                
                 
             } else if let error = error {
                 print("Problem saving message: \(error.localizedDescription)")
