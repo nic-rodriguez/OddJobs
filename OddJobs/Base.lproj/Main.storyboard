@@ -634,7 +634,7 @@ EEVudGVyIFBhc3N3b3JkA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient2" translatesAutoresizingMaskIntoConstraints="NO" id="GAQ-Ll-ecm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient1" translatesAutoresizingMaskIntoConstraints="NO" id="GAQ-Ll-ecm">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -725,8 +725,8 @@ EEVudGVyIFBhc3N3b3JkA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient3" translatesAutoresizingMaskIntoConstraints="NO" id="4UV-FE-yKh">
-                                <rect key="frame" x="0.0" y="-16" width="375" height="899"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient1" translatesAutoresizingMaskIntoConstraints="NO" id="4UV-FE-yKh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzs-qg-VNn">
@@ -2085,8 +2085,6 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="globe" width="24" height="24"/>
         <image name="gradient-wallpaper-iphone2" width="736" height="1309"/>
         <image name="gradient1" width="750" height="1334"/>
-        <image name="gradient2" width="736" height="1377"/>
-        <image name="gradient3" width="750" height="1334"/>
         <image name="home" width="24" height="24"/>
         <image name="mail" width="24" height="24"/>
         <image name="pluss" width="24" height="24"/>
