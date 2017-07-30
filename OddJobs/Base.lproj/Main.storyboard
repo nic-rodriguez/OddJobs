@@ -1039,15 +1039,15 @@ EEVudGVyIFBhc3N3b3JkA
                                                     <color key="backgroundColor" red="1" green="0.9985926271269242" blue="0.17597259665498666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvJ-Cz-Ncz">
-                                                    <rect key="frame" x="74" y="25" width="285" height="32"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="27"/>
+                                                    <rect key="frame" x="74" y="29.5" width="285" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA1-Dh-s9J">
-                                                    <rect key="frame" x="293" y="103" width="66" height="21"/>
+                                                    <rect key="frame" x="295.5" y="103" width="63.5" height="21.5"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1059,14 +1059,14 @@ EEVudGVyIFBhc3N3b3JkA
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pC-vm-9D1">
-                                                    <rect key="frame" x="16" y="107.5" width="35.5" height="25"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
+                                                    <rect key="frame" x="16" y="111" width="30.5" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Short job description" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpB-CM-kiG">
                                                     <rect key="frame" x="16" y="74" width="343" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1585,7 +1585,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -2028,7 +2028,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLA-qn-ZIQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dVJ-V0-srk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVJ-V0-srk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2047,7 +2047,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1HX-fI-nHN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="wlD-01-xTb"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Pvv-Dg-Iwo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pvv-Dg-Iwo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2093,9 +2093,9 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AUn-dp-549"/>
-        <segue reference="IJf-2u-KdW"/>
         <segue reference="eYs-PF-4Pm"/>
+        <segue reference="AUn-dp-549"/>
+        <segue reference="biL-UF-kBd"/>
         <segue reference="H5h-KT-Jbe"/>
         <segue reference="rEe-wG-xrW"/>
     </inferredMetricsTieBreakers>

@@ -222,7 +222,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: color.myTealColor, searchBarTintColor: color.myDarkColor)
         
         
-        customSearchController.customSearchBar.placeholder = "Search in this awesome bar..."
+        customSearchController.customSearchBar.placeholder = "Search Jobs"
         homeFeedTableView.tableHeaderView = customSearchController.customSearchBar
         customSearchController.customDelegate = self
     }
