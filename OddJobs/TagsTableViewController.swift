@@ -40,6 +40,11 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
         tagsTableView.dataSource = self
         tagsTableView.delegate = self
+        
+        let backgroundImage = UIImage(named: "gradient1.png")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tagsTableView.backgroundView = imageView
+        tagsTableView.separatorStyle = .none
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +63,7 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
         if let cell = tagsTableView.cellForRow(at: indexPath as IndexPath) as? TagTableViewCell {
             if cell.accessoryType == .checkmark{
                 cell.accessoryType = .none
