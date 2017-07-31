@@ -98,9 +98,13 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
             if geoPoint != nil {
+                
                 let geoPointLat = geoPoint.latitude
                 let geoPointLong = geoPoint.longitude
                 self.currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+                
+                print("current")
+                print(self.currentLocation)
                 
                 let query = PFQuery(className: "Job")
                 
