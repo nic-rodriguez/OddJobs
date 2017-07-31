@@ -362,24 +362,30 @@ EEVudGVyIFBhc3N3b3JkA
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tje-JR-KPY">
                                                 <rect key="frame" x="20" y="30" width="335" height="432"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Job title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4f-uq-eEc">
-                                                        <rect key="frame" x="62" y="8" width="97" height="35.5"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Job title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4f-uq-eEc">
+                                                        <rect key="frame" x="62" y="8" width="204" height="50"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="26"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of the job" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smu-MA-K9X">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smu-MA-K9X">
                                                         <rect key="frame" x="8" y="66" width="319" height="160"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="vVR-1v-O6r"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="Description of the job">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="rightToLeft" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="skills" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ov-Zm-S0x">
                                                         <rect key="frame" x="8" y="310" width="319" height="20"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -390,8 +396,8 @@ EEVudGVyIFBhc3N3b3JkA
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="$N.NN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COs-Kx-DDV">
-                                                        <rect key="frame" x="280" y="15.5" width="51" height="21"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                        <rect key="frame" x="282" y="23" width="49" height="20.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -439,11 +445,10 @@ EEVudGVyIFBhc3N3b3JkA
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="qOl-tA-9Cu" firstAttribute="centerY" secondItem="69Q-EM-pWi" secondAttribute="centerY" id="1LO-83-aad"/>
+                                                    <constraint firstItem="COs-Kx-DDV" firstAttribute="centerY" secondItem="Rzv-vt-qTP" secondAttribute="centerY" id="1VQ-k3-Pmx"/>
                                                     <constraint firstItem="N1T-dJ-Y0G" firstAttribute="leading" secondItem="69Q-EM-pWi" secondAttribute="trailing" constant="4" id="52o-ec-YpE"/>
-                                                    <constraint firstItem="COs-Kx-DDV" firstAttribute="centerY" secondItem="c4f-uq-eEc" secondAttribute="centerY" id="8y8-th-Dww"/>
                                                     <constraint firstItem="c4f-uq-eEc" firstAttribute="top" secondItem="tje-JR-KPY" secondAttribute="top" constant="8" id="F63-43-ifT"/>
                                                     <constraint firstItem="zPX-Pu-hTX" firstAttribute="leading" secondItem="qOl-tA-9Cu" secondAttribute="trailing" constant="3" id="Gzi-eX-Q7A"/>
-                                                    <constraint firstItem="smu-MA-K9X" firstAttribute="top" secondItem="Rzv-vt-qTP" secondAttribute="bottom" constant="8" id="JX0-iC-Drq"/>
                                                     <constraint firstAttribute="trailing" secondItem="smu-MA-K9X" secondAttribute="trailing" constant="8" id="Jjp-Zr-Mqm"/>
                                                     <constraint firstAttribute="trailing" secondItem="COs-Kx-DDV" secondAttribute="trailing" constant="4" id="JlM-5F-Bqr"/>
                                                     <constraint firstItem="7Ov-Zm-S0x" firstAttribute="leading" secondItem="tje-JR-KPY" secondAttribute="leading" constant="8" id="K2j-vU-QwB"/>
@@ -452,6 +457,7 @@ EEVudGVyIFBhc3N3b3JkA
                                                     <constraint firstItem="cbG-ic-RoH" firstAttribute="top" secondItem="smu-MA-K9X" secondAttribute="bottom" constant="8" id="Md4-fe-R6e"/>
                                                     <constraint firstItem="TaE-Ox-Yjt" firstAttribute="top" secondItem="cbG-ic-RoH" secondAttribute="bottom" constant="8" symbolic="YES" id="NcB-nJ-Wrl"/>
                                                     <constraint firstItem="zPX-Pu-hTX" firstAttribute="centerY" secondItem="69Q-EM-pWi" secondAttribute="centerY" id="OTi-Kv-han"/>
+                                                    <constraint firstItem="smu-MA-K9X" firstAttribute="top" secondItem="c4f-uq-eEc" secondAttribute="bottom" constant="8" id="Pv2-5i-fRJ"/>
                                                     <constraint firstItem="69Q-EM-pWi" firstAttribute="leading" secondItem="tje-JR-KPY" secondAttribute="leading" constant="8" id="V7j-WL-N8r"/>
                                                     <constraint firstAttribute="trailing" secondItem="cbG-ic-RoH" secondAttribute="trailing" constant="8" id="Vs4-Xl-p6m"/>
                                                     <constraint firstItem="qOl-tA-9Cu" firstAttribute="leading" secondItem="N1T-dJ-Y0G" secondAttribute="trailing" constant="3" id="ZGy-F3-XR6"/>
@@ -459,8 +465,10 @@ EEVudGVyIFBhc3N3b3JkA
                                                     <constraint firstItem="N1T-dJ-Y0G" firstAttribute="centerY" secondItem="69Q-EM-pWi" secondAttribute="centerY" id="c97-Dh-Bu4"/>
                                                     <constraint firstItem="smu-MA-K9X" firstAttribute="leading" secondItem="tje-JR-KPY" secondAttribute="leading" constant="8" id="dn1-dQ-D3O"/>
                                                     <constraint firstAttribute="bottom" secondItem="69Q-EM-pWi" secondAttribute="bottom" constant="8" id="fBl-0t-Vio"/>
-                                                    <constraint firstItem="Rzv-vt-qTP" firstAttribute="top" secondItem="c4f-uq-eEc" secondAttribute="top" id="kV3-N2-5pK"/>
+                                                    <constraint firstItem="smu-MA-K9X" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Rzv-vt-qTP" secondAttribute="bottom" constant="8" id="haM-pG-Ja6"/>
+                                                    <constraint firstItem="Rzv-vt-qTP" firstAttribute="centerY" secondItem="c4f-uq-eEc" secondAttribute="centerY" id="kV3-N2-5pK"/>
                                                     <constraint firstItem="cbG-ic-RoH" firstAttribute="leading" secondItem="tje-JR-KPY" secondAttribute="leading" constant="8" id="khw-OP-LGw"/>
+                                                    <constraint firstItem="COs-Kx-DDV" firstAttribute="leading" secondItem="c4f-uq-eEc" secondAttribute="trailing" constant="16" id="lAi-Lq-MHc"/>
                                                     <constraint firstItem="Rzv-vt-qTP" firstAttribute="leading" secondItem="tje-JR-KPY" secondAttribute="leading" constant="8" id="naP-8L-uCN"/>
                                                     <constraint firstItem="TaE-Ox-Yjt" firstAttribute="top" secondItem="cbG-ic-RoH" secondAttribute="bottom" constant="8" id="qe2-J9-RYH"/>
                                                     <constraint firstItem="TaE-Ox-Yjt" firstAttribute="leading" secondItem="tje-JR-KPY" secondAttribute="leading" constant="8" id="wYB-gW-lVm"/>
@@ -1548,7 +1556,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Jobs" image="home" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a3V-mP-s7F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1590,7 +1598,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="m96-EM-I7f"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hRx-N9-B1U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hRx-N9-B1U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1628,7 +1636,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -2071,7 +2079,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLA-qn-ZIQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dVJ-V0-srk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVJ-V0-srk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2090,7 +2098,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1HX-fI-nHN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="wlD-01-xTb"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Pvv-Dg-Iwo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pvv-Dg-Iwo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2108,7 +2116,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DlW-tT-QBO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vdI-bo-4kh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vdI-bo-4kh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
