@@ -149,7 +149,11 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
         
         let size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.leastNormalMagnitude))
         
-        return size.height //+ 100
+        if (protoCell.descriptionLabel.text == "") {
+            return size.height + 36
+        } else {
+            return size.height + 20
+        }
     }
 
     
