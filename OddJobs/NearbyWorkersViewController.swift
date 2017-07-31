@@ -60,15 +60,16 @@ class NearbyWorkersViewController: UIViewController {
                 
                 
                 var count = 0
-                var indexToRemove: Int!
+                var indexToRemove: Int?
                 for worker in self.workers {
-                    if worker.objectId == PFUser.current()?.objectId{
+                    if worker.objectId == PFUser.current()!.objectId{
                         indexToRemove = count
                     }
                     count+=1
                 }
-                
-                self.workers.remove(at: indexToRemove)
+                if indexToRemove != nil {
+                    self.workers.remove(at: indexToRemove!)
+                }
                 self.workersTableView.reloadData()
                 
             } else {

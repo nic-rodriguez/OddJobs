@@ -33,9 +33,7 @@ class NotificationCell: UITableViewCell {
         }
     }
     var chatRoom: PFObject?
-    
     var cellIndex: Int!
-    
     var delegate: NotificationCellDelegate?
     
     override func awakeFromNib() {
@@ -50,7 +48,7 @@ class NotificationCell: UITableViewCell {
     
     func loadUserData() {
         
-        usernameLabel.text = userInterested.username as? String ?? "error"
+        usernameLabel.text = userInterested.username ?? "error"
         
         
         let location = self.userInterested["location"] as? PFGeoPoint
@@ -72,7 +70,7 @@ class NotificationCell: UITableViewCell {
     }
     
     func loadJobData() {
-        jobTitleLabel.text = correspondingJob["title"] as! String
+        jobTitleLabel.text = correspondingJob["title"] as? String
                
     }
     
