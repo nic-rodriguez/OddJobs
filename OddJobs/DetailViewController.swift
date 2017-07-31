@@ -75,8 +75,8 @@ class DetailViewController: UIViewController {
         }
         
         
-        let latitude = job["latitude"] as! CLLocationDegrees
-        let longitude = job["longitude"] as! CLLocationDegrees
+        let latitude = (job["location"] as! PFGeoPoint).latitude as! CLLocationDegrees
+        let longitude = (job["location"] as! PFGeoPoint).longitude as! CLLocationDegrees
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let annotation = Job(title: job["title"] as? String, subtitle: job["description"] as? String, location: coordinate)
         mapView.addAnnotation(annotation)
@@ -171,7 +171,7 @@ extension DetailViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         if initialLocation == nil {
             initialLocation = userLocation
-            let jobCoordinate = CLLocationCoordinate2D(latitude: job["latitude"] as! CLLocationDegrees, longitude: job["longitude"] as! CLLocationDegrees)
+            let jobCoordinate = CLLocationCoordinate2D(latitude: (job["location"] as! PFGeoPoint).latitude as! CLLocationDegrees, longitude: (job["location"] as! PFGeoPoint).longitude as! CLLocationDegrees)
             centerMapOnLocation(firstCoordinate: userLocation.coordinate, secondCoordinate: jobCoordinate)
         }
     }

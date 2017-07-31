@@ -48,9 +48,8 @@ class HomeFeedTableViewCell: UITableViewCell {
             let b:String = String(format:"%.2f", a)
             self.costLabel.text = "$" + b
             
-            let descLocation: PFGeoPoint = PFGeoPoint()
-            descLocation.latitude = job["latitude"] as! Double
-            descLocation.longitude = job["longitude"] as! Double
+          /*  let descLocation: PFGeoPoint = job["location"]
+ 
    
             var currentUserLocation: PFGeoPoint!
             
@@ -65,7 +64,7 @@ class HomeFeedTableViewCell: UITableViewCell {
                     print(error?.localizedDescription ?? "Error")
                 }
             })
-            
+            */
             
             //UIColor
             costLabel.textColor = color.myDarkColor

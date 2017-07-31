@@ -52,8 +52,8 @@ class MapsViewController: UIViewController {
     func createAnnotations(jobs: [PFObject], map: MKMapView) {
         map.addAnnotation(map.userLocation)
         for job in jobs {
-            let latitude = job["latitude"] as! CLLocationDegrees
-            let longitude = job["longitude"] as! CLLocationDegrees
+            let latitude = (job["location"] as! PFGeoPoint).latitude as! CLLocationDegrees
+            let longitude = (job["location"] as! PFGeoPoint).longitude as! CLLocationDegrees
             let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let annotation = Job(title: job["title"] as? String, subtitle: job["description"] as? String, location: coordinate)
             annotations.append(annotation)
@@ -103,8 +103,8 @@ extension MapsViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         for job in jobs {
-            let latitude = job["latitude"] as! CLLocationDegrees
-            let longitude = job["longitude"] as! CLLocationDegrees
+            let latitude = (job["location"] as! PFGeoPoint).latitude as! CLLocationDegrees
+            let longitude = (job["location"] as! PFGeoPoint).longitude as! CLLocationDegrees
             let title = job["title"] as? String
             let subtitle = job["description"] as? String
             if let annotation = view.annotation {
