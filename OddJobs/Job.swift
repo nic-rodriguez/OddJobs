@@ -27,8 +27,7 @@ class Job: NSObject, MKAnnotation {
         let job = PFObject(className: "Job")
         
         job["title"] = title
-        job["latitude"] = location.latitude
-        job["longitude"] = location.longitude
+        job["location"] = PFGeoPoint(latitude: location.latitude, longitude: location.longitude)
         job["description"] = description
         job["datePosted"] = datePosted
         job["dateDue"] = dateDue
