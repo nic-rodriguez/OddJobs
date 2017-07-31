@@ -34,6 +34,11 @@ class HomeFeedTableViewCell: UITableViewCell {
             
             let jobPoster = job["userPosted"] as! PFUser
             self.userImageView.file = jobPoster["profilePicture"] as? PFFile
+            self.userImageView.layer.borderWidth=1.0
+            self.userImageView.layer.borderColor = UIColor.white.cgColor
+            self.userImageView.layer.masksToBounds = false
+            self.userImageView.layer.cornerRadius = self.userImageView.frame.size.height/2
+            self.userImageView.clipsToBounds = true
             self.userImageView.loadInBackground()
             
             self.titleLabel.text = job["title"] as? String

@@ -55,7 +55,6 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         size.width = size.width + 10
         
         return size
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
