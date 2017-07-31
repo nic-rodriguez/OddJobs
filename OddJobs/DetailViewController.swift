@@ -78,6 +78,8 @@ class DetailViewController: UIViewController {
         datePostedLabel.text = dateString
         costLabel.text = "$" + payString
         
+        locationLabel.text = "Location: " + (job["address"] as? String ?? "")
+        
         let skills = job["tags"] as! [String]
         print(skills)
         
