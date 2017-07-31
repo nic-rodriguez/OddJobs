@@ -17,7 +17,7 @@ class NearbyWorkersViewController: UIViewController {
     var workers: [PFUser] = []
     var currentLocation: PFGeoPoint!
     let color = ColorObject()
-//    var protoCell: WorkersTableViewCell!
+    var protoCell: WorkersTableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +36,9 @@ class NearbyWorkersViewController: UIViewController {
         
         workersTableView.separatorStyle = .none
         workersTableView.backgroundColor = color.myRedColor
+        
+        protoCell = UINib(nibName: "customWorkerCell", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! WorkersTableViewCell
     }
-    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        
-//        protoCell = UINib(nibName: "customWorkerCell", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! WorkersTableViewCell
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
         let userLocation = MKUserLocation()
@@ -134,31 +130,27 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let worker = workers[indexPath.row]
-//        
-//        protoCell.nameLabel.text = worker.username
-//        protoCell.descriptionLabel.text = worker["bio"] as? String ?? ""
-//        
-//        protoCell.skillsLabel.text = ""
-//        let skills = worker["skills"] as! [String]
-//        if skills.count != 0 {
-//            protoCell.skillsLabel.text = "Skills: "
-//        }
-//        for (index, element) in skills.enumerated() {
-//            protoCell.skillsLabel.text = protoCell.skillsLabel.text! + element
-//            if (index < skills.count - 1) {
-//                protoCell.skillsLabel.text = protoCell.skillsLabel.text! + ", "
-//            }
-//        }
-//        
-//        let size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.leastNormalMagnitude))
-//        
-//        return size.height + 100
-//    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return workersTableView.rowHeight + 100
+        let worker = workers[indexPath.row]
+        
+        protoCell.nameLabel.text = worker.username
+        protoCell.descriptionLabel.text = worker["bio"] as? String ?? ""
+        
+        protoCell.skillsLabel.text = ""
+        let skills = worker["skills"] as! [String]
+        if skills.count != 0 {
+            protoCell.skillsLabel.text = "Skills: "
+        }
+        for (index, element) in skills.enumerated() {
+            protoCell.skillsLabel.text = protoCell.skillsLabel.text! + element
+            if (index < skills.count - 1) {
+                protoCell.skillsLabel.text = protoCell.skillsLabel.text! + ", "
+            }
+        }
+        
+        let size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.leastNormalMagnitude))
+        
+        return size.height //+ 100
     }
 
     
