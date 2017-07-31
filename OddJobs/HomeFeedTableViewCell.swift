@@ -68,7 +68,7 @@ class HomeFeedTableViewCell: UITableViewCell {
             descriptionLabel.textColor = color.myTealColor
             contentView.backgroundColor = color.myRedColor
             self.backgroundCardView.backgroundColor = color.myLightColor
-            self.backgroundCardView.layer.cornerRadius = 10.0
+            self.backgroundCardView.layer.cornerRadius = 3.0
             self.backgroundCardView.layer.masksToBounds = false
             self.backgroundCardView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
             self.backgroundCardView.layer.shadowOffset = CGSize(width: 0, height: 0)

@@ -46,11 +46,11 @@ class DetailViewController: UIViewController {
         self.totalView.backgroundColor = color.myRedColor
         
         self.backgroundCard.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-        self.backgroundCard.layer.cornerRadius = 10.0
+        self.backgroundCard.layer.cornerRadius = 3.0
         self.backgroundCard.layer.masksToBounds = false
         self.backgroundCard.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
         self.backgroundCard.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.backgroundCard.layer.shadowOpacity = 0.4
+        self.backgroundCard.layer.shadowOpacity = 0.8
         
         
         let user = job["userPosted"] as! PFUser
@@ -71,7 +71,7 @@ class DetailViewController: UIViewController {
         usernameLabel.text = user.username!
         jobTitleLabel.text = job["title"] as? String
         
-        descriptionLabel.layer.cornerRadius = descriptionLabel.frame.size.width/16
+        descriptionLabel.layer.cornerRadius = 3.0
         descriptionLabel.layer.masksToBounds = true
         descriptionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.1)
         descriptionLabel.text = job["description"] as? String ?? ""
