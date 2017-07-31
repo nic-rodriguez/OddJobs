@@ -197,9 +197,8 @@ extension NotificationsViewController: NotificationCellDelegate {
     
     
     func acceptUser(userInterested: PFUser, cellIndex: Int) {
-        //jobsPosted is likely the wrong array to be grabbing data from, get index error from cellIndex
-        jobsPosted[cellIndex]["userAccepted"] = userInterested
-        jobsPosted[cellIndex].saveInBackground().continue({ (task: BFTask<NSNumber>) -> Void in
+        jobsUserInterested[cellIndex]["userAccepted"] = userInterested
+        jobsUserInterested[cellIndex].saveInBackground().continue({ (task: BFTask<NSNumber>) -> Void in
             let alert = UIAlertController(title: "User accepted!", message: "You have accepted this user to complete your task. Please select the complete button when your task has been finished", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
