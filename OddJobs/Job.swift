@@ -22,12 +22,13 @@ class Job: NSObject, MKAnnotation {
         self.coordinate = location
     }
     
-    class func postJob(location: CLLocationCoordinate2D, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, pay: Double, completion: PFBooleanResultBlock?) {
+    class func postJob(location: CLLocationCoordinate2D, address: String, title: String, description: String, datePosted: Date, dateDue: Date, tags: [String]?, pay: Double, completion: PFBooleanResultBlock?) {
 
         let job = PFObject(className: "Job")
         
         job["title"] = title
         job["location"] = PFGeoPoint(latitude: location.latitude, longitude: location.longitude)
+        job["address"] = address
         job["description"] = description
         job["datePosted"] = datePosted
         job["dateDue"] = dateDue

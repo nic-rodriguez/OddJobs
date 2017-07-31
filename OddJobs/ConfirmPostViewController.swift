@@ -80,7 +80,7 @@ class ConfirmPostViewController: UIViewController {
     
     
     @IBAction func postJob(_ sender: UIBarButtonItem) {
-        Job.postJob(location: address!, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, pay: pay , completion: { (success, error) in
+        Job.postJob(location: address!, address: formattedAddress, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, pay: pay , completion: { (success, error) in
             if success {
                 print("Post was saved!")
                 let alert = UIAlertController(title: "Posted!", message: "Your job is offically posted! Look out for notifications from potential workers", preferredStyle: UIAlertControllerStyle.alert)

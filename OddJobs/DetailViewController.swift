@@ -13,8 +13,8 @@ import MapKit
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet var totalView: UIView!
     @IBOutlet weak var jobPosterPFImage: PFImageView!
-    @IBOutlet weak var jobPostPFImageView: PFImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var datePostedLabel: UILabel!
@@ -22,16 +22,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var skillsLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var backgroundCard: UIView!
+    @IBOutlet weak var locationLabel: UILabel!
     
     var job: PFObject!
     var initialLocation: MKUserLocation?
     var chatRoom: PFObject!
     var justApplied: Bool?
     let locationManager = CLLocationManager()
+    let color = ColorObject()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+ 
         requestLocationAccess()
         mapView.showsUserLocation = true
         mapView.delegate = self
@@ -39,6 +42,16 @@ class DetailViewController: UIViewController {
         mapView.isPitchEnabled = false
         mapView.isScrollEnabled = false
         mapView.isRotateEnabled = false
+        
+        self.totalView.backgroundColor = color.myRedColor
+        
+        self.backgroundCard.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        self.backgroundCard.layer.cornerRadius = 10.0
+        self.backgroundCard.layer.masksToBounds = false
+        self.backgroundCard.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        self.backgroundCard.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.backgroundCard.layer.shadowOpacity = 0.4
+        
         
         let user = job["userPosted"] as! PFUser
         let date = job["dateDue"]
@@ -53,11 +66,14 @@ class DetailViewController: UIViewController {
         jobPosterPFImage.layer.masksToBounds = true
         jobPosterPFImage.loadInBackground()
         
-        jobPostPFImageView.file = job["image"] as? PFFile
-        jobPostPFImageView.loadInBackground()
+    
         
         usernameLabel.text = user.username!
         jobTitleLabel.text = job["title"] as? String
+        
+        descriptionLabel.layer.cornerRadius = descriptionLabel.frame.size.width/16
+        descriptionLabel.layer.masksToBounds = true
+        descriptionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.1)
         descriptionLabel.text = job["description"] as? String ?? ""
         datePostedLabel.text = dateString
         costLabel.text = "$" + payString
