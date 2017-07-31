@@ -910,26 +910,26 @@ EEVudGVyIFBhc3N3b3JkA
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4f-Pu-psK">
-                                                    <rect key="frame" x="74" y="47" width="252" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <rect key="frame" x="74" y="50" width="252" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placeholder" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jP-tT-KLf">
-                                                    <rect key="frame" x="16" y="76" width="310" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                    <rect key="frame" x="16" y="79" width="310" height="21"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPG-sC-CNa">
-                                                    <rect key="frame" x="74" y="16" width="52" height="23"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                    <rect key="frame" x="74" y="16" width="55" height="26"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1 mi away" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPl-dM-FTx">
-                                                    <rect key="frame" x="254" y="18" width="72" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <rect key="frame" x="249.5" y="18.5" width="76.5" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -950,7 +950,7 @@ EEVudGVyIFBhc3N3b3JkA
                                                 <constraint firstItem="TDS-gP-Iid" firstAttribute="leading" secondItem="8GQ-t6-FKy" secondAttribute="leadingMargin" constant="8" id="s8h-Mn-SEV"/>
                                                 <constraint firstItem="o4f-Pu-psK" firstAttribute="leading" secondItem="TDS-gP-Iid" secondAttribute="trailing" constant="8" id="tdP-rp-t0y"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="o4f-Pu-psK" secondAttribute="trailing" constant="8" id="uan-tx-UeV"/>
-                                                <constraint firstItem="mPl-dM-FTx" firstAttribute="bottom" secondItem="wPG-sC-CNa" secondAttribute="bottom" id="x9g-4n-heT"/>
+                                                <constraint firstItem="mPl-dM-FTx" firstAttribute="centerY" secondItem="wPG-sC-CNa" secondAttribute="centerY" id="xIg-R8-x85"/>
                                                 <constraint firstItem="4jP-tT-KLf" firstAttribute="leading" secondItem="8GQ-t6-FKy" secondAttribute="leadingMargin" constant="8" id="xv5-1j-hNc"/>
                                             </constraints>
                                         </tableViewCellContentView>
