@@ -85,6 +85,8 @@ extension MapsViewController: MKMapViewDelegate {
         if initalLocation == nil {
             initalLocation = userLocation
             centerMapOnLocation(location: userLocation.location!)
+            print("CL")
+            print(userLocation.location)
         }
     }
     
