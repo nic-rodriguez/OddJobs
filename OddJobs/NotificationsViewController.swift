@@ -73,19 +73,26 @@ class NotificationsViewController: UIViewController {
                 print("saving jobs")
                 self.jobsPosted = jobs!
                 self.notificationsTableView.reloadData()
-                
-                //explain this code block later
                 self.jobsUserInterested = []
                 self.totalUsersInterested = []
-                //
                 for job in self.jobsPosted {
                     if job["usersInterested"] != nil {
                         let usersInterested = job["usersInterested"] as! [PFUser]
-                        var counter = 0
-                        while (counter < usersInterested.count) {
-                            self.jobsUserInterested.append(job)
-                            self.totalUsersInterested.append((usersInterested[counter]))
-                            counter += 1
+                        print(usersInterested)
+                        print(job)
+                        if job["userAccepted"] != nil {
+                            let acceptedUser = job["userAccepted"] as! PFUser
+                            for user in usersInterested {
+                                if user.objectId! == acceptedUser.objectId! {
+                                    self.jobsUserInterested.append(job)
+                                    self.totalUsersInterested.append(user)
+                                }
+                            }
+                        } else {
+                            for user in usersInterested {
+                                self.jobsUserInterested.append(job)
+                                self.totalUsersInterested.append(user)
+                            }
                         }
                     }
                 }
@@ -102,7 +109,6 @@ class NotificationsViewController: UIViewController {
         query.includeKey("_User")
         query.includeKey("Job")
         query.includeKey("username")
-         
         
         query.getObjectInBackground(withId: PFUser.current()!.objectId!) { (user: PFObject?, error:Error?) in
             if let error = error {
@@ -188,12 +194,30 @@ extension NotificationsViewController: NotificationCellDelegate {
     
     
     func acceptUser(userInterested: PFUser, cellIndex: Int) {
+        print(jobsUserInterested)
         jobsUserInterested[cellIndex]["userAccepted"] = userInterested
+        var updatedJobs = [] as! [PFObject]
+        var updatedUsers = [] as! [PFUser]
+        for num in 0..<jobsUserInterested.count {
+            if jobsUserInterested[num] == jobsUserInterested[cellIndex] {
+                if num == cellIndex {
+                    updatedJobs.append(jobsUserInterested[num])
+                    updatedUsers.append(totalUsersInterested[num])
+                }
+            } else {
+                updatedJobs.append(jobsUserInterested[num])
+                updatedUsers.append(totalUsersInterested[num])
+            }
+        }
+        jobsUserInterested = updatedJobs
+        totalUsersInterested = updatedUsers
+        notificationsTableView.reloadData()
         jobsUserInterested[cellIndex].saveInBackground().continue({ (task: BFTask<NSNumber>) -> Void in
             let alert = UIAlertController(title: "User accepted!", message: "You have accepted this user to complete your task. Please select the complete button when your task has been finished", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         })
+        
         
     }
     

@@ -48,9 +48,9 @@ class HomeFeedTableViewCell: UITableViewCell {
             let b:String = String(format:"%.2f", a)
             self.costLabel.text = "$" + b
             
-            let descLocation: PFGeoPoint = PFGeoPoint()
-            descLocation.latitude = job["latitude"] as! Double
-            descLocation.longitude = job["longitude"] as! Double
+            let descLocation = job["location"] as?  PFGeoPoint
+//            descLocation.latitude = job["latitude"] as! Double
+//            descLocation.longitude = job["longitude"] as! Double
    
             var currentUserLocation: PFGeoPoint!
             
