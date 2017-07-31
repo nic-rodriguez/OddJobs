@@ -31,7 +31,6 @@ class NearbyWorkersViewController: UIViewController {
         queryNearbyUsers()
         
         workersTableView.rowHeight = UITableViewAutomaticDimension
-        print(workersTableView.rowHeight)
         workersTableView.estimatedRowHeight = 100
         
         workersTableView.separatorStyle = .none

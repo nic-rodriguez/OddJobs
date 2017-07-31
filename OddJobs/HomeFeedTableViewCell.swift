@@ -26,7 +26,6 @@ class HomeFeedTableViewCell: UITableViewCell {
     var currentUser = PFUser.current()
     let color = ColorObject()
     
-    
     var job: PFObject! {
         didSet {
             self.postImageView?.file = job["image"] as? PFFile
@@ -49,10 +48,7 @@ class HomeFeedTableViewCell: UITableViewCell {
             self.costLabel.text = "$" + b
             
             let descLocation: PFGeoPoint = job["location"] as! PFGeoPoint
- 
-   
             var currentUserLocation: PFGeoPoint!
-            
             PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
                 if geoPoint != nil {
                     let geoPointLat = geoPoint.latitude
@@ -65,13 +61,12 @@ class HomeFeedTableViewCell: UITableViewCell {
                 }
             })
             
-            
             //UIColor
             costLabel.textColor = color.myDarkColor
             titleLabel.textColor = color.myDarkColor
             distanceLabel.textColor = color.myDarkColor
             descriptionLabel.textColor = color.myTealColor
-            contentView.backgroundColor = color.myRedColor //myColor
+            contentView.backgroundColor = color.myRedColor
             self.backgroundCardView.backgroundColor = color.myLightColor
             self.backgroundCardView.layer.cornerRadius = 10.0
             self.backgroundCardView.layer.masksToBounds = false

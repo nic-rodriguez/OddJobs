@@ -47,13 +47,10 @@ class NotificationCell: UITableViewCell {
     
     
     func loadUserData() {
-        
         usernameLabel.text = userInterested.username ?? "error"
-        
         
         let location = self.userInterested["location"] as? PFGeoPoint
         var currentUserLocation: PFGeoPoint!
-        
         PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
             if geoPoint != nil {
                 let geoPointLat = geoPoint.latitude
@@ -64,8 +61,6 @@ class NotificationCell: UITableViewCell {
                 print(error?.localizedDescription ?? "Error")
             }
         })
-        
-        
         
     }
     

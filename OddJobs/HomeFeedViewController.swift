@@ -53,7 +53,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //Choose your custom row height
         if (indexPath.section == 0){
             return 40.0
         } else {
