@@ -102,6 +102,9 @@ class DetailViewController: UIViewController {
         print("height of skills label")
         print(skillsLabel.frame.height)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if justApplied == true {
             requestSentAlert()
         }
@@ -148,10 +151,14 @@ class DetailViewController: UIViewController {
         let poster = job["userPosted"] as! PFUser
         if PFUser.current()!.objectId! != poster.objectId! {
             let usersInterested = job["usersInterested"] as? [PFUser] ?? []
-            if usersInterested.contains(PFUser.current()!) {
-                hasAlreadyAppliedAlert()
-            } else {
-//                savejobData()
+            var hasApplied = false
+            for user in usersInterested {
+                if user.objectId! == PFUser.current()!.objectId! {
+                    hasAlreadyAppliedAlert()
+                    hasApplied = true
+                }
+            }
+            if !hasApplied {
                 chatRoom = ChatRoom.createChatRoom(firstUser: PFUser.current()!, secondUser: job["userPosted"] as! PFUser, job: job, completion: { (success: Bool, error: Error?) in
                     if let error = error {
                         print(error.localizedDescription)
