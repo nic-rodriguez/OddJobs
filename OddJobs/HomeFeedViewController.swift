@@ -102,10 +102,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 let geoPointLat = geoPoint.latitude
                 let geoPointLong = geoPoint.longitude
                 self.currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
-                
-                print("current")
-                print(self.currentLocation)
-                
+            
                 let query = PFQuery(className: "Job")
                 
                 query.includeKey("userPosted")

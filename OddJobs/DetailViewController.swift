@@ -14,7 +14,6 @@ import MapKit
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var jobPosterPFImage: PFImageView!
-    @IBOutlet weak var jobPostPFImageView: PFImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var datePostedLabel: UILabel!
@@ -22,6 +21,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var skillsLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var backgroundCard: UIView!
     
     var job: PFObject!
     var initialLocation: MKUserLocation?
@@ -32,6 +32,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         requestLocationAccess()
         mapView.showsUserLocation = true
         mapView.delegate = self
@@ -39,6 +41,14 @@ class DetailViewController: UIViewController {
         mapView.isPitchEnabled = false
         mapView.isScrollEnabled = false
         mapView.isRotateEnabled = false
+        
+        
+        self.backgroundCard.layer.cornerRadius = 10.0
+        self.backgroundCard.layer.masksToBounds = false
+        self.backgroundCard.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        self.backgroundCard.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.backgroundCard.layer.shadowOpacity = 0.4
+        
         
         let user = job["userPosted"] as! PFUser
         let date = job["dateDue"]
@@ -53,11 +63,12 @@ class DetailViewController: UIViewController {
         jobPosterPFImage.layer.masksToBounds = true
         jobPosterPFImage.loadInBackground()
         
-        jobPostPFImageView.file = job["image"] as? PFFile
-        jobPostPFImageView.loadInBackground()
+    
         
         usernameLabel.text = user.username!
         jobTitleLabel.text = job["title"] as? String
+        
+        descriptionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         descriptionLabel.text = job["description"] as? String ?? ""
         datePostedLabel.text = dateString
         costLabel.text = "$" + payString

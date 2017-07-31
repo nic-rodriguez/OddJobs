@@ -54,7 +54,7 @@ class PostViewController: UIViewController {
         
         payField.setBottomBorder()
         
-        let payPlaceholder = NSAttributedString(string: "Estimated Pay", attributes: [NSForegroundColorAttributeName:UIColor.white.withAlphaComponent(0.6)])
+        let payPlaceholder = NSAttributedString(string: "Estimated Pay ($)", attributes: [NSForegroundColorAttributeName:UIColor.white.withAlphaComponent(0.6)])
         
         payField.attributedPlaceholder = payPlaceholder
         
