@@ -18,7 +18,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     var filteredJobs: [PFObject] = []
     var selectedTags: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false, false]
     var tags: [String] = ["Gardening", "Food", "Delivery", "Cleaning", "Pets", "Housework", "Caretaker", "Survey", "App Testing", "Logo Design", "Plumbing", "Sewing", "Dry Cleaning"]
-    
+    var currentLocation: PFGeoPoint!
     var shouldShowSearchResults = false
     var searchController: UISearchController!
     var customSearchController: CustomSearchController!
@@ -96,44 +96,60 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func queryServer() {
         
-        //Mels Query
-        let query = PFQuery(className: "Job")
-        query.addDescendingOrder("createdAt")
-        query.includeKey("userPosted")
-        query.includeKey("tags")
-        query.limit = queryTotal
-        //creat an array that holds only marked true objects
-        var selected: [String] = []
-        for (index, element) in selectedTags.enumerated() {
-            if (element) { //if this location holds true
-                selected.append(tags[index])
-            }
-        }
-        if selected.count > 0 {
-            query.whereKey("tags", containsAllObjectsIn: selected)
-            query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-                if let error = error {
-                    print(error.localizedDescription)
-                } else {
-                    self.jobs = jobs!
-                    self.filteredJobs = jobs!
-                    self.homeFeedTableView.reloadData()
-                    self.isMoreDataLoading = false
+        PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
+            if geoPoint != nil {
+                let geoPointLat = geoPoint.latitude
+                let geoPointLong = geoPoint.longitude
+                self.currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+                
+                let query = PFQuery(className: "Job")
+                
+                query.includeKey("userPosted")
+                query.includeKey("tags")
+                query.whereKey("location", nearGeoPoint:self.currentLocation)
+                query.limit = self.queryTotal
+                
+                //creat an array that holds only marked true objects
+                var selected: [String] = []
+                
+                for (index, element) in self.selectedTags.enumerated() {
+                    if (element) { //if this location holds true
+                        selected.append(self.tags[index])
+                    }
                 }
-            }
-        } else {
-            query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-                if let error = error {
-                    print(error.localizedDescription)
+                
+                if selected.count > 0 {
+                    query.whereKey("tags", containsAllObjectsIn: selected)
+                    query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            self.jobs = jobs!
+                            self.filteredJobs = jobs!
+                            self.homeFeedTableView.reloadData()
+                            self.isMoreDataLoading = false
+                        }
+                    }
                 } else {
-                    self.jobs = jobs!
-                    self.filteredJobs = jobs!
-                    self.homeFeedTableView.reloadData()
-                    self.isMoreDataLoading = false
+                    query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            self.jobs = jobs!
+                            self.filteredJobs = jobs!
+                            self.homeFeedTableView.reloadData()
+                            self.isMoreDataLoading = false
+                        }
+                    }
                 }
+
+        
             }
-        }
+        })
+        
     }
+    
+    
     
     func refreshControlAction(_ refreshControl: UIRefreshControl!) {
         queryTotal = initialQueryTotal
@@ -202,6 +218,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
         }
+        
     }
     
     func updateSearchResults(for searchController: UISearchController) {
