@@ -181,15 +181,6 @@ extension NotificationsViewController: NotificationCellDelegate {
                 if chatRooms! != [] {
                     notificationCell.chatRoom = chatRooms![0]
                     self.performSegue(withIdentifier: "messageSegue", sender: notificationCell)
-                } else {
-                    notificationCell.chatRoom = ChatRoom.createChatRoom(firstUser: firstUser, secondUser: secondUser, job: job, completion: { (success: Bool, error: Error?) in
-                        if let error = error {
-                            print(error.localizedDescription)
-                        } else {
-                            print("chat room created")
-                            self.performSegue(withIdentifier: "messageSegue", sender: notificationCell)
-                        }
-                    })
                 }
             }
         }
