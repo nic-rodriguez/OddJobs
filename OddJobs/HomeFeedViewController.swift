@@ -96,17 +96,24 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func queryServer() {
         
-        //Mels Query
+        PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
+            if geoPoint != nil {
+                let geoPointLat = geoPoint.latitude
+                let geoPointLong = geoPoint.longitude
+                let currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+        
         let query = PFQuery(className: "Job")
-        query.addDescendingOrder("createdAt")
+       
         query.includeKey("userPosted")
         query.includeKey("tags")
-        query.limit = queryTotal
+        //query.whereKey("location", nearGeoPoint:currentLocation)
+        query.limit = self.queryTotal
+        
         //creat an array that holds only marked true objects
         var selected: [String] = []
-        for (index, element) in selectedTags.enumerated() {
+        for (index, element) in self.selectedTags.enumerated() {
             if (element) { //if this location holds true
-                selected.append(tags[index])
+                selected.append(self.tags[index])
             }
         }
         if selected.count > 0 {
@@ -132,7 +139,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                     self.isMoreDataLoading = false
                 }
             }
-        }
+                }}
+        })
+        
     }
     
     func refreshControlAction(_ refreshControl: UIRefreshControl!) {
@@ -202,6 +211,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
         }
+        
     }
     
     func updateSearchResults(for searchController: UISearchController) {
