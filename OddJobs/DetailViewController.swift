@@ -150,8 +150,6 @@ class DetailViewController: UIViewController {
         if PFUser.current()!.objectId! != poster.objectId! {
             let usersInterested = job["usersInterested"] as? [PFUser] ?? []
             var hasApplied = false
-            print(PFUser.current()!)
-            print(usersInterested)
             for user in usersInterested {
                 if user.objectId! == PFUser.current()!.objectId! {
                     hasAlreadyAppliedAlert()
