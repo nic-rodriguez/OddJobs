@@ -115,12 +115,9 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = workersTableView.dequeueReusableCell(withIdentifier: "WorkerCell", for: indexPath) as! WorkersTableViewCell
-        
         cell.user = workers[indexPath.row]
         cell.currentUserLocation = self.currentLocation
-        
         return cell
     }
     
@@ -195,9 +192,9 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
         if (protoCell.descriptionLabel.text == "") {
             additional = additional + (37-16)
         } else if (temp2.width > 252.0) {
-            additional = additional + 2*21.5
+            additional = additional + 2*temp2.height//21.5
         } else {
-            additional = additional + 21.5
+            additional = additional + temp2.height //21.5
         }
         
         if (protoCell.skillsLabel.text == "") {
@@ -207,10 +204,10 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
             let roundedF = CGFloat(ceil(Double(intthis)))
             additional = additional + temp.height*roundedF
         } else {
-            additional = additional + 21.5
+            additional = additional + temp.height //21.5
         }
         additional = additional + 4*8 + 16 + 26
-        return additional //size.height + additional
+        return additional
     }
 
     
