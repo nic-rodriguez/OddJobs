@@ -10,7 +10,8 @@ import UIKit
 import Parse
 import Foundation
 
-class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, TagsRowTableViewCellDelegate, CustomSearchControllerDelegate {
+class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, TagsRowTableViewCellDelegate, CustomSearchControllerDelegate {
+    //UISearchResultsUpdating
     
     @IBOutlet weak var homeFeedTableView: UITableView!
     
@@ -26,6 +27,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     let initialQueryTotal = 3
     var queryTotal = 3
     let color = ColorObject()
+    var timer = Timer ()
+    var counter = 5
+    var finalSearchText: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,7 +121,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                         selected.append(self.tags[index])
                     }
                 }
-                
                 if selected.count > 0 {
                     query.whereKey("tags", containsAllObjectsIn: selected)
                     query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
@@ -142,14 +145,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                         }
                     }
                 }
-
-        
             }
         })
-        
     }
-    
-    
     
     func refreshControlAction(_ refreshControl: UIRefreshControl!) {
         queryTotal = initialQueryTotal
@@ -172,7 +170,6 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 homeFeedTableView.deselectRow(at: indexPath, animated: true)
             }
         }
-        
         if segue.identifier == "mapSegue" {
             let nav = segue.destination as! UINavigationController
             let vc = nav.topViewController as! MapsViewController
@@ -221,18 +218,18 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            // Filter the data array
-            filteredJobs = jobs.filter({ (job) -> Bool in
-                let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
-                return (range != nil)
-            })
-            homeFeedTableView.reloadData()
-        }
-    }
+//    func updateSearchResults(for searchController: UISearchController) {
+//        print("update search")
+//        if let searchText = searchController.searchBar.text {
+//            // Filter the data array
+//            filteredJobs = jobs.filter({ (job) -> Bool in
+//                let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
+//                return (range != nil)
+//            })
+//            homeFeedTableView.reloadData()
+//        }
+//    }
     
-    //this is where we set the colors up
     func configureCustomSearchController() {
         //customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.orange, searchBarTintColor: UIColor.black)
         customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: color.myTealColor, searchBarTintColor: color.myDarkColor)
@@ -255,12 +252,34 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         shouldShowSearchResults = false
         homeFeedTableView.reloadData()
     }
+    
     func didChangeSearchText(searchText: String) {
+        
+        filterSearch(searchText: searchText)
+        
+        //for timed filtering
+        /*
+        timer.invalidate()
+        counter = 5
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(HomeFeedViewController.updateTimer)), userInfo: nil, repeats: true)
+        finalSearchText = searchText
+         */
+    }
+    
+    func updateTimer() {
+        counter -= 1
+        if(counter == 0){
+            filterSearch(searchText: finalSearchText)
+            timer.invalidate()
+            counter = 5
+        }
+    }
+    
+    func filterSearch(searchText: String) {
         filteredJobs = jobs.filter({ (job) -> Bool in
             let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
             return (range != nil)
         })
-        // Reload the tableview.
         homeFeedTableView.reloadData()
     }
 }
@@ -283,3 +302,4 @@ extension HomeFeedViewController: UIScrollViewDelegate {
         }
     }
 }
+
