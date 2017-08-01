@@ -24,7 +24,7 @@
                         <color key="backgroundColor" red="1" green="0.62638346349999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acO-86-2pV">
-                        <rect key="frame" x="16" y="50" width="310" height="21.5"/>
+                        <rect key="frame" x="74" y="50" width="252" height="21.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -52,9 +52,8 @@
                     <constraint firstAttribute="trailingMargin" secondItem="ID4-GT-kbH" secondAttribute="trailing" constant="8" id="HEQ-Cf-3Fa"/>
                     <constraint firstItem="ID4-GT-kbH" firstAttribute="top" secondItem="acO-86-2pV" secondAttribute="bottom" constant="8" id="PRt-wR-0cJ"/>
                     <constraint firstItem="ID4-GT-kbH" firstAttribute="leading" secondItem="0fs-lQ-cbt" secondAttribute="leadingMargin" constant="8" id="W2j-7s-uGf"/>
-                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="ID4-GT-kbH" secondAttribute="bottom" constant="8" id="aU0-Tq-3RJ"/>
                     <constraint firstItem="mRx-Uh-rAT" firstAttribute="leading" secondItem="0fs-lQ-cbt" secondAttribute="leading" constant="8" id="d4d-wo-ddb"/>
-                    <constraint firstItem="acO-86-2pV" firstAttribute="leading" secondItem="0fs-lQ-cbt" secondAttribute="leadingMargin" constant="8" id="eg5-4V-Pb7"/>
+                    <constraint firstItem="acO-86-2pV" firstAttribute="leading" secondItem="0fs-lQ-cbt" secondAttribute="leadingMargin" constant="66" id="eg5-4V-Pb7"/>
                     <constraint firstAttribute="bottom" secondItem="mRx-Uh-rAT" secondAttribute="bottom" constant="8" id="jnU-dO-uVX"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Kjn-HU-swU" secondAttribute="trailing" constant="8" id="rDf-kS-bSI"/>
                 </constraints>

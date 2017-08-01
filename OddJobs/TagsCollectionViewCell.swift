@@ -25,13 +25,11 @@ class TagsCollectionViewCell: UICollectionViewCell {
         //print("button pressed")
         sender.isSelected = !sender.isSelected
         
-        
         if (filterTagButton.isSelected) {
             filterTagButton.backgroundColor = color.myLightColor
         } else {
             filterTagButton.backgroundColor = color.myRedColor
         }
-        
         
         delegate?.toggleTag(position: positionInArr)
     }

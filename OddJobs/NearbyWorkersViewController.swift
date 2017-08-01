@@ -134,8 +134,8 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
         
         protoCell.nameLabel.text = worker.username
         protoCell.descriptionLabel.text = worker["bio"] as? String ?? ""
-        
         protoCell.skillsLabel.text = ""
+        
         let skills = worker["skills"] as! [String]
         if skills.count != 0 {
             protoCell.skillsLabel.text = "Skills: "
@@ -147,14 +147,113 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
             }
         }
         
-        let size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.leastNormalMagnitude))
+//        let size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.leastNormalMagnitude, height: CGFloat.leastNormalMagnitude))
         
+
+
+        
+//        let myAttribute = [ NSFontAttributeName: UIFont(name: "Helvetica Neue Thin", size: 18.0)! ]
+//        let myString = NSMutableAttributedString(string: protoCell.descriptionLabel.text!, attributes: myAttribute )
+//
+//        
+//        let myString = worker["bio"] as? String ?? ""
+//        let attribute = ["NSFontAttributeName": UIFont(name: "Helvetica Neue Thin", size: 18.0)!] //as [String : Any]
+//        let temp = NSAttributedString(string: myString, attributes: attribute)
+//        //, "NSAccessibilityAttributeName": myString
+////        print("bip height")
+////        print(temp.height(withConstrainedWidth: 252))
+//        
+//        
+//        print("name")
+        let temp1 = protoCell.nameLabel.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
+////        let temp1 = protoCell.nameLabel.text?.height(withConstrainedWidth: 310.0, font: UIFont(descriptor: UIFontDescriptor(fontAttributes: myAttribute), size: 18.0))
+//        print(temp1.height)
+////
+////        
+////        
+////        let myFont = UIFont(name: "Helvetica", size: 18)
+//        print("description")
+        let temp2 = protoCell.descriptionLabel.systemLayoutSizeFitting(CGSize(width: 252.0, height: CGFloat.leastNormalMagnitude))
+////        let temp2 = protoCell.descriptionLabel.text?.height(withConstrainedWidth: 254.0, font: myFont!)
+//        print(temp2.height)
+//        print(temp2.width)
+//        
+        
+        
+        
+//        print("skills")
+        let temp = protoCell.skillsLabel.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
+//        let temp = protoCell.skillsLabel.text?.height(withConstrainedWidth: 310.0, font: UIFont(descriptor: UIFontDescriptor(fontAttributes: myAttribute), size: 18.0))
+//        print(temp.height)
+        
+//        print("total size")
+//        print(size.height)
+        
+        
+        var additional: CGFloat = 0
+        print("descripton")
         if (protoCell.descriptionLabel.text == "") {
-            return size.height + 36
+            additional = additional + (37-16)
+        } else if (temp2.width > 252.0) {
+            additional = additional + 2*21.5
         } else {
-            return size.height + 20
+            additional = additional + 21.5
         }
+        
+        if (protoCell.skillsLabel.text == "") {
+            additional = additional + (37-16)
+        } else if (temp.width > 310) {
+            let intthis = temp.width / 310
+            let roundedF = CGFloat(ceil(Double(intthis)))
+            additional = additional + temp.height*roundedF
+        } else {
+            additional = additional + 21.5
+        }
+        additional = additional + 4*8 + 16 + 26
+        return additional //size.height + additional
     }
 
     
 }
+
+extension String {
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        
+        return ceil(boundingBox.height)
+    }
+    
+    func width(withConstraintedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        
+        return ceil(boundingBox.width)
+    }
+    
+//    func height(constraintedWidth width: CGFloat, font: UIFont) -> CGFloat {
+//        let label =  UILabel(frame: CGRect(x: 0, y: 0, width: width, height: .greatestFiniteMagnitude))
+//        label.numberOfLines = 0
+//        label.text = self
+//        label.sizeToFit()
+//        
+//        return label.frame.height
+//    }
+}
+
+extension NSAttributedString {
+    func height(withConstrainedWidth width: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+        
+        return ceil(boundingBox.height)
+    }
+    
+    func width(withConstrainedHeight height: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+        
+        return ceil(boundingBox.width)
+    }
+}
+

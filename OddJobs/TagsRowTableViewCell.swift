@@ -73,7 +73,6 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         cell.filterTagButton.layer.masksToBounds = false
         cell.filterTagButton.layer.shadowColor = myColor.cgColor
         cell.filterTagButton.layer.shadowOpacity = 0.8
-        
         cell.filterTagButton.layer.borderWidth = 2
         cell.filterTagButton.layer.borderColor = color.myLightColor.cgColor
         
