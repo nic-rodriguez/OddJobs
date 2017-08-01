@@ -36,9 +36,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        totalView.frame.size.height = 8000
-//        scrollView.frame.size.height = 8000
-        
         requestLocationAccess()
         mapView.showsUserLocation = true
         mapView.delegate = self

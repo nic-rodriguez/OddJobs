@@ -32,8 +32,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         
         jobsTableView.insertSubview(refreshControl, at: 1)
-        jobsTableView.backgroundColor = color.myLightColor
+        jobsTableView.backgroundColor = color.myRedColor
         jobsTableView.separatorStyle = .none
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

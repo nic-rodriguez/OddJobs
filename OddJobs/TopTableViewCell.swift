@@ -21,18 +21,18 @@ class TopTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel?
     @IBOutlet weak var ratingLabel: UILabel?
     @IBOutlet weak var bioLabel: UILabel?
+    @IBOutlet weak var skillsLabel: UILabel!
     @IBOutlet weak var jobsTakenCounterLabel: UILabel?
     @IBOutlet weak var jobsPosterCounterLabel: UILabel?
     @IBOutlet weak var topProfileCardView: UIView!
     @IBOutlet weak var jobPostedLabel: UILabel!
     @IBOutlet weak var jobTakenLabel: UILabel!
     
-    var user: PFUser!
     let color = ColorObject()
+    var user: PFUser!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         loadData()
     }
     
@@ -46,14 +46,10 @@ class TopTableViewCell: UITableViewCell {
             user = PFUser.current()
         }
         
-        backgroundProfilePFImage?.file = user["backgroundImage"] as? PFFile
-        backgroundProfilePFImage?.loadInBackground()
-        
         profilePFImage?.file = user["profilePicture"] as? PFFile
         profilePFImage?.loadInBackground()
         
         usernameLabel?.text = user?.username!
-        
         ratingLabel?.text = user["rating"] as? String ?? "0"
         bioLabel?.text = user["bio"] as? String ?? ""
         jobsTakenCounterLabel?.text = user["jobsTakenInt"] as? String ?? "0"
@@ -62,17 +58,17 @@ class TopTableViewCell: UITableViewCell {
         profilePFImage?.layer.cornerRadius = (profilePFImage?.frame.size.width)!/2
         profilePFImage?.layer.masksToBounds = true
         
-        backgroundProfilePFImage?.layer.cornerRadius = 10.0
-        backgroundProfilePFImage?.layer.masksToBounds = true
+        usernameLabel?.textColor = color.myDarkColor
+        ratingLabel?.textColor = color.myTealColor
+        bioLabel?.textColor = color.myDarkColor
+        skillsLabel?.textColor = color.myTealColor
         
         jobsPosterCounterLabel?.textColor = color.myDarkColor
-        jobsTakenCounterLabel?.textColor = color.myDarkColor
-        usernameLabel?.textColor = color.myDarkColor
         jobPostedLabel?.textColor = color.myTealColor
+        jobsTakenCounterLabel?.textColor = color.myDarkColor
         jobTakenLabel?.textColor = color.myTealColor
-        ratingLabel?.textColor = color.myDarkColor
-        bioLabel?.textColor = color.myDarkColor
-        contentView.backgroundColor = color.myRedColor //myColor
+        
+        contentView.backgroundColor = color.myRedColor
     }
     
 }
