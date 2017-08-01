@@ -128,12 +128,11 @@ class NotificationsViewController: UIViewController {
                                 self.jobsInterested.append(job)
                                 self.usersPosted.append(job["userPosted"] as! PFUser)
                             }
+                        } else {
+                            self.jobsInterested.append(job)
+                            self.usersPosted.append(job["userPosted"] as! PFUser)
                         }
                     }
-//                    self.jobsInterested = user?["jobsInterested"] as! [PFObject]
-//                    for job in self.jobsInterested {
-//                        self.usersPosted.append(job["userPosted"] as! PFUser)
-//                    }
                 }
                 self.notificationsTableView.reloadData()
             }
