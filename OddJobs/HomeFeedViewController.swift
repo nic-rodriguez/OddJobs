@@ -254,10 +254,16 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func didChangeSearchText(searchText: String) {
+        
+        filterSearch(searchText: searchText)
+        
+        //for timed filtering
+        /*
         timer.invalidate()
         counter = 5
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(HomeFeedViewController.updateTimer)), userInfo: nil, repeats: true)
         finalSearchText = searchText
+         */
     }
     
     func updateTimer() {
