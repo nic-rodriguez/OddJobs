@@ -116,6 +116,8 @@ class NotificationsViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else {
+                self.jobsInterested = []
+                self.usersPosted = []
                 if let interestedJobs = user?["jobsInterested"] as? [PFObject] {
                     for job in interestedJobs {
                         if let userAccepted = job["userAccepted"] as? PFUser {
@@ -128,12 +130,11 @@ class NotificationsViewController: UIViewController {
                                 self.jobsInterested.append(job)
                                 self.usersPosted.append(job["userPosted"] as! PFUser)
                             }
+                        } else {
+                            self.jobsInterested.append(job)
+                            self.usersPosted.append(job["userPosted"] as! PFUser)
                         }
                     }
-//                    self.jobsInterested = user?["jobsInterested"] as! [PFObject]
-//                    for job in self.jobsInterested {
-//                        self.usersPosted.append(job["userPosted"] as! PFUser)
-//                    }
                 }
                 self.notificationsTableView.reloadData()
             }
