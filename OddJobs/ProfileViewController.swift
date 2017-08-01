@@ -36,7 +36,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         jobsTableView.backgroundColor = color.myRedColor
         jobsTableView.separatorStyle = .none
         
-        
+//        let myView = UIView()
+//        myView.backgroundColor = UIColor.red
+//        self.view.addSubview(myView)
+//        
+//        let margins = self.view.layoutMarginsGuide
+//        myView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+//        myView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+//        myView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+//        myView.widthAnchor.constraint(equalToConstant: 300.0).isActive = true
     }
 
     
@@ -74,6 +82,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.user = user
             topCell = cell
             topTableViewCell(topCell!)
+            
+            cell.topProfileCardView.backgroundColor = color.myLightColor
+            cell.topProfileCardView.layer.cornerRadius = 3.0
+            cell.topProfileCardView.layer.masksToBounds = false
+            cell.topProfileCardView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+            cell.topProfileCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+            cell.topProfileCardView.layer.shadowOpacity = 0.4            
+            
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell

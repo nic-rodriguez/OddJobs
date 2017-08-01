@@ -58,6 +58,18 @@ class TopTableViewCell: UITableViewCell {
         profilePFImage?.layer.cornerRadius = (profilePFImage?.frame.size.width)!/2
         profilePFImage?.layer.masksToBounds = true
         
+        skillsLabel?.text = ""
+        let skills = user["skills"] as! [String]
+        if skills.count != 0 {
+            skillsLabel?.text = "Skills: "
+        }
+        for (index, element) in skills.enumerated() {
+            skillsLabel?.text = (skillsLabel?.text!)! + element
+            if (index < skills.count - 1) {
+                skillsLabel?.text = (skillsLabel?.text!)! + ", "
+            }
+        }
+        
         usernameLabel?.textColor = color.myDarkColor
         ratingLabel?.textColor = color.myTealColor
         bioLabel?.textColor = color.myDarkColor
@@ -69,6 +81,7 @@ class TopTableViewCell: UITableViewCell {
         jobTakenLabel?.textColor = color.myTealColor
         
         contentView.backgroundColor = color.myRedColor
+        
     }
     
 }
