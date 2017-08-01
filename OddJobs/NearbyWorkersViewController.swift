@@ -144,69 +144,33 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
             }
         }
         
-//        let size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.leastNormalMagnitude, height: CGFloat.leastNormalMagnitude))
-        
+        let nameLabelSize = protoCell.nameLabel.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
 
-
+        let descriptionLabelSize = protoCell.descriptionLabel.systemLayoutSizeFitting(CGSize(width: 252.0, height: CGFloat.leastNormalMagnitude))
         
-//        let myAttribute = [ NSFontAttributeName: UIFont(name: "Helvetica Neue Thin", size: 18.0)! ]
-//        let myString = NSMutableAttributedString(string: protoCell.descriptionLabel.text!, attributes: myAttribute )
-//
-//        
-//        let myString = worker["bio"] as? String ?? ""
-//        let attribute = ["NSFontAttributeName": UIFont(name: "Helvetica Neue Thin", size: 18.0)!] //as [String : Any]
-//        let temp = NSAttributedString(string: myString, attributes: attribute)
-//        //, "NSAccessibilityAttributeName": myString
-////        print("bip height")
-////        print(temp.height(withConstrainedWidth: 252))
-//        
-//        
-//        print("name")
-        let temp1 = protoCell.nameLabel.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
-////        let temp1 = protoCell.nameLabel.text?.height(withConstrainedWidth: 310.0, font: UIFont(descriptor: UIFontDescriptor(fontAttributes: myAttribute), size: 18.0))
-//        print(temp1.height)
-////
-////        
-////        
-////        let myFont = UIFont(name: "Helvetica", size: 18)
-//        print("description")
-        let temp2 = protoCell.descriptionLabel.systemLayoutSizeFitting(CGSize(width: 252.0, height: CGFloat.leastNormalMagnitude))
-////        let temp2 = protoCell.descriptionLabel.text?.height(withConstrainedWidth: 254.0, font: myFont!)
-//        print(temp2.height)
-//        print(temp2.width)
-//        
-        
-        
-        
-//        print("skills")
-        let temp = protoCell.skillsLabel.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
-//        let temp = protoCell.skillsLabel.text?.height(withConstrainedWidth: 310.0, font: UIFont(descriptor: UIFontDescriptor(fontAttributes: myAttribute), size: 18.0))
-//        print(temp.height)
-        
-//        print("total size")
-//        print(size.height)
+        let skillLabelSize = protoCell.skillsLabel.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
         
         
         var additional: CGFloat = 0
         print("descripton")
         if (protoCell.descriptionLabel.text == "") {
             additional = additional + (37-16)
-        } else if (temp2.width > 252.0) {
-            additional = additional + 2*temp2.height//21.5
+        } else if (descriptionLabelSize.width > 252.0) {
+            additional = additional + 2*descriptionLabelSize.height
         } else {
-            additional = additional + temp2.height //21.5
+            additional = additional + descriptionLabelSize.height
         }
         
         if (protoCell.skillsLabel.text == "") {
             additional = additional + (37-16)
-        } else if (temp.width > 310) {
-            let intthis = temp.width / 310
+        } else if (skillLabelSize.width > 310) {
+            let intthis = skillLabelSize.width / 310
             let roundedF = CGFloat(ceil(Double(intthis)))
-            additional = additional + temp.height*roundedF
+            additional = additional + skillLabelSize.height*roundedF
         } else {
-            additional = additional + temp.height //21.5
+            additional = additional + skillLabelSize.height
         }
-        additional = additional + 4*8 + 16 + 26
+        additional = additional + 4*8 + 16 + nameLabelSize.height
         return additional
     }
 
