@@ -13,6 +13,7 @@ import MapKit
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var totalView: UIView!
     @IBOutlet weak var jobPosterPFImage: PFImageView!
     @IBOutlet weak var jobTitleLabel: UILabel!
@@ -34,7 +35,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
+//        totalView.frame.size.height = 8000
+//        scrollView.frame.size.height = 8000
+        
         requestLocationAccess()
         mapView.showsUserLocation = true
         mapView.delegate = self
