@@ -40,12 +40,12 @@ class WorkersTableViewCell: UITableViewCell {
     
     func loadData() {
         backgroundCardView.backgroundColor = color.myLightColor
-        backgroundCardView.layer.cornerRadius = 10.0
+        backgroundCardView.layer.cornerRadius = 4.0
         backgroundCardView.layer.masksToBounds = false
         backgroundCardView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
         backgroundCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
         backgroundCardView.layer.shadowOpacity = 0.4
-        contentView.backgroundColor = color.myRedColor
+        contentView.backgroundColor = color.myTealColor
         
         
         nameLabel.text = user.username
@@ -56,6 +56,7 @@ class WorkersTableViewCell: UITableViewCell {
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.height/2
         self.profileImageView.clipsToBounds = true
         self.profileImageView.loadInBackground()
+        
         descriptionLabel.text = user["bio"] as? String ?? ""
         
         skillsLabel.text = ""
@@ -77,7 +78,7 @@ class WorkersTableViewCell: UITableViewCell {
         
         nameLabel.textColor = color.myDarkColor
         distanceFromLabel.textColor = color.myDarkColor
-        descriptionLabel.textColor = color.myDarkColor
+        descriptionLabel.textColor = color.myRedColor
         skillsLabel.textColor = color.myDarkColor
         
     }
