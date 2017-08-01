@@ -13,6 +13,7 @@ class FirstMessageViewController: UIViewController {
     
     var chatRoom: PFObject!
     var job: PFObject!
+    var didApply = false
     
     @IBOutlet weak var messageTextField: UITextField!
     
@@ -21,10 +22,12 @@ class FirstMessageViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        let tab = self.presentingViewController as! UITabBarController
-        let nav = tab.selectedViewController as! UINavigationController
-        let vc = nav.topViewController as! DetailViewController
-        vc.justApplied = true
+        if didApply {
+            let tab = self.presentingViewController as! UITabBarController
+            let nav = tab.selectedViewController as! UINavigationController
+            let vc = nav.topViewController as! DetailViewController
+            vc.justApplied = true
+        }
     }
     
     func savejobData() {
@@ -84,11 +87,19 @@ class FirstMessageViewController: UIViewController {
             chatRoom["messageArray"] = messages
             chatRoom.saveInBackground()
             savejobData()
+            didApply = true
             dismiss(animated: true, completion: nil)
         }
     }
     
     @IBAction func cancelPress(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        chatRoom.deleteInBackground { (success: Bool, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("chatRoom deleted")
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 }

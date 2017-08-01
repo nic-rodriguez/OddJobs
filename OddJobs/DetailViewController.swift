@@ -45,12 +45,12 @@ class DetailViewController: UIViewController {
         
         self.totalView.backgroundColor = color.myRedColor
         
-        self.backgroundCard.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-        self.backgroundCard.layer.cornerRadius = 10.0
+        self.backgroundCard.backgroundColor = color.myLightColor
+        self.backgroundCard.layer.cornerRadius = 3.0
         self.backgroundCard.layer.masksToBounds = false
         self.backgroundCard.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
         self.backgroundCard.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.backgroundCard.layer.shadowOpacity = 0.4
+        self.backgroundCard.layer.shadowOpacity = 0.8
         
         
         let user = job["userPosted"] as! PFUser
@@ -71,12 +71,22 @@ class DetailViewController: UIViewController {
         usernameLabel.text = user.username!
         jobTitleLabel.text = job["title"] as? String
         
-        descriptionLabel.layer.cornerRadius = descriptionLabel.frame.size.width/16
+        descriptionLabel.layer.cornerRadius = 3.0
         descriptionLabel.layer.masksToBounds = true
-        descriptionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        descriptionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.04)
         descriptionLabel.text = job["description"] as? String ?? ""
         datePostedLabel.text = dateString
         costLabel.text = "$" + payString
+        
+        let location = NSAttributedString(string: "Location: ", attributes: [NSForegroundColorAttributeName:color.myTealColor])
+        
+        let jobLocation = NSAttributedString(string: job["address"] as! String)
+        
+        let result = NSMutableAttributedString()
+        result.append(location)
+        result.append(jobLocation)
+        
+        locationLabel.attributedText = result
         
         let skills = job["tags"] as! [String]
         print(skills)
@@ -100,6 +110,9 @@ class DetailViewController: UIViewController {
         print("height of skills label")
         print(skillsLabel.frame.height)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if justApplied == true {
             requestSentAlert()
         }
@@ -146,10 +159,14 @@ class DetailViewController: UIViewController {
         let poster = job["userPosted"] as! PFUser
         if PFUser.current()!.objectId! != poster.objectId! {
             let usersInterested = job["usersInterested"] as? [PFUser] ?? []
-            if usersInterested.contains(PFUser.current()!) {
-                hasAlreadyAppliedAlert()
-            } else {
-//                savejobData()
+            var hasApplied = false
+            for user in usersInterested {
+                if user.objectId! == PFUser.current()!.objectId! {
+                    hasAlreadyAppliedAlert()
+                    hasApplied = true
+                }
+            }
+            if !hasApplied {
                 chatRoom = ChatRoom.createChatRoom(firstUser: PFUser.current()!, secondUser: job["userPosted"] as! PFUser, job: job, completion: { (success: Bool, error: Error?) in
                     if let error = error {
                         print(error.localizedDescription)
