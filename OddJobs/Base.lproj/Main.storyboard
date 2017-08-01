@@ -368,19 +368,13 @@ EEVudGVyIFBhc3N3b3JkA
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smu-MA-K9X">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of the job" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smu-MA-K9X">
                                                         <rect key="frame" x="8" y="66" width="319" height="160"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="vVR-1v-O6r"/>
                                                         </constraints>
-                                                        <attributedString key="attributedText">
-                                                            <fragment content="Description of the job">
-                                                                <attributes>
-                                                                    <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
-                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="rightToLeft" tighteningFactorForTruncation="0.0"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="skills" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ov-Zm-S0x">
@@ -392,13 +386,19 @@ EEVudGVyIFBhc3N3b3JkA
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Preferred skills: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaE-Ox-Yjt">
                                                         <rect key="frame" x="8" y="287" width="116" height="21"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="$N.NN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COs-Kx-DDV">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COs-Kx-DDV">
                                                         <rect key="frame" x="282" y="23" width="49" height="20.5"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="$N.NN">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <font key="NSFont" size="17" name="HelveticaNeue-Thin"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbG-ic-RoH">
@@ -406,14 +406,14 @@ EEVudGVyIFBhc3N3b3JkA
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="l98-Hy-hoN"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69Q-EM-pWi">
                                                         <rect key="frame" x="8" y="403" width="49" height="21"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melody" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1T-dJ-Y0G">
@@ -425,7 +425,7 @@ EEVudGVyIFBhc3N3b3JkA
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" on " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOl-tA-9Cu">
                                                         <rect key="frame" x="118" y="403.5" width="29" height="20"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6/12/17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPX-Pu-hTX">
@@ -1557,7 +1557,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Jobs" image="jobdelivery" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a3V-mP-s7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1599,7 +1599,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="m96-EM-I7f"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hRx-N9-B1U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hRx-N9-B1U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1619,7 +1619,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Post" image="pluss" id="LL7-2d-aby"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhP-7p-MLR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QhP-7p-MLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1637,7 +1637,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -2043,7 +2043,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Workers" image="globe" id="qTR-Wh-P3h"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bw0-hu-T7s">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bw0-hu-T7s">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -2062,7 +2062,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Notifications" image="mail" id="hcY-1g-4WS"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gg4-x5-OkN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gg4-x5-OkN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2080,7 +2080,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLA-qn-ZIQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVJ-V0-srk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dVJ-V0-srk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2099,7 +2099,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1HX-fI-nHN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="wlD-01-xTb"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pvv-Dg-Iwo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Pvv-Dg-Iwo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2117,7 +2117,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DlW-tT-QBO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vdI-bo-4kh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vdI-bo-4kh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

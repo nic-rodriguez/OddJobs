@@ -45,7 +45,7 @@ class DetailViewController: UIViewController {
         
         self.totalView.backgroundColor = color.myRedColor
         
-        self.backgroundCard.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        self.backgroundCard.backgroundColor = color.myLightColor
         self.backgroundCard.layer.cornerRadius = 3.0
         self.backgroundCard.layer.masksToBounds = false
         self.backgroundCard.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
@@ -73,12 +73,20 @@ class DetailViewController: UIViewController {
         
         descriptionLabel.layer.cornerRadius = 3.0
         descriptionLabel.layer.masksToBounds = true
-        descriptionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        descriptionLabel.backgroundColor = UIColor.black.withAlphaComponent(0.04)
         descriptionLabel.text = job["description"] as? String ?? ""
         datePostedLabel.text = dateString
         costLabel.text = "$" + payString
         
-        locationLabel.text = "Location: " + (job["address"] as? String ?? "")
+        let location = NSAttributedString(string: "Location: ", attributes: [NSForegroundColorAttributeName:color.myTealColor])
+        
+        let jobLocation = NSAttributedString(string: job["address"] as! String)
+        
+        let result = NSMutableAttributedString()
+        result.append(location)
+        result.append(jobLocation)
+        
+        locationLabel.attributedText = result
         
         let skills = job["tags"] as! [String]
         print(skills)
