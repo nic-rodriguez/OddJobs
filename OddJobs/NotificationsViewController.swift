@@ -78,8 +78,7 @@ class NotificationsViewController: UIViewController {
                 for job in self.jobsPosted {
                     if job["usersInterested"] != nil {
                         let usersInterested = job["usersInterested"] as! [PFUser]
-                        print(usersInterested)
-                        print(job)
+                        let usersDeclined = job["usersDeclined"] as? [String] ?? []
                         if job["userAccepted"] != nil {
                             let acceptedUser = job["userAccepted"] as! PFUser
                             for user in usersInterested {
@@ -90,8 +89,10 @@ class NotificationsViewController: UIViewController {
                             }
                         } else {
                             for user in usersInterested {
-                                self.jobsUserInterested.append(job)
-                                self.totalUsersInterested.append(user)
+                                if !usersDeclined.contains(user.objectId!) {
+                                    self.jobsUserInterested.append(job)
+                                    self.totalUsersInterested.append(user)
+                                }
                             }
                         }
                     }
@@ -134,11 +135,6 @@ class NotificationsViewController: UIViewController {
 
 }
 
-
-
-
-
-
 extension NotificationsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -148,7 +144,6 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
             return jobsInterested.count
         }
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if notificationControl.selectedSegmentIndex == 0 {
@@ -166,10 +161,9 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.userPosted = self.usersPosted[indexPath.row]
                
             }
-            cell.delegate = self as PendingJobsCellDelegate
+            cell.delegate = self
             return cell
         }
-        
     }
 }
 
@@ -194,7 +188,6 @@ extension NotificationsViewController: NotificationCellDelegate {
     
     
     func acceptUser(userInterested: PFUser, cellIndex: Int) {
-        print(jobsUserInterested)
         jobsUserInterested[cellIndex]["userAccepted"] = userInterested
         var updatedJobs = [] as! [PFObject]
         var updatedUsers = [] as! [PFUser]
@@ -221,7 +214,24 @@ extension NotificationsViewController: NotificationCellDelegate {
         
     }
     
-    
+    func declineUser(userInterested: PFUser, cellIndex: Int) {
+        let currentJob = jobsUserInterested[cellIndex]
+        var usersDeclined = currentJob["usersDeclined"] as? [String] ?? []
+        usersDeclined.append(totalUsersInterested[cellIndex].objectId!)
+        currentJob["usersDeclined"] = usersDeclined
+        var updatedJobs = [] as! [PFObject]
+        var updatedUsers = [] as! [PFUser]
+        for num in 0..<totalUsersInterested.count {
+            if num != cellIndex {
+                updatedJobs.append(jobsUserInterested[num])
+                updatedUsers.append(totalUsersInterested[num])
+            }
+        }
+        jobsUserInterested = updatedJobs
+        totalUsersInterested = updatedUsers
+        notificationsTableView.reloadData()
+        currentJob.saveInBackground()
+    }
 }
 
 
