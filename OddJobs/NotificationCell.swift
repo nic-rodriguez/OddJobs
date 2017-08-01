@@ -11,8 +11,8 @@ import Parse
 
 @objc protocol NotificationCellDelegate {
     func queryChatRooms(notificationCell: NotificationCell, job: PFObject, firstUser: PFUser, secondUser: PFUser)
-    
     func acceptUser(userInterested: PFUser, cellIndex: Int)
+    func declineUser(userInterested: PFUser, cellIndex: Int)
 }
 
 class NotificationCell: UITableViewCell {
@@ -32,6 +32,7 @@ class NotificationCell: UITableViewCell {
             self.loadJobData()
         }
     }
+    
     var chatRoom: PFObject?
     var cellIndex: Int!
     var delegate: NotificationCellDelegate?
@@ -61,7 +62,6 @@ class NotificationCell: UITableViewCell {
                 print(error?.localizedDescription ?? "Error")
             }
         })
-        
     }
     
     func loadJobData() {
@@ -69,14 +69,15 @@ class NotificationCell: UITableViewCell {
                
     }
     
-    
     @IBAction func messagePress(_ sender: Any) {
         delegate!.queryChatRooms(notificationCell: self, job: correspondingJob, firstUser: PFUser.current()!, secondUser: userInterested)
     }
     
-    
     @IBAction func acceptUser(_ sender: UIButton) {
         delegate?.acceptUser(userInterested: userInterested, cellIndex: cellIndex)
     }
-
+    
+    @IBAction func declineUser(_ sender: Any) {
+        delegate!.declineUser(userInterested: userInterested, cellIndex: cellIndex)
+    }
 }

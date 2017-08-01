@@ -16,12 +16,14 @@ class NotificationsViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     
     var jobsPosted: [PFObject] = []
+    // posted cell
     var jobsUserInterested: [PFObject] = []
     var totalUsersInterested: [PFUser] = []
+    // pending cell
     var jobsInterested: [PFObject] = []
     var usersPosted: [PFUser] = []
-    var chatRooms: [PFObject]?
     
+    var chatRooms: [PFObject]?
     
     @IBAction func onChange(_ sender: UISegmentedControl) {
         notificationsTableView.reloadData()
@@ -78,8 +80,7 @@ class NotificationsViewController: UIViewController {
                 for job in self.jobsPosted {
                     if job["usersInterested"] != nil {
                         let usersInterested = job["usersInterested"] as! [PFUser]
-                        print(usersInterested)
-                        print(job)
+                        let usersDeclined = job["usersDeclined"] as? [String] ?? []
                         if job["userAccepted"] != nil {
                             let acceptedUser = job["userAccepted"] as! PFUser
                             for user in usersInterested {
@@ -90,8 +91,10 @@ class NotificationsViewController: UIViewController {
                             }
                         } else {
                             for user in usersInterested {
-                                self.jobsUserInterested.append(job)
-                                self.totalUsersInterested.append(user)
+                                if !usersDeclined.contains(user.objectId!) {
+                                    self.jobsUserInterested.append(job)
+                                    self.totalUsersInterested.append(user)
+                                }
                             }
                         }
                     }
@@ -100,7 +103,6 @@ class NotificationsViewController: UIViewController {
             }
         }
     }
-    
 
     func fetchPendingJobsData() {
         let query = PFQuery(className: "_User")
@@ -114,11 +116,24 @@ class NotificationsViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                if user?["jobsInterested"] != nil {
-                    self.jobsInterested = user?["jobsInterested"] as! [PFObject]
-                    for job in self.jobsInterested{
-                        self.usersPosted.append(job["userPosted"] as! PFUser)
+                if let interestedJobs = user?["jobsInterested"] as? [PFObject] {
+                    for job in interestedJobs {
+                        if let userAccepted = job["userAccepted"] as? PFUser {
+                            if userAccepted.objectId! == PFUser.current()!.objectId! {
+                                self.jobsInterested.append(job)
+                                self.usersPosted.append(job["userPosted"] as! PFUser)
+                            }
+                        } else if let declinedUsers = job["usersDeclined"] as? [String] {
+                            if !declinedUsers.contains(PFUser.current()!.objectId!) {
+                                self.jobsInterested.append(job)
+                                self.usersPosted.append(job["userPosted"] as! PFUser)
+                            }
+                        }
                     }
+//                    self.jobsInterested = user?["jobsInterested"] as! [PFObject]
+//                    for job in self.jobsInterested {
+//                        self.usersPosted.append(job["userPosted"] as! PFUser)
+//                    }
                 }
                 self.notificationsTableView.reloadData()
             }
@@ -131,13 +146,7 @@ class NotificationsViewController: UIViewController {
         
         refreshControl.endRefreshing()
     }
-
 }
-
-
-
-
-
 
 extension NotificationsViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -148,7 +157,6 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
             return jobsInterested.count
         }
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if notificationControl.selectedSegmentIndex == 0 {
@@ -166,10 +174,9 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.userPosted = self.usersPosted[indexPath.row]
                
             }
-            cell.delegate = self as PendingJobsCellDelegate
+            cell.delegate = self
             return cell
         }
-        
     }
 }
 
@@ -192,19 +199,53 @@ extension NotificationsViewController: NotificationCellDelegate {
         }
     }
     
-    
     func acceptUser(userInterested: PFUser, cellIndex: Int) {
-        print(jobsUserInterested)
-        jobsUserInterested[cellIndex]["userAccepted"] = userInterested
-        var updatedJobs = [] as! [PFObject]
-        var updatedUsers = [] as! [PFUser]
-        for num in 0..<jobsUserInterested.count {
-            if jobsUserInterested[num] == jobsUserInterested[cellIndex] {
-                if num == cellIndex {
+        if let acceptedUser = jobsUserInterested[cellIndex]["userAccepted"] as? PFUser {
+            if acceptedUser.objectId! == userInterested.objectId! {
+                let alert = UIAlertController(title: "Whoops!", message: "You have already accepted this user to complete your task.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                present(alert, animated: true, completion: nil)
+            }
+        } else {
+            jobsUserInterested[cellIndex]["userAccepted"] = userInterested
+            var updatedJobs = [] as! [PFObject]
+            var updatedUsers = [] as! [PFUser]
+            for num in 0..<jobsUserInterested.count {
+                if jobsUserInterested[num] == jobsUserInterested[cellIndex] {
+                    if num == cellIndex {
+                        updatedJobs.append(jobsUserInterested[num])
+                        updatedUsers.append(totalUsersInterested[num])
+                    }
+                } else {
                     updatedJobs.append(jobsUserInterested[num])
                     updatedUsers.append(totalUsersInterested[num])
                 }
-            } else {
+            }
+            jobsUserInterested = updatedJobs
+            totalUsersInterested = updatedUsers
+            notificationsTableView.reloadData()
+            jobsUserInterested[cellIndex].saveInBackground().continue({ (task: BFTask<NSNumber>) -> Void in
+                let alert = UIAlertController(title: "User accepted!", message: "You have accepted this user to complete your task. Please select the complete button when your task has been finished", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            })
+        }
+    }
+    
+    func declineUser(userInterested: PFUser, cellIndex: Int) {
+        let currentJob = jobsUserInterested[cellIndex]
+        if let acceptedUser = currentJob["userAccepted"] as? PFUser {
+            if acceptedUser.objectId! == userInterested.objectId! {
+                currentJob["userAccepted"] = NSNull()
+            }
+        }
+        var usersDeclined = currentJob["usersDeclined"] as? [String] ?? []
+        usersDeclined.append(totalUsersInterested[cellIndex].objectId!)
+        currentJob["usersDeclined"] = usersDeclined
+        var updatedJobs = [] as! [PFObject]
+        var updatedUsers = [] as! [PFUser]
+        for num in 0..<totalUsersInterested.count {
+            if num != cellIndex {
                 updatedJobs.append(jobsUserInterested[num])
                 updatedUsers.append(totalUsersInterested[num])
             }
@@ -212,16 +253,8 @@ extension NotificationsViewController: NotificationCellDelegate {
         jobsUserInterested = updatedJobs
         totalUsersInterested = updatedUsers
         notificationsTableView.reloadData()
-        jobsUserInterested[cellIndex].saveInBackground().continue({ (task: BFTask<NSNumber>) -> Void in
-            let alert = UIAlertController(title: "User accepted!", message: "You have accepted this user to complete your task. Please select the complete button when your task has been finished", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        })
-        
-        
+        currentJob.saveInBackground()
     }
-    
-    
 }
 
 
