@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var topCell: TopTableViewCell? = nil
     let color = ColorObject()
     
+    
     @IBOutlet weak var jobsTableView: UITableView!
     @IBOutlet weak var editProfileButton: UIBarButtonItem!
     
@@ -35,7 +36,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         jobsTableView.backgroundColor = color.myRedColor
         jobsTableView.separatorStyle = .none
         
+        
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showDetailView") {
