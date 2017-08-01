@@ -74,6 +74,12 @@ class WorkersTableViewCell: UITableViewCell {
         print(self.currentUserLocation)
         
         distanceFromLabel.text = String(format: "%.0f", self.currentUserLocation.distanceInMiles(to: location)) + " mi away"
+        
+        nameLabel.textColor = color.myDarkColor
+        distanceFromLabel.textColor = color.myDarkColor
+        descriptionLabel.textColor = color.myDarkColor
+        skillsLabel.textColor = color.myDarkColor
+        
     }
     
 }
