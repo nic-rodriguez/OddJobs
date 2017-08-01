@@ -16,12 +16,14 @@ class NotificationsViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     
     var jobsPosted: [PFObject] = []
+    // posted cell
     var jobsUserInterested: [PFObject] = []
     var totalUsersInterested: [PFUser] = []
+    // pending cell
     var jobsInterested: [PFObject] = []
     var usersPosted: [PFUser] = []
-    var chatRooms: [PFObject]?
     
+    var chatRooms: [PFObject]?
     
     @IBAction func onChange(_ sender: UISegmentedControl) {
         notificationsTableView.reloadData()
@@ -101,7 +103,6 @@ class NotificationsViewController: UIViewController {
             }
         }
     }
-    
 
     func fetchPendingJobsData() {
         let query = PFQuery(className: "_User")
@@ -115,11 +116,24 @@ class NotificationsViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                if user?["jobsInterested"] != nil {
-                    self.jobsInterested = user?["jobsInterested"] as! [PFObject]
-                    for job in self.jobsInterested{
-                        self.usersPosted.append(job["userPosted"] as! PFUser)
+                if let interestedJobs = user?["jobsInterested"] as? [PFObject] {
+                    for job in interestedJobs {
+                        if let userAccepted = job["userAccepted"] as? PFUser {
+                            if userAccepted.objectId! == PFUser.current()!.objectId! {
+                                self.jobsInterested.append(job)
+                                self.usersPosted.append(job["userPosted"] as! PFUser)
+                            }
+                        } else if let declinedUsers = job["usersDeclined"] as? [String] {
+                            if !declinedUsers.contains(PFUser.current()!.objectId!) {
+                                self.jobsInterested.append(job)
+                                self.usersPosted.append(job["userPosted"] as! PFUser)
+                            }
+                        }
                     }
+//                    self.jobsInterested = user?["jobsInterested"] as! [PFObject]
+//                    for job in self.jobsInterested {
+//                        self.usersPosted.append(job["userPosted"] as! PFUser)
+//                    }
                 }
                 self.notificationsTableView.reloadData()
             }
@@ -132,7 +146,6 @@ class NotificationsViewController: UIViewController {
         
         refreshControl.endRefreshing()
     }
-
 }
 
 extension NotificationsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -185,7 +198,6 @@ extension NotificationsViewController: NotificationCellDelegate {
             }
         }
     }
-    
     
     func acceptUser(userInterested: PFUser, cellIndex: Int) {
         jobsUserInterested[cellIndex]["userAccepted"] = userInterested

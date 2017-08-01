@@ -32,6 +32,7 @@ class NotificationCell: UITableViewCell {
             self.loadJobData()
         }
     }
+    
     var chatRoom: PFObject?
     var cellIndex: Int!
     var delegate: NotificationCellDelegate?
@@ -61,14 +62,12 @@ class NotificationCell: UITableViewCell {
                 print(error?.localizedDescription ?? "Error")
             }
         })
-        
     }
     
     func loadJobData() {
         jobTitleLabel.text = correspondingJob["title"] as? String
                
     }
-    
     
     @IBAction func messagePress(_ sender: Any) {
         delegate!.queryChatRooms(notificationCell: self, job: correspondingJob, firstUser: PFUser.current()!, secondUser: userInterested)
@@ -81,5 +80,4 @@ class NotificationCell: UITableViewCell {
     @IBAction func declineUser(_ sender: Any) {
         delegate!.declineUser(userInterested: userInterested, cellIndex: cellIndex)
     }
-    
 }
