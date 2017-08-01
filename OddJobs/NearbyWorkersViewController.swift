@@ -34,15 +34,12 @@ class NearbyWorkersViewController: UIViewController {
         workersTableView.estimatedRowHeight = 100
         
         workersTableView.separatorStyle = .none
-        workersTableView.backgroundColor = color.myRedColor
+        workersTableView.backgroundColor = color.myTealColor
         
         protoCell = UINib(nibName: "customWorkerCell", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! WorkersTableViewCell
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        let userLocation = MKUserLocation()
-        currentLocation = PFGeoPoint(location: userLocation.location)
-    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         workersTableView.reloadData()
@@ -65,7 +62,7 @@ class NearbyWorkersViewController: UIViewController {
                 
                 let query: PFQuery = PFUser.query()!
                 // Interested in locations near user.
-                query.whereKey("homeLocation", nearGeoPoint:self.currentLocation)
+                query.whereKey("homeLocation", nearGeoPoint:self.currentLocation, withinMiles: 40)
                 // Limit what could be a lot of points.
                 query.limit = 10
                 // Final list of objects
@@ -118,11 +115,12 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
         let cell = workersTableView.dequeueReusableCell(withIdentifier: "WorkerCell", for: indexPath) as! WorkersTableViewCell
         cell.user = workers[indexPath.row]
         cell.currentUserLocation = self.currentLocation
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        workersTableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
@@ -131,7 +129,9 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
         
         protoCell.nameLabel.text = worker.username
         protoCell.descriptionLabel.text = worker["bio"] as? String ?? ""
+        protoCell.descriptionLabel.textColor = color.myRedColor
         protoCell.skillsLabel.text = ""
+        
         
         let skills = worker["skills"] as! [String]
         if skills.count != 0 {
@@ -146,9 +146,10 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
         
         let nameLabelSize = protoCell.nameLabel.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
 
-        let descriptionLabelSize = protoCell.descriptionLabel.systemLayoutSizeFitting(CGSize(width: 252.0, height: CGFloat.leastNormalMagnitude))
+        let descriptionLabelSize = protoCell.descriptionLabel.systemLayoutSizeFitting(CGSize(width: 285.0, height: CGFloat.leastNormalMagnitude))
         
-        let skillLabelSize = protoCell.skillsLabel.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
+        
+        let skillLabelSize = protoCell.skillsLabel.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
         
         
         var additional: CGFloat = 0

@@ -54,7 +54,7 @@ class HomeFeedTableViewCell: UITableViewCell {
                     let geoPointLat = geoPoint.latitude
                     let geoPointLong = geoPoint.longitude
                     currentUserLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
-                    self.distanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: descLocation)) + " miles away"
+                    self.distanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: descLocation)) + " mi away"
                     
                 } else{
                     print(error?.localizedDescription ?? "Error")
