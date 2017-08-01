@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import ParseUI
+
 
 @objc protocol NotificationCellDelegate {
     func queryChatRooms(notificationCell: NotificationCell, job: PFObject, firstUser: PFUser, secondUser: PFUser)
@@ -17,9 +19,13 @@ import Parse
 
 class NotificationCell: UITableViewCell {
     
+
+    @IBOutlet weak var userProfileImage: PFImageView!
+    
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userDistanceLabel: UILabel!
+    @IBOutlet weak var backgroundCard: UIView!
 
     var userInterested: PFUser!{
         didSet {
@@ -37,8 +43,18 @@ class NotificationCell: UITableViewCell {
     var cellIndex: Int!
     var delegate: NotificationCellDelegate?
     
+    let color = ColorObject()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundCard.backgroundColor = color.myLightColor
+        self.backgroundCard.layer.cornerRadius = 3.0
+        self.backgroundCard.layer.masksToBounds = false
+        self.backgroundCard.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        self.backgroundCard.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.backgroundCard.layer.shadowOpacity = 0.8
+        
+        contentView.backgroundColor = color.myTealColor
         
     }
 
@@ -50,7 +66,15 @@ class NotificationCell: UITableViewCell {
     func loadUserData() {
         usernameLabel.text = userInterested.username ?? "error"
         
-        let location = self.userInterested["location"] as? PFGeoPoint
+        self.userProfileImage.file = userInterested["profilePicture"] as? PFFile
+        self.userProfileImage.layer.borderWidth=1.0
+        self.userProfileImage.layer.borderColor = UIColor.white.cgColor
+        self.userProfileImage.layer.masksToBounds = false
+        self.userProfileImage.layer.cornerRadius = self.userProfileImage.frame.size.height/2
+        self.userProfileImage.clipsToBounds = true
+        self.userProfileImage.loadInBackground()
+        
+        let location = self.userInterested["homeLocation"] as? PFGeoPoint
         var currentUserLocation: PFGeoPoint!
         PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
             if geoPoint != nil {

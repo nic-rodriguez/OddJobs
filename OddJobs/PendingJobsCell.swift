@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 @objc protocol PendingJobsCellDelegate {
     func queryChatRooms(pendingCell: PendingJobsCell, job: PFObject, firstUser: PFUser, secondUser: PFUser)
@@ -15,12 +16,16 @@ import Parse
 
 class PendingJobsCell: UITableViewCell {
 
+  
+    @IBOutlet weak var costLabel: UILabel!
+    @IBOutlet weak var userProfileImage: PFImageView!
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var userPostedLabel: UILabel!
     @IBOutlet weak var datePostedLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var backgroundCard: UIView!
     
     var jobInterested: PFObject!{
         didSet {
@@ -38,8 +43,18 @@ class PendingJobsCell: UITableViewCell {
     
     var delegate: PendingJobsCellDelegate?
     
+    let color = ColorObject()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundCard.backgroundColor = color.myLightColor
+        self.backgroundCard.layer.cornerRadius = 3.0
+        self.backgroundCard.layer.masksToBounds = false
+        self.backgroundCard.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        self.backgroundCard.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.backgroundCard.layer.shadowOpacity = 0.8
+        
+        contentView.backgroundColor = color.myTealColor
         
     }
 
@@ -57,7 +72,22 @@ class PendingJobsCell: UITableViewCell {
         let dateString = dateFormatter.string(from:date as! Date)
         datePostedLabel.text = dateString as! String
         
-        //Need to get distance from the job
+        let a:Double = jobInterested["pay"] as! Double
+        let b:String = String(format:"%.2f", a)
+        self.costLabel.text = "$" + b
+        
+        
+        var currentUserLocation: PFGeoPoint!
+        PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
+            if geoPoint != nil {
+                let geoPointLat = geoPoint.latitude
+                let geoPointLong = geoPoint.longitude
+                currentUserLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+                self.distanceLabel.text = String(format: "%.0f", currentUserLocation.distanceInMiles(to: (self.jobInterested["location"] as! PFGeoPoint))) + " mi away"
+            } else {
+                print(error?.localizedDescription ?? "Error")
+            }
+        })
     
     }
     
@@ -77,6 +107,16 @@ class PendingJobsCell: UITableViewCell {
                 print(error.localizedDescription)
             } else {
                 self.userPostedLabel.text = user?["username"] as! String
+                self.userProfileImage.file = user?["profilePicture"] as? PFFile
+                self.userProfileImage.layer.borderWidth=1.0
+                self.userProfileImage.layer.borderColor = UIColor.white.cgColor
+                self.userProfileImage.layer.masksToBounds = false
+                self.userProfileImage.layer.cornerRadius = self.userProfileImage.frame.size.height/2
+                self.userProfileImage.clipsToBounds = true
+                self.userProfileImage.loadInBackground()
+                
+               
+
                 
             }
         }
