@@ -22,17 +22,10 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var userImageView: PFImageView!
     @IBOutlet weak var commentsTextField: UITextField!
     
-    var user: PFUser! {
-        didSet {
-        }
-    }
-    var job: PFObject! {
-        didSet {
-            print(job)
-            print(job["title"])
-        }
-    }
-    var ratingSelected = true
+    var user: PFUser!
+    var job: PFObject!
+    var rating = 0
+    var ratingSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +56,7 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func fivePress(_ sender: Any) {
+        rating = 5
         fiveStar.isSelected = true
         fourStar.isSelected = true
         threeStar.isSelected = true
@@ -72,6 +66,8 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func fourPress(_ sender: Any) {
+        rating = 4
+        fiveStar.isSelected = false
         fourStar.isSelected = true
         threeStar.isSelected = true
         twoStar.isSelected = true
@@ -80,6 +76,9 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func threePress(_ sender: Any) {
+        rating = 3
+        fiveStar.isSelected = false
+        fourStar.isSelected = false
         threeStar.isSelected = true
         twoStar.isSelected = true
         oneStar.isSelected = true
@@ -87,41 +86,34 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func twoPress(_ sender: Any) {
+        rating = 2
+        fiveStar.isSelected = false
+        fourStar.isSelected = false
+        threeStar.isSelected = false
         twoStar.isSelected = true
         oneStar.isSelected = true
         ratingSelected = true
     }
     
     @IBAction func onePress(_ sender: Any) {
+        rating = 1
+        fiveStar.isSelected = false
+        fourStar.isSelected = false
+        threeStar.isSelected = false
+        twoStar.isSelected = false
         oneStar.isSelected = true
         ratingSelected = true
     }
     @IBAction func donePress(_ sender: Any) {
-        var comments = user["comments"] as? [String]
-        var rating = user["rating"] as? [Int]
-        
-        if rating == nil {
-            rating = []
-        }
-        if comments == nil {
-            comments = []
-        }
-        
-        if let comment = commentsTextField.text {
-            comments!.append(comment)
-            user["comments"] = comments!
-        }
-        
-        if fiveStar.isSelected {
-            rating!.append(5)
-        } else if fourStar.isSelected {
-            rating!.append(4)
-        } else if threeStar.isSelected {
-            rating!.append(3)
-        } else if twoStar.isSelected {
-            rating!.append(2)
-        } else if oneStar.isSelected {
-            rating!.append(1)
+        if ratingSelected {
+            Rating.rateUser(userId: user.objectId!, starRating: rating, message: commentsTextField.text, completion: { (success: Bool, error: Error?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("rating created")
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
         } else {
             let alertController = UIAlertController(title: "No rating selected", message: "Please select a rating", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
@@ -129,12 +121,6 @@ class RatingViewController: UIViewController {
             })
             alertController.addAction(okAction)
             present(alertController, animated: true)
-            ratingSelected = false
-        }
-        if ratingSelected {
-            user["rating"] = rating
-            user.saveInBackground()
-            dismiss(animated: true, completion: nil)
         }
     }
 }
