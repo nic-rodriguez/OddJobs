@@ -116,6 +116,8 @@ class NotificationsViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else {
+                self.jobsInterested = []
+                self.usersPosted = []
                 if let interestedJobs = user?["jobsInterested"] as? [PFObject] {
                     for job in interestedJobs {
                         if let userAccepted = job["userAccepted"] as? PFUser {
