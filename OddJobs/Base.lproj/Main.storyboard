@@ -877,6 +877,7 @@ EEVudGVyIFBhc3N3b3JkA
                         <outlet property="payLabel" destination="bMa-ij-bZb" id="tlx-Ja-2Y6"/>
                         <outlet property="profileImageView" destination="GkN-qs-bae" id="vgN-Eb-xmT"/>
                         <outlet property="tagsLabel" destination="gWJ-aJ-TIV" id="VI5-Fn-OEz"/>
+                        <segue destination="zbq-xx-y2d" kind="show" identifier="afterPostSegue" id="gpr-1k-jP0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uH-q0-5Ei" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -990,7 +991,7 @@ EEVudGVyIFBhc3N3b3JkA
             </objects>
             <point key="canvasLocation" x="2965.5999999999999" y="-1531.4842578710645"/>
         </scene>
-        <!--Home Feed-->
+        <!--Jobs Feed-->
         <scene sceneID="QDg-J9-XGu">
             <objects>
                 <viewController id="zbq-xx-y2d" customClass="HomeFeedViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
@@ -1156,7 +1157,7 @@ EEVudGVyIFBhc3N3b3JkA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Feed" id="y5d-K3-9Ft">
+                    <navigationItem key="navigationItem" title="Jobs Feed" id="y5d-K3-9Ft">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="9sc-et-Zef">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yqD-9Z-96g">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
@@ -1553,7 +1554,7 @@ EEVudGVyIFBhc3N3b3JkA
         <scene sceneID="eWW-K9-kMr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d3p-eY-rZF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Jobs" image="home" id="r7b-Vi-CNX"/>
+                    <tabBarItem key="tabBarItem" title="Jobs" image="jobdelivery" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
@@ -1618,7 +1619,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Post" image="pluss" id="LL7-2d-aby"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QhP-7p-MLR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhP-7p-MLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2042,7 +2043,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Workers" image="globe" id="qTR-Wh-P3h"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bw0-hu-T7s">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bw0-hu-T7s">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -2061,7 +2062,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Notifications" image="mail" id="hcY-1g-4WS"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gg4-x5-OkN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gg4-x5-OkN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2136,16 +2137,17 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="globe" width="24" height="24"/>
         <image name="gradient-wallpaper-iphone2" width="736" height="1309"/>
         <image name="gradient1" width="750" height="1334"/>
-        <image name="home" width="24" height="24"/>
+        <image name="jobdelivery" width="24" height="24"/>
         <image name="mail" width="24" height="24"/>
         <image name="pluss" width="24" height="24"/>
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AUn-dp-549"/>
+        <segue reference="qpT-4m-B9S"/>
         <segue reference="biL-UF-kBd"/>
+        <segue reference="eYs-PF-4Pm"/>
         <segue reference="yxL-7S-ffg"/>
         <segue reference="rEe-wG-xrW"/>
-        <segue reference="eYs-PF-4Pm"/>
     </inferredMetricsTieBreakers>
 </document>
