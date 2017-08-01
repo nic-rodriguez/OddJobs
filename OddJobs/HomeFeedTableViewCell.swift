@@ -12,6 +12,7 @@ import ParseUI
 
 class HomeFeedTableViewCell: UITableViewCell {
   
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var postImageView: PFImageView?
     @IBOutlet weak var userImageView: PFImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -40,8 +41,11 @@ class HomeFeedTableViewCell: UITableViewCell {
             self.userImageView.clipsToBounds = true
             self.userImageView.loadInBackground()
             
+            self.usernameLabel.text = jobPoster.username
+            
             self.titleLabel.text = job["title"] as? String
             self.descriptionLabel.text = job["description"] as? String
+            
             
             let a:Double = job["pay"] as! Double
             let b:String = String(format:"%.2f", a)
