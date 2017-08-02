@@ -36,15 +36,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         jobsTableView.backgroundColor = color.myRedColor
         jobsTableView.separatorStyle = .none
         
-//        let myView = UIView()
-//        myView.backgroundColor = UIColor.red
-//        self.view.addSubview(myView)
-//        
-//        let margins = self.view.layoutMarginsGuide
-//        myView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-//        myView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-//        myView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
-//        myView.widthAnchor.constraint(equalToConstant: 300.0).isActive = true
     }
 
     
