@@ -16,7 +16,6 @@ protocol TopTableViewDelegate: class {
 
 class TopTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var backgroundProfilePFImage: PFImageView?
     @IBOutlet weak var profilePFImage: PFImageView?
     @IBOutlet weak var usernameLabel: UILabel?
     @IBOutlet weak var ratingLabel: UILabel?
@@ -69,6 +68,9 @@ class TopTableViewCell: UITableViewCell {
                 skillsLabel?.text = (skillsLabel?.text!)! + ", "
             }
         }
+        
+        bioLabel?.numberOfLines = 4
+        skillsLabel?.numberOfLines = 4
         
         usernameLabel?.textColor = color.myDarkColor
         ratingLabel?.textColor = color.myTealColor

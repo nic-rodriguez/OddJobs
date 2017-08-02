@@ -8,14 +8,26 @@
 
 import UIKit
 
+
 class MessageTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var backgroundCard: UIView!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     
+    let color = ColorObject()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.backgroundCard.backgroundColor = color.myLightColor
+        self.backgroundCard.layer.cornerRadius = 3.0
+        self.backgroundCard.layer.masksToBounds = false
+        self.backgroundCard.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        self.backgroundCard.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.backgroundCard.layer.shadowOpacity = 0.8
+        
+        contentView.backgroundColor = color.myTealColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

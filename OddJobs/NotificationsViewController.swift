@@ -11,6 +11,7 @@ import Parse
 
 class NotificationsViewController: UIViewController {
     
+    @IBOutlet weak var segmentedControlBackground: UIView!
     @IBOutlet weak var notificationsTableView: UITableView!
     @IBOutlet weak var notificationControl: UISegmentedControl!
     @IBOutlet weak var headerView: UIView!
@@ -24,6 +25,7 @@ class NotificationsViewController: UIViewController {
     var usersPosted: [PFUser] = []
     
     var chatRooms: [PFObject]?
+    let color = ColorObject()
     
     @IBAction func onChange(_ sender: UISegmentedControl) {
         notificationsTableView.reloadData()
@@ -35,7 +37,21 @@ class NotificationsViewController: UIViewController {
         notificationsTableView.dataSource = self
         notificationsTableView.delegate = self
         notificationsTableView.tableHeaderView = headerView
-        notificationsTableView.rowHeight = 105
+        notificationsTableView.rowHeight = 130
+        notificationsTableView.backgroundColor = color.myTealColor
+        notificationsTableView.separatorStyle = .none
+        headerView.backgroundColor = color.myTealColor
+    
+        notificationControl.removeBorders()
+        
+        segmentedControlBackground.backgroundColor = color.myDarkColor
+        segmentedControlBackground.layer.cornerRadius = 10.0
+        segmentedControlBackground.layer.masksToBounds = true
+        segmentedControlBackground.layer.borderWidth = 1.0
+        segmentedControlBackground.layer.borderColor = color.myRedColor.cgColor
+        
+        
+        
         
         fetchNotificationData()
         fetchPendingJobsData()
@@ -277,4 +293,25 @@ extension NotificationsViewController: PendingJobsCellDelegate {
         }
     }
    
+}
+
+extension UISegmentedControl {
+    func removeBorders() {
+        let color = ColorObject()
+        setBackgroundImage(imageWithColor(color: color.myLightColor), for: .normal, barMetrics: .default)
+        setBackgroundImage(imageWithColor(color:color.myRedColor), for: .selected, barMetrics: .default)
+        setDividerImage(imageWithColor(color: UIColor.clear), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+    }
+    
+    
+    private func imageWithColor(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0.0, y: 0.0, width:  1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context!.setFillColor(color.cgColor);
+        context!.fill(rect);
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image!
+    }
 }

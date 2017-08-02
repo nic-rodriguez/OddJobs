@@ -11,6 +11,8 @@ import Parse
 
 class MessageViewController: UIViewController {
     
+ 
+    @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     
@@ -19,11 +21,22 @@ class MessageViewController: UIViewController {
     var poster: Bool?
     var completeTimer: Timer?
     
+    let color = ColorObject()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         messageTableView.delegate = self
         messageTableView.dataSource = self
+        
+        messageTableView.backgroundColor = color.myTealColor
+        messageTableView.separatorStyle = .none
+        
+        messageButton.layer.cornerRadius = 5.0
+        messageButton.layer.masksToBounds = true
+        messageButton.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        messageButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        messageButton.layer.shadowOpacity = 0.4
         
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.queryChatRooms), userInfo: nil, repeats: true)
     }
@@ -137,6 +150,8 @@ extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
         let message = messages[indexPath.row]
         cell.userLabel.text = message.first!.key
         cell.messageLabel.text = message.first!.value
+        
+        
         return cell
     }
 }
