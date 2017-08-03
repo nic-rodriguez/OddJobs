@@ -67,8 +67,6 @@ class DetailViewController: UIViewController {
         jobPosterPFImage.layer.masksToBounds = true
         jobPosterPFImage.loadInBackground()
         
-    
-        
         usernameLabel.text = user.username!
         jobTitleLabel.text = job["title"] as? String
         

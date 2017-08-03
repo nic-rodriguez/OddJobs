@@ -63,7 +63,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
             return homeFeedTableView.rowHeight
         }
     }
-
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
@@ -105,7 +105,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 let geoPointLat = geoPoint.latitude
                 let geoPointLong = geoPoint.longitude
                 self.currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
-            
+                
                 let query = PFQuery(className: "Job")
                 
                 query.includeKey("userPosted")
@@ -154,7 +154,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         queryServer()
         refreshControl.endRefreshing()
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showDetailViewFromFeed") {
             let cell = sender as! UITableViewCell
@@ -180,55 +180,53 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func toggleTag1(position: Int) {
         selectedTags[position] = !selectedTags[position]
         
-        let query = PFQuery(className: "Job")
-        query.addDescendingOrder("createdAt")
-        query.includeKey("userPosted")
-        query.includeKey("tags")
-        query.limit = 8
-        //creat an array that holds only marked true objects
-        var selected: [String] = []
-        for (index, element) in selectedTags.enumerated() {
-            if (element) { //if this location holds true
-                selected.append(tags[index])
-            }
-        }
         
-        if selected.count > 0 {
-            query.whereKey("tags", containsAllObjectsIn: selected)
-            query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-                if let error = error {
-                    print(error.localizedDescription)
+        PFGeoPoint.geoPointForCurrentLocation(inBackground: { (geoPoint: PFGeoPoint!, error:Error?) in
+            if geoPoint != nil {
+                
+                let geoPointLat = geoPoint.latitude
+                let geoPointLong = geoPoint.longitude
+                self.currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+                
+                let query = PFQuery(className: "Job")
+                query.whereKey("location", nearGeoPoint:self.currentLocation)
+                //        query.addDescendingOrder("createdAt")
+                query.includeKey("userPosted")
+                query.includeKey("tags")
+                query.limit = 8
+                //creat an array that holds only marked true objects
+                var selected: [String] = []
+                for (index, element) in self.selectedTags.enumerated() {
+                    if (element) { //if this location holds true
+                        selected.append(self.tags[index])
+                    }
+                }
+                
+                if selected.count > 0 {
+                    query.whereKey("tags", containsAllObjectsIn: selected)
+                    query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            self.jobs = jobs!
+                            self.filteredJobs = jobs!
+                            self.homeFeedTableView.reloadData()
+                        }
+                    }
                 } else {
-                    self.jobs = jobs!
-                    self.filteredJobs = jobs!
-                    self.homeFeedTableView.reloadData()
+                    query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            self.jobs = jobs!
+                            self.filteredJobs = jobs!
+                            self.homeFeedTableView.reloadData()
+                        }
+                    }
                 }
             }
-        } else {
-            query.findObjectsInBackground { (jobs: [PFObject]?, error: Error?) in
-                if let error = error {
-                    print(error.localizedDescription)
-                } else {
-                    self.jobs = jobs!
-                    self.filteredJobs = jobs!
-                    self.homeFeedTableView.reloadData()
-                }
-            }
-        }
-        
+        })
     }
-    
-//    func updateSearchResults(for searchController: UISearchController) {
-//        print("update search")
-//        if let searchText = searchController.searchBar.text {
-//            // Filter the data array
-//            filteredJobs = jobs.filter({ (job) -> Bool in
-//                let range = (job["title"] as! String).localizedLowercase.range(of: searchText.localizedLowercase)
-//                return (range != nil)
-//            })
-//            homeFeedTableView.reloadData()
-//        }
-//    }
     
     func configureCustomSearchController() {
         //customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.orange, searchBarTintColor: UIColor.black)
@@ -259,10 +257,10 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         //for timed filtering
         /*
-        timer.invalidate()
-        counter = 5
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(HomeFeedViewController.updateTimer)), userInfo: nil, repeats: true)
-        finalSearchText = searchText
+         timer.invalidate()
+         counter = 5
+         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: (#selector(HomeFeedViewController.updateTimer)), userInfo: nil, repeats: true)
+         finalSearchText = searchText
          */
     }
     

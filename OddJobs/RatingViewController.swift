@@ -21,17 +21,34 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var jobLabel: UILabel!
     @IBOutlet weak var userImageView: PFImageView!
     @IBOutlet weak var commentsTextField: UITextField!
+    @IBOutlet weak var backgroundCardView: UIView!
     
     var user: PFUser!
     var job: PFObject!
     var rating = 0
     var ratingSelected = false
+    var color = ColorObject()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         jobLabel.text = job["title"] as? String
         fetchUserData()
+        
+        view.backgroundColor = color.myTealColor
+        
+        configureButtonColors()
+        buttonSetUp(oneStar)
+        buttonSetUp(twoStar)
+        buttonSetUp(threeStar)
+        buttonSetUp(fourStar)
+        buttonSetUp(fiveStar)
+        
+        backgroundCardView.backgroundColor = color.myLightColor
+        backgroundCardView.layer.cornerRadius = 3.0
+        backgroundCardView.layer.masksToBounds = false
+        backgroundCardView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        backgroundCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        backgroundCardView.layer.shadowOpacity = 0.4
     }
     
     func fetchUserData() {
@@ -40,7 +57,6 @@ class RatingViewController: UIViewController {
         query.includeKey("_p_userPosted")
         query.includeKey("_User")
         query.includeKey("username")
-        
         
         query.getObjectInBackground(withId: user.objectId!) { (user: PFObject?, error:Error?) in
             if let error = error {
@@ -55,6 +71,51 @@ class RatingViewController: UIViewController {
         }
     }
     
+    func buttonSetUp(_ sender:UIButton) {
+        sender.setTitleColor(color.myTealColor, for: .selected)
+        sender.setTitleColor(color.myLightColor, for: .normal)
+        
+        sender.layer.cornerRadius = 5.0
+        sender.layer.masksToBounds = false
+//        sender.layer.shadowColor = color.myRedColor.cgColor
+//        sender.layer.shadowOpacity = 0.8
+        sender.layer.borderWidth = 2
+        sender.layer.borderColor = color.myLightColor.cgColor
+    }
+    
+    func configureButtonColors() {
+        if (fiveStar.isSelected) {
+            fiveStar.backgroundColor = color.myLightColor
+            
+        } else {
+            fiveStar.backgroundColor = color.myTealColor
+        }
+        
+        if (fourStar.isSelected) {
+            fourStar.backgroundColor = color.myLightColor
+        } else {
+            fourStar.backgroundColor = color.myTealColor
+        }
+        
+        if (threeStar.isSelected) {
+            threeStar.backgroundColor = color.myLightColor
+        } else {
+            threeStar.backgroundColor = color.myTealColor
+        }
+        
+        if (twoStar.isSelected) {
+            twoStar.backgroundColor = color.myLightColor
+        } else {
+            twoStar.backgroundColor = color.myTealColor
+        }
+        
+        if (oneStar.isSelected) {
+            oneStar.backgroundColor = color.myLightColor
+        } else {
+            oneStar.backgroundColor = color.myTealColor
+        }
+    }
+    
     @IBAction func fivePress(_ sender: Any) {
         rating = 5
         fiveStar.isSelected = true
@@ -63,6 +124,7 @@ class RatingViewController: UIViewController {
         twoStar.isSelected = true
         oneStar.isSelected = true
         ratingSelected = true
+        configureButtonColors()
     }
     
     @IBAction func fourPress(_ sender: Any) {
@@ -73,6 +135,7 @@ class RatingViewController: UIViewController {
         twoStar.isSelected = true
         oneStar.isSelected = true
         ratingSelected = true
+        configureButtonColors()
     }
     
     @IBAction func threePress(_ sender: Any) {
@@ -83,6 +146,7 @@ class RatingViewController: UIViewController {
         twoStar.isSelected = true
         oneStar.isSelected = true
         ratingSelected = true
+        configureButtonColors()
     }
     
     @IBAction func twoPress(_ sender: Any) {
@@ -93,6 +157,7 @@ class RatingViewController: UIViewController {
         twoStar.isSelected = true
         oneStar.isSelected = true
         ratingSelected = true
+        configureButtonColors()
     }
     
     @IBAction func onePress(_ sender: Any) {
@@ -103,7 +168,9 @@ class RatingViewController: UIViewController {
         twoStar.isSelected = false
         oneStar.isSelected = true
         ratingSelected = true
+        configureButtonColors()
     }
+    
     @IBAction func donePress(_ sender: Any) {
         if ratingSelected {
             Rating.rateUser(userId: user.objectId!, starRating: rating, message: commentsTextField.text, completion: { (success: Bool, error: Error?) in

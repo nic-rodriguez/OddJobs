@@ -50,6 +50,7 @@ class MessageViewController: UIViewController {
             } else {
                 vc.user = job["userPosted"] as! PFUser
             }
+            
         }
     }
     
