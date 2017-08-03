@@ -65,7 +65,7 @@ class HomeFeedTableViewCell: UITableViewCell {
                 }
             })
             
-            costLabel.textColor = color.myDarkColor
+            costLabel.textColor = color.myTealColor
             titleLabel.textColor = color.myDarkColor
             distanceLabel.textColor = color.myTealColor
             descriptionLabel.textColor = color.myDarkColor
