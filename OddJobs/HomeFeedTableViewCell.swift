@@ -67,8 +67,8 @@ class HomeFeedTableViewCell: UITableViewCell {
             
             costLabel.textColor = color.myDarkColor
             titleLabel.textColor = color.myDarkColor
-            distanceLabel.textColor = color.myDarkColor
-            descriptionLabel.textColor = color.myTealColor
+            distanceLabel.textColor = color.myTealColor
+            descriptionLabel.textColor = color.myDarkColor
             contentView.backgroundColor = color.myRedColor
             self.backgroundCardView.backgroundColor = color.myLightColor
             self.backgroundCardView.layer.cornerRadius = 3.0
