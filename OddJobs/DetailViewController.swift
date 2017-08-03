@@ -55,9 +55,12 @@ class DetailViewController: UIViewController {
         
         
         let user = job["userPosted"] as! PFUser
-        let date = job["dateDue"]
+        let date = job["dateDue"] as! NSDate
+        
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "E MMM d, h:mm a"
+        
         let dateString = dateFormatter.string(from:date as! Date)
         let pay = job["pay"] as! Double
         let payString = String(format:"%.2f", pay)
