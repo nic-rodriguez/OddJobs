@@ -1113,8 +1113,8 @@ EEVudGVyIFBhc3N3b3JkA
                                                     <color key="backgroundColor" red="1" green="0.9985926271269242" blue="0.17597259665498666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvJ-Cz-Ncz">
-                                                    <rect key="frame" x="74" y="16" width="285" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <rect key="frame" x="74" y="16" width="285" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
