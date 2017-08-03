@@ -69,8 +69,8 @@ class TopTableViewCell: UITableViewCell {
             }
         }
         
-        bioLabel?.numberOfLines = 4
-        skillsLabel?.numberOfLines = 4
+//        bioLabel?.numberOfLines = 4
+//        skillsLabel?.numberOfLines = 4
         
         usernameLabel?.textColor = color.myDarkColor
         ratingLabel?.textColor = color.myTealColor

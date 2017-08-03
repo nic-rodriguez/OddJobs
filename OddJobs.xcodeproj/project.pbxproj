@@ -12,6 +12,7 @@
 		8628C3941F226A3F007BE519 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628C3931F226A3F007BE519 /* CustomSearchBar.swift */; };
 		8628C3961F227D26007BE519 /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628C3951F227D26007BE519 /* CustomSearchController.swift */; };
 		863724D71F2F9EDA00CA892F /* customWorkerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 863724D61F2F9EDA00CA892F /* customWorkerCell.xib */; };
+		863724D91F323A2C00CA892F /* customTopProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 863724D81F323A2B00CA892F /* customTopProfileTableViewCell.xib */; };
 		864CD8541F2A53D30065A993 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864CD8521F2A53D30065A993 /* Main.storyboard */; };
 		86947B8F1F169F4100BD708F /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86947B8E1F169F4100BD708F /* TopTableViewCell.swift */; };
 		86947B911F169F6F00BD708F /* UserJobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */; };
@@ -78,6 +79,7 @@
 		8628C3931F226A3F007BE519 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		8628C3951F227D26007BE519 /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 		863724D61F2F9EDA00CA892F /* customWorkerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customWorkerCell.xib; sourceTree = "<group>"; };
+		863724D81F323A2B00CA892F /* customTopProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customTopProfileTableViewCell.xib; sourceTree = "<group>"; };
 		864CD8531F2A53D30065A993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = OddJobs/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86947B8E1F169F4100BD708F /* TopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
 		86947B901F169F6F00BD708F /* UserJobsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserJobsTableViewCell.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				864CD8521F2A53D30065A993 /* Main.storyboard */,
 				86CB3ED31F2A93CD007D091A /* nibCustomCollectionCell.xib */,
 				863724D61F2F9EDA00CA892F /* customWorkerCell.xib */,
+				863724D81F323A2B00CA892F /* customTopProfileTableViewCell.xib */,
 				A907D0021F1422D10069B7E7 /* OddJobs */,
 				A907D0171F1422D10069B7E7 /* OddJobsTests */,
 				A907D0221F1422D10069B7E7 /* OddJobsUITests */,
@@ -411,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				863724D91F323A2C00CA892F /* customTopProfileTableViewCell.xib in Resources */,
 				86CB3ED41F2A93CD007D091A /* nibCustomCollectionCell.xib in Resources */,
 				864CD8541F2A53D30065A993 /* Main.storyboard in Resources */,
 				A907D00E1F1422D10069B7E7 /* LaunchScreen.storyboard in Resources */,

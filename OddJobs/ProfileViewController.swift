@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var jobs: [PFObject] = []
     var topCell: TopTableViewCell? = nil
     let color = ColorObject()
+    var protoCell: TopTableViewCell!
     
     
     @IBOutlet weak var jobsTableView: UITableView!
@@ -29,15 +30,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         fetchJobs()
         
+        protoCell = UINib(nibName: "customTopProfileTableViewCell", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! TopTableViewCell
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         
         jobsTableView.insertSubview(refreshControl, at: 1)
         jobsTableView.backgroundColor = color.myRedColor
         jobsTableView.separatorStyle = .none
-        
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showDetailView") {
@@ -79,7 +81,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.topProfileCardView.layer.masksToBounds = false
             cell.topProfileCardView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
             cell.topProfileCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
-            cell.topProfileCardView.layer.shadowOpacity = 0.4            
+            cell.topProfileCardView.layer.shadowOpacity = 0.4
             
             return cell
         } else { //job postings
@@ -92,7 +94,75 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var height:CGFloat = CGFloat()
         if indexPath.section == 0 {
-            height = 300
+            //            height = 300
+            //            size.width = size.width + 10
+            
+            var tempUser: PFUser!
+            
+            if (user == nil) {
+                tempUser = PFUser.current()
+            } else {
+                tempUser = user
+            }
+            
+            protoCell.usernameLabel?.text = tempUser?.username!
+            protoCell.ratingLabel?.text = tempUser["rating"] as? String ?? "0"
+            protoCell.bioLabel?.text = tempUser["bio"] as? String ?? ""
+            protoCell.jobsTakenCounterLabel?.text = tempUser["jobsTakenInt"] as? String ?? "0"
+            
+            protoCell.skillsLabel?.text = ""
+            let skills = tempUser["skills"] as! [String]
+            if skills.count != 0 {
+                protoCell.skillsLabel?.text = "Skills: "
+            }
+            for (index, element) in skills.enumerated() {
+                protoCell.skillsLabel?.text = (protoCell.skillsLabel?.text!)! + element
+                if (index < skills.count - 1) {
+                    protoCell.skillsLabel?.text = (protoCell.skillsLabel?.text!)! + ", "
+                }
+            }
+            
+            //insert size calculation like in the other cells
+            let usernameLabelSize = protoCell.usernameLabel?.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
+            let ratingLableSize = protoCell.ratingLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
+            let bioLabelSize = protoCell.bioLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
+            let jobsTakenLabelSize = protoCell.jobsTakenCounterLabel?.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
+            let skillsLabelSize = protoCell.skillsLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
+            
+            var addition: CGFloat = 0
+            
+            //343
+            
+            if(protoCell.bioLabel?.text == "") {
+                //no height
+                
+            } else {
+                let intthis = (bioLabelSize?.width)! / 310
+                let roundedF = CGFloat(ceil(Double(intthis)))
+                addition = addition + (bioLabelSize?.height)!*roundedF
+            }
+            
+            if(protoCell.skillsLabel?.text == "") {
+                //no heigh
+                
+            } else {
+                let intthis = (skillsLabelSize?.width)! / 310
+                let roundedF = CGFloat(ceil(Double(intthis)))
+                addition = addition + (skillsLabelSize?.height)!*roundedF
+            }
+            
+            addition = addition + (usernameLabelSize?.height)!
+            addition = addition + (ratingLableSize?.height)!
+            addition = addition + (jobsTakenLabelSize?.height)! + 50 + (8*8)
+            //50 = prof pic ; 8 * 6 = spacing between everything
+            
+            
+            
+//            let size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.leastNormalMagnitude))
+            
+            height = addition
+            //size.height
+            
         }
         else {
             height = 50
@@ -132,5 +202,5 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func topTableViewCell(_ topTableViewCell: TopTableViewCell) {
         topTableViewCell.loadData()
-    }    
+    }
 }
