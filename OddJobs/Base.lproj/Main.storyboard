@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1201,7 +1201,7 @@ EEVudGVyIFBhc3N3b3JkA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xH6-AH-C3Z">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTableViewCell" rowHeight="240" id="9cc-0m-A7x" customClass="TopTableViewCell" customModule="OddJobs" customModuleProvider="target">
@@ -1535,7 +1535,7 @@ EEVudGVyIFBhc3N3b3JkA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Feed"/>
                                 <connections>
-                                    <segue destination="BLs-gu-Rdh" kind="presentation" modalTransitionStyle="flipHorizontal" id="AUn-dp-549"/>
+                                    <action selector="feedPress:" destination="ZaD-vr-hIY" eventType="touchUpInside" id="cev-FQ-zua"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -1567,7 +1567,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Jobs" image="jobdelivery" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a3V-mP-s7F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1609,7 +1609,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="m96-EM-I7f"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hRx-N9-B1U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hRx-N9-B1U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1629,7 +1629,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Post" image="pluss" id="LL7-2d-aby"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QhP-7p-MLR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhP-7p-MLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1647,7 +1647,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -2114,7 +2114,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Workers" image="globe" id="qTR-Wh-P3h"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bw0-hu-T7s">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bw0-hu-T7s">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -2133,7 +2133,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Notifications" image="mail" id="hcY-1g-4WS"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gg4-x5-OkN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gg4-x5-OkN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2151,7 +2151,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLA-qn-ZIQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dVJ-V0-srk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVJ-V0-srk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2170,7 +2170,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1HX-fI-nHN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="wlD-01-xTb"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Pvv-Dg-Iwo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pvv-Dg-Iwo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2188,7 +2188,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DlW-tT-QBO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vdI-bo-4kh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vdI-bo-4kh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2214,11 +2214,10 @@ EEVudGVyIFBhc3N3b3JkA
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="biL-UF-kBd"/>
-        <segue reference="gpr-1k-jP0"/>
-        <segue reference="Ezm-gC-DJs"/>
         <segue reference="yxL-7S-ffg"/>
-        <segue reference="AUn-dp-549"/>
+        <segue reference="Ezm-gC-DJs"/>
+        <segue reference="gpr-1k-jP0"/>
+        <segue reference="IJf-2u-KdW"/>
         <segue reference="rEe-wG-xrW"/>
     </inferredMetricsTieBreakers>
 </document>
