@@ -528,7 +528,7 @@ EEVudGVyIFBhc3N3b3JkA
             </objects>
             <point key="canvasLocation" x="5724" y="-95.802098950524751"/>
         </scene>
-        <!--First Message View Controller-->
+        <!--Request Job-->
         <scene sceneID="che-Ty-ItH">
             <objects>
                 <viewController id="QKJ-dI-ybW" customClass="FirstMessageViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
@@ -540,17 +540,42 @@ EEVudGVyIFBhc3N3b3JkA
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make a good first impression!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SYe-9M-mm6">
-                                <rect key="frame" x="47" y="243" width="281" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rq1-EY-wlO">
+                                <rect key="frame" x="16" y="113" width="343" height="235"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Make a good first impression!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syl-R8-m4U">
+                                        <rect key="frame" x="12" y="8" width="319" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
+                                        <color key="textColor" red="0.94306590030000004" green="0.45281843690000001" blue="0.40441366270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bp9-PU-9K7" customClass="RSKPlaceholderTextView" customModule="RSKPlaceholderTextView">
+                                        <rect key="frame" x="29" y="59" width="285" height="155"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Send a message with your request"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bMc-lZ-i2w" appends="YES" id="M4U-Sb-NPh"/>
+                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="K9o-IY-NNq">
+                    <navigationItem key="navigationItem" title="Request Job" id="K9o-IY-NNq">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="hnn-kE-DmW">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NfG-2A-M1p">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
@@ -573,10 +598,16 @@ EEVudGVyIFBhc3N3b3JkA
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="messageTextField" destination="SYe-9M-mm6" id="CRn-h2-9pV"/>
+                        <outlet property="backgroundView" destination="rq1-EY-wlO" id="psz-0b-5Zj"/>
+                        <outlet property="messageTextView" destination="bp9-PU-9K7" id="U2O-Hf-5Bc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wse-pc-fed" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bMc-lZ-i2w">
+                    <connections>
+                        <action selector="endEditting:" destination="QKJ-dI-ybW" id="Eao-S1-541"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="7845.6000000000004" y="-155.17241379310346"/>
         </scene>
