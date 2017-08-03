@@ -795,7 +795,7 @@ EEVudGVyIFBhc3N3b3JkA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzs-qg-VNn">
-                                <rect key="frame" x="28" y="80" width="319" height="498"/>
+                                <rect key="frame" x="28" y="124" width="319" height="454"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mpi-aO-j0f">
                                         <rect key="frame" x="6" y="79" width="307" height="235"/>
@@ -840,7 +840,7 @@ EEVudGVyIFBhc3N3b3JkA
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Tags" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWJ-aJ-TIV">
-                                        <rect key="frame" x="6" y="388" width="307" height="100"/>
+                                        <rect key="frame" x="6" y="388" width="307" height="56"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1592,7 +1592,7 @@ EEVudGVyIFBhc3N3b3JkA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Feed"/>
                                 <connections>
-                                    <segue destination="BLs-gu-Rdh" kind="presentation" modalTransitionStyle="flipHorizontal" id="AUn-dp-549"/>
+                                    <action selector="feedPress:" destination="ZaD-vr-hIY" eventType="touchUpInside" id="cev-FQ-zua"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -2371,7 +2371,6 @@ E0w
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AUn-dp-549"/>
         <segue reference="gpr-1k-jP0"/>
         <segue reference="eYs-PF-4Pm"/>
         <segue reference="biL-UF-kBd"/>
