@@ -81,6 +81,8 @@ class RatingViewController: UIViewController {
 //        sender.layer.shadowOpacity = 0.8
         sender.layer.borderWidth = 2
         sender.layer.borderColor = color.myLightColor.cgColor
+        
+        sender.tintColor = UIColor(red: 255/255.0, green: 230/255.0, blue: 109/255.0, alpha: 0.0)
     }
     
     func configureButtonColors() {
