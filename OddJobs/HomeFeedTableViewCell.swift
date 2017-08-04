@@ -21,7 +21,6 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var backgroundCardView: UIView!
     
     var currentUser = PFUser.current()
@@ -44,7 +43,7 @@ class HomeFeedTableViewCell: UITableViewCell {
             self.usernameLabel.text = jobPoster.username
             
             self.titleLabel.text = job["title"] as? String
-            self.descriptionLabel.text = job["description"] as? String
+          //  self.descriptionLabel.text = job["description"] as? String
             
             
             let a:Double = job["pay"] as! Double
@@ -68,8 +67,8 @@ class HomeFeedTableViewCell: UITableViewCell {
             costLabel.textColor = color.myDarkColor
             titleLabel.textColor = color.myDarkColor
             distanceLabel.textColor = color.myDarkColor
-            descriptionLabel.textColor = color.myTealColor
-            contentView.backgroundColor = color.myRedColor
+           // descriptionLabel.textColor = color.myDarkColor
+            contentView.backgroundColor = color.myTealColor
             self.backgroundCardView.backgroundColor = color.myLightColor
             self.backgroundCardView.layer.cornerRadius = 3.0
             self.backgroundCardView.layer.masksToBounds = false

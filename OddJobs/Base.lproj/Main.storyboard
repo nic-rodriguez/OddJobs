@@ -1141,25 +1141,25 @@ EEVudGVyIFBhc3N3b3JkA
                                             <outlet property="tagsCollectionView" destination="zWS-9x-cuX" id="QbF-SW-0p2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeFeedTableViewCell" rowHeight="149" id="sMU-ZJ-rRI" customClass="HomeFeedTableViewCell" customModule="OddJobs" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="144" width="375" height="149"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeFeedTableViewCell" rowHeight="107" id="sMU-ZJ-rRI" customClass="HomeFeedTableViewCell" customModule="OddJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="144" width="375" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMU-ZJ-rRI" id="UKU-nb-Xa5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="148.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3d-81-JcM">
-                                                    <rect key="frame" x="8" y="8" width="359" height="132.5"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="90.5"/>
                                                     <color key="backgroundColor" red="1" green="0.9985926271269242" blue="0.17597259665498666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvJ-Cz-Ncz">
-                                                    <rect key="frame" x="74" y="16" width="285" height="21.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                                                    <rect key="frame" x="74" y="16" width="285" height="22.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="19"/>
                                                     <color key="textColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA1-Dh-s9J">
-                                                    <rect key="frame" x="300.5" y="113.5" width="58.5" height="19"/>
+                                                    <rect key="frame" x="300.5" y="73" width="58.5" height="19"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1168,7 +1168,7 @@ EEVudGVyIFBhc3N3b3JkA
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDz-ms-t5Q">
                                                     <rect key="frame" x="74" y="43" width="250" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.94306590030000004" green="0.45281843690000001" blue="0.40441366270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v1K-xG-UYN" customClass="PFImageView">
@@ -1178,16 +1178,10 @@ EEVudGVyIFBhc3N3b3JkA
                                                         <constraint firstAttribute="width" constant="50" id="rcO-0U-ZQK"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pC-vm-9D1">
-                                                    <rect key="frame" x="16" y="113.5" width="27" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" text="$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pC-vm-9D1">
+                                                    <rect key="frame" x="16" y="72" width="27" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Short job description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpB-CM-kiG">
-                                                    <rect key="frame" x="16" y="74" width="343" height="19"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1196,29 +1190,25 @@ EEVudGVyIFBhc3N3b3JkA
                                                 <constraint firstAttribute="bottom" secondItem="o3d-81-JcM" secondAttribute="bottom" constant="8" id="2Ww-S0-eD6"/>
                                                 <constraint firstItem="mA1-Dh-s9J" firstAttribute="centerY" secondItem="0pC-vm-9D1" secondAttribute="centerY" id="32h-PL-P5A"/>
                                                 <constraint firstItem="SvJ-Cz-Ncz" firstAttribute="top" secondItem="v1K-xG-UYN" secondAttribute="top" id="4pY-1F-GtP"/>
-                                                <constraint firstItem="ZpB-CM-kiG" firstAttribute="top" secondItem="v1K-xG-UYN" secondAttribute="bottom" constant="8" id="78E-Ju-JTb"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="mA1-Dh-s9J" secondAttribute="trailing" constant="8" id="CBw-iW-YJr"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="SvJ-Cz-Ncz" secondAttribute="trailing" constant="8" id="EUT-2L-li9"/>
                                                 <constraint firstItem="v1K-xG-UYN" firstAttribute="leading" secondItem="UKU-nb-Xa5" secondAttribute="leadingMargin" constant="8" id="GHG-KX-FNZ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0pC-vm-9D1" secondAttribute="bottom" constant="6" id="GWM-b8-fJu"/>
                                                 <constraint firstItem="rDz-ms-t5Q" firstAttribute="top" secondItem="SvJ-Cz-Ncz" secondAttribute="bottom" constant="3" id="Guf-ni-C0o"/>
                                                 <constraint firstItem="o3d-81-JcM" firstAttribute="leading" secondItem="UKU-nb-Xa5" secondAttribute="leading" constant="8" id="QYO-xb-mAc"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ZpB-CM-kiG" secondAttribute="trailing" constant="8" id="Vnf-SM-tWw"/>
                                                 <constraint firstItem="0pC-vm-9D1" firstAttribute="leading" secondItem="v1K-xG-UYN" secondAttribute="leading" id="cAc-84-06h"/>
                                                 <constraint firstItem="o3d-81-JcM" firstAttribute="top" secondItem="UKU-nb-Xa5" secondAttribute="top" constant="8" id="cSd-09-sqk"/>
                                                 <constraint firstAttribute="trailing" secondItem="o3d-81-JcM" secondAttribute="trailing" constant="8" id="gQX-JY-kjW"/>
-                                                <constraint firstItem="ZpB-CM-kiG" firstAttribute="leading" secondItem="v1K-xG-UYN" secondAttribute="leading" id="hfm-e2-bS9"/>
                                                 <constraint firstItem="v1K-xG-UYN" firstAttribute="top" secondItem="UKU-nb-Xa5" secondAttribute="topMargin" constant="8" id="jcZ-9z-UKJ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="0pC-vm-9D1" secondAttribute="bottom" constant="8" id="me5-8x-QBY"/>
                                                 <constraint firstItem="rDz-ms-t5Q" firstAttribute="leading" secondItem="v1K-xG-UYN" secondAttribute="trailing" constant="8" id="nzF-Hx-WVb"/>
                                                 <constraint firstItem="SvJ-Cz-Ncz" firstAttribute="leading" secondItem="v1K-xG-UYN" secondAttribute="trailing" constant="8" id="spK-w5-bQ2"/>
-                                                <constraint firstItem="0pC-vm-9D1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZpB-CM-kiG" secondAttribute="bottom" constant="8" id="tPh-CL-akh"/>
+                                                <constraint firstItem="0pC-vm-9D1" firstAttribute="top" secondItem="v1K-xG-UYN" secondAttribute="bottom" constant="6" id="vGs-ty-Ly7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.97904688119888306" green="0.32399851083755493" blue="0.37833502888679504" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="backgroundCardView" destination="o3d-81-JcM" id="D4D-n0-oRN"/>
                                             <outlet property="costLabel" destination="0pC-vm-9D1" id="gcb-LA-3F2"/>
-                                            <outlet property="descriptionLabel" destination="ZpB-CM-kiG" id="cka-yh-d8K"/>
                                             <outlet property="distanceLabel" destination="mA1-Dh-s9J" id="zCe-Yg-GoE"/>
                                             <outlet property="titleLabel" destination="SvJ-Cz-Ncz" id="l6R-Xw-hve"/>
                                             <outlet property="userImageView" destination="v1K-xG-UYN" id="bUI-3C-uO2"/>
@@ -2452,9 +2442,9 @@ E0w
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yxL-7S-ffg"/>
-        <segue reference="PlT-eI-aH9"/>
         <segue reference="rEe-wG-xrW"/>
         <segue reference="eYs-PF-4Pm"/>
         <segue reference="gpr-1k-jP0"/>
+        <segue reference="biL-UF-kBd"/>
     </inferredMetricsTieBreakers>
 </document>
