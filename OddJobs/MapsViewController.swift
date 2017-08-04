@@ -72,6 +72,10 @@ class MapsViewController: UIViewController {
         }
     }
     
+    @IBAction func feedPress(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func userCenter(_ sender: Any) {
         if let userLocation = mapView.userLocation.location {
             centerMapOnLocation(location: userLocation)

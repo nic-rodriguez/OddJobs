@@ -8,18 +8,35 @@
 
 import UIKit
 import Parse
+import RSKPlaceholderTextView
 
 class FirstMessageViewController: UIViewController {
     
     var chatRoom: PFObject!
     var job: PFObject!
     var didApply = false
+
     
-    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var backgroundView: UIView!
+    
+    @IBOutlet weak var messageTextView: RSKPlaceholderTextView!
+    
+    let color = ColorObject()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
+    
+        backgroundView.backgroundColor = color.myLightColor
+        self.backgroundView.layer.cornerRadius = 5.0
+        self.backgroundView.layer.masksToBounds = false
+        self.backgroundView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        self.backgroundView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.backgroundView.layer.shadowOpacity = 0.8
+    
+        messageTextView.placeholder = "Send a message with your request"
+    
+           }
     
     override func viewWillDisappear(_ animated: Bool) {
         if didApply {
@@ -76,12 +93,17 @@ class FirstMessageViewController: UIViewController {
         
     }
     
+    
 
+    @IBAction func endEditting(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     
     @IBAction func sendPress(_ sender: Any) {
         var messages = chatRoom["messageArray"] as! [[String: String]]
         var userMessage = [String: String]()
-        if let newMessage = messageTextField.text {
+        if let newMessage = messageTextView.text {
             userMessage[PFUser.current()!.username!] = newMessage
             messages.append(userMessage)
             chatRoom["messageArray"] = messages

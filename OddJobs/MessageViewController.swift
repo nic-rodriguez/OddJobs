@@ -32,6 +32,9 @@ class MessageViewController: UIViewController {
         messageTableView.backgroundColor = color.myTealColor
         messageTableView.separatorStyle = .none
         
+        self.messageTableView.estimatedRowHeight = 50 // Always do slightly more than the average row height
+        self.messageTableView.rowHeight = UITableViewAutomaticDimension
+        
         messageButton.layer.cornerRadius = 5.0
         messageButton.layer.masksToBounds = true
         messageButton.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor

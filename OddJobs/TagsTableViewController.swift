@@ -34,6 +34,8 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
     var pay: Double = 0
     var currentDate: Date!
     
+    let color = ColorObject()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +43,7 @@ class TagsTableViewController: UIViewController, UITableViewDelegate, UITableVie
         tagsTableView.dataSource = self
         tagsTableView.delegate = self
         
-        let backgroundImage = UIImage(named: "gradient1.png")
-        let imageView = UIImageView(image: backgroundImage)
-        self.tagsTableView.backgroundView = imageView
+        tagsTableView.backgroundColor = color.myTealColor
         tagsTableView.separatorStyle = .none
     }
 

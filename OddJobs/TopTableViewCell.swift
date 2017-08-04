@@ -74,7 +74,7 @@ class TopTableViewCell: UITableViewCell {
         usernameLabel?.textColor = color.myDarkColor
         ratingLabel?.textColor = color.myTealColor
         bioLabel?.textColor = color.myDarkColor
-        skillsLabel?.textColor = color.myTealColor
+        skillsLabel?.textColor = color.myDarkColor
         
         jobsPosterCounterLabel?.textColor = color.myDarkColor
         jobPostedLabel?.textColor = color.myTealColor

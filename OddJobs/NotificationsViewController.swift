@@ -37,7 +37,7 @@ class NotificationsViewController: UIViewController {
         notificationsTableView.dataSource = self
         notificationsTableView.delegate = self
         notificationsTableView.tableHeaderView = headerView
-        notificationsTableView.rowHeight = 130
+        notificationsTableView.rowHeight = 122
         notificationsTableView.backgroundColor = color.myTealColor
         notificationsTableView.separatorStyle = .none
         headerView.backgroundColor = color.myTealColor

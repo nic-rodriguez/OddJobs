@@ -24,7 +24,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     var searchController: UISearchController!
     var customSearchController: CustomSearchController!
     var isMoreDataLoading = false
-    let initialQueryTotal = 3
+    let initialQueryTotal = 4
     var queryTotal = 4
     let color = ColorObject()
     var timer = Timer ()
@@ -230,8 +230,8 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func configureCustomSearchController() {
         //customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.orange, searchBarTintColor: UIColor.black)
-        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: color.myTealColor, searchBarTintColor: color.myDarkColor)
-        customSearchController.customSearchBar.placeholder = "Search Jobs"
+        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 40.0), searchBarFont: UIFont(name: "HelveticaNeue-Thin", size: 14.0)!, searchBarTextColor: color.myTealColor, searchBarTintColor: color.myLightColor)
+        customSearchController.customSearchBar.placeholder = "          Search"
         homeFeedTableView.tableHeaderView = customSearchController.customSearchBar
         customSearchController.customDelegate = self
     }
@@ -239,6 +239,8 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     func didStartSearching() {
         shouldShowSearchResults = true
         homeFeedTableView.reloadData()
+        
+        
     }
     func didTapOnSearchButton() {
         if !shouldShowSearchResults {
