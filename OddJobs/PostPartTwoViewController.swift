@@ -23,8 +23,12 @@ class PostPartTwoViewController: UIViewController {
     
     @IBOutlet weak var addressPreviewLabel: UILabel!
     
+    @IBOutlet var totalView: UIView!
     
     @IBOutlet weak var dateTimeLabel: UITextField!
+    
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
     
     var resultsController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
@@ -36,11 +40,15 @@ class PostPartTwoViewController: UIViewController {
     var pay: Double = 0
     var currentDate: Date!
     
+    let color = ColorObject()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         enterAddressField.setBottomBorder()
+        
+         backgroundImageView.backgroundColor = color.myTealColor
         
         addressPreviewLabel.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         
@@ -143,13 +151,14 @@ extension UITextField {
         self.borderStyle = .none
         
         
-        let width = 1.0
+        let width = 2.0
         
+        let color = ColorObject()
         
         let borderLine = UIView()
         borderLine.frame = CGRect(x: 0, y: Double(self.frame.height) - width, width: Double(self.frame.width), height: width)
         
-        borderLine.backgroundColor = UIColor.white
+        borderLine.backgroundColor = color.myRedColor
         self.addSubview(borderLine)
     }
 }

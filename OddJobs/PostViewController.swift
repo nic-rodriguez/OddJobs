@@ -22,15 +22,19 @@ class PostViewController: UIViewController {
     
     @IBOutlet weak var descriptionTextView: RSKPlaceholderTextView!
     
+    @IBOutlet var totalView: UIView!
     
     @IBOutlet weak var payField: UITextField!
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     var jobTitle: String = ""
     var jobDescription: String = ""
     var pay: Double = 0
     var currentDate: Date!
     var moveView: Bool = false
+    
+    let color = ColorObject()
     
  
     override func viewDidLoad() {
@@ -42,10 +46,10 @@ class PostViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(PostViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(PostViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
+        backgroundImageView.backgroundColor = color.myTealColor
         
         jobTitleField.setBottomBorder()
         
-    
         
         let titlePlaceholder = NSAttributedString(string: "Enter Job Title", attributes: [NSForegroundColorAttributeName:UIColor.white.withAlphaComponent(0.6)])
         
