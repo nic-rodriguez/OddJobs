@@ -23,6 +23,9 @@ class ConfirmPostViewController: UIViewController {
     @IBOutlet weak var locationTimeLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var profileImageView: PFImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+   
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var descriptionBackgroundView: UIView!
@@ -50,8 +53,8 @@ class ConfirmPostViewController: UIViewController {
         profileImageView.layer.masksToBounds = true
         profileImageView.loadInBackground()
         
-        backgroundCardView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-        self.backgroundCardView.layer.cornerRadius = 3.0
+        backgroundCardView.backgroundColor = color.myLightColor
+        self.backgroundCardView.layer.cornerRadius = 6.0
         self.backgroundCardView.layer.masksToBounds = false
         self.backgroundCardView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
         self.backgroundCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -60,6 +63,8 @@ class ConfirmPostViewController: UIViewController {
 
         jobTitleLabel.text = jobTitle
         
+        usernameLabel.text = PFUser.current()?.username
+        
         descriptionBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.04)
         print(jobDescription)
         descriptionLabel.text = jobDescription
@@ -67,7 +72,15 @@ class ConfirmPostViewController: UIViewController {
         let payString = String(format:"%.2f", pay)
         payLabel.text = "$" + payString
         
-        locationTimeLabel.text =  formattedAddress
+        let location = NSAttributedString(string: "Location: ", attributes: [NSForegroundColorAttributeName:color.myRedColor])
+        
+        let jobLocation = NSAttributedString(string: formattedAddress)
+        
+        let result = NSMutableAttributedString()
+        result.append(location)
+        result.append(jobLocation)
+        
+        locationTimeLabel.attributedText = result
   
         
         tagsLabel.text = ""
@@ -78,6 +91,11 @@ class ConfirmPostViewController: UIViewController {
             }
         }
 
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E MMM d, h:mm a"
+        
+        let dateString = dateFormatter.string(from:jobDate as! Date)
+        dateLabel.text = dateString
         
     }
 

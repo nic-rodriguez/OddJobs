@@ -151,14 +151,14 @@ extension UITextField {
         self.borderStyle = .none
         
         
-        let width = 2.0
+        let width = 1.0
         
         let color = ColorObject()
         
         let borderLine = UIView()
         borderLine.frame = CGRect(x: 0, y: Double(self.frame.height) - width, width: Double(self.frame.width), height: width)
         
-        borderLine.backgroundColor = color.myRedColor
+        borderLine.backgroundColor = UIColor.white
         self.addSubview(borderLine)
     }
 }
