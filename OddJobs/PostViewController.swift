@@ -56,7 +56,7 @@ class PostViewController: UIViewController {
         jobTitleField.attributedPlaceholder = titlePlaceholder
     
         
-        descriptionTextView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        descriptionTextView.backgroundColor = UIColor.black.withAlphaComponent(0.04)
         
         descriptionTextView.placeholder = "Add a description"
         
