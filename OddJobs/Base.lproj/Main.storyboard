@@ -2054,9 +2054,12 @@ EEVudGVyIFBhc3N3b3JkA
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIs-OB-8qe">
-                                <rect key="frame" x="180" y="587" width="37" height="30"/>
+                                <rect key="frame" x="174" y="583" width="50" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="1" green="0.53618861610000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="donePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="KcD-og-cKw"/>
                                 </connections>
@@ -2163,6 +2166,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <connections>
                         <outlet property="backgroundCardView" destination="j50-Qz-B2Z" id="v8C-6R-A6c"/>
                         <outlet property="commentsTextField" destination="jGm-A3-PLD" id="nZ8-Sr-kmV"/>
+                        <outlet property="doneButton" destination="IIs-OB-8qe" id="VkN-BY-rJC"/>
                         <outlet property="fiveStar" destination="Qz2-zE-L6O" id="GsK-a1-95s"/>
                         <outlet property="fourStar" destination="pJN-lF-I3P" id="LBn-a7-rht"/>
                         <outlet property="jobLabel" destination="oHE-Jg-4je" id="gNx-CY-FpV"/>

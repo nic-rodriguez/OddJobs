@@ -12,6 +12,7 @@ import ParseUI
 
 class RatingViewController: UIViewController {
 
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var oneStar: UIButton!
     @IBOutlet weak var twoStar: UIButton!
     @IBOutlet weak var threeStar: UIButton!
@@ -42,6 +43,9 @@ class RatingViewController: UIViewController {
         buttonSetUp(threeStar)
         buttonSetUp(fourStar)
         buttonSetUp(fiveStar)
+        
+        doneButton.setTitleColor(color.myLightColor, for: .normal)
+        doneButton.setTitleColor(color.myLightColor, for: .selected)
         
         backgroundCardView.backgroundColor = color.myLightColor
         backgroundCardView.layer.cornerRadius = 3.0
