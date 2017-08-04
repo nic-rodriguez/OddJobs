@@ -1056,7 +1056,7 @@ EEVudGVyIFBhc3N3b3JkA
             </objects>
             <point key="canvasLocation" x="2965.5999999999999" y="-1531.4842578710645"/>
         </scene>
-        <!--Jobs Feed-->
+        <!--Jobs-->
         <scene sceneID="QDg-J9-XGu">
             <objects>
                 <viewController id="zbq-xx-y2d" customClass="HomeFeedViewController" customModule="OddJobs" customModuleProvider="target" sceneMemberID="viewController">
@@ -1152,9 +1152,9 @@ EEVudGVyIFBhc3N3b3JkA
                                                     <rect key="frame" x="8" y="8" width="359" height="132.5"/>
                                                     <color key="backgroundColor" red="1" green="0.9985926271269242" blue="0.17597259665498666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvJ-Cz-Ncz">
-                                                    <rect key="frame" x="74" y="16" width="285" height="24"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvJ-Cz-Ncz">
+                                                    <rect key="frame" x="74" y="16" width="285" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1231,7 +1231,7 @@ EEVudGVyIFBhc3N3b3JkA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Jobs Feed" id="y5d-K3-9Ft">
+                    <navigationItem key="navigationItem" title="Jobs" id="y5d-K3-9Ft">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="9sc-et-Zef">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yqD-9Z-96g">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
@@ -2410,10 +2410,10 @@ E0w
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gpr-1k-jP0"/>
         <segue reference="eYs-PF-4Pm"/>
+        <segue reference="gpr-1k-jP0"/>
         <segue reference="biL-UF-kBd"/>
+        <segue reference="yxL-7S-ffg"/>
         <segue reference="rEe-wG-xrW"/>
-        <segue reference="H5h-KT-Jbe"/>
     </inferredMetricsTieBreakers>
 </document>
