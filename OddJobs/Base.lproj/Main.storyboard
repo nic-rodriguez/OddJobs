@@ -1800,11 +1800,14 @@ EEVudGVyIFBhc3N3b3JkA
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgU-5S-nF7">
-                                                            <rect key="frame" x="206" y="68" width="109" height="28"/>
+                                                            <rect key="frame" x="228" y="66" width="66" height="33"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <state key="normal" title="Decline">
+                                                            <state key="normal" title=" Decline ">
                                                                 <color key="titleColor" red="0.94306590030000004" green="0.45281843690000001" blue="0.40441366270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </state>
+                                                            <state key="selected">
+                                                                <color key="titleColor" red="0.96862745098039216" green="1" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="declineUser:" destination="Q8t-fG-9BY" eventType="touchUpInside" id="dg5-dl-cXq"/>
@@ -1823,10 +1826,10 @@ EEVudGVyIFBhc3N3b3JkA
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZG-tp-sm1">
-                                                            <rect key="frame" x="54" y="68" width="73" height="30"/>
+                                                            <rect key="frame" x="60" y="67" width="63" height="33"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <state key="normal" title="Accept">
+                                                            <state key="normal" title=" Accept ">
                                                                 <color key="titleColor" red="0.94306590030000004" green="0.45281843690000001" blue="0.40441366270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </state>
                                                             <connections>
@@ -1846,11 +1849,14 @@ EEVudGVyIFBhc3N3b3JkA
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="tintColor" red="1" green="0.53618861610000002" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="acceptedButton" destination="BZG-tp-sm1" id="xdb-uA-our"/>
                                             <outlet property="backgroundCard" destination="Skg-K5-7fD" id="cga-ri-Uv6"/>
+                                            <outlet property="declinedButton" destination="BgU-5S-nF7" id="7d6-zK-QYz"/>
                                             <outlet property="jobTitleLabel" destination="0b9-jC-BOr" id="4yi-dq-oJg"/>
                                             <outlet property="userDistanceLabel" destination="3pH-d8-WRG" id="U9q-NR-yXr"/>
                                             <outlet property="userProfileImage" destination="Kbq-F3-m0i" id="XXo-EW-w9O"/>

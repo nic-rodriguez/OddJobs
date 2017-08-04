@@ -19,14 +19,14 @@ import ParseUI
 
 class NotificationCell: UITableViewCell {
     
-
     @IBOutlet weak var userProfileImage: PFImageView!
-    
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userDistanceLabel: UILabel!
     @IBOutlet weak var backgroundCard: UIView!
-
+    @IBOutlet weak var acceptedButton: UIButton!
+    @IBOutlet weak var declinedButton: UIButton!
+    
     var userInterested: PFUser!{
         didSet {
             self.loadUserData()
@@ -86,6 +86,7 @@ class NotificationCell: UITableViewCell {
                 print(error?.localizedDescription ?? "Error")
             }
         })
+        
     }
     
     func loadJobData() {
@@ -99,9 +100,29 @@ class NotificationCell: UITableViewCell {
     
     @IBAction func acceptUser(_ sender: UIButton) {
         delegate?.acceptUser(userInterested: userInterested, cellIndex: cellIndex)
+        
+        sender.isSelected = !sender.isSelected
+        if (acceptedButton.isSelected) {
+            acceptedButton.backgroundColor = color.myRedColor
+            acceptedButton.setTitleColor(color.myLightColor, for: .selected)
+//            declinedButton.isEnabled = false
+//            acceptedButton.isEnabled = false
+        } else {
+            acceptedButton.backgroundColor = color.myLightColor
+        }
+        
     }
     
-    @IBAction func declineUser(_ sender: Any) {
+    @IBAction func declineUser(_ sender: UIButton) {
         delegate!.declineUser(userInterested: userInterested, cellIndex: cellIndex)
+        
+        sender.isSelected = !sender.isSelected
+        if (declinedButton.isSelected) {
+            declinedButton.backgroundColor = color.myRedColor
+            declinedButton.isEnabled = false
+//            acceptedButton.isEnabled = false
+        } else {
+            declinedButton.backgroundColor = color.myLightColor
+        }
     }
 }

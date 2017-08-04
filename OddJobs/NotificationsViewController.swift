@@ -50,9 +50,6 @@ class NotificationsViewController: UIViewController {
         segmentedControlBackground.layer.borderWidth = 1.0
         segmentedControlBackground.layer.borderColor = color.myRedColor.cgColor
         
-        
-        
-        
         fetchNotificationData()
         fetchPendingJobsData()
         
@@ -182,6 +179,52 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
             cell.cellIndex = indexPath.row
             cell.correspondingJob = jobsUserInterested[indexPath.row]
             cell.userInterested = totalUsersInterested[indexPath.row]
+            
+            cell.declinedButton.layer.cornerRadius = 5.0
+            cell.declinedButton.layer.masksToBounds = false
+            cell.declinedButton.layer.borderWidth = 2
+            cell.declinedButton.layer.borderColor = color.myRedColor.cgColor
+            
+            cell.acceptedButton.layer.cornerRadius = 5.0
+            cell.acceptedButton.layer.masksToBounds = false
+            cell.acceptedButton.layer.borderWidth = 2
+            cell.acceptedButton.layer.borderColor = color.myRedColor.cgColor
+            
+            cell.acceptedButton.setTitleColor(color.myRedColor, for: .normal)
+            cell.acceptedButton.setTitleColor(color.myLightColor, for: .selected)
+            cell.declinedButton.setTitleColor(color.myRedColor, for: .normal)
+            cell.declinedButton.setTitleColor(color.myLightColor, for: .selected)
+            
+            let userInterested = totalUsersInterested[indexPath.row]
+            if let acceptedUser = jobsUserInterested[indexPath.row]["userAccepted"] as? PFUser {
+                if acceptedUser.objectId! == userInterested.objectId! {
+                    cell.acceptedButton.isSelected = true
+                }
+            } else {
+                cell.acceptedButton.isSelected = false
+            }
+            
+            if (cell.acceptedButton.isSelected) {
+                cell.acceptedButton.backgroundColor = color.myRedColor
+//                cell.declinedButton.isEnabled = false
+//                cell.acceptedButton.isEnabled = false
+            } else {
+                cell.acceptedButton.backgroundColor = color.myLightColor
+            }
+            
+            if (cell.declinedButton.isSelected) {
+                cell.declinedButton.backgroundColor = color.myRedColor
+//                cell.declinedButton.isEnabled = false
+//                cell.acceptedButton.isEnabled = false
+            } else {
+                cell.declinedButton.backgroundColor = color.myLightColor
+            }
+            
+            let backgroundView = UIView()
+            let transparent = UIColor(displayP3Red: 1.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            backgroundView.backgroundColor = transparent
+            cell.selectedBackgroundView = backgroundView
+            
             
             return cell
         } else {
