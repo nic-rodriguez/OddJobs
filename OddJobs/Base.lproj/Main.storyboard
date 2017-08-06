@@ -1149,7 +1149,7 @@ EEVudGVyIFBhc3N3b3JkA
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3d-81-JcM">
-                                                    <rect key="frame" x="8" y="8" width="359" height="132.5"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="140.5"/>
                                                     <color key="backgroundColor" red="1" green="0.9985926271269242" blue="0.17597259665498666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvJ-Cz-Ncz">
@@ -1204,7 +1204,7 @@ EEVudGVyIFBhc3N3b3JkA
                                                 <constraint firstItem="o3d-81-JcM" firstAttribute="leading" secondItem="UKU-nb-Xa5" secondAttribute="leading" constant="8" id="QYO-xb-mAc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ZpB-CM-kiG" secondAttribute="trailing" constant="8" id="Vnf-SM-tWw"/>
                                                 <constraint firstItem="0pC-vm-9D1" firstAttribute="leading" secondItem="v1K-xG-UYN" secondAttribute="leading" id="cAc-84-06h"/>
-                                                <constraint firstItem="o3d-81-JcM" firstAttribute="top" secondItem="UKU-nb-Xa5" secondAttribute="top" constant="8" id="cSd-09-sqk"/>
+                                                <constraint firstItem="o3d-81-JcM" firstAttribute="top" secondItem="UKU-nb-Xa5" secondAttribute="top" id="cSd-09-sqk"/>
                                                 <constraint firstAttribute="trailing" secondItem="o3d-81-JcM" secondAttribute="trailing" constant="8" id="gQX-JY-kjW"/>
                                                 <constraint firstItem="ZpB-CM-kiG" firstAttribute="leading" secondItem="v1K-xG-UYN" secondAttribute="leading" id="hfm-e2-bS9"/>
                                                 <constraint firstItem="v1K-xG-UYN" firstAttribute="top" secondItem="UKU-nb-Xa5" secondAttribute="topMargin" constant="8" id="jcZ-9z-UKJ"/>
