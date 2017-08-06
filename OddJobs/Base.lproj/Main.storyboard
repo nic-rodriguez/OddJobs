@@ -1149,7 +1149,7 @@ EEVudGVyIFBhc3N3b3JkA
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3d-81-JcM">
-                                                    <rect key="frame" x="8" y="0.0" width="359" height="140.5"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="132.5"/>
                                                     <color key="backgroundColor" red="1" green="0.9985926271269242" blue="0.17597259665498666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvJ-Cz-Ncz">
@@ -1193,7 +1193,7 @@ EEVudGVyIFBhc3N3b3JkA
                                             </subviews>
                                             <color key="backgroundColor" red="0.97904688119888306" green="0.32399851083755493" blue="0.37833502888679504" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="o3d-81-JcM" secondAttribute="bottom" constant="8" id="2Ww-S0-eD6"/>
+                                                <constraint firstAttribute="bottom" secondItem="o3d-81-JcM" secondAttribute="bottom" constant="16" id="2Ww-S0-eD6"/>
                                                 <constraint firstItem="mA1-Dh-s9J" firstAttribute="centerY" secondItem="0pC-vm-9D1" secondAttribute="centerY" id="32h-PL-P5A"/>
                                                 <constraint firstItem="SvJ-Cz-Ncz" firstAttribute="top" secondItem="v1K-xG-UYN" secondAttribute="top" id="4pY-1F-GtP"/>
                                                 <constraint firstItem="ZpB-CM-kiG" firstAttribute="top" secondItem="v1K-xG-UYN" secondAttribute="bottom" constant="8" id="78E-Ju-JTb"/>

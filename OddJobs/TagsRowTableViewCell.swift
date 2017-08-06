@@ -53,7 +53,7 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         
         var size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.leastNormalMagnitude))
         size.width = size.width + 10
-        
+        //size.height = size.height - 8
         return size
     }
     
@@ -80,7 +80,6 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         cell.delegate = self
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
