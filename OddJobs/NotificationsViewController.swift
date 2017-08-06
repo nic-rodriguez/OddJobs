@@ -206,16 +206,13 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
             
             if (cell.acceptedButton.isSelected) {
                 cell.acceptedButton.backgroundColor = color.myRedColor
-//                cell.declinedButton.isEnabled = false
-//                cell.acceptedButton.isEnabled = false
             } else {
                 cell.acceptedButton.backgroundColor = color.myLightColor
             }
             
             if (cell.declinedButton.isSelected) {
                 cell.declinedButton.backgroundColor = color.myRedColor
-//                cell.declinedButton.isEnabled = false
-//                cell.acceptedButton.isEnabled = false
+                cell.acceptedButton.setTitleColor(color.myLightColor, for: .disabled)
             } else {
                 cell.declinedButton.backgroundColor = color.myLightColor
             }
@@ -224,7 +221,6 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
             let transparent = UIColor(displayP3Red: 1.0, green: 0.0, blue: 0.0, alpha: 0.0)
             backgroundView.backgroundColor = transparent
             cell.selectedBackgroundView = backgroundView
-            
             
             return cell
         } else {
@@ -237,6 +233,11 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
             cell.delegate = self
             return cell
         }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
     }
 }
 

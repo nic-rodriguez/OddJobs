@@ -105,8 +105,7 @@ class NotificationCell: UITableViewCell {
         if (acceptedButton.isSelected) {
             acceptedButton.backgroundColor = color.myRedColor
             acceptedButton.setTitleColor(color.myLightColor, for: .selected)
-//            declinedButton.isEnabled = false
-//            acceptedButton.isEnabled = false
+            acceptedButton.setTitleColor(color.myLightColor, for: .disabled)
         } else {
             acceptedButton.backgroundColor = color.myLightColor
         }
@@ -119,8 +118,6 @@ class NotificationCell: UITableViewCell {
         sender.isSelected = !sender.isSelected
         if (declinedButton.isSelected) {
             declinedButton.backgroundColor = color.myRedColor
-            declinedButton.isEnabled = false
-//            acceptedButton.isEnabled = false
         } else {
             declinedButton.backgroundColor = color.myLightColor
         }
