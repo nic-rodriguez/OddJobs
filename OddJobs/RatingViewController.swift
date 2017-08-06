@@ -79,44 +79,44 @@ class RatingViewController: UIViewController {
         sender.setTitleColor(color.myTealColor, for: .selected)
         sender.setTitleColor(color.myLightColor, for: .normal)
         
-        sender.layer.cornerRadius = 5.0
-        sender.layer.masksToBounds = false
+//        sender.layer.cornerRadius = 5.0
+//        sender.layer.masksToBounds = false
 //        sender.layer.shadowColor = color.myRedColor.cgColor
 //        sender.layer.shadowOpacity = 0.8
-        sender.layer.borderWidth = 2
-        sender.layer.borderColor = color.myLightColor.cgColor
+//        sender.layer.borderWidth = 2
+//        sender.layer.borderColor = color.myLightColor.cgColor
         
         sender.tintColor = UIColor(red: 255/255.0, green: 230/255.0, blue: 109/255.0, alpha: 0.0)
     }
     
     func configureButtonColors() {
         if (fiveStar.isSelected) {
-            fiveStar.backgroundColor = color.myLightColor
+//            fiveStar.backgroundColor = color.myLightColor
             
         } else {
             fiveStar.backgroundColor = color.myTealColor
         }
         
         if (fourStar.isSelected) {
-            fourStar.backgroundColor = color.myLightColor
+//            fourStar.backgroundColor = color.myLightColor
         } else {
             fourStar.backgroundColor = color.myTealColor
         }
         
         if (threeStar.isSelected) {
-            threeStar.backgroundColor = color.myLightColor
+//            threeStar.backgroundColor = color.myLightColor
         } else {
             threeStar.backgroundColor = color.myTealColor
         }
         
         if (twoStar.isSelected) {
-            twoStar.backgroundColor = color.myLightColor
+//            twoStar.backgroundColor = color.myLightColor
         } else {
             twoStar.backgroundColor = color.myTealColor
         }
         
         if (oneStar.isSelected) {
-            oneStar.backgroundColor = color.myLightColor
+//            oneStar.backgroundColor = color.myLightColor
         } else {
             oneStar.backgroundColor = color.myTealColor
         }

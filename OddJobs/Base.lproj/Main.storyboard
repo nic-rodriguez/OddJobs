@@ -2179,7 +2179,7 @@ EEVudGVyIFBhc3N3b3JkA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Any comments?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGm-A3-PLD">
-                                <rect key="frame" x="32" y="316" width="311" height="30"/>
+                                <rect key="frame" x="32" y="310.5" width="311" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -2235,43 +2235,48 @@ EEVudGVyIFBhc3N3b3JkA
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJN-lF-I3P">
-                                <rect key="frame" x="232" y="206" width="30" height="30"/>
-                                <state key="normal" title="4"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJN-lF-I3P">
+                                <rect key="frame" x="229.5" y="206" width="24" height="24"/>
+                                <state key="normal" image="emptyStar"/>
+                                <state key="selected" image="fullStar"/>
                                 <connections>
                                     <action selector="fourPress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="pET-bn-guX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LV-xS-QSP">
-                                <rect key="frame" x="172" y="206" width="30" height="30"/>
-                                <state key="normal" title="3"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LV-xS-QSP">
+                                <rect key="frame" x="175.5" y="206" width="24" height="24"/>
+                                <state key="normal" image="emptyStar"/>
+                                <state key="selected" image="fullStar"/>
                                 <connections>
                                     <action selector="threePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="xdh-5J-6gq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUr-jg-avn">
-                                <rect key="frame" x="112" y="206" width="30" height="30"/>
-                                <state key="normal" title="2"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUr-jg-avn">
+                                <rect key="frame" x="121.5" y="206" width="24" height="24"/>
+                                <state key="normal" image="emptyStar"/>
+                                <state key="selected" image="fullStar"/>
                                 <connections>
                                     <action selector="twoPress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="WnK-FP-8bp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cl2-Yu-poP">
-                                <rect key="frame" x="52" y="206" width="30" height="30"/>
-                                <state key="normal" title="1"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cl2-Yu-poP">
+                                <rect key="frame" x="67.5" y="206.5" width="24" height="24"/>
+                                <state key="normal" image="emptyStar"/>
+                                <state key="selected" image="fullStar"/>
                                 <connections>
                                     <action selector="onePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="Jzk-Y0-SrW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz2-zE-L6O">
-                                <rect key="frame" x="292" y="206" width="30" height="30"/>
-                                <state key="normal" title="5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz2-zE-L6O">
+                                <rect key="frame" x="283.5" y="206" width="24" height="24"/>
+                                <state key="normal" image="emptyStar"/>
+                                <state key="selected" image="fullStar"/>
                                 <connections>
                                     <action selector="fivePress:" destination="rWy-fe-dY7" eventType="touchUpInside" id="bWz-uV-w03"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.77083721029999996" green="1" blue="0.6538061355" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="jGm-A3-PLD" firstAttribute="leading" secondItem="gaG-Uq-vm1" secondAttribute="leadingMargin" constant="16" id="0cj-Gl-z03"/>
                             <constraint firstItem="Icv-iu-taW" firstAttribute="top" secondItem="j50-Qz-B2Z" secondAttribute="bottom" constant="8" id="4H7-x9-0wT"/>
@@ -2409,6 +2414,8 @@ EEVudGVyIFBhc3N3b3JkA
     </scenes>
     <resources>
         <image name="defaultUser" width="24" height="24"/>
+        <image name="emptyStar" width="24" height="24"/>
+        <image name="fullStar" width="24" height="24"/>
         <image name="gear" width="24" height="24"/>
         <image name="globe" width="24" height="24"/>
         <image name="imageView:ulg-Gd-5Cr:image" width="24" height="24">
