@@ -44,7 +44,7 @@ class DetailViewController: UIViewController {
         mapView.isScrollEnabled = false
         mapView.isRotateEnabled = false
         
-        self.totalView.backgroundColor = color.myRedColor
+        self.totalView.backgroundColor = color.myTealColor
         
         self.backgroundCard.backgroundColor = color.myLightColor
         self.backgroundCard.layer.cornerRadius = 3.0
@@ -80,7 +80,7 @@ class DetailViewController: UIViewController {
         datePostedLabel.text = dateString
         costLabel.text = "$" + payString
         
-        let location = NSAttributedString(string: "Location: ", attributes: [NSForegroundColorAttributeName:color.myTealColor])
+        let location = NSAttributedString(string: "Location: ", attributes: [NSForegroundColorAttributeName:color.myRedColor])
         
         let jobLocation = NSAttributedString(string: job["address"] as! String)
         
