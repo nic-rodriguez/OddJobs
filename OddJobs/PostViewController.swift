@@ -17,6 +17,7 @@ import RSKPlaceholderTextView
 
 class PostViewController: UIViewController {
   
+    @IBOutlet weak var nextButton: UIButton!
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var jobTitleField: UITextField!
@@ -49,12 +50,23 @@ class PostViewController: UIViewController {
         
         backgroundImageView.backgroundColor = color.myTealColor
         
+        
         backgroundView.backgroundColor = color.myLightColor
         self.backgroundView.layer.cornerRadius = 6.0
         self.backgroundView.layer.masksToBounds = false
         self.backgroundView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
         self.backgroundView.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.backgroundView.layer.shadowOpacity = 0.8
+        
+        
+        nextButton.backgroundColor = color.myLightColor
+        nextButton.layer.cornerRadius = 5.0
+        nextButton.layer.masksToBounds = false
+        nextButton.layer.shadowColor = color.myTealColor.cgColor
+        nextButton.layer.shadowOpacity = 0.8
+        nextButton.layer.borderWidth = 2
+        nextButton.layer.borderColor = color.myRedColor.cgColor
+
         
         jobTitleField.setBottomBorder()
         
@@ -98,24 +110,27 @@ class PostViewController: UIViewController {
     }
     
     
-    
-    @IBAction func nextPostPart(_ sender: Any) {
-       
+    @IBAction func nextButton(_ sender: UIButton) {
         let jobTitle = jobTitleField.text ?? nil
         let jobDescription = descriptionTextView.text
         let pay = Double(payField.text!) ?? nil
         
         if (jobTitle != nil) && (jobDescription != nil) && (pay != nil) {
+            if (nextButton.isSelected) {
+                nextButton.backgroundColor = color.myRedColor
+
+            }
             self.performSegue(withIdentifier: "postPartTwoSegue", sender: UIBarButtonItem.self)
         } else {
             let alert = UIAlertController(title: "Error", message: "Some or all of the required fields are incomplete. Please fill in the missing information.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-
+            
             
         }
-        
     }
+    
+  
    
     
     @IBAction func moveViewUp(_ sender: UITextField) {

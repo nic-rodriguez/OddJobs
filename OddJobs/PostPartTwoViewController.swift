@@ -29,6 +29,7 @@ class PostPartTwoViewController: UIViewController {
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     
+    @IBOutlet weak var nextButton: UIButton!
     
     @IBOutlet weak var backgroundView: UIView!
     
@@ -59,6 +60,14 @@ class PostPartTwoViewController: UIViewController {
         self.backgroundView.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.backgroundView.layer.shadowOpacity = 0.8
         
+        nextButton.backgroundColor = color.myLightColor
+        nextButton.layer.cornerRadius = 5.0
+        nextButton.layer.masksToBounds = false
+        nextButton.layer.shadowColor = color.myTealColor.cgColor
+        nextButton.layer.shadowOpacity = 0.8
+        nextButton.layer.borderWidth = 2
+        nextButton.layer.borderColor = color.myRedColor.cgColor
+        
         addressPreviewLabel.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         
         let addressPlaceholder = NSAttributedString(string: "Enter Job Location", attributes: [NSForegroundColorAttributeName:UIColor.black.withAlphaComponent(0.6)])
@@ -76,8 +85,7 @@ class PostPartTwoViewController: UIViewController {
         
         datePickerView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         
-        jobDate = datePicker.date
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,8 +114,9 @@ class PostPartTwoViewController: UIViewController {
         
     }
     
-    
-    @IBAction func openTags(_ sender: UIBarButtonItem) {
+    @IBAction func nextButton(_ sender: UIButton) {
+        jobDate = datePicker.date
+
         if (self.address != nil) {
             self.performSegue(withIdentifier: "jobTagsSegue", sender: UIBarButtonItem.self)
         } else {
@@ -117,6 +126,8 @@ class PostPartTwoViewController: UIViewController {
             
         }
     }
+    
+
 
     
 }

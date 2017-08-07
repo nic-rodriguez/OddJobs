@@ -253,7 +253,7 @@ EEVudGVyIFBhc3N3b3JkA
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ScO-26-DAM">
-                                <rect key="frame" x="16" y="104" width="343" height="444"/>
+                                <rect key="frame" x="16" y="104" width="343" height="431"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -287,6 +287,17 @@ EEVudGVyIFBhc3N3b3JkA
                                     <action selector="moveViewUp:" destination="xLo-Ms-qaJ" eventType="touchDown" id="N8V-cv-prE"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruI-9T-dB2">
+                                <rect key="frame" x="136" y="564" width="102" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="19"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.74829445422535212" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButton:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="hUR-64-fKc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -306,11 +317,6 @@ EEVudGVyIFBhc3N3b3JkA
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="1xo-N7-qFa">
-                            <connections>
-                                <action selector="nextPostPart:" destination="xLo-Ms-qaJ" id="meK-Oj-Qt3"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -318,6 +324,7 @@ EEVudGVyIFBhc3N3b3JkA
                         <outlet property="backgroundView" destination="ScO-26-DAM" id="z4h-hp-DES"/>
                         <outlet property="descriptionTextView" destination="5BA-3e-DYl" id="nVm-Mk-ABS"/>
                         <outlet property="jobTitleField" destination="W4A-QW-Zli" id="CtG-MP-fhl"/>
+                        <outlet property="nextButton" destination="ruI-9T-dB2" id="178-IE-n1n"/>
                         <outlet property="payField" destination="7Mt-87-FpR" id="7jt-Xo-ceE"/>
                         <outlet property="searchDisplayController" destination="rGu-6L-Bt6" id="LQQ-6a-wQJ"/>
                         <outlet property="totalView" destination="oFA-U8-Obc" id="Yfm-B3-mE1"/>
@@ -772,16 +779,22 @@ EEVudGVyIFBhc3N3b3JkA
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD6-w9-IUM">
+                                <rect key="frame" x="136" y="569" width="94" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="19"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.74829445419999996" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButton:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="Exc-Hk-4e0"/>
+                                    <action selector="nextButton:" destination="BgS-CP-JEQ" eventType="touchUpInside" id="cZ6-RK-Dhd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rht-ND-svO">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="5vW-dr-BRh">
-                            <connections>
-                                <action selector="openTags:" destination="BgS-CP-JEQ" id="7mb-ln-seB"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="rht-ND-svO"/>
                     <connections>
                         <outlet property="addressPreviewLabel" destination="B8k-XT-ZjZ" id="2iX-MF-KoM"/>
                         <outlet property="backgroundImageView" destination="4Co-I3-Egb" id="81D-o3-HDF"/>
@@ -790,6 +803,7 @@ EEVudGVyIFBhc3N3b3JkA
                         <outlet property="datePickerView" destination="a68-4F-BqQ" id="UaH-PS-vuQ"/>
                         <outlet property="dateTimeLabel" destination="gzj-cg-HMu" id="eEO-8P-6zv"/>
                         <outlet property="enterAddressField" destination="HkW-i0-Ukb" id="4Cs-Ng-fHi"/>
+                        <outlet property="nextButton" destination="dD6-w9-IUM" id="0Ci-wu-FSl"/>
                         <outlet property="totalView" destination="8lX-Uv-bgT" id="hJW-ih-2xW"/>
                         <segue destination="UXn-hY-JgH" kind="push" identifier="jobTagsSegue" id="eYs-PF-4Pm"/>
                     </connections>
@@ -926,23 +940,32 @@ EEVudGVyIFBhc3N3b3JkA
                                     <constraint firstItem="i7R-Y0-EtD" firstAttribute="leading" secondItem="Kzs-qg-VNn" secondAttribute="leading" constant="8" id="wQ4-5Q-1R9"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-g6-MHb">
+                                <rect key="frame" x="136" y="539" width="103" height="35"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="19"/>
+                                <state key="normal" title="Post!">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.74829445419999996" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButton:" destination="xLo-Ms-qaJ" eventType="touchUpInside" id="TbF-j1-rGf"/>
+                                    <action selector="nextButton:" destination="BgS-CP-JEQ" eventType="touchUpInside" id="qoR-V9-c4v"/>
+                                    <action selector="postButton:" destination="ubC-pW-cp5" eventType="touchUpInside" id="w1d-wL-PPd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Kzs-qg-VNn" firstAttribute="top" secondItem="lUn-jF-0Er" secondAttribute="bottom" constant="40" id="9LM-tJ-sG2"/>
+                            <constraint firstItem="hwe-g6-MHb" firstAttribute="leading" secondItem="b83-IA-67m" secondAttribute="leadingMargin" constant="120" id="Ax5-bI-9jK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hwe-g6-MHb" secondAttribute="trailing" constant="120" id="OIO-mG-DFb"/>
+                            <constraint firstItem="hwe-g6-MHb" firstAttribute="top" secondItem="Kzs-qg-VNn" secondAttribute="bottom" constant="36" id="Obs-Wi-j0M"/>
                             <constraint firstItem="UN4-zA-gsY" firstAttribute="top" secondItem="Kzs-qg-VNn" secondAttribute="bottom" constant="120" id="SI1-AR-v0m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kzs-qg-VNn" secondAttribute="trailing" constant="4" id="ZtY-LH-pxQ"/>
                             <constraint firstItem="Kzs-qg-VNn" firstAttribute="leading" secondItem="b83-IA-67m" secondAttribute="leadingMargin" constant="4" id="a9A-me-rlV"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Confirm" id="cV1-TF-4JW">
-                        <barButtonItem key="rightBarButtonItem" title="Post!" id="g1O-cP-Hsj">
-                            <connections>
-                                <action selector="postJob:" destination="ubC-pW-cp5" id="ijf-Tm-174"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Confirm" id="cV1-TF-4JW"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backgroundCardView" destination="Kzs-qg-VNn" id="ewQ-Ui-2Sd"/>
@@ -953,6 +976,7 @@ EEVudGVyIFBhc3N3b3JkA
                         <outlet property="jobTitleLabel" destination="2Uw-W3-mF3" id="nmR-zo-B1P"/>
                         <outlet property="locationTimeLabel" destination="i7R-Y0-EtD" id="Wa3-9L-sF9"/>
                         <outlet property="payLabel" destination="bMa-ij-bZb" id="tlx-Ja-2Y6"/>
+                        <outlet property="postButton" destination="hwe-g6-MHb" id="pE1-tA-OKm"/>
                         <outlet property="profileImageView" destination="GkN-qs-bae" id="vgN-Eb-xmT"/>
                         <outlet property="tagsLabel" destination="gWJ-aJ-TIV" id="VI5-Fn-OEz"/>
                         <outlet property="totalView" destination="b83-IA-67m" id="LZx-T0-6fb"/>
