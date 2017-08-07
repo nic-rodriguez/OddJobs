@@ -31,6 +31,7 @@
 		985E76711F1ECC7100F87E2B /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985E76701F1ECC7100F87E2B /* NotificationsViewController.swift */; };
 		985E76731F1EDCA800F87E2B /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985E76721F1EDCA800F87E2B /* NotificationCell.swift */; };
 		985E76751F1FDA8A00F87E2B /* PendingJobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985E76741F1FDA8A00F87E2B /* PendingJobsCell.swift */; };
+		9896E9E81F38E9F0007AFDF7 /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896E9E71F38E9F0007AFDF7 /* InfiniteScrollActivityView.swift */; };
 		98AC28361F181121000CD55E /* GMSAutocompleteResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AC28351F181121000CD55E /* GMSAutocompleteResultsViewController.swift */; };
 		A24F4C58C490B6BCA558A27F /* Pods_OddJobsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A750202E8DAEC92952CAA736 /* Pods_OddJobsUITests.framework */; };
 		A907D0041F1422D10069B7E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A907D0031F1422D10069B7E7 /* AppDelegate.swift */; };
@@ -99,6 +100,7 @@
 		985E76701F1ECC7100F87E2B /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		985E76721F1EDCA800F87E2B /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		985E76741F1FDA8A00F87E2B /* PendingJobsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingJobsCell.swift; sourceTree = "<group>"; };
+		9896E9E71F38E9F0007AFDF7 /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
 		98AC28351F181121000CD55E /* GMSAutocompleteResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMSAutocompleteResultsViewController.swift; sourceTree = "<group>"; };
 		9E03042526A246236E533EAF /* Pods-OddJobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OddJobs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OddJobs/Pods-OddJobs.debug.xcconfig"; sourceTree = "<group>"; };
 		A750202E8DAEC92952CAA736 /* Pods_OddJobsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OddJobsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,6 +295,7 @@
 				985E76721F1EDCA800F87E2B /* NotificationCell.swift */,
 				985E76741F1FDA8A00F87E2B /* PendingJobsCell.swift */,
 				A93790291F2931EE009D1E58 /* MessageTableViewCell.swift */,
+				9896E9E71F38E9F0007AFDF7 /* InfiniteScrollActivityView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9896E9E81F38E9F0007AFDF7 /* InfiniteScrollActivityView.swift in Sources */,
 				985E766F1F1D46EC00F87E2B /* EditProfileViewController.swift in Sources */,
 				86C8F90B1F1D571F00228818 /* DetailViewController.swift in Sources */,
 				984C684F1F16ACEB00FB4AE4 /* TagTableViewCell.swift in Sources */,

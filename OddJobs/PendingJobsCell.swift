@@ -21,7 +21,6 @@ class PendingJobsCell: UITableViewCell {
     @IBOutlet weak var userProfileImage: PFImageView!
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var jobTitleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var userPostedLabel: UILabel!
     @IBOutlet weak var datePostedLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -64,13 +63,13 @@ class PendingJobsCell: UITableViewCell {
     
     func loadJobData() {
         jobTitleLabel.text = jobInterested["title"] as! String
-        descriptionLabel.text = jobInterested["description"] as! String
+    
         
         let date = jobInterested["dateDue"]
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "E MMM d, h:mm a"
         let dateString = dateFormatter.string(from:date as! Date)
-        datePostedLabel.text = dateString as! String
+        datePostedLabel.text = (dateString as! String)
         
         let a:Double = jobInterested["pay"] as! Double
         let b:String = String(format:"%.2f", a)
