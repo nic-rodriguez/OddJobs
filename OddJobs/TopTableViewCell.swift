@@ -81,7 +81,7 @@ class TopTableViewCell: UITableViewCell {
         jobsTakenCounterLabel?.textColor = color.myDarkColor
         jobTakenLabel?.textColor = color.myTealColor
         
-        contentView.backgroundColor = color.myRedColor
+        contentView.backgroundColor = color.myTealColor
         
     }
     

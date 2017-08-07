@@ -31,7 +31,7 @@ class UserJobsTableViewCell: UITableViewCell {
             
             jobTitleLabel.textColor = color.myDarkColor
             jobDateLabel.textColor = color.myTealColor
-            contentView.backgroundColor = color.myRedColor
+            contentView.backgroundColor = color.myTealColor
             self.backgroundCardView.backgroundColor = color.myLightColor
             self.backgroundCardView.layer.cornerRadius = 3.0
             self.backgroundCardView.layer.masksToBounds = false
