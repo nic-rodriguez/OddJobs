@@ -135,9 +135,7 @@ class MessageViewController: UIViewController {
             job["workerCompleted"] = true
             job.saveInBackground()
         }
-        
         startCompleteTimer()
-        
     }
 }
 
@@ -154,7 +152,6 @@ extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
         let message = messages[indexPath.row]
         cell.userLabel.text = message.first!.key
         cell.messageLabel.text = message.first!.value
-        
         
         return cell
     }
