@@ -55,6 +55,10 @@ class RatingViewController: UIViewController {
         backgroundCardView.layer.shadowOpacity = 0.4
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        commentsTextField.becomeFirstResponder()
+    }
+    
     func fetchUserData() {
         let query = PFQuery(className: "_User")
         query.includeKey("jobsInterested")
@@ -177,11 +181,11 @@ class RatingViewController: UIViewController {
         configureButtonColors()
     }
     
-    @IBAction func endEditting(_ sender: UITapGestureRecognizer) {
+    @IBAction func endEditing(_ sender: Any) {
         view.endEditing(true)
-
-        
     }
+    
+    
     @IBAction func donePress(_ sender: Any) {
         if ratingSelected {
             Rating.rateUser(userId: user.objectId!, starRating: rating, message: commentsTextField.text, completion: { (success: Bool, error: Error?) in
