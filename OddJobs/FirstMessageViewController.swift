@@ -22,7 +22,10 @@ class FirstMessageViewController: UIViewController {
     @IBOutlet weak var messageTextView: RSKPlaceholderTextView!
     
     let color = ColorObject()
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        messageTextView.becomeFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
