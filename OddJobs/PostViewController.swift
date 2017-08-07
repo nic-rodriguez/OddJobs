@@ -18,6 +18,7 @@ import RSKPlaceholderTextView
 class PostViewController: UIViewController {
   
     
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var jobTitleField: UITextField!
     
     @IBOutlet weak var descriptionTextView: RSKPlaceholderTextView!
@@ -48,10 +49,17 @@ class PostViewController: UIViewController {
         
         backgroundImageView.backgroundColor = color.myTealColor
         
+        backgroundView.backgroundColor = color.myLightColor
+        self.backgroundView.layer.cornerRadius = 6.0
+        self.backgroundView.layer.masksToBounds = false
+        self.backgroundView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        self.backgroundView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.backgroundView.layer.shadowOpacity = 0.8
+        
         jobTitleField.setBottomBorder()
         
         
-        let titlePlaceholder = NSAttributedString(string: "Enter Job Title", attributes: [NSForegroundColorAttributeName:UIColor.white.withAlphaComponent(0.6)])
+        let titlePlaceholder = NSAttributedString(string: "Enter Job Title", attributes: [NSForegroundColorAttributeName:UIColor.black.withAlphaComponent(0.6)])
         
         jobTitleField.attributedPlaceholder = titlePlaceholder
     
@@ -62,7 +70,7 @@ class PostViewController: UIViewController {
         
         payField.setBottomBorder()
         
-        let payPlaceholder = NSAttributedString(string: "Estimated Pay ($)", attributes: [NSForegroundColorAttributeName:UIColor.white.withAlphaComponent(0.6)])
+        let payPlaceholder = NSAttributedString(string: "Estimated Pay ($)", attributes: [NSForegroundColorAttributeName:UIColor.black.withAlphaComponent(0.6)])
         
         payField.attributedPlaceholder = payPlaceholder
         

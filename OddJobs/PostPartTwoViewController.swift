@@ -30,6 +30,8 @@ class PostPartTwoViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     
     
+    @IBOutlet weak var backgroundView: UIView!
+    
     var resultsController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var jobDate: Date!
@@ -48,11 +50,18 @@ class PostPartTwoViewController: UIViewController {
         
         enterAddressField.setBottomBorder()
         
-         backgroundImageView.backgroundColor = color.myTealColor
+        backgroundImageView.backgroundColor = color.myTealColor
+        
+        backgroundView.backgroundColor = color.myLightColor
+        self.backgroundView.layer.cornerRadius = 6.0
+        self.backgroundView.layer.masksToBounds = false
+        self.backgroundView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
+        self.backgroundView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.backgroundView.layer.shadowOpacity = 0.8
         
         addressPreviewLabel.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         
-        let addressPlaceholder = NSAttributedString(string: "Enter Job Location", attributes: [NSForegroundColorAttributeName:UIColor.white.withAlphaComponent(0.6)])
+        let addressPlaceholder = NSAttributedString(string: "Enter Job Location", attributes: [NSForegroundColorAttributeName:UIColor.black.withAlphaComponent(0.6)])
         
         enterAddressField.attributedPlaceholder = addressPlaceholder
         
@@ -60,7 +69,7 @@ class PostPartTwoViewController: UIViewController {
         
         dateTimeLabel.isUserInteractionEnabled = false
         
-        let datePlaceholder = NSAttributedString(string: "Estimated Date & Time", attributes: [NSForegroundColorAttributeName:UIColor.white.withAlphaComponent(0.6)])
+        let datePlaceholder = NSAttributedString(string: "Date & Time", attributes: [NSForegroundColorAttributeName:UIColor.black.withAlphaComponent(0.6)])
         
         dateTimeLabel.attributedPlaceholder = datePlaceholder
         
@@ -158,7 +167,7 @@ extension UITextField {
         let borderLine = UIView()
         borderLine.frame = CGRect(x: 0, y: Double(self.frame.height) - width, width: Double(self.frame.width), height: width)
         
-        borderLine.backgroundColor = UIColor.white
+        borderLine.backgroundColor = color.myRedColor
         self.addSubview(borderLine)
     }
 }
