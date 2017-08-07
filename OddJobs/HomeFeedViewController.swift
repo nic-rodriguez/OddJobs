@@ -24,8 +24,8 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     var searchController: UISearchController!
     var customSearchController: CustomSearchController!
     var isMoreDataLoading = false
-    let initialQueryTotal = 5
-    var queryTotal = 5
+    let initialQueryTotal = 6
+    var queryTotal = 6
     let color = ColorObject()
     var timer = Timer ()
     var counter = 5

@@ -43,8 +43,6 @@ class HomeFeedTableViewCell: UITableViewCell {
             self.usernameLabel.text = jobPoster.username
             
             self.titleLabel.text = job["title"] as? String
-          //  self.descriptionLabel.text = job["description"] as? String
-            
             
             let a:Double = job["pay"] as! Double
             let b:String = String(format:"%.2f", a)
@@ -64,10 +62,9 @@ class HomeFeedTableViewCell: UITableViewCell {
                 }
             })
             
+            usernameLabel.textColor = color.myRedColor
             costLabel.textColor = color.myDarkColor
             titleLabel.textColor = color.myDarkColor
-            distanceLabel.textColor = color.myDarkColor
-           // descriptionLabel.textColor = color.myDarkColor
             contentView.backgroundColor = color.myTealColor
             self.backgroundCardView.backgroundColor = color.myLightColor
             self.backgroundCardView.layer.cornerRadius = 3.0
