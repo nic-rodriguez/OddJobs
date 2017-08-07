@@ -36,9 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let homeViewController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
             window?.rootViewController = homeViewController
         }
-        
+
         GMSPlacesClient.provideAPIKey("AIzaSyBIWErF-n_u-qq0SpN9R0qr2DPhdF--Pzg")
         GMSServices.provideAPIKey("AIzaSyBIWErF-n_u-qq0SpN9R0qr2DPhdF--Pzg")
+        
+        let navigationBarAppearance = UINavigationBar.appearance()
+        let tabBarAppearance = UITabBar.appearance()
+        let color = ColorObject()
+        navigationBarAppearance.barTintColor = color.myLightColor
+        navigationBarAppearance.tintColor = color.myRedColor
+        tabBarAppearance.barTintColor = color.myLightColor
+        tabBarAppearance.tintColor = color.myRedColor
         
         return true
     }
