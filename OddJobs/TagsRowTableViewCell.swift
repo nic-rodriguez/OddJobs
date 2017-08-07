@@ -19,7 +19,6 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     var protoCell: TagsCollectionViewCell!
     
     let myFont = UIFont(name: "Helvetica", size: 17)
-    let myColor = UIColor(red: 255/255.0 , green: 107/255.0, blue: 107/255.0, alpha: 1.0)
     let color = ColorObject()
     
     weak var delegate1: TagsRowTableViewCellDelegate?
@@ -73,7 +72,7 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         cell.filterTagButton.backgroundColor = color.myTealColor
         cell.filterTagButton.layer.cornerRadius = 5.0
         cell.filterTagButton.layer.masksToBounds = false
-        cell.filterTagButton.layer.shadowColor = myColor.cgColor
+        cell.filterTagButton.layer.shadowColor = color.myTealColor.cgColor
         cell.filterTagButton.layer.shadowOpacity = 0.8
         cell.filterTagButton.layer.borderWidth = 2
         cell.filterTagButton.layer.borderColor = color.myLightColor.cgColor
