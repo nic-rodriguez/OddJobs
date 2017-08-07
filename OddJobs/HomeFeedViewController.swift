@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Foundation
 
-class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, TagsRowTableViewCellDelegate, CustomSearchControllerDelegate {
+class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, TagsRowTableViewCellDelegate, CustomSearchControllerDelegate{
     //UISearchResultsUpdating
     
     @IBOutlet weak var homeFeedTableView: UITableView!
@@ -23,6 +23,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     var shouldShowSearchResults = false
     var searchController: UISearchController!
     var customSearchController: CustomSearchController!
+    var loadingMoreView:InfiniteScrollActivityView?
     var isMoreDataLoading = false
     let initialQueryTotal = 6
     var queryTotal = 6
@@ -50,7 +51,19 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         homeFeedTableView.separatorStyle = .none
         homeFeedTableView.backgroundColor = color.myTealColor
+        
+        
+        
+        let frame = CGRect(x: 0, y: homeFeedTableView.contentSize.height, width: homeFeedTableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        homeFeedTableView.addSubview(loadingMoreView!)
+        
+        var insets = homeFeedTableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
+        homeFeedTableView.contentInset = insets
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -129,8 +142,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                         } else {
                             self.jobs = jobs!
                             self.filteredJobs = jobs!
-                            self.homeFeedTableView.reloadData()
                             self.isMoreDataLoading = false
+                            self.loadingMoreView!.stopAnimating()
+                            self.homeFeedTableView.reloadData()
                         }
                     }
                 } else {
@@ -140,8 +154,9 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                         } else {
                             self.jobs = jobs!
                             self.filteredJobs = jobs!
-                            self.homeFeedTableView.reloadData()
                             self.isMoreDataLoading = false
+                            self.loadingMoreView!.stopAnimating()
+                            self.homeFeedTableView.reloadData()
                         }
                     }
                 }
@@ -286,20 +301,26 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
 
 extension HomeFeedViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if !isMoreDataLoading {
+        if (!isMoreDataLoading) {
+            // Calculate the position of one screen length before the bottom of the results
             let scrollViewContentHeight = homeFeedTableView.contentSize.height
-            let scrollOffsetThreshold = scrollViewContentHeight-homeFeedTableView.bounds.size.height
-            if scrollView.contentOffset.y > scrollOffsetThreshold && homeFeedTableView.isDragging {
-                let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-                spinner.startAnimating()
-                spinner.hidesWhenStopped = true
-                homeFeedTableView.tableFooterView = spinner
+            let scrollOffsetThreshold = scrollViewContentHeight - homeFeedTableView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && homeFeedTableView.isDragging) {
+                
+                
+                // Update position of loadingMoreView, and start loading indicator
+                let frame = CGRect(x: 0, y: homeFeedTableView.contentSize.height, width: homeFeedTableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+                loadingMoreView?.frame = frame
+                
+                loadingMoreView!.startAnimating()
                 isMoreDataLoading = true
                 queryTotal += initialQueryTotal
                 queryServer()
-                spinner.stopAnimating()
+                
+                
             }
         }
-    }
-}
+    }}
 
