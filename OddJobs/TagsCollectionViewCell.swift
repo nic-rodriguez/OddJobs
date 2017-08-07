@@ -28,7 +28,7 @@ class TagsCollectionViewCell: UICollectionViewCell {
         if (filterTagButton.isSelected) {
             filterTagButton.backgroundColor = color.myLightColor
         } else {
-            filterTagButton.backgroundColor = color.myRedColor
+            filterTagButton.backgroundColor = color.myTealColor
         }
         
         delegate?.toggleTag(position: positionInArr)

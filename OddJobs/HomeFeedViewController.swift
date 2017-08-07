@@ -24,8 +24,8 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     var searchController: UISearchController!
     var customSearchController: CustomSearchController!
     var isMoreDataLoading = false
-    let initialQueryTotal = 4
-    var queryTotal = 4
+    let initialQueryTotal = 6
+    var queryTotal = 6
     let color = ColorObject()
     var timer = Timer ()
     var counter = 5
@@ -49,7 +49,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
         homeFeedTableView.rowHeight = UITableViewAutomaticDimension
         
         homeFeedTableView.separatorStyle = .none
-        homeFeedTableView.backgroundColor = color.myRedColor
+        homeFeedTableView.backgroundColor = color.myTealColor
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -230,7 +230,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func configureCustomSearchController() {
         //customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.orange, searchBarTintColor: UIColor.black)
-        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 40.0), searchBarFont: UIFont(name: "HelveticaNeue-Thin", size: 14.0)!, searchBarTextColor: color.myTealColor, searchBarTintColor: color.myLightColor)
+        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRect.init(x: 0.0, y: 0.0, width: homeFeedTableView.frame.size.width, height: 40.0), searchBarFont: UIFont(name: "HelveticaNeue-Thin", size: 14.0)!, searchBarTextColor: color.myRedColor, searchBarTintColor: color.myLightColor)
         customSearchController.customSearchBar.placeholder = "          Search"
         homeFeedTableView.tableHeaderView = customSearchController.customSearchBar
         customSearchController.customDelegate = self

@@ -64,11 +64,12 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         cell.filterTagButton.setTitle(tags[indexPath.row], for: .selected)
         
         cell.filterTagButton.setTitleColor(color.myLightColor, for: .normal)
-        cell.filterTagButton.setTitleColor(color.myRedColor, for: .selected)
+        cell.filterTagButton.setTitleColor(color.myTealColor, for: .selected)
         
         cell.filterTagButton.titleLabel?.font = myFont
         
-        self.contentView.backgroundColor = color.myRedColor
+        self.contentView.backgroundColor = color.myTealColor
+        cell.filterTagButton.backgroundColor = color.myTealColor
         cell.filterTagButton.layer.cornerRadius = 5.0
         cell.filterTagButton.layer.masksToBounds = false
         cell.filterTagButton.layer.shadowColor = myColor.cgColor
