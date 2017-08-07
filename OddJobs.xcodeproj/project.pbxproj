@@ -378,7 +378,6 @@
 					A907CFFF1F1422D10069B7E7 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = WZAU94F9TS;
-						DevelopmentTeam = MN547NZ6JQ;
 						ProvisioningStyle = Automatic;
 					};
 					A907D0131F1422D10069B7E7 = {
@@ -778,10 +777,6 @@
 				INFOPLIST_FILE = OddJobs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.m3ls.OddJobs123;
-				DEVELOPMENT_TEAM = MN547NZ6JQ;
-				INFOPLIST_FILE = OddJobs/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nic.OddJobs123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -796,10 +791,6 @@
 				INFOPLIST_FILE = OddJobs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.m3ls.OddJobs123;
-				DEVELOPMENT_TEAM = MN547NZ6JQ;
-				INFOPLIST_FILE = OddJobs/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nic.OddJobs123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
