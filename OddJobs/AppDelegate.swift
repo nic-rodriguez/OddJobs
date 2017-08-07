@@ -45,8 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let color = ColorObject()
         navigationBarAppearance.barTintColor = color.myLightColor
         navigationBarAppearance.tintColor = color.myRedColor
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName : color.myRedColor, NSFontAttributeName : UIFont(name: "Helvetica", size: 20)!]
         tabBarAppearance.barTintColor = color.myLightColor
         tabBarAppearance.tintColor = color.myRedColor
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([NSForegroundColorAttributeName: color.myRedColor, NSFontAttributeName: UIFont(name:"Helvetica", size: 15)!], for: .normal)
         
         return true
     }
