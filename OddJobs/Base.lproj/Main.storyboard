@@ -1670,7 +1670,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Jobs" image="jobdelivery" id="r7b-Vi-CNX"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a3V-mP-s7F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a3V-mP-s7F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1712,7 +1712,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Profile" image="profile_tab" id="m96-EM-I7f"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hRx-N9-B1U">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hRx-N9-B1U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1732,7 +1732,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Post" image="pluss" id="LL7-2d-aby"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhP-7p-MLR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QhP-7p-MLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1750,7 +1750,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPa-rw-Gjg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Teh-BU-T5y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Teh-BU-T5y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -1807,14 +1807,14 @@ EEVudGVyIFBhc3N3b3JkA
                                                                 <constraint firstAttribute="height" constant="50" id="KXn-5H-CVk"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b9-jC-BOr">
-                                                            <rect key="frame" x="66" y="8" width="60.5" height="21.5"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b9-jC-BOr">
+                                                            <rect key="frame" x="66" y="8" width="64" height="22.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="19"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userInterested" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2T-Kp-gTY">
-                                                            <rect key="frame" x="66" y="37.5" width="104" height="20.5"/>
+                                                            <rect key="frame" x="66" y="38.5" width="104" height="22.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1826,7 +1826,7 @@ EEVudGVyIFBhc3N3b3JkA
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZG-tp-sm1">
-                                                            <rect key="frame" x="51" y="66" width="107" height="33"/>
+                                                            <rect key="frame" x="25" y="69" width="107" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="      Accept      ">
                                                                 <color key="titleColor" red="0.94306590030000004" green="0.45281843690000001" blue="0.40441366270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1842,7 +1842,7 @@ EEVudGVyIFBhc3N3b3JkA
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgU-5S-nF7">
-                                                            <rect key="frame" x="198" y="69" width="110" height="33"/>
+                                                            <rect key="frame" x="224" y="69" width="110" height="33"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <state key="normal" title="      Decline      ">
                                                                 <color key="titleColor" red="0.94306590030000004" green="0.45281843690000001" blue="0.40441366270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1861,7 +1861,7 @@ EEVudGVyIFBhc3N3b3JkA
                                                         <constraint firstItem="F2T-Kp-gTY" firstAttribute="top" secondItem="0b9-jC-BOr" secondAttribute="bottom" constant="8" id="5ul-Cx-1j9"/>
                                                         <constraint firstItem="F2T-Kp-gTY" firstAttribute="leading" secondItem="Kbq-F3-m0i" secondAttribute="trailing" constant="8" id="DWY-SQ-YrY"/>
                                                         <constraint firstItem="0b9-jC-BOr" firstAttribute="leading" secondItem="Kbq-F3-m0i" secondAttribute="trailing" constant="8" id="GgY-GZ-K93"/>
-                                                        <constraint firstItem="BZG-tp-sm1" firstAttribute="leading" secondItem="Skg-K5-7fD" secondAttribute="leading" constant="51" id="JS7-8E-5xg"/>
+                                                        <constraint firstItem="BZG-tp-sm1" firstAttribute="leading" secondItem="Skg-K5-7fD" secondAttribute="leading" constant="25" id="JS7-8E-5xg"/>
                                                         <constraint firstItem="Kbq-F3-m0i" firstAttribute="leading" secondItem="Skg-K5-7fD" secondAttribute="leading" constant="8" id="P8W-Xq-YCw"/>
                                                         <constraint firstItem="BgU-5S-nF7" firstAttribute="top" secondItem="3pH-d8-WRG" secondAttribute="bottom" constant="8" id="PvZ-YO-bNE"/>
                                                         <constraint firstAttribute="trailing" secondItem="6ZX-d0-p9v" secondAttribute="trailing" id="TP0-M7-jW1"/>
@@ -1870,12 +1870,13 @@ EEVudGVyIFBhc3N3b3JkA
                                                         <constraint firstItem="3pH-d8-WRG" firstAttribute="top" secondItem="8Lh-Kf-czN" secondAttribute="bottom" constant="8" id="bSG-D8-Eva"/>
                                                         <constraint firstAttribute="bottom" secondItem="6ZX-d0-p9v" secondAttribute="bottom" id="c1r-RI-oDC"/>
                                                         <constraint firstAttribute="trailing" secondItem="8Lh-Kf-czN" secondAttribute="trailing" constant="8" id="chw-r8-Ihy"/>
-                                                        <constraint firstAttribute="trailing" secondItem="BgU-5S-nF7" secondAttribute="trailing" constant="51" id="cus-D7-bcM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="BgU-5S-nF7" secondAttribute="trailing" constant="25" id="cus-D7-bcM"/>
                                                         <constraint firstItem="BZG-tp-sm1" firstAttribute="top" secondItem="F2T-Kp-gTY" secondAttribute="bottom" constant="8" id="fgE-wi-acS"/>
                                                         <constraint firstItem="8Lh-Kf-czN" firstAttribute="top" secondItem="Skg-K5-7fD" secondAttribute="top" constant="8" id="h4W-ih-nkt"/>
                                                         <constraint firstItem="6ZX-d0-p9v" firstAttribute="top" secondItem="Skg-K5-7fD" secondAttribute="top" id="jRa-cC-ogl"/>
                                                         <constraint firstItem="6ZX-d0-p9v" firstAttribute="leading" secondItem="Skg-K5-7fD" secondAttribute="leading" id="wrh-xu-aIB"/>
                                                         <constraint firstAttribute="trailing" secondItem="3pH-d8-WRG" secondAttribute="trailing" constant="8" id="xze-vj-XP1"/>
+                                                        <constraint firstItem="BgU-5S-nF7" firstAttribute="top" secondItem="BZG-tp-sm1" secondAttribute="top" id="zI3-dd-E6v"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1918,19 +1919,19 @@ EEVudGVyIFBhc3N3b3JkA
                                                             <rect key="frame" x="327" y="8" width="24" height="24"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVE-gW-Dkp">
-                                                            <rect key="frame" x="66" y="8" width="60.5" height="21"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="18"/>
+                                                            <rect key="frame" x="66" y="8" width="64" height="22.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="19"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userPosted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMf-gS-bKc">
-                                                            <rect key="frame" x="66" y="37" width="76.5" height="17.5"/>
+                                                            <rect key="frame" x="66" y="38.5" width="76.5" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="datePosted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXO-nf-5E0">
-                                                            <rect key="frame" x="277" y="37.5" width="74" height="17"/>
+                                                            <rect key="frame" x="277" y="39" width="74" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -2330,7 +2331,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Workers" image="globe" id="qTR-Wh-P3h"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bw0-hu-T7s">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bw0-hu-T7s">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </navigationBar>
@@ -2349,7 +2350,7 @@ EEVudGVyIFBhc3N3b3JkA
                     <tabBarItem key="tabBarItem" title="Notifications" image="mail" id="hcY-1g-4WS"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gg4-x5-OkN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Gg4-x5-OkN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2367,7 +2368,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HLA-qn-ZIQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVJ-V0-srk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dVJ-V0-srk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2386,7 +2387,7 @@ EEVudGVyIFBhc3N3b3JkA
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1HX-fI-nHN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="wlD-01-xTb"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pvv-Dg-Iwo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Pvv-Dg-Iwo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2404,7 +2405,7 @@ EEVudGVyIFBhc3N3b3JkA
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DlW-tT-QBO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vdI-bo-4kh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vdI-bo-4kh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
