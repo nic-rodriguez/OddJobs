@@ -115,11 +115,11 @@ class NotificationCell: UITableViewCell {
     @IBAction func declineUser(_ sender: UIButton) {
         delegate!.declineUser(userInterested: userInterested, cellIndex: cellIndex)
         
-        sender.isSelected = !sender.isSelected
-        if (declinedButton.isSelected) {
-            declinedButton.backgroundColor = color.myRedColor
-        } else {
-            declinedButton.backgroundColor = color.myLightColor
-        }
+//        sender.isSelected = !sender.isSelected
+//        if (declinedButton.isSelected) {
+//            declinedButton.backgroundColor = color.myRedColor
+//        } else {
+//            declinedButton.backgroundColor = color.myLightColor
+//        }
     }
 }
