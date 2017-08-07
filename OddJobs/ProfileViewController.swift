@@ -36,7 +36,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         
         jobsTableView.insertSubview(refreshControl, at: 1)
-        jobsTableView.backgroundColor = color.myRedColor
+        jobsTableView.backgroundColor = color.myTealColor
         jobsTableView.separatorStyle = .none
     }
     
