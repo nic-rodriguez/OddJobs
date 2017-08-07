@@ -53,9 +53,10 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
         
         var size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.leastNormalMagnitude))
         size.width = size.width + 10
-        //size.height = size.height - 8
+        
         return size
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagsCell", for: indexPath) as! TagsCollectionViewCell
