@@ -1857,7 +1857,7 @@ EEVudGVyIFBhc3N3b3JkA
                                                             <state key="disabled">
                                                                 <color key="titleColor" red="0.96862745098039216" green="1" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </state>
-                                                            <state key="selected">
+                                                            <state key="selected" title="      Accepted      ">
                                                                 <color key="titleColor" red="0.96862745098039216" green="1" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </state>
                                                             <connections>
