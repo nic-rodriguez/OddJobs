@@ -2200,7 +2200,7 @@ EEVudGVyIFBhc3N3b3JkA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Any comments?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGm-A3-PLD">
-                                <rect key="frame" x="32" y="310.5" width="311" height="30"/>
+                                <rect key="frame" x="32" y="326.5" width="311" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -2257,7 +2257,11 @@ EEVudGVyIFBhc3N3b3JkA
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJN-lF-I3P">
-                                <rect key="frame" x="229.5" y="206" width="24" height="24"/>
+                                <rect key="frame" x="237.5" y="206" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="6yZ-Ul-lEj"/>
+                                    <constraint firstAttribute="height" constant="40" id="cAu-TM-TJ4"/>
+                                </constraints>
                                 <state key="normal" image="emptyStar"/>
                                 <state key="selected" image="fullStar"/>
                                 <connections>
@@ -2265,7 +2269,11 @@ EEVudGVyIFBhc3N3b3JkA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LV-xS-QSP">
-                                <rect key="frame" x="175.5" y="206" width="24" height="24"/>
+                                <rect key="frame" x="167.5" y="206" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4Hd-gO-ccf"/>
+                                    <constraint firstAttribute="width" constant="40" id="AeL-3Q-BEw"/>
+                                </constraints>
                                 <state key="normal" image="emptyStar"/>
                                 <state key="selected" image="fullStar"/>
                                 <connections>
@@ -2273,7 +2281,11 @@ EEVudGVyIFBhc3N3b3JkA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUr-jg-avn">
-                                <rect key="frame" x="121.5" y="206" width="24" height="24"/>
+                                <rect key="frame" x="97.5" y="206" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Oy3-PJ-Zlg"/>
+                                    <constraint firstAttribute="width" constant="40" id="idh-fn-rsj"/>
+                                </constraints>
                                 <state key="normal" image="emptyStar"/>
                                 <state key="selected" image="fullStar"/>
                                 <connections>
@@ -2281,7 +2293,11 @@ EEVudGVyIFBhc3N3b3JkA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cl2-Yu-poP">
-                                <rect key="frame" x="67.5" y="206.5" width="24" height="24"/>
+                                <rect key="frame" x="27.5" y="206.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ln8-R1-6v7"/>
+                                    <constraint firstAttribute="width" constant="40" id="hcC-Dj-4mt"/>
+                                </constraints>
                                 <state key="normal" image="emptyStar"/>
                                 <state key="selected" image="fullStar"/>
                                 <connections>
@@ -2289,7 +2305,11 @@ EEVudGVyIFBhc3N3b3JkA
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz2-zE-L6O">
-                                <rect key="frame" x="283.5" y="206" width="24" height="24"/>
+                                <rect key="frame" x="307.5" y="206" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9zs-cL-pVT"/>
+                                    <constraint firstAttribute="width" constant="40" id="QF2-PI-q5W"/>
+                                </constraints>
                                 <state key="normal" image="emptyStar"/>
                                 <state key="selected" image="fullStar"/>
                                 <connections>

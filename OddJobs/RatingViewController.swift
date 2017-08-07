@@ -179,9 +179,8 @@ class RatingViewController: UIViewController {
     
     @IBAction func endEditting(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
-
-        
     }
+    
     @IBAction func donePress(_ sender: Any) {
         if ratingSelected {
             Rating.rateUser(userId: user.objectId!, starRating: rating, message: commentsTextField.text, completion: { (success: Bool, error: Error?) in
