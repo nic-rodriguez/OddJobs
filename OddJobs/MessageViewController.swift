@@ -22,6 +22,10 @@ class MessageViewController: UIViewController {
     var completeTimer: Timer?
     
     let color = ColorObject()
+
+    override func viewDidAppear(_ animated: Bool) {
+        messageTextField.becomeFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

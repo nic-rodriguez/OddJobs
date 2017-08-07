@@ -18,7 +18,7 @@ class TagsRowTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     var protoCell: TagsCollectionViewCell!
     
-    let myFont = UIFont(name: "Helvetica", size: 17)
+    let myFont = UIFont(name: "HelveticaNeue-Light", size: 17)
     let color = ColorObject()
     
     weak var delegate1: TagsRowTableViewCellDelegate?
