@@ -18,7 +18,7 @@ class MapsViewController: UIViewController {
     var initalLocation: MKUserLocation?
     var annotations: [Job] = []
     var currentJob: PFObject?
-    let regionRadius: CLLocationDistance = 1000
+    let regionRadius: CLLocationDistance = 10000
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
