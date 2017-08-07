@@ -26,6 +26,7 @@ class ConfirmPostViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
    
+    @IBOutlet weak var postButton: UIButton!
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var descriptionBackgroundView: UIView!
@@ -59,6 +60,14 @@ class ConfirmPostViewController: UIViewController {
         self.backgroundCardView.layer.shadowColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5).cgColor
         self.backgroundCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.backgroundCardView.layer.shadowOpacity = 0.8
+
+        postButton.backgroundColor = color.myLightColor
+        postButton.layer.cornerRadius = 5.0
+        postButton.layer.masksToBounds = false
+        postButton.layer.shadowColor = color.myTealColor.cgColor
+        postButton.layer.shadowOpacity = 0.8
+        postButton.layer.borderWidth = 2
+        postButton.layer.borderColor = color.myRedColor.cgColor
 
 
         jobTitleLabel.text = jobTitle
@@ -104,8 +113,7 @@ class ConfirmPostViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func postJob(_ sender: UIBarButtonItem) {
+    @IBAction func postButton(_ sender: UIButton) {
         Job.postJob(location: address!, address: formattedAddress, title: jobTitle, description: jobDescription, datePosted: currentDate, dateDue: jobDate, tags: self.tags, pay: pay , completion: { (success, error) in
             if success {
                 print("Post was saved!")
