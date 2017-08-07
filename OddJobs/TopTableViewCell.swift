@@ -49,10 +49,10 @@ class TopTableViewCell: UITableViewCell {
         profilePFImage?.loadInBackground()
         
         usernameLabel?.text = user?.username!
-        ratingLabel?.text = user["rating"] as? String ?? "0"
+        ratingLabel?.text = "4.78" //user["rating"] as? String ?? "0"
         bioLabel?.text = user["bio"] as? String ?? ""
-        jobsTakenCounterLabel?.text = user["jobsTakenInt"] as? String ?? "0"
-        jobsPosterCounterLabel?.text = user["jobsPostedInt"] as? String ?? "0"
+        jobsTakenCounterLabel?.text = "2" //user["jobsTakenInt"] as? String ?? "0"
+        jobsPosterCounterLabel?.text = "4" //user["jobsPostedInt"] as? String ?? "0"
         
         profilePFImage?.layer.cornerRadius = (profilePFImage?.frame.size.width)!/2
         profilePFImage?.layer.masksToBounds = true
