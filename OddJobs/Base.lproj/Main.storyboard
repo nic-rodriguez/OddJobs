@@ -1164,11 +1164,11 @@ EEVudGVyIFBhc3N3b3JkA
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3d-81-JcM">
-                                                    <rect key="frame" x="12" y="6" width="351" height="84.5"/>
+                                                    <rect key="frame" x="8" y="6" width="359" height="84.5"/>
                                                     <color key="backgroundColor" red="1" green="0.9985926271269242" blue="0.17597259665498666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvJ-Cz-Ncz">
-                                                    <rect key="frame" x="74" y="16" width="244.5" height="27"/>
+                                                    <rect key="frame" x="70" y="16" width="252.5" height="27"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="22"/>
                                                     <color key="textColor" red="0.17421325209999999" green="0.66709687429999998" blue="0.75119413859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -1181,13 +1181,13 @@ EEVudGVyIFBhc3N3b3JkA
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDz-ms-t5Q">
-                                                    <rect key="frame" x="74" y="45.5" width="30" height="18"/>
+                                                    <rect key="frame" x="70" y="45.5" width="30" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v1K-xG-UYN" customClass="PFImageView">
-                                                    <rect key="frame" x="20" y="16" width="50" height="50"/>
+                                                    <rect key="frame" x="16" y="16" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="YEf-T7-g7N"/>
                                                         <constraint firstAttribute="width" constant="50" id="rcO-0U-ZQK"/>
@@ -1205,17 +1205,17 @@ EEVudGVyIFBhc3N3b3JkA
                                                 <constraint firstAttribute="bottom" secondItem="o3d-81-JcM" secondAttribute="bottom" constant="6" id="2Ww-S0-eD6"/>
                                                 <constraint firstItem="0pC-vm-9D1" firstAttribute="leading" secondItem="SvJ-Cz-Ncz" secondAttribute="trailing" constant="8" id="3hU-0N-7Xd"/>
                                                 <constraint firstItem="SvJ-Cz-Ncz" firstAttribute="top" secondItem="v1K-xG-UYN" secondAttribute="top" id="4pY-1F-GtP"/>
-                                                <constraint firstItem="v1K-xG-UYN" firstAttribute="leading" secondItem="UKU-nb-Xa5" secondAttribute="leadingMargin" constant="12" id="GHG-KX-FNZ"/>
+                                                <constraint firstItem="v1K-xG-UYN" firstAttribute="leading" secondItem="UKU-nb-Xa5" secondAttribute="leadingMargin" constant="8" id="GHG-KX-FNZ"/>
                                                 <constraint firstItem="rDz-ms-t5Q" firstAttribute="top" secondItem="SvJ-Cz-Ncz" secondAttribute="bottom" constant="3" id="Guf-ni-C0o"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="0pC-vm-9D1" secondAttribute="trailing" constant="12" id="MAA-NG-j8t"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0pC-vm-9D1" secondAttribute="trailing" constant="8" id="MAA-NG-j8t"/>
                                                 <constraint firstItem="mA1-Dh-s9J" firstAttribute="top" secondItem="0pC-vm-9D1" secondAttribute="bottom" constant="20" id="QM3-ov-LcS"/>
-                                                <constraint firstItem="o3d-81-JcM" firstAttribute="leading" secondItem="UKU-nb-Xa5" secondAttribute="leading" constant="12" id="QYO-xb-mAc"/>
+                                                <constraint firstItem="o3d-81-JcM" firstAttribute="leading" secondItem="UKU-nb-Xa5" secondAttribute="leading" constant="8" id="QYO-xb-mAc"/>
                                                 <constraint firstItem="0pC-vm-9D1" firstAttribute="centerY" secondItem="SvJ-Cz-Ncz" secondAttribute="centerY" id="Sgm-07-Jvt"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="mA1-Dh-s9J" secondAttribute="bottom" constant="8" id="X7U-NI-Pf7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="mA1-Dh-s9J" secondAttribute="trailing" constant="12" id="Xd3-YM-WaI"/>
                                                 <constraint firstItem="o3d-81-JcM" firstAttribute="top" secondItem="UKU-nb-Xa5" secondAttribute="top" constant="6" id="cSd-09-sqk"/>
                                                 <constraint firstItem="SvJ-Cz-Ncz" firstAttribute="leading" secondItem="v1K-xG-UYN" secondAttribute="trailing" constant="4" id="g8S-jt-Ad7"/>
-                                                <constraint firstAttribute="trailing" secondItem="o3d-81-JcM" secondAttribute="trailing" constant="12" id="gQX-JY-kjW"/>
+                                                <constraint firstAttribute="trailing" secondItem="o3d-81-JcM" secondAttribute="trailing" constant="8" id="gQX-JY-kjW"/>
                                                 <constraint firstItem="rDz-ms-t5Q" firstAttribute="leading" secondItem="v1K-xG-UYN" secondAttribute="trailing" constant="4" id="gTk-3A-grd"/>
                                                 <constraint firstItem="v1K-xG-UYN" firstAttribute="top" secondItem="UKU-nb-Xa5" secondAttribute="topMargin" constant="8" id="jcZ-9z-UKJ"/>
                                             </constraints>
@@ -2517,10 +2517,10 @@ E0w
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="rEe-wG-xrW"/>
         <segue reference="yxL-7S-ffg"/>
         <segue reference="eYs-PF-4Pm"/>
         <segue reference="gpr-1k-jP0"/>
-        <segue reference="IJf-2u-KdW"/>
-        <segue reference="rEe-wG-xrW"/>
+        <segue reference="biL-UF-kBd"/>
     </inferredMetricsTieBreakers>
 </document>
