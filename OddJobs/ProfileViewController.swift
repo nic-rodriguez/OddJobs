@@ -141,20 +141,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 let intthis = (bioLabelSize?.width)! / 343.0
                 let roundedF = CGFloat(ceil(Double(intthis)))
                 addition = addition + (bioLabelSize?.height)!*roundedF
-                print("in biolabel, #rows: ", intthis)
+//                print("in biolabel, #rows: ", intthis)
             }
             
             if(protoCell.skillsLabel?.text == "") {
                 //no heigh
             } else {
-                print("skill label size: ", skillsLabelSize)
+//                print("skill label size: ", skillsLabelSize)
                 let intthis = (skillsLabelSize?.width)! / 416.5
                 let roundedF = CGFloat(ceil(Double(intthis)))
                 addition = addition + (skillsLabelSize?.height)!*roundedF
-                print("in skillsLabel, #rows: ", intthis)
+//                print("in skillsLabel, #rows: ", intthis)
             }
             
-            print()
+//            print()
             addition = addition + (usernameLabelSize?.height)!
             addition = addition + (ratingLableSize?.height)!
             addition = addition + (jobsTakenLabelSize?.height)! + 50 + (8*8)
