@@ -84,7 +84,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.topProfileCardView.layer.shadowOpacity = 0.4
             
             
-            
+            cell.jobsPosterCounterLabel?.text = String(jobs.count)
             
             
             return cell

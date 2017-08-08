@@ -205,7 +205,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 let query = PFQuery(className: "Job")
                 query.whereKey("location", nearGeoPoint:self.currentLocation)
-                //        query.addDescendingOrder("createdAt")
+//                query.addDescendingOrder("createdAt")
                 query.includeKey("userPosted")
                 query.includeKey("tags")
                 query.limit = 8

@@ -52,7 +52,7 @@ class TopTableViewCell: UITableViewCell {
         ratingLabel?.text = "4.78" //user["rating"] as? String ?? "0"
         bioLabel?.text = user["bio"] as? String ?? ""
         jobsTakenCounterLabel?.text = "2" //user["jobsTakenInt"] as? String ?? "0"
-        jobsPosterCounterLabel?.text = "4" //user["jobsPostedInt"] as? String ?? "0"
+//        jobsPosterCounterLabel?.text = "4" //user["jobsPostedInt"] as? String ?? "0"
         
         profilePFImage?.layer.cornerRadius = (profilePFImage?.frame.size.width)!/2
         profilePFImage?.layer.masksToBounds = true
