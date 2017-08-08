@@ -130,8 +130,20 @@ class PostViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func fillJobTitle(_ sender: UIButton) {
+        jobTitleField.text = "Build Table"
+        
+    }
   
+    @IBAction func fillDescriptionTitle(_ sender: UIButton) {
+        descriptionTextView.text = "I bought a table at IKEA and I can't put it together. Someone please do it for me. Would take about 1-2 hours. Thanks!"
+        
+    }
    
+    @IBAction func fillPayField(_ sender: UIButton) {
+        payField.text = "25"
+    }
     
     @IBAction func moveViewUp(_ sender: UITextField) {
         moveView = true

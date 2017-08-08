@@ -83,7 +83,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.topProfileCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
             cell.topProfileCardView.layer.shadowOpacity = 0.4
             
-            
+            cell.jobsPosterCounterLabel?.text = String(jobs.count)
             
             
             

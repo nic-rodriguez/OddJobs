@@ -97,6 +97,10 @@ class FirstMessageViewController: UIViewController {
     }
     
     
+    @IBAction func fillMessageText(_ sender: UIButton) {
+        
+        messageTextView.text = "I'm SUPER great at building tables. I can save you from having to do this yourself!"
+    }
 
     @IBAction func endEditting(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
