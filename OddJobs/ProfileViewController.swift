@@ -83,6 +83,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.topProfileCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
             cell.topProfileCardView.layer.shadowOpacity = 0.4
             
+            
+            
+            
+            
             return cell
         } else { //job postings
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserJobsTableViewCell", for: indexPath) as! UserJobsTableViewCell
@@ -94,8 +98,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var height:CGFloat = CGFloat()
         if indexPath.section == 0 {
-            //            height = 300
-            //            size.width = size.width + 10
             
             var tempUser: PFUser!
             
@@ -127,7 +129,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let ratingLableSize = protoCell.ratingLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
             let bioLabelSize = protoCell.bioLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
             let jobsTakenLabelSize = protoCell.jobsTakenCounterLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
-            let skillsLabelSize = protoCell.skillsLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
+            let skillsLabelSize = protoCell.skillsLabel?.systemLayoutSizeFitting(CGSize(width: 416.5, height: CGFloat.leastNormalMagnitude))
+            
+            //343
+            //replaced 343 with 416 in skills label bc aparently the label is longer than 343 (???)
             
             var addition: CGFloat = 0
             if(protoCell.bioLabel?.text == "") {
@@ -142,7 +147,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             if(protoCell.skillsLabel?.text == "") {
                 //no heigh
             } else {
-                let intthis = (skillsLabelSize?.width)! / 343.0
+                print("skill label size: ", skillsLabelSize)
+                let intthis = (skillsLabelSize?.width)! / 416.5
                 let roundedF = CGFloat(ceil(Double(intthis)))
                 addition = addition + (skillsLabelSize?.height)!*roundedF
                 print("in skillsLabel, #rows: ", intthis)
@@ -153,8 +159,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             addition = addition + (ratingLableSize?.height)!
             addition = addition + (jobsTakenLabelSize?.height)! + 50 + (8*8)
             //50 = prof pic ; 8 * 6 = spacing between everything
-            
-
             
             height = addition
         }
