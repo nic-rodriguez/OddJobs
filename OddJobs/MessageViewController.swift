@@ -20,12 +20,14 @@ class MessageViewController: UIViewController {
     var job: PFObject!
     var poster: Bool?
     var completeTimer: Timer?
+    var cellHeightsDictionary: [Int : CGFloat] = [:]
     
     let color = ColorObject()
 
     override func viewDidAppear(_ animated: Bool) {
         messageTextField.becomeFirstResponder()
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,4 +161,38 @@ extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let key: Int = indexPath.row
+        let height: CGFloat = cell.frame.size.height
+        
+        cellHeightsDictionary[key] = height
+       
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        let key: Int = indexPath.row
+
+        let height = self.cellHeightsDictionary[key]
+        
+        if ((height) != nil)
+        {
+            return height!
+        }
+        
+        return UITableViewAutomaticDimension;
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }
