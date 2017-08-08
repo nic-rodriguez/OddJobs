@@ -69,7 +69,6 @@ class NearbyWorkersViewController: UIViewController {
                 
                 try! self.workers = query.findObjects() as! [PFUser]
                 
-                
                 var count = 0
                 var indexToRemove: Int?
                 for worker in self.workers {
@@ -152,7 +151,7 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
         print("descripton")
         if (protoCell.descriptionLabel.text == "") {
             additional = additional + (37-16)
-        } else if (descriptionLabelSize.width > 252.0) {
+        } else if (descriptionLabelSize.width > 285) {
             additional = additional + 2*descriptionLabelSize.height
         } else {
             additional = additional + descriptionLabelSize.height
@@ -160,7 +159,7 @@ extension NearbyWorkersViewController: UITableViewDelegate, UITableViewDataSourc
         
         if (protoCell.skillsLabel.text == "") {
             additional = additional + (37-16)
-        } else if (skillLabelSize.width > 310) {
+        } else if (skillLabelSize.width > 343) {
             let intthis = skillLabelSize.width / 310
             let roundedF = CGFloat(ceil(Double(intthis)))
             additional = additional + skillLabelSize.height*roundedF

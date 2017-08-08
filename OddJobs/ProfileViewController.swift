@@ -123,46 +123,40 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             
             //insert size calculation like in the other cells
-            let usernameLabelSize = protoCell.usernameLabel?.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
+            let usernameLabelSize = protoCell.usernameLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
             let ratingLableSize = protoCell.ratingLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
             let bioLabelSize = protoCell.bioLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
-            let jobsTakenLabelSize = protoCell.jobsTakenCounterLabel?.systemLayoutSizeFitting(CGSize(width: 310, height: CGFloat.leastNormalMagnitude))
+            let jobsTakenLabelSize = protoCell.jobsTakenCounterLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
             let skillsLabelSize = protoCell.skillsLabel?.systemLayoutSizeFitting(CGSize(width: 343, height: CGFloat.leastNormalMagnitude))
             
             var addition: CGFloat = 0
-            
-            //343
-            
             if(protoCell.bioLabel?.text == "") {
                 //no height
-                
             } else {
-                let intthis = (bioLabelSize?.width)! / 310
+                let intthis = (bioLabelSize?.width)! / 343.0
                 let roundedF = CGFloat(ceil(Double(intthis)))
                 addition = addition + (bioLabelSize?.height)!*roundedF
+                print("in biolabel, #rows: ", intthis)
             }
             
             if(protoCell.skillsLabel?.text == "") {
                 //no heigh
-                
             } else {
-                let intthis = (skillsLabelSize?.width)! / 310
+                let intthis = (skillsLabelSize?.width)! / 343.0
                 let roundedF = CGFloat(ceil(Double(intthis)))
                 addition = addition + (skillsLabelSize?.height)!*roundedF
+                print("in skillsLabel, #rows: ", intthis)
             }
             
+            print()
             addition = addition + (usernameLabelSize?.height)!
             addition = addition + (ratingLableSize?.height)!
             addition = addition + (jobsTakenLabelSize?.height)! + 50 + (8*8)
             //50 = prof pic ; 8 * 6 = spacing between everything
             
-            
-            
-//            let size = protoCell.systemLayoutSizeFitting(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.leastNormalMagnitude))
+
             
             height = addition
-            //size.height
-            
         }
         else {
             height = 50
